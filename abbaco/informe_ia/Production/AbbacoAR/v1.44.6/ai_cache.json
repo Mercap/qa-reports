@@ -1,120 +1,151 @@
 {
-  "hash": "f378a089b235656dde63e2520d5c02e16eaa0df81cc44d543e2cf9392bf7f76d",
+  "hash": "63eb5f9fc4dc68d564a6efc6f399d4b61dbdc5c48d034bdb736089d0668f924d",
   "ai_model": "gemini-2.5-flash",
   "conclusions": {
     "estado_general": "atencion",
-    "resumen_ejecutivo": "La versión v1.44.6 de Abbaco presenta un estado de 'atención' debido a la sección 'Calculadora' que supera el umbral de rendimiento con un P95 de 94.72s, y la sección 'Curvas' que se degradó un 17.2% respecto al histórico. Se observan mejoras significativas en 'Analizar' y 'Screener', pero múltiples acciones críticas muestran degradaciones severas y tendencias negativas sostenidas.",
+    "resumen_ejecutivo": "La versión v1.44.6 de Abbaco muestra un estado de atención debido a la persistente lentitud de la sección Calculadora (P95 de 94.02s) y una degradación del 15.4% en Arbitraje. Se observan saltos abruptos críticos en acciones específicas de Curvas y Analizar, aunque Analizar y Screener muestran mejoras generales del 43.7% y 47.6% respectivamente.",
     "escalar": {
-      "titulo": "Degradaciones críticas en Curvas y lentitud crónica en Calculadora",
-      "detalle": "La acción 'Ingreso a la curva Colombia' en 'Curvas' sufrió un salto abrupto del 351.6% (de 19.45s a 87.83s) en la versión actual. Además, 'Simular inversiones de la especie AL30' en 'Calculadora' es persistentemente lenta, superando el umbral en 5 de 5 versiones."
+      "titulo": "Lentitud crónica y saltos abruptos en acciones clave",
+      "detalle": "La acción 'Simular inversiones de la especie AL30' en Calculadora es persistentemente lenta (97.47s en 5 de 5 versiones). Además, 'Ingreso a la curva Colombia - Soberanos - Bonos Globales - USD' en Curvas se degradó un 333.6% a 84.33s, y 'Ingreso a la pestaña Condiciones de Emisión de la especie PECMO' en Analizar un 1813.23% a 15.11s en la versión actual."
     },
     "investigar": {
-      "titulo": "Anomalías en la carga de curvas y simulaciones de inversión",
-      "detalle": "Se debe investigar el salto abrupto del 351.6% en 'Ingreso a la curva Colombia - Soberanos - Bonos Globales - USD' (Curvas) y la lentitud crónica de 'Simular inversiones de la especie AL30' (Calculadora), que impacta directamente la experiencia del usuario."
+      "titulo": "Degradaciones masivas en acciones de Curvas y Analizar",
+      "detalle": "Se debe investigar el salto del 333.6% en 'Ingreso a la curva Colombia - Soberanos - Bonos Globales - USD' (Curvas, de 19.45s a 84.33s) y el 1813.23% en 'Ingreso a la pestaña Condiciones de Emisión de la especie PECMO' (Analizar, de 0.79s a 15.11s) en la versión v1.44.6."
     },
     "optimizar": {
-      "titulo": "Mejorar la performance de la sección Calculadora y Curvas",
-      "detalle": "La sección 'Calculadora' es la más lenta con un P95 de 94.72s. 'Curvas' presenta la mayor degradación vs. la versión anterior (-87.6%) y vs. histórico (-17.2%), ofreciendo una gran oportunidad de mejora."
+      "titulo": "Reducir el P95 de la sección Calculadora",
+      "detalle": "La sección Calculadora presenta un P95 de 94.02s, superando el umbral de rendimiento, con la acción 'Simular inversiones de la especie AL30' siendo crónicamente lenta (97.47s)."
     },
     "hallazgos": [
       {
         "tipo": "alerta",
-        "seccion": "Curvas",
-        "descripcion": "La acción 'Ingreso a la curva Colombia - Soberanos - Bonos Globales - USD' experimentó un salto abrupto en rendimiento.",
-        "evidencia": "P95 de la acción pasó de 19.45s a 87.83s (+351.6%) entre v1.44.5 y v1.44.6."
-      },
-      {
-        "tipo": "alerta",
         "seccion": "Calculadora",
-        "descripcion": "La acción 'Simular inversiones de la especie AL30' es persistentemente lenta.",
-        "evidencia": "Ha estado sobre el umbral de rendimiento en 5 de 5 versiones medidas, con un P95 actual de 97.56s."
+        "descripcion": "La acción 'Simular inversiones de la especie AL30' es persistentemente lenta, superando el umbral en 5 de 5 versiones medidas.",
+        "evidencia": "P95 actual de 97.47s."
       },
       {
         "tipo": "alerta",
-        "seccion": "Mis portafolios",
-        "descripcion": "La sección muestra una tendencia sostenida de degradación en su P95.",
-        "evidencia": "El P95 aumentó por 3 versiones consecutivas, de 8.79s a 10.28s."
+        "seccion": "Curvas",
+        "descripcion": "La sección Curvas experimentó una degradación del 65.8% (de 20.5s a 33.98s) respecto a la versión anterior, incluyendo un salto abrupto del 333.6% en la acción 'Ingreso a la curva Colombia - Soberanos - Bonos Globales - USD' (de 19.45s a 84.33s) en v1.44.6.",
+        "evidencia": "P95 de la sección degradó de 20.5s a 33.98s (-65.8%)."
       },
       {
         "tipo": "alerta",
-        "seccion": "Graficador",
-        "descripcion": "La sección muestra una tendencia sostenida de degradación en su P95.",
-        "evidencia": "El P95 aumentó por 3 versiones consecutivas, de 6.98s a 8.16s."
-      },
-      {
-        "tipo": "alerta",
-        "seccion": "Screener",
-        "descripcion": "La sección muestra una tendencia sostenida de degradación en su P95, a pesar de una mejora histórica.",
-        "evidencia": "El P95 aumentó por 3 versiones consecutivas, de 3.71s a 4.24s."
-      },
-      {
-        "tipo": "mejora",
         "seccion": "Analizar",
-        "descripcion": "La sección 'Analizar' mostró una recuperación significativa en su rendimiento.",
-        "evidencia": "P95 mejoró de 26.47s a 14.77s (+44.2%) respecto a la versión anterior."
+        "descripcion": "La sección Analizar mejoró un 43.7% (de 26.47s a 14.89s) respecto a la versión anterior, pero la acción 'Ingreso a la pestaña Condiciones de Emisión de la especie PECMO' se degradó drásticamente un 1813.23% (de 0.79s a 15.11s) en v1.44.6.",
+        "evidencia": "P95 de la sección mejoró de 26.47s a 14.89s (+43.7%)."
       },
       {
         "tipo": "degradacion",
-        "seccion": "Curvas",
-        "descripcion": "La sección 'Curvas' experimentó una degradación significativa en su rendimiento general.",
-        "evidencia": "P95 se degradó un 17.2% vs histórico, pasando de 32.83s a 38.46s."
+        "seccion": "Arbitraje",
+        "descripcion": "La sección Arbitraje se degradó frente a su histórico.",
+        "evidencia": "P95 degradó de 12.25s a 14.13s (-15.4%)."
+      },
+      {
+        "tipo": "degradacion",
+        "seccion": "Mis portafolios",
+        "descripcion": "La sección Mis portafolios muestra una tendencia sostenida de degradación en las últimas 3 versiones.",
+        "evidencia": "P95 aumentó de 8.79s a 10.24s en 3 versiones consecutivas."
+      },
+      {
+        "tipo": "degradacion",
+        "seccion": "Graficador",
+        "descripcion": "La sección Graficador muestra una tendencia sostenida de degradación en las últimas 3 versiones.",
+        "evidencia": "P95 aumentó de 6.98s a 8.15s en 3 versiones consecutivas."
+      },
+      {
+        "tipo": "mejora",
+        "seccion": "Screener",
+        "descripcion": "La sección Screener mostró una mejora significativa frente a su histórico.",
+        "evidencia": "P95 mejoró de 8.07s a 4.23s (+47.6%)."
       }
     ],
     "causa_raiz": [
       {
-        "seccion": "Curvas",
+        "seccion": "Calculadora",
         "hipotesis": [
-          "Podría deberse a un aumento en la complejidad o volumen de datos al cargar curvas específicas, como las de Colombia.",
-          "Revisar si hay cambios recientes en las APIs de terceros o fuentes de datos para bonos globales que afecten la latencia.",
-          "Investigar posibles ineficiencias en el procesamiento o renderizado de grandes conjuntos de datos en la UI de curvas."
+          "Posiblemente, la complejidad de los cálculos o la cantidad de datos procesados para la simulación de AL30 ha aumentado.",
+          "Podría haber un cuello de botella en la recuperación de datos históricos o la ejecución de algoritmos de simulación para esta especie.",
+          "Revisar la eficiencia del frontend en la renderización de resultados complejos o la gestión de estado para esta acción."
         ]
       },
       {
-        "seccion": "Calculadora",
+        "seccion": "Curvas",
         "hipotesis": [
-          "La lentitud crónica podría estar relacionada con cálculos complejos o iterativos que no están optimizados para grandes volúmenes de datos o escenarios de simulación.",
-          "Revisar la eficiencia de las consultas a la base de datos o servicios de cálculo que alimentan la simulación de inversiones.",
-          "Considerar si la lógica de negocio para 'Simular inversiones de la especie AL30' ha aumentado en complejidad o si hay un cuello de botella en el backend."
+          "El incremento en el tiempo de carga de curvas específicas (Colombia, Paraguay) podría indicar problemas con la fuente de datos externa o la latencia de la API.",
+          "Podría haber una ineficiencia en el procesamiento o renderizado de grandes volúmenes de datos para estas curvas geográficas.",
+          "Revisar la lógica de caché o pre-carga de datos para las curvas internacionales, que parecen ser las más afectadas."
+        ]
+      },
+      {
+        "seccion": "Analizar",
+        "hipotesis": [
+          "La degradación extrema en el ingreso a Condiciones de Emisión para ciertas especies (PECMO, TX28) sugiere un problema puntual en la consulta o carga de datos específicos de esos bonos.",
+          "Podría ser un problema de índices en la base de datos o una consulta ineficiente al buscar información detallada de estas especies.",
+          "Revisar si hay cambios recientes en la estructura de datos o en la forma en que se accede a la información de condiciones de emisión para estas especies."
+        ]
+      },
+      {
+        "seccion": "Arbitraje",
+        "hipotesis": [
+          "La degradación podría estar relacionada con un aumento en la complejidad de las operaciones de arbitraje o en la cantidad de datos a procesar.",
+          "Revisar si se han introducido nuevas funcionalidades o cálculos que impacten el rendimiento de esta sección.",
+          "Podría haber un problema de concurrencia o bloqueo al acceder a recursos compartidos en la lógica de arbitraje."
         ]
       },
       {
         "seccion": "Mis portafolios",
         "hipotesis": [
-          "La tendencia sostenida de degradación podría indicar un aumento progresivo en el número de operaciones o activos por portfolio, o una ineficiencia acumulada en la carga de datos.",
-          "Revisar si hay nuevas funcionalidades o cambios en la forma en que se agregan y presentan los datos de los portfolios que estén impactando el rendimiento."
+          "La tendencia sostenida de degradación podría indicar un crecimiento en el volumen de datos de los portafolios de los usuarios o una mayor complejidad en su cálculo.",
+          "Revisar si hay consultas a la base de datos que se han vuelto menos eficientes con el tiempo o el crecimiento de la plataforma.",
+          "Podría ser un problema de optimización en la carga inicial o actualización de los datos de los portafolios."
+        ]
+      },
+      {
+        "seccion": "Graficador",
+        "hipotesis": [
+          "La tendencia sostenida de degradación podría deberse a un aumento en la complejidad de los gráficos generados o en el volumen de datos históricos a procesar.",
+          "Revisar la eficiencia de las librerías de graficación o la optimización de las consultas de datos para la visualización.",
+          "Podría haber un impacto en el rendimiento debido a la carga de recursos adicionales o scripts de terceros en esta sección."
         ]
       }
     ],
     "recomendaciones": [
       {
         "prioridad": "P1",
-        "accion": "Realizar un análisis profundo de la acción 'Ingreso a la curva Colombia - Soberanos - Bonos Globales - USD' para identificar la causa del salto abrupto.",
-        "seccion": "Curvas",
-        "evidencia": "P95 de la acción aumentó 351.6% (de 19.45s a 87.83s) en la versión actual."
-      },
-      {
-        "prioridad": "P1",
-        "accion": "Optimizar la acción 'Simular inversiones de la especie AL30' para resolver su lentitud crónica.",
+        "accion": "Investigar y optimizar la acción 'Simular inversiones de la especie AL30' para reducir su P95 crónico.",
         "seccion": "Calculadora",
-        "evidencia": "La acción ha estado sobre el umbral en 5 de 5 versiones, con un P95 actual de 97.56s."
+        "evidencia": "P95 actual de 97.47s, sobre el umbral en 5 de 5 versiones."
       },
       {
         "prioridad": "P1",
-        "accion": "Investigar la degradación general de la sección 'Curvas' y las acciones más lentas dentro de ella.",
+        "accion": "Realizar un análisis de causa raíz urgente para el salto abrupto en 'Ingreso a la curva Colombia - Soberanos - Bonos Globales - USD'.",
         "seccion": "Curvas",
-        "evidencia": "La sección se degradó un 17.2% vs histórico y un 87.6% vs versión anterior."
+        "evidencia": "Degradación del 333.6% (de 19.45s a 84.33s) en v1.44.6."
+      },
+      {
+        "prioridad": "P1",
+        "accion": "Investigar la degradación extrema de 'Ingreso a la pestaña Condiciones de Emisión de la especie PECMO' y otras acciones similares en Analizar.",
+        "seccion": "Analizar",
+        "evidencia": "Degradación del 1813.23% (de 0.79s a 15.11s) en v1.44.6."
       },
       {
         "prioridad": "P2",
-        "accion": "Analizar la tendencia sostenida de degradación en la sección 'Mis portafolios' para identificar la causa raíz.",
+        "accion": "Optimizar la sección Calculadora en general, enfocándose en la eficiencia de carga y procesamiento de datos.",
+        "seccion": "Calculadora",
+        "evidencia": "P95 de la sección de 94.02s, superando el umbral de rendimiento."
+      },
+      {
+        "prioridad": "P2",
+        "accion": "Revisar la performance de la sección Curvas, especialmente las acciones de carga de curvas internacionales.",
+        "seccion": "Curvas",
+        "evidencia": "Degradación del 65.8% vs versión anterior y múltiples acciones lentas."
+      },
+      {
+        "prioridad": "P3",
+        "accion": "Analizar la tendencia de degradación sostenida en la sección Mis portafolios para identificar cuellos de botella.",
         "seccion": "Mis portafolios",
-        "evidencia": "El P95 de la sección aumentó por 3 versiones consecutivas, de 8.79s a 10.28s."
-      },
-      {
-        "prioridad": "P2",
-        "accion": "Revisar la tendencia de degradación en la sección 'Graficador' para evitar un impacto mayor en UX.",
-        "seccion": "Graficador",
-        "evidencia": "El P95 de la sección aumentó por 3 versiones consecutivas, de 6.98s a 8.16s."
+        "evidencia": "P95 aumentó en 3 versiones consecutivas, de 8.79s a 10.24s."
       }
     ]
   }
