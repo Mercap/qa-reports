@@ -1,0 +1,249 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 1,
+    "pending": 1,
+    "failures": 1,
+    "start": "2026-08-18T19:29:54.472Z",
+    "end": "2026-08-18T19:33:13.649Z",
+    "duration": 199177,
+    "testsRegistered": 8,
+    "passPercent": 14.285714285714285,
+    "pendingPercent": 12.5,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 5,
+    "hasSkipped": true
+  },
+  "results": [
+    {
+      "uuid": "a1ca8318-78be-4f20-8769-c9485775d0bf",
+      "title": "",
+      "fullFile": "build/mario/argentina/smoke/portafolio.cy.js",
+      "file": "build/mario/argentina/smoke/portafolio.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "9f6dcef8-ff41-4299-90e6-d8e223fa90e7",
+          "title": "Mi portafolio",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Ingresar al menú Mi portafolio",
+              "fullTitle": "Mi portafolio Ingresar al menú Mi portafolio",
+              "timedOut": null,
+              "duration": 1048,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visitRecargandoSi401(`${_support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].ABBACO_LOCATION}/security-position`);",
+              "err": {},
+              "uuid": "2064824f-c688-48a7-877c-a72c73bbf36f",
+              "parentUUID": "9f6dcef8-ff41-4299-90e6-d8e223fa90e7",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Crear un nuevo portafolio",
+              "fullTitle": "Mi portafolio Crear un nuevo portafolio",
+              "timedOut": null,
+              "duration": 92836,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.crearPortafolio('Portafolio Cypress');\n// Ingresar al portafolio creado\n_pages_portafolioPage__WEBPACK_IMPORTED_MODULE_1__.portafolio.clickCreatedPortfolio();\n_pages_portafolioPage__WEBPACK_IMPORTED_MODULE_1__.portafolio.elements.tableElements().should('be.visible');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 90000ms: Expected <div.fade.modal.show> not to exist in the DOM, but it was continuously found.",
+                "estack": "AssertionError: Timed out retrying after 90000ms: Expected <div.fade.modal.show> not to exist in the DOM, but it was continuously found.\n    at ./cypress/support/commands.js/ (webpack://cypress/./cypress/support/commands.js:1023:0)\n    at getRet (https://bonds.mario.mercapabbaco.com/__cypress/runner/cypress_runner.js:122690:20)\n    at tryCatcher (https://bonds.mario.mercapabbaco.com/__cypress/runner/cypress_runner.js:1777:23)\n    at __webpack_modules__</module.exports/Promise.try (https://bonds.mario.mercapabbaco.com/__cypress/runner/cypress_runner.js:4285:29)\n    at thenFn (https://bonds.mario.mercapabbaco.com/__cypress/runner/cypress_runner.js:122701:60)\n    at then (https://bonds.mario.mercapabbaco.com/__cypress/runner/cypress_runner.js:122952:21)\n    at wrapped (https://bonds.mario.mercapabbaco.com/__cypress/runner/cypress_runner.js:146050:19)",
+                "diff": null
+              },
+              "uuid": "70997663-37b4-41e1-b3fc-31cd7cc44c3b",
+              "parentUUID": "9f6dcef8-ff41-4299-90e6-d8e223fa90e7",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Agregar el bono AL30 al portafolio",
+              "fullTitle": "Mi portafolio Agregar el bono AL30 al portafolio",
+              "timedOut": null,
+              "duration": 0,
+              "state": "pending",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": true,
+              "context": null,
+              "code": "_pages_portafolioPage__WEBPACK_IMPORTED_MODULE_1__.portafolio.elements.tableElements().should('be.visible');\ncy.agregarBonoPortafolio(_support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].HARD_DOLLAR);",
+              "err": {},
+              "uuid": "50ebf70b-ba72-4c17-b935-317c3699f315",
+              "parentUUID": "9f6dcef8-ff41-4299-90e6-d8e223fa90e7",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verificar que el bono AL30 tenga precio y se encuentre valorizado",
+              "fullTitle": "Mi portafolio Verificar que el bono AL30 tenga precio y se encuentre valorizado",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.verificarValuacionPortfolio();",
+              "err": {},
+              "uuid": "a5b9a045-be07-4a51-a17b-4c784b7ee756",
+              "parentUUID": "9f6dcef8-ff41-4299-90e6-d8e223fa90e7",
+              "isHook": false,
+              "skipped": true
+            },
+            {
+              "title": "Recorrer las pestañas Proyección y Agenda de pagos del portafolio",
+              "fullTitle": "Mi portafolio Recorrer las pestañas Proyección y Agenda de pagos del portafolio",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_pages_portafolioPage__WEBPACK_IMPORTED_MODULE_1__.portafolio.clickProyeccionButton();\n_pages_portafolioPage__WEBPACK_IMPORTED_MODULE_1__.portafolio.elements.tableProyeccion().should('be.visible');\n_selectors_sharedElements__WEBPACK_IMPORTED_MODULE_2__.sharedElements.cardBody().should('be.visible');\n_pages_portafolioPage__WEBPACK_IMPORTED_MODULE_1__.portafolio.clickAgendaCortesButton();\n_pages_portafolioPage__WEBPACK_IMPORTED_MODULE_1__.portafolio.elements.agendaCorteElements().should('be.visible');\n_selectors_sharedElements__WEBPACK_IMPORTED_MODULE_2__.sharedElements.cardBody().should('be.visible');",
+              "err": {},
+              "uuid": "3cc37cd3-5e20-4483-95da-529127db3c5d",
+              "parentUUID": "9f6dcef8-ff41-4299-90e6-d8e223fa90e7",
+              "isHook": false,
+              "skipped": true
+            },
+            {
+              "title": "Editar el portafolio creado",
+              "fullTitle": "Mi portafolio Editar el portafolio creado",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_pages_portafolioPage__WEBPACK_IMPORTED_MODULE_1__.portafolio.editPortfolio('Portafolio Cypress Modificado');\n_selectors_sharedElements__WEBPACK_IMPORTED_MODULE_2__.sharedElements.ballLoader().should('not.exist');\n_pages_portafolioPage__WEBPACK_IMPORTED_MODULE_1__.portafolio.elements.newPortfolioName().should('be.visible');",
+              "err": {},
+              "uuid": "6071e336-e5ea-4c3f-9667-b627a99659f2",
+              "parentUUID": "9f6dcef8-ff41-4299-90e6-d8e223fa90e7",
+              "isHook": false,
+              "skipped": true
+            },
+            {
+              "title": "Eliminar el bono AL30 del portafolio",
+              "fullTitle": "Mi portafolio Eliminar el bono AL30 del portafolio",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Este método hay que revisarlo porque 1) No termina de borrar y validar todas las especies, el múltiple true no me parece bien usado. 2) Es mejor crear un comando/helper para estos casos de \"loop\".\n_pages_portafolioPage__WEBPACK_IMPORTED_MODULE_1__.portafolio.deleteEspecies(...especies);",
+              "err": {},
+              "uuid": "8f5e76d2-f5a8-41cb-8644-7bc3728d92fe",
+              "parentUUID": "9f6dcef8-ff41-4299-90e6-d8e223fa90e7",
+              "isHook": false,
+              "skipped": true
+            },
+            {
+              "title": "Eliminar el portafolio creado",
+              "fullTitle": "Mi portafolio Eliminar el portafolio creado",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_pages_portafolioPage__WEBPACK_IMPORTED_MODULE_1__.portafolio.deletePortfolio();\n_pages_portafolioPage__WEBPACK_IMPORTED_MODULE_1__.portafolio.elements.newPortfolioName().should('not.exist');\n_selectors_sharedElements__WEBPACK_IMPORTED_MODULE_2__.sharedElements.ballLoader().should('not.exist');",
+              "err": {},
+              "uuid": "af518c34-32a3-499b-b997-31c5b9f3e0ac",
+              "parentUUID": "9f6dcef8-ff41-4299-90e6-d8e223fa90e7",
+              "isHook": false,
+              "skipped": true
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "2064824f-c688-48a7-877c-a72c73bbf36f"
+          ],
+          "failures": [
+            "70997663-37b4-41e1-b3fc-31cd7cc44c3b"
+          ],
+          "pending": [
+            "50ebf70b-ba72-4c17-b935-317c3699f315"
+          ],
+          "skipped": [
+            "a5b9a045-be07-4a51-a17b-4c784b7ee756",
+            "3cc37cd3-5e20-4483-95da-529127db3c5d",
+            "6071e336-e5ea-4c3f-9667-b627a99659f2",
+            "8f5e76d2-f5a8-41cb-8644-7bc3728d92fe",
+            "af518c34-32a3-499b-b997-31c5b9f3e0ac"
+          ],
+          "duration": 93884,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "report",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "cleanReporterJson": false,
+        "html": true,
+        "json": true,
+        "reportFilename": "report",
+        "embeddedScreenshots": true,
+        "inlineAssets": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}
