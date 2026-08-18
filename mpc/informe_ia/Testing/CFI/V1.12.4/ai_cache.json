@@ -1,101 +1,115 @@
 {
-  "hash": "1f51261590dd0b66611287002ea0d486b8173291a09a870c9cf9733d28e03e01",
+  "hash": "3d75d46f30f7dc2f55692a613783e793369e1a34bd3b886664fa10a9c46efce7",
   "ai_model": "gemini-2.5-flash",
   "conclusions": {
     "estado_general": "critico",
-    "resumen_ejecutivo": "La versión V1.12.4 presenta una degradación crítica en la sección Agenda, que es un 31.6% más lenta que su P95 histórico, alcanzando los 11.15s. Esta regresión se debe principalmente a un salto abrupto del 278.1% en la acción \"Primer ingreso: Tipo de instrumento Bonos, estado: Pendiente\", que pasó de 4.93s a 18.64s.",
+    "resumen_ejecutivo": "La versión actual V1.12.4 presenta un estado crítico debido a una degradación significativa en la sección Agenda, cuyo P95 aumentó un 31.6% (de 8.47s a 11.15s). Además, la sección Mis operaciones muestra un P95 de 64.12s incluso con un solo usuario, superando el umbral de rendimiento, y se observa una degradación generalizada en la sección Rendimiento con 57 de 81 acciones afectadas.",
     "escalar": {
-      "titulo": "Degradación crítica en Agenda por acción específica",
-      "detalle": "La sección Agenda experimentó una degradación del 31.6% (P95 de 11.15s), impulsada por la acción \"Primer ingreso: Tipo de instrumento Bonos, estado: Pendiente\" que se ralentizó un 278.1% de 4.93s a 18.64s en la versión actual."
+      "titulo": "Degradación crítica en Agenda y Mis operaciones",
+      "detalle": "La sección Agenda se degradó un 31.6% (P95 de 8.47s a 11.15s), con un salto abrupto del 278.1% en una acción clave. Además, Mis operaciones tiene un P95 de 64.12s con 1 usuario, superando el umbral de rendimiento."
     },
     "investigar": {
-      "titulo": "Salto abrupto en acción clave de Agenda",
-      "detalle": "Investigar la causa del incremento del 278.1% en la acción \"Primer ingreso: Tipo de instrumento Bonos, estado: Pendiente\" dentro de la sección Agenda, pasando de 4.93s a 18.64s en la versión V1.12.4."
+      "titulo": "Causa raíz de la degradación masiva en Rendimiento",
+      "detalle": "La sección Rendimiento muestra 57 de 81 acciones degradadas, con un P95 de 'Segundo ingreso al portfolio Total' aumentando un 238.2% (de 1.23s a 4.16s) entre V1.11.2 y V1.12.4. Esto sugiere un problema estructural que requiere investigación profunda."
     },
     "optimizar": {
-      "titulo": "Mejorar rendimiento de la sección Agenda",
-      "detalle": "La sección Agenda presenta una degradación del 31.6% (P95 de 11.15s), con una acción específica (\"Primer ingreso: Tipo de instrumento Bonos, estado: Pendiente\") que se ralentizó un 278.1% a 18.64s, siendo la principal oportunidad de mejora."
+      "titulo": "Mejorar rendimiento de Mis operaciones bajo carga",
+      "detalle": "La sección Mis operaciones tiene un P95 de 64.12s con 1 usuario, superando el umbral de 60s. Bajo 5 usuarios, el P95 se degrada a 112.7s, un 75.8% más lento, indicando un cuello de botella severo."
     },
     "hallazgos": [
       {
         "tipo": "alerta",
         "seccion": "Agenda",
-        "descripcion": "La acción \"Primer ingreso: Tipo de instrumento Bonos, estado: Pendiente\" en Agenda sufrió un salto abrupto.",
-        "evidencia": "P95 creció de 4.93s a 18.64s (+278.1%) en V1.12.4."
+        "descripcion": "Una acción clave en Agenda sufrió un salto abrupto de rendimiento.",
+        "evidencia": "La acción 'Primer ingreso: Tipo de instrumento Bonos, estado: Pendiente' pasó de 4.93s a 18.64s (+278.1%) en V1.12.4."
       },
       {
         "tipo": "alerta",
         "seccion": "Rendimiento",
-        "descripcion": "La acción \"Primer ingreso al portfolio Fondo de Obra Social\" en Rendimiento sufrió un salto abrupto.",
-        "evidencia": "P95 creció de 2.01s a 5.53s (+175.1%) en V1.12.4."
+        "descripcion": "Una acción de ingreso a portfolio en Rendimiento experimentó un salto abrupto.",
+        "evidencia": "La acción 'Primer ingreso al portfolio Fondo de Obra Social' pasó de 2.01s a 5.53s (+175.1%) en V1.12.4."
       },
       {
         "tipo": "degradacion",
         "seccion": "Agenda",
         "descripcion": "La sección Agenda experimentó una degradación significativa en su rendimiento general.",
-        "evidencia": "P95 degradó de 8.47s a 11.15s (-31.6%)."
+        "evidencia": "El P95 de Agenda se degradó de 8.47s a 11.15s (+31.6%)."
       },
       {
         "tipo": "degradacion",
         "seccion": "Rendimiento",
-        "descripcion": "La sección Rendimiento muestra una alta proporción de acciones degradadas.",
-        "evidencia": "57 de 81 acciones con historial se degradaron, con la acción \"Segundo ingreso al portfolio Total\" empeorando un 238.2% de 1.23s a 4.16s."
+        "descripcion": "Más del 70% de las acciones en la sección Rendimiento se degradaron entre versiones.",
+        "evidencia": "57 de 81 acciones en Rendimiento empeoraron, con la peor degradación del 238.2% en 'Segundo ingreso al portfolio Total'."
       },
       {
-        "tipo": "mejora",
-        "seccion": "Rendimiento",
-        "descripcion": "Se observa una mejora en una acción específica dentro de la sección Rendimiento.",
-        "evidencia": "La acción \"Portfolio FPC: Primer ingreso a la carta de rendimiento Desde principio de año c\" mejoró un 28.7% de 1.71s a 1.22s."
+        "tipo": "alerta",
+        "seccion": "Home",
+        "descripcion": "Varias acciones nuevas en Home presentan tiempos de carga elevados.",
+        "evidencia": "El 'Primer ingreso al menú Home' tiene un P95 de 18.55s y 'Primer ingreso al portfolio Consolidado CFI desde el Home' de 22.71s."
+      },
+      {
+        "tipo": "alerta",
+        "seccion": "Mis operaciones",
+        "descripcion": "La sección Mis operaciones supera el umbral de rendimiento incluso con un solo usuario.",
+        "evidencia": "El P95 de Mis operaciones es de 64.12s con 1 usuario."
       }
     ],
     "causa_raiz": [
       {
         "seccion": "Agenda",
         "hipotesis": [
-          "Podría deberse a cambios en la lógica de filtrado o consulta de operaciones pendientes, especialmente para bonos.",
-          "Revisar si hay nuevas validaciones o cálculos complejos al cargar datos de instrumentos con estado 'Pendiente'.",
-          "Posible impacto de un aumento en el volumen de datos históricos o la complejidad de los portfolios gestionados."
+          "Revisar la eficiencia de las consultas a la base de datos para operaciones pendientes, especialmente aquellas con filtros de fecha.",
+          "Analizar la complejidad del procesamiento de datos en el backend para la sección Agenda, que podría escalar con el volumen de operaciones pendientes.",
+          "Investigar posibles cambios en la lógica de negocio o la UI que aumenten la carga de renderizado o el número de llamadas a la API para la vista de Agenda."
         ]
       },
       {
         "seccion": "Rendimiento",
         "hipotesis": [
-          "La degradación general y el salto abrupto en acciones como 'Segundo ingreso al portfolio Total' podrían indicar problemas de optimización en la carga de datos consolidados o gráficos complejos.",
-          "Revisar si se introdujeron nuevas fuentes de datos o cálculos intensivos que impacten la performance al acceder a portfolios específicos.",
-          "Considerar el impacto de la concurrencia, ya que la sección Rendimiento muestra una degradación del 147.7% en P95 con 5 usuarios concurrentes."
+          "Evaluar la complejidad de los cálculos de rendimiento y la agregación de datos para múltiples portfolios, que podría estar impactando el tiempo de respuesta.",
+          "Verificar la optimización de las consultas a la base de datos que alimentan los gráficos y tablas de rendimiento, especialmente para rangos de fechas amplios o portfolios consolidados.",
+          "Analizar el impacto de la carga de datos históricos o la cantidad de activos en los portfolios en el rendimiento de la sección."
+        ]
+      },
+      {
+        "seccion": "Mis operaciones",
+        "hipotesis": [
+          "Investigar la eficiencia de la carga inicial de datos de operaciones, que podría ser muy pesada o requerir múltiples llamadas secuenciales.",
+          "Revisar la paginación y filtrado de operaciones, ya que un gran volumen de datos podría estar ralentizando la UI.",
+          "Evaluar la complejidad de los componentes de la interfaz de usuario que renderizan las operaciones, buscando posibles cuellos de botella en el frontend."
         ]
       }
     ],
     "recomendaciones": [
       {
         "prioridad": "P1",
-        "accion": "Investigar y optimizar la acción \"Primer ingreso: Tipo de instrumento Bonos, estado: Pendiente\".",
+        "accion": "Realizar un análisis de trazas detallado para la acción 'Primer ingreso: Tipo de instrumento Bonos, estado: Pendiente' en Agenda para identificar el cuello de botella exacto.",
         "seccion": "Agenda",
-        "evidencia": "Degradación del 278.1% (de 4.93s a 18.64s) en V1.12.4."
+        "evidencia": "Salto abrupto del 278.1% (de 4.93s a 18.64s) en V1.12.4."
       },
       {
         "prioridad": "P1",
-        "accion": "Realizar un análisis de causa raíz para la degradación general de la sección Agenda.",
-        "seccion": "Agenda",
-        "evidencia": "Degradación del 31.6% en el P95 de la sección (de 8.47s a 11.15s)."
-      },
-      {
-        "prioridad": "P1",
-        "accion": "Investigar y optimizar la acción \"Primer ingreso al portfolio Fondo de Obra Social\".",
-        "seccion": "Rendimiento",
-        "evidencia": "Degradación del 175.1% (de 2.01s a 5.53s) en V1.12.4."
+        "accion": "Optimizar la carga inicial de la sección Mis operaciones para reducir el P95 por debajo de 60s, priorizando la experiencia de un solo usuario.",
+        "seccion": "Mis operaciones",
+        "evidencia": "P95 de 64.12s con 1 usuario."
       },
       {
         "prioridad": "P2",
-        "accion": "Analizar las acciones más degradadas en la sección Rendimiento para identificar patrones y oportunidades de optimización.",
+        "accion": "Investigar la causa de la degradación generalizada en la sección Rendimiento, enfocándose en las 57 acciones afectadas y el salto del 238.2% en 'Segundo ingreso al portfolio Total'.",
         "seccion": "Rendimiento",
-        "evidencia": "57 de 81 acciones con historial se degradaron, con la acción \"Segundo ingreso al portfolio Total\" empeorando un 238.2%."
+        "evidencia": "57 de 81 acciones degradadas, con la peor degradación del 238.2%."
+      },
+      {
+        "prioridad": "P2",
+        "accion": "Revisar y optimizar las nuevas acciones de ingreso a Home y a portfolios específicos, ya que presentan P95 elevados.",
+        "seccion": "Home",
+        "evidencia": "'Primer ingreso al menú Home' con 18.55s y 'Primer ingreso al portfolio Consolidado CFI desde el Home' con 22.71s."
       },
       {
         "prioridad": "P3",
-        "accion": "Monitorear las nuevas acciones introducidas en la sección Home, especialmente aquellas con P95 elevados.",
-        "seccion": "Home",
-        "evidencia": "Acciones como \"Primer ingreso al portfolio Consolidado CFI desde el Home\" con P95 de 22.71s."
+        "accion": "Analizar el impacto negativo del caché en 'Primer ingreso al menú Agenda' (-4.2%) y 'Primer ingreso: Tipo de instrumento Bonos, estado: Cobrado, fecha: 3 meses hacia atras' (-9.4%) para asegurar que el caché siempre mejore el rendimiento.",
+        "seccion": "Agenda",
+        "evidencia": "Degradación del 4.2% en 'Primer ingreso al menú Agenda' con caché."
       }
     ]
   }
