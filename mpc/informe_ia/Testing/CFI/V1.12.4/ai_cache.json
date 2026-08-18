@@ -1,95 +1,101 @@
 {
-  "hash": "2d71b6dd27be928afc0a1501f966f5b114f994e96624ad710322e4235ad347f4",
+  "hash": "c2acb94be856c55a8ccb9abb93d6be2fffad386cc24d15d111ff90b8814a0814",
   "ai_model": "gemini-2.5-flash",
   "conclusions": {
     "estado_general": "critico",
-    "resumen_ejecutivo": "La versión V1.12.4 de MPC presenta un estado crítico debido a una degradación significativa en la sección Agenda, cuyo P95 aumentó un 31.6% (de 8.47s a 11.15s) respecto al histórico. Esta regresión es impulsada principalmente por un salto abrupto del 278.1% en la acción 'Primer ingreso: Tipo de instrumento Bonos, estado: Pendiente', que ahora alcanza los 18.64s.",
+    "resumen_ejecutivo": "La versión V1.12.4 de MPC presenta un estado crítico debido a una degradación significativa en la sección Agenda, que se volvió un 31.6% más lenta (de 8.47s a 11.15s). Además, se observa un salto abrupto del 278.1% en una acción clave dentro de Agenda y una degradación generalizada en la sección Rendimiento, lo que contribuye a una tendencia global de ralentización.",
     "escalar": {
-      "titulo": "Degradación crítica en Agenda y acción clave de Bonos Pendientes",
-      "detalle": "La sección Agenda degradó un 31.6% (P95 de 8.47s a 11.15s). La acción 'Primer ingreso: Tipo de instrumento Bonos, estado: Pendiente' en Agenda sufrió un salto abrupto del 278.1%, pasando de 4.93s a 18.64s."
+      "titulo": "Degradación crítica en Agenda y salto abrupto en acción clave",
+      "detalle": "La sección Agenda se degradó un 31.6% (de 8.47s a 11.15s). Además, la acción 'Primer ingreso: Tipo de instrumento Bonos, estado: Pendiente' dentro de Agenda sufrió un salto abrupto del 278.1%, pasando de 4.93s a 18.64s en la versión actual."
     },
     "investigar": {
-      "titulo": "Salto abrupto en acción clave de Agenda: Bonos Pendientes",
-      "detalle": "La acción 'Primer ingreso: Tipo de instrumento Bonos, estado: Pendiente' en la sección Agenda experimentó una degradación del 278.1%, pasando de 4.93s en V1.12.1 a 18.64s en V1.12.4. Esto es la principal causa de la degradación de la sección."
+      "titulo": "Salto abrupto de rendimiento en acción clave de Agenda",
+      "detalle": "La acción 'Primer ingreso: Tipo de instrumento Bonos, estado: Pendiente' en la sección Agenda experimentó un salto de rendimiento del 278.1%, pasando de 4.93s a 18.64s en la versión V1.12.4, lo que requiere investigación inmediata."
     },
     "optimizar": {
-      "titulo": "Mejorar rendimiento de Agenda bajo carga y acciones lentas",
-      "detalle": "La sección Agenda muestra una degradación del 293.3% en P95 bajo 5 usuarios concurrentes (de 11.15s a 43.84s). Optimizar las acciones más lentas, especialmente 'Primer ingreso: Tipo de instrumento Bonos, estado: Pendiente' (18.64s), podría mejorar la experiencia general."
+      "titulo": "Mejorar rendimiento de la sección Agenda",
+      "detalle": "La sección Agenda se degradó un 31.6% (de 8.47s a 11.15s). Optimizar esta sección, especialmente las acciones con estado 'Pendiente', podría mejorar significativamente la experiencia del usuario."
     },
     "hallazgos": [
       {
         "tipo": "alerta",
         "seccion": "Agenda",
-        "descripcion": "La acción 'Primer ingreso: Tipo de instrumento Bonos, estado: Pendiente' sufrió un salto abrupto.",
+        "descripcion": "La acción 'Primer ingreso: Tipo de instrumento Bonos, estado: Pendiente' sufrió un salto abrupto de rendimiento.",
         "evidencia": "P95 pasó de 4.93s a 18.64s (+278.1%) en V1.12.4"
       },
       {
         "tipo": "alerta",
         "seccion": "Rendimiento",
-        "descripcion": "Una acción clave de ingreso a portfolio experimentó una degradación significativa.",
-        "evidencia": "'Primer ingreso al portfolio Fondo de Obra Social' pasó de 2.01s a 5.53s (+175.1%) en V1.12.4"
+        "descripcion": "La acción 'Primer ingreso al portfolio Fondo de Obra Social' sufrió un salto abrupto de rendimiento.",
+        "evidencia": "P95 pasó de 2.01s a 5.53s (+175.1%) en V1.12.4"
       },
       {
         "tipo": "degradacion",
         "seccion": "Agenda",
-        "descripcion": "La sección Agenda en su conjunto ha experimentado una degradación considerable.",
+        "descripcion": "La sección Agenda experimentó una degradación significativa en su rendimiento.",
         "evidencia": "P95 degradó de 8.47s a 11.15s (-31.6%)"
+      },
+      {
+        "tipo": "degradacion",
+        "seccion": "Rendimiento",
+        "descripcion": "Más del 70% de las acciones en Rendimiento se degradaron, con una acción clave empeorando drásticamente.",
+        "evidencia": "57 de 81 acciones se degradaron, siendo 'Segundo ingreso al portfolio Total' la peor con un aumento del 238.2% (de 1.23s a 4.16s)"
       },
       {
         "tipo": "alerta",
         "seccion": "Home",
-        "descripcion": "Varias acciones de ingreso a portfolios en Home son nuevas y presentan tiempos de carga elevados.",
-        "evidencia": "'Primer ingreso al portfolio Consolidado CFI desde el Home' tiene un P95 de 22.71s"
+        "descripcion": "Varias acciones nuevas en la sección Home presentan tiempos de carga elevados.",
+        "evidencia": "Acciones como 'Primer ingreso al portfolio Consolidado CFI desde el Home' tienen un P95 de 22.71s."
       }
     ],
     "causa_raiz": [
       {
         "seccion": "Agenda",
         "hipotesis": [
-          "Cambios recientes en la lógica de filtrado o consulta de datos para bonos pendientes, especialmente con filtros de fecha, que impactan la acción 'Primer ingreso: Tipo de instrumento Bonos, estado: Pendiente'.",
-          "Problemas de rendimiento en la base de datos o API que provee los datos de bonos pendientes, exacerbados por la carga de datos históricos.",
-          "Ineficiencias en el renderizado de la UI al mostrar grandes volúmenes de datos para bonos pendientes, o al procesar la respuesta de la API."
+          "La lógica de filtrado o consulta para operaciones 'Pendiente' en Agenda podría estar ineficiente, especialmente al interactuar con la base de datos o APIs externas.",
+          "Un cambio reciente en la interfaz de usuario o en la carga de datos de la sección Agenda podría estar introduciendo latencia adicional.",
+          "Problemas de concurrencia o bloqueo de recursos en el backend al procesar las operaciones de Agenda, exacerbados por el aumento de usuarios o datos."
         ]
       },
       {
         "seccion": "Rendimiento",
         "hipotesis": [
-          "Consultas de datos complejas o no optimizadas para la carga inicial de portfolios específicos como 'Fondo de Obra Social'.",
-          "Problemas de latencia en la recuperación de datos históricos de rendimiento para ese portfolio, o en la agregación de los mismos.",
-          "Carga excesiva de componentes o datos al inicializar la vista de un portfolio, afectando el tiempo de 'Primer ingreso al portfolio Fondo de Obra Social'."
+          "La complejidad de los cálculos de rendimiento o la cantidad de datos históricos a procesar para ciertos portfolios (ej. 'Fondo de Obra Social', 'Total') podría haber aumentado.",
+          "Ineficiencias en la carga de gráficos o la agregación de datos para la sección Rendimiento, afectando particularmente a los portfolios con mayor volumen de transacciones.",
+          "Un cambio en la infraestructura de datos o en la forma en que se consultan los datos de rendimiento podría estar causando latencia."
         ]
       }
     ],
     "recomendaciones": [
       {
         "prioridad": "P1",
-        "accion": "Investigar y optimizar la acción 'Primer ingreso: Tipo de instrumento Bonos, estado: Pendiente'.",
+        "accion": "Investigar y optimizar la acción 'Primer ingreso: Tipo de instrumento Bonos, estado: Pendiente' en Agenda.",
         "seccion": "Agenda",
-        "evidencia": "Degradación del 278.1% (4.93s a 18.64s) en V1.12.4"
+        "evidencia": "Salto de P95 de 4.93s a 18.64s (+278.1%) en V1.12.4."
       },
       {
         "prioridad": "P1",
-        "accion": "Realizar un análisis de causa raíz para la degradación general de la sección Agenda.",
+        "accion": "Realizar un análisis de rendimiento exhaustivo de la sección Agenda para identificar cuellos de botella.",
         "seccion": "Agenda",
-        "evidencia": "P95 degradó un 31.6% (8.47s a 11.15s)"
+        "evidencia": "Degradación del P95 de la sección en un 31.6% (de 8.47s a 11.15s)."
       },
       {
         "prioridad": "P2",
-        "accion": "Optimizar las acciones de ingreso a portfolios en la sección Home, priorizando las nuevas y más lentas.",
-        "seccion": "Home",
-        "evidencia": "'Primer ingreso al portfolio Consolidado CFI desde el Home' con P95 de 22.71s"
-      },
-      {
-        "prioridad": "P2",
-        "accion": "Investigar la degradación de la acción 'Primer ingreso al portfolio Fondo de Obra Social'.",
+        "accion": "Analizar la degradación general en la sección Rendimiento y la acción 'Segundo ingreso al portfolio Total'.",
         "seccion": "Rendimiento",
-        "evidencia": "P95 pasó de 2.01s a 5.53s (+175.1%) en V1.12.4"
+        "evidencia": "70.4% de acciones degradadas y 'Segundo ingreso al portfolio Total' aumentó 238.2%."
+      },
+      {
+        "prioridad": "P2",
+        "accion": "Optimizar las nuevas acciones de ingreso a portfolios desde Home que presentan altos tiempos de carga.",
+        "seccion": "Home",
+        "evidencia": "Acciones como 'Primer ingreso al portfolio Consolidado CFI desde el Home' tienen un P95 de 22.71s."
       },
       {
         "prioridad": "P3",
-        "accion": "Evaluar el comportamiento de la plataforma bajo carga concurrente en las secciones Agenda y Home.",
-        "seccion": "General",
-        "evidencia": "Agenda P95 de 11.15s a 43.84s con 5 usuarios; Home P95 de 21.74s a 81.01s con 5 usuarios"
+        "accion": "Revisar la efectividad del cache en la sección Agenda, especialmente donde el P95 base es alto y la mejora es negativa o baja.",
+        "seccion": "Agenda",
+        "evidencia": "La acción 'Primer ingreso al menú Agenda' muestra una degradación del 4.2% con cache (4.91s a 5.12s)."
       }
     ]
   }
