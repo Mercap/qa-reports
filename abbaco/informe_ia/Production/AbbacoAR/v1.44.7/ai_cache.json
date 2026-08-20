@@ -1,0 +1,116 @@
+{
+  "hash": "977d1cd724e86892aa42e0b1e31ad78aa9feeb1d7041af7e719176af891c923f",
+  "ai_model": "gemini-2.5-flash",
+  "conclusions": {
+    "estado_general": "critico",
+    "resumen_ejecutivo": "La versión actual de Abbaco se encuentra en un estado crítico, con tres secciones ('Analizar', 'Mis portafolios', 'Arbitraje') mostrando degradaciones significativas de hasta el 73.2% respecto a su P95 histórico. Además, la sección 'Calculadora' sigue operando sobre el umbral de rendimiento con 70.81s, y se han detectado degradaciones abruptas en acciones clave de 'Analizar' y 'Mis portafolios'.",
+    "escalar": {
+      "titulo": "Degradaciones críticas en Analizar y Mis portafolios, lentitud crónica en Calculadora",
+      "detalle": "La sección 'Analizar' se degradó un 73.2% (P95 actual 25.93s) y 'Mis portafolios' un 59.1% (P95 actual 16.19s) vs. histórico. La acción 'Simular inversiones de la especie AL30' en 'Calculadora' es persistentemente lenta (87.39s en 5 de 5 versiones)."
+    },
+    "investigar": {
+      "titulo": "Degradación abrupta en acciones de Analizar y posible sesgo por acciones removidas",
+      "detalle": "La acción 'Navegabilidad por los botones TIRs y Paridades Históricas de la especie BDC28' en 'Analizar' se degradó un 203.55% (de 8.68s a 26.36s) en la última versión. Además, la sección 'Analizar' discontinuó 12 de 34 acciones, lo que podría sesgar su P95."
+    },
+    "optimizar": {
+      "titulo": "Reducir el P95 de la sección Calculadora y acciones lentas",
+      "detalle": "La sección 'Calculadora' tiene un P95 de 70.81s, superando el umbral de rendimiento. La acción 'Simular inversiones de la especie AL30' es la más lenta con 87.39s y es persistentemente lenta."
+    },
+    "hallazgos": [
+      {
+        "tipo": "alerta",
+        "seccion": "Analizar",
+        "descripcion": "La sección 'Analizar' muestra una degradación severa del 73.2% (P95 de 14.97s a 25.93s) y un salto abrupto en la acción 'Navegabilidad por los botones TIRs y Paridades Históricas de la especie BDC28' (+203.55% a 26.36s). Además, su mejora aparente podría estar sesgada por la discontinuación de 12 de 34 acciones medidas en la versión anterior, incluyendo la acción 'PECMO' que se degradó un 1812.7% antes de ser removida.",
+        "evidencia": "P95 actual 25.93s, dropout_rate_pct 35.3%, acción BDC28 en 26.36s."
+      },
+      {
+        "tipo": "degradacion",
+        "seccion": "Mis portafolios",
+        "descripcion": "La sección 'Mis portafolios' presenta una degradación sostenida en las últimas 4 versiones, aumentando su P95 de 8.79s a 16.19s (+59.1% vs histórico). La acción 'Editar el portafolio' se degradó un 107.12% en la última versión.",
+        "evidencia": "P95 actual 16.19s, tendencia sostenida de 4 versiones."
+      },
+      {
+        "tipo": "degradacion",
+        "seccion": "Arbitraje",
+        "descripcion": "La sección 'Arbitraje' ha experimentado una degradación sostenida en las últimas 3 versiones, con su P95 aumentando de 11.34s a 17.47s (+29.4% vs histórico). La acción 'Arbitraje de las especies AL30 y TX28' se degradó un 42.08% en la última versión.",
+        "evidencia": "P95 actual 17.47s, tendencia sostenida de 3 versiones."
+      },
+      {
+        "tipo": "alerta",
+        "seccion": "Calculadora",
+        "descripcion": "Aunque la sección 'Calculadora' mejoró un 23.6% (P95 de 92.73s a 70.81s) respecto al histórico y un 23.8% vs versión anterior, sigue sobre el umbral de rendimiento. La acción 'Simular inversiones de la especie AL30' es persistentemente lenta (87.39s en 5 de 5 versiones).",
+        "evidencia": "P95 actual 70.81s, acción 'AL30' en 87.39s."
+      },
+      {
+        "tipo": "mejora",
+        "seccion": "Curvas",
+        "descripcion": "La sección 'Curvas' muestra una mejora significativa del 34.2% (P95 de 37.02s a 24.35s) respecto al histórico y un 37.4% vs versión anterior. Sin embargo, la acción 'Ingreso a la curva Mexico - Soberanos - Bonos Globales - USD' experimentó un salto abrupto del 218.8% en la versión anterior, alcanzando 78.77s.",
+        "evidencia": "P95 mejoró de 38.87s a 24.35s (+37.4%), pero acción 'Mexico' en 78.77s."
+      },
+      {
+        "tipo": "mejora",
+        "seccion": "Comparar",
+        "descripcion": "La sección 'Comparar' mejoró un 33.2% (P95 de 17.42s a 11.63s) respecto al histórico, con el 80% de sus acciones mejorando entre versiones.",
+        "evidencia": "P95 mejoró de 17.42s a 11.63s (+33.2%)."
+      }
+    ],
+    "causa_raiz": [
+      {
+        "seccion": "Analizar",
+        "hipotesis": [
+          "Cambios recientes en la lógica de carga o procesamiento de datos para bonos específicos (AL30, BDC28) que impactan la navegación histórica.",
+          "Problemas de rendimiento en la API o base de datos al consultar datos históricos de TIRs y Paridades para un volumen creciente de especies.",
+          "Regresión en la optimización del frontend para la renderización de tablas o gráficos complejos en esta sección."
+        ]
+      },
+      {
+        "seccion": "Mis portafolios",
+        "hipotesis": [
+          "Aumento en la complejidad de los cálculos al editar o agregar especies a los portafolios, posiblemente por validaciones o integraciones.",
+          "Ineficiencias en la persistencia o recuperación de datos de portafolios, especialmente al manejar múltiples especies.",
+          "Problemas de concurrencia o bloqueo en la base de datos al modificar portafolios."
+        ]
+      },
+      {
+        "seccion": "Arbitraje",
+        "hipotesis": [
+          "Mayor latencia en la obtención de precios en tiempo real o datos de mercado para las especies utilizadas en el arbitraje.",
+          "Algoritmos de cálculo de arbitraje más complejos o menos eficientes introducidos en versiones recientes.",
+          "Problemas de rendimiento en la interfaz de usuario al presentar los resultados del arbitraje, especialmente con muchas opciones."
+        ]
+      }
+    ],
+    "recomendaciones": [
+      {
+        "prioridad": "P1",
+        "accion": "Realizar un análisis exhaustivo de la acción 'Simular inversiones de la especie AL30' para identificar cuellos de botella en el procesamiento de datos o cálculos complejos.",
+        "seccion": "Calculadora",
+        "evidencia": "P95 actual de 87.39s, persistentemente lenta en 5 de 5 versiones."
+      },
+      {
+        "prioridad": "P1",
+        "accion": "Investigar la causa raíz de la degradación del 73.2% en la sección 'Analizar' y el salto del 203.55% en 'Navegabilidad por los botones TIRs y Paridades Históricas de la especie BDC28'.",
+        "seccion": "Analizar",
+        "evidencia": "P95 actual de 25.93s, y acción 'BDC28' en 26.36s."
+      },
+      {
+        "prioridad": "P1",
+        "accion": "Analizar la tendencia de degradación sostenida en 'Mis portafolios' y el impacto de la acción 'Editar el portafolio' que se degradó un 107.12%.",
+        "seccion": "Mis portafolios",
+        "evidencia": "P95 actual de 16.19s, con 4 versiones de degradación consecutiva."
+      },
+      {
+        "prioridad": "P2",
+        "accion": "Revisar la sección 'Arbitraje' para entender la degradación sostenida y el impacto de la acción 'Arbitraje de las especies AL30 y TX28'.",
+        "seccion": "Arbitraje",
+        "evidencia": "P95 actual de 17.47s, con 3 versiones de degradación consecutiva."
+      },
+      {
+        "prioridad": "P2",
+        "accion": "Validar la representatividad de las métricas de 'Analizar' tras la discontinuación del 35.3% de sus acciones, incluyendo 'Ingreso a la pestaña Condiciones de Emisión de la especie PECMO'.",
+        "seccion": "Analizar",
+        "evidencia": "12 de 34 acciones removidas, con P95 máx de 15.11s en las removidas."
+      }
+    ]
+  }
+}
