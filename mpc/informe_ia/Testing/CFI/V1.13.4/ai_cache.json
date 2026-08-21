@@ -1,0 +1,122 @@
+{
+  "hash": "d0b0527338191b8feb91e053aad564f753eacc6f5a32c6afcc66866d45b53cd3",
+  "ai_model": "gemini-2.5-flash",
+  "conclusions": {
+    "estado_general": "critico",
+    "resumen_ejecutivo": "La versión V1.13.4 de MPC presenta un estado crítico de rendimiento. La sección Agenda sufrió una degradación masiva del 408.5% en su P95, y Mis operaciones superó el umbral de alerta con 78.07s. Además, la sección Mi dinero muestra una mejora aparente debido a la discontinuación del 100% de sus acciones medidas.",
+    "escalar": {
+      "titulo": "Degradación crítica en Agenda y Mis Operaciones",
+      "detalle": "La sección Agenda degradó un 408.5% (de 10.35s a 52.61s) y Mis operaciones un 21.8% (de 64.12s a 78.07s), superando el umbral de alerta. Una acción en Agenda saltó de 12.85s a 60.35s (+369.6%)."
+    },
+    "investigar": {
+      "titulo": "Salto abrupto de rendimiento en acciones de Agenda",
+      "detalle": "La acción 'Primer ingreso: Tipo de instrumento Bonos, estado: Pendiente, fecha: 1 mes hacia' en Agenda pasó de 12.85s a 60.35s (+369.6%) en la versión V1.13.4, siendo la anomalía más llamativa."
+    },
+    "optimizar": {
+      "titulo": "Optimizar la sección Agenda para revertir la degradación masiva",
+      "detalle": "La sección Agenda presenta la mayor oportunidad de mejora, con una degradación del 408.5% y un P95 actual de 52.61s, además de una tendencia sostenida de empeoramiento."
+    },
+    "hallazgos": [
+      {
+        "tipo": "alerta",
+        "seccion": "Mi dinero",
+        "descripcion": "Mejora aparente en la sección 'Mi dinero' debido a la discontinuación de acciones lentas.",
+        "evidencia": "Se discontinuaron 3/3 acciones medidas en V1.12.4 (P95 máx removidas: 129.95s)."
+      },
+      {
+        "tipo": "alerta",
+        "seccion": "Agenda",
+        "descripcion": "Una acción clave en Agenda experimentó un salto abrupto de rendimiento en la versión actual.",
+        "evidencia": "La acción 'Primer ingreso: Tipo de instrumento Bonos, estado: Pendiente, fecha: 1 mes hacia' pasó de 12.85s a 60.35s (+369.6%) en V1.13.4."
+      },
+      {
+        "tipo": "degradacion",
+        "seccion": "Agenda",
+        "descripcion": "La sección Agenda muestra una degradación sostenida en su rendimiento a lo largo de las últimas versiones.",
+        "evidencia": "El P95 de la sección aumentó de 8.47s a 52.61s en 3 versiones consecutivas, con una degradación del 408.5% vs histórico."
+      },
+      {
+        "tipo": "degradacion",
+        "seccion": "Mis operaciones",
+        "descripcion": "La sección 'Mis operaciones' ha degradado su rendimiento y supera el umbral de alerta.",
+        "evidencia": "El P95 actual es de 78.07s (degradación del 21.8% vs histórico de 64.12s), superando el umbral de 60s."
+      },
+      {
+        "tipo": "degradacion",
+        "seccion": "Mis portfolios",
+        "descripcion": "La sección 'Mis portfolios' muestra una degradación significativa en su tiempo de respuesta.",
+        "evidencia": "El P95 actual es de 20.02s, lo que representa una degradación del 29.1% vs histórico de 15.51s."
+      },
+      {
+        "tipo": "mejora",
+        "seccion": "Mis depositarios",
+        "descripcion": "La sección 'Mis depositarios' muestra una mejora general, con un alto porcentaje de acciones optimizadas.",
+        "evidencia": "El P95 mejoró de 3.03s a 2.78s (+8.2%), y 17 de 28 acciones mejoraron, destacando 'Deseleccionar todas las cuentas del depositario Banco Nación' con +58.16% (2.03s a 0.85s)."
+      },
+      {
+        "tipo": "mejora",
+        "seccion": "Resultado",
+        "descripcion": "La sección 'Resultado' ha mejorado su rendimiento general.",
+        "evidencia": "El P95 mejoró de 41.51s a 37.47s (+9.7%), con la acción 'Cambio de esquema de valuación del portfolio Consolidado CFI a ARS - TC Oficial' mejorando de 83.91s a 29.95s (+64.3%)."
+      }
+    ],
+    "causa_raiz": [
+      {
+        "seccion": "Agenda",
+        "hipotesis": [
+          "Consultas a la base de datos ineficientes para filtrar operaciones de bonos con estado 'Pendiente' y rangos de fechas.",
+          "Alto volumen de datos de operaciones pendientes de bonos que se procesan o renderizan en la UI.",
+          "Dependencia de servicios externos lentos al cargar datos específicos de bonos o estados."
+        ]
+      },
+      {
+        "seccion": "Mis operaciones",
+        "hipotesis": [
+          "Consultas complejas o no optimizadas para la recuperación de grandes volúmenes de operaciones con filtros de tiempo extensos.",
+          "Procesamiento intensivo en el frontend o backend al aplicar filtros de 3 meses en el historial de operaciones.",
+          "Problemas de indexación en la base de datos para las tablas de operaciones financieras."
+        ]
+      },
+      {
+        "seccion": "Mis portfolios",
+        "hipotesis": [
+          "Aumento en la complejidad de los cálculos o agregaciones para la vista de detalle de portfolios.",
+          "Latencia en la carga de datos asociados a portfolios específicos, especialmente los consolidados.",
+          "Ineficiencias en el renderizado de la interfaz de usuario al mostrar la lista o el detalle de portfolios."
+        ]
+      }
+    ],
+    "recomendaciones": [
+      {
+        "prioridad": "P1",
+        "accion": "Investigar la causa raíz de la degradación masiva del 408.5% en la sección Agenda, especialmente las acciones relacionadas con 'Bonos, estado: Pendiente' que saltaron a más de 60s.",
+        "seccion": "Agenda",
+        "evidencia": "P95 de Agenda pasó de 10.35s a 52.61s (-408.5%), y la acción 'Primer ingreso: Tipo de instrumento Bonos, estado: Pendiente, fecha: 1 mes hacia' pasó de 12.85s a 60.35s (+369.6%)."
+      },
+      {
+        "prioridad": "P1",
+        "accion": "Optimizar el rendimiento de la sección 'Mis operaciones', que actualmente supera el umbral de alerta.",
+        "seccion": "Mis operaciones",
+        "evidencia": "P95 actual de 78.07s, superando el umbral de 60s y degradando un 21.8% vs histórico."
+      },
+      {
+        "prioridad": "P2",
+        "accion": "Realizar una auditoría de las acciones medidas en la sección 'Mi dinero' para entender la discontinuación del 100% de las acciones y su impacto en la percepción del rendimiento.",
+        "seccion": "Mi dinero",
+        "evidencia": "3/3 acciones medidas en V1.12.4 fueron discontinuadas, con un P95 máximo de 129.95s."
+      },
+      {
+        "prioridad": "P2",
+        "accion": "Analizar y corregir la degradación del 29.1% en el P95 de la sección 'Mis portfolios'.",
+        "seccion": "Mis portfolios",
+        "evidencia": "P95 de Mis portfolios pasó de 15.51s a 20.02s (-29.1%)."
+      },
+      {
+        "prioridad": "P3",
+        "accion": "Implementar un monitoreo más granular para detectar tendencias de degradación sostenidas en acciones individuales antes de que afecten el P95 de la sección.",
+        "seccion": "General",
+        "evidencia": "La sección Agenda mostró una tendencia sostenida de degradación en 3 versiones."
+      }
+    ]
+  }
+}
