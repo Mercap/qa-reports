@@ -1,0 +1,146 @@
+{
+  "hash": "a090b8810f2cd244c2cad1b90c96181d3930cb814a1e7e140840f078209a99f9",
+  "ai_model": "gemini-2.5-flash",
+  "conclusions": {
+    "estado_general": "critico",
+    "resumen_ejecutivo": "La versión V1.14.0 de MPC presenta un estado crítico de rendimiento. Tres de las cuatro secciones medidas (Agenda, Home, Mis depositarios) muestran degradaciones significativas, con Agenda experimentando un deterioro del 272.2% respecto a su histórico y un salto del 249.6% desde la versión anterior. Adicionalmente, cuatro secciones clave (Rendimiento, Mi dinero, Mis portfolios, Resultado) han perdido el 100% de su cobertura de pruebas, lo que impide evaluar su rendimiento actual.",
+    "escalar": {
+      "titulo": "Degradación crítica en Agenda y pérdida de monitoreo en 4 secciones clave",
+      "detalle": "La sección Agenda degradó 249.6% respecto a la versión anterior, alcanzando 41.04s, con acciones clave como 'Primer ingreso: Tipo de instrumento Bonos, estado: Pendiente' aumentando 150.3%. Además, 4 secciones (Rendimiento, Mi dinero, Mis portfolios, Resultado) perdieron el 100% de su cobertura de pruebas."
+    },
+    "investigar": {
+      "titulo": "Pérdida total de cobertura de pruebas en Rendimiento, Mi dinero, Mis portfolios y Resultado",
+      "detalle": "La anomalía más llamativa es la ausencia completa de mediciones para las secciones Rendimiento, Mi dinero, Mis portfolios y Resultado en la versión actual, con un 100% de acciones discontinuadas respecto a la V1.12.4."
+    },
+    "optimizar": {
+      "titulo": "Priorizar la optimización de la sección Agenda y sus acciones de 'Bonos Pendientes'",
+      "detalle": "La sección Agenda es la mayor oportunidad de mejora, con un P95 actual de 41.04s y una degradación del 272.2% vs histórico, impulsada por acciones como 'Primer ingreso: Tipo de instrumento Bonos, estado: Pendiente' que alcanza 74.62s."
+    },
+    "hallazgos": [
+      {
+        "tipo": "alerta",
+        "seccion": "Rendimiento",
+        "descripcion": "Mejora aparente — se discontinuaron 182/182 acciones medidas en V1.12.4 (P95 máx removidas: 21.6s). Además, la acción 'Primer ingreso al portfolio Total' fue discontinuada en V1.12.4 con un P95 de 21.6s y una degradación del 93.2%.",
+        "evidencia": "100% de dropout en V1.14.0; acción 'Primer ingreso al portfolio Total' P95 21.6s (+93.2%) en V1.12.4"
+      },
+      {
+        "tipo": "alerta",
+        "seccion": "Mi dinero",
+        "descripcion": "Mejora aparente — se discontinuaron 3/3 acciones medidas en V1.12.4 (P95 máx removidas: 129.95s).",
+        "evidencia": "100% de dropout en V1.14.0; P95 máx removidas: 129.95s"
+      },
+      {
+        "tipo": "alerta",
+        "seccion": "Mis portfolios",
+        "descripcion": "Mejora aparente — se discontinuaron 14/14 acciones medidas en V1.12.4 (P95 máx removidas: 20.41s).",
+        "evidencia": "100% de dropout en V1.14.0; P95 máx removidas: 20.41s"
+      },
+      {
+        "tipo": "alerta",
+        "seccion": "Resultado",
+        "descripcion": "Mejora aparente — se discontinuaron 31/31 acciones medidas en V1.12.4 (P95 máx removidas: 81.07s).",
+        "evidencia": "100% de dropout en V1.14.0; P95 máx removidas: 81.07s"
+      },
+      {
+        "tipo": "alerta",
+        "seccion": "Agenda",
+        "descripcion": "Degradación crítica y sostenida, con un salto abrupto en acciones clave. El P95 de la sección degradó de 11.74s a 41.04s (+249.6%) desde la versión anterior, y la acción 'Primer ingreso: Tipo de instrumento Bonos, estado: Pendiente' pasó de 29.81s a 74.62s (+150.3%) en V1.14.0.",
+        "evidencia": "P95 de sección degradó de 11.74s a 41.04s (+249.6%); acción 'Primer ingreso: Tipo de instrumento Bonos, estado: Pendiente' pasó de 29.81s a 74.62s (+150.3%) en V1.14.0"
+      },
+      {
+        "tipo": "mejora",
+        "seccion": "Mis operaciones",
+        "descripcion": "La sección Mis operaciones mejoró significativamente su P95 de 76.09s a 52.0s (+31.7%) respecto a la versión anterior.",
+        "evidencia": "P95 mejoró de 76.09s a 52.0s (+31.7%)"
+      },
+      {
+        "tipo": "degradacion",
+        "seccion": "Home",
+        "descripcion": "La sección Home experimentó una degradación del 24.4% en su P95, pasando de 22.1s a 27.5s.",
+        "evidencia": "P95 degradó de 22.1s a 27.5s (-24.4%)"
+      }
+    ],
+    "causa_raiz": [
+      {
+        "seccion": "Agenda",
+        "hipotesis": [
+          "Cambios en la lógica de filtrado o carga de datos para 'Bonos Pendientes' que involucran consultas más complejas o mayor volumen de datos.",
+          "Problemas de rendimiento en el backend o la base de datos al recuperar información de operaciones programadas con filtros de tiempo específicos.",
+          "Regresión en la optimización de componentes de UI que manejan grandes tablas o listas de elementos en la sección Agenda."
+        ]
+      },
+      {
+        "seccion": "Home",
+        "hipotesis": [
+          "Aumento en la complejidad o cantidad de datos cargados en los portfolios destacados o accesos directos.",
+          "Problemas de rendimiento en la inicialización de widgets o componentes de terceros en la vista principal."
+        ]
+      },
+      {
+        "seccion": "Mis depositarios",
+        "hipotesis": [
+          "Ineficiencias en la carga o actualización de la lista de cuentas y depositarios, especialmente al seleccionar una cuenta específica.",
+          "Problemas de concurrencia o bloqueo en el acceso a datos de configuración de cuentas."
+        ]
+      },
+      {
+        "seccion": "Rendimiento",
+        "hipotesis": [
+          "Error en la configuración de las pruebas de Cypress que impide la ejecución de los flujos para esta sección.",
+          "Cambios estructurales en la aplicación que eliminaron o renombraron las rutas/elementos de UI que Cypress intentaba medir.",
+          "Problemas de despliegue o disponibilidad de esta sección en el ambiente de testing."
+        ]
+      },
+      {
+        "seccion": "Mi dinero",
+        "hipotesis": [
+          "Error en la configuración de las pruebas de Cypress que impide la ejecución de los flujos para esta sección.",
+          "Cambios estructurales en la aplicación que eliminaron o renombraron las rutas/elementos de UI que Cypress intentaba medir.",
+          "Problemas de despliegue o disponibilidad de esta sección en el ambiente de testing."
+        ]
+      },
+      {
+        "seccion": "Mis portfolios",
+        "hipotesis": [
+          "Error en la configuración de las pruebas de Cypress que impide la ejecución de los flujos para esta sección.",
+          "Cambios estructurales en la aplicación que eliminaron o renombraron las rutas/elementos de UI que Cypress intentaba medir.",
+          "Problemas de despliegue o disponibilidad de esta sección en el ambiente de testing."
+        ]
+      },
+      {
+        "seccion": "Resultado",
+        "hipotesis": [
+          "Error en la configuración de las pruebas de Cypress que impide la ejecución de los flujos para esta sección.",
+          "Cambios estructurales en la aplicación que eliminaron o renombraron las rutas/elementos de UI que Cypress intentaba medir.",
+          "Problemas de despliegue o disponibilidad de esta sección en el ambiente de testing."
+        ]
+      }
+    ],
+    "recomendaciones": [
+      {
+        "prioridad": "P1",
+        "accion": "Investigar y resolver la degradación crítica en la sección Agenda, priorizando las acciones de 'Bonos Pendientes' que muestran los mayores saltos.",
+        "seccion": "Agenda",
+        "evidencia": "P95 de la sección degradó 249.6% y acción clave 'Primer ingreso: Tipo de instrumento Bonos, estado: Pendiente' aumentó 150.3%."
+      },
+      {
+        "prioridad": "P1",
+        "accion": "Restaurar la cobertura de pruebas para las secciones Rendimiento, Mi dinero, Mis portfolios y Resultado, investigando la causa del 100% de dropout.",
+        "seccion": "General",
+        "evidencia": "4 secciones con 100% de acciones discontinuadas en V1.14.0."
+      },
+      {
+        "prioridad": "P2",
+        "accion": "Analizar la degradación del 24.4% en la sección Home y del 44.8% en Mis depositarios para identificar cuellos de botella y oportunidades de optimización.",
+        "seccion": "Home, Mis depositarios",
+        "evidencia": "Home P95 degradó 24.4% a 27.5s; Mis depositarios P95 degradó 44.8% a 4.34s."
+      },
+      {
+        "prioridad": "P3",
+        "accion": "Monitorear la sección Mis operaciones para asegurar que la mejora del 31.7% sea sostenida en futuras versiones.",
+        "seccion": "Mis operaciones",
+        "evidencia": "P95 mejoró de 76.09s a 52.0s (+31.7%)."
+      }
+    ]
+  }
+}
