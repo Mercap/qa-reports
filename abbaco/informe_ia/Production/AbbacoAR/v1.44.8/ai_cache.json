@@ -1,0 +1,116 @@
+{
+  "hash": "ed79cba20b9bbeb11a3fbe0bf47033d2d70d7d48de04c9c68a73976756791956",
+  "ai_model": "gemini-2.5-flash",
+  "conclusions": {
+    "estado_general": "atencion",
+    "resumen_ejecutivo": "La versión actual v1.44.8 muestra una mejora general con 7 de 9 secciones mejorando su P95 histórico. Sin embargo, la sección 'Arbitraje' experimentó una degradación significativa del 37.0% vs histórico y una tendencia sostenida a la baja en las últimas 4 versiones. Además, la acción 'Simular inversiones de la especie AL30' en 'Calculadora' sigue siendo persistentemente lenta, superando el umbral en 5 de 5 versiones.",
+    "escalar": {
+      "titulo": "Degradación sostenida en Arbitraje y lentitud crónica en Calculadora",
+      "detalle": "La sección 'Arbitraje' ha degradado su P95 en 4 versiones consecutivas, alcanzando 19.76s. Adicionalmente, la acción 'Simular inversiones de la especie AL30' en 'Calculadora' es persistentemente lenta con un P95 de 74.17s, superando el umbral en 5 de 5 versiones."
+    },
+    "investigar": {
+      "titulo": "Degradación abrupta de la acción 'Ingreso a la pestaña \"Soberanos\"' en Curvas",
+      "detalle": "La acción 'Ingreso a la pestaña \"Soberanos\"' en la sección 'Curvas' sufrió una degradación del 192.79% vs la versión anterior, pasando de 1.6s a 4.69s, lo que es una regresión muy marcada."
+    },
+    "optimizar": {
+      "titulo": "Optimizar la acción 'Simular inversiones de la especie AL30' en Calculadora",
+      "detalle": "La acción 'Simular inversiones de la especie AL30' en 'Calculadora' es la más lenta del sistema con un P95 de 74.17s y ha sido persistentemente lenta en 5 de 5 versiones, representando la mayor oportunidad de mejora en UX."
+    },
+    "hallazgos": [
+      {
+        "tipo": "alerta",
+        "seccion": "Arbitraje",
+        "descripcion": "La sección 'Arbitraje' muestra una degradación sostenida en 4 versiones consecutivas, con un P95 actual de 19.76s (-37.0% vs histórico).",
+        "evidencia": "P95 actual: 19.76s, degradación sostenida en 4 versiones desde v1.44.5."
+      },
+      {
+        "tipo": "alerta",
+        "seccion": "Calculadora",
+        "descripcion": "La sección 'Calculadora' mejoró un 35.3% vs histórico y un 21.0% vs versión anterior, pero la acción 'Simular inversiones de la especie AL30' es persistentemente lenta.",
+        "evidencia": "P95 mejoró de 92.73s a 59.99s (+35.3% vs histórico), pero la acción 'Simular inversiones de la especie AL30' tiene un P95 de 74.17s y ha estado sobre el umbral en 5 de 5 versiones."
+      },
+      {
+        "tipo": "alerta",
+        "seccion": "Curvas",
+        "descripcion": "La sección 'Curvas' mejoró un 23.1% vs histórico y un 24.3% vs versión anterior, pero la acción 'Ingreso a la pestaña \"Soberanos\"' se degradó críticamente.",
+        "evidencia": "P95 mejoró de 44.24s a 33.5s (+24.3% vs versión anterior), pero la acción 'Ingreso a la pestaña \"Soberanos\"' se degradó de 1.6s a 4.69s (+192.79%) vs versión anterior."
+      },
+      {
+        "tipo": "mejora",
+        "seccion": "Analizar",
+        "descripcion": "La sección 'Analizar' muestra una recuperación significativa en el 45.5% de sus acciones medidas.",
+        "evidencia": "10 de 22 acciones mejoraron, destacando 'Navegabilidad por los botones TIRs y Paridades Históricas de la especie BDC28' con una mejora del 83.27% vs versión anterior."
+      },
+      {
+        "tipo": "mejora",
+        "seccion": "Mis portafolios",
+        "descripcion": "La sección 'Mis portafolios' experimentó una mejora en el 50.0% de sus acciones medidas.",
+        "evidencia": "5 de 10 acciones mejoraron, destacando 'Eliminar el portafolio' con una mejora del 67.34% vs versión anterior."
+      },
+      {
+        "tipo": "mejora",
+        "seccion": "Screener",
+        "descripcion": "La sección 'Screener' mostró una mejora notable en su P95 vs la versión anterior.",
+        "evidencia": "P95 mejoró de 3.98s a 2.93s (+26.3%) vs versión anterior."
+      }
+    ],
+    "causa_raiz": [
+      {
+        "seccion": "Arbitraje",
+        "hipotesis": [
+          "Podría deberse a un aumento en la complejidad de los cálculos o el volumen de datos procesados para las operaciones de arbitraje.",
+          "Revisar si hay ineficiencias en la carga de datos o en la lógica de presentación de las pestañas de navegación (Paridad, Inversión y Scatter).",
+          "Posibles problemas de concurrencia o bloqueos en la base de datos al acceder a información de paridad/inversión."
+        ]
+      },
+      {
+        "seccion": "Curvas",
+        "hipotesis": [
+          "Revisar si hubo cambios recientes en la estructura de datos o en la API que alimenta la pestaña 'Soberanos'.",
+          "Podría ser causado por la carga de un volumen de datos mucho mayor o más complejo específicamente en la pestaña 'Soberanos'.",
+          "Investigar una posible regresión en el código de renderizado o en la lógica de filtrado/ordenamiento de los bonos soberanos."
+        ]
+      },
+      {
+        "seccion": "Analizar",
+        "hipotesis": [
+          "Podría haber problemas en la recuperación de datos históricos para la especie TX28, afectando los botones de TIRs y Paridades Históricas.",
+          "Revisar si existen ineficiencias en la lógica de cálculo o visualización de TIRs y paridades históricas para esta especie.",
+          "Posible aumento en la latencia de la API que provee los datos específicos para los botones de TIRs y Paridades Históricas."
+        ]
+      }
+    ],
+    "recomendaciones": [
+      {
+        "prioridad": "P1",
+        "accion": "Investigar y optimizar la acción 'Simular inversiones de la especie AL30', ya que ha estado sobre el umbral en 5 de 5 versiones.",
+        "seccion": "Calculadora",
+        "evidencia": "P95 actual de 74.17s para 'Simular inversiones de la especie AL30'."
+      },
+      {
+        "prioridad": "P1",
+        "accion": "Realizar un análisis de causa raíz para la degradación sostenida de la sección 'Arbitraje' y la acción 'Navegabilidad entre las pestañas Paridad, Inversión y Scatter'.",
+        "seccion": "Arbitraje",
+        "evidencia": "Degradación del 37.0% vs histórico y 70.47% vs versión anterior para la acción mencionada."
+      },
+      {
+        "prioridad": "P1",
+        "accion": "Investigar la regresión crítica en la acción 'Ingreso a la pestaña \"Soberanos\"' de la sección 'Curvas'.",
+        "seccion": "Curvas",
+        "evidencia": "Degradación del 192.79% vs versión anterior (de 1.6s a 4.69s)."
+      },
+      {
+        "prioridad": "P2",
+        "accion": "Analizar la degradación de la acción 'Navegabilidad por los botones TIRs y Paridades Históricas de la especie TX28'.",
+        "seccion": "Analizar",
+        "evidencia": "Aumento del 101.97% vs versión anterior (de 8.03s a 16.21s)."
+      },
+      {
+        "prioridad": "P3",
+        "accion": "Continuar monitoreando las secciones 'Analizar', 'Mis portafolios' y 'Screener' para consolidar las mejoras recientes.",
+        "seccion": "General",
+        "evidencia": "Estas secciones mostraron mejoras significativas del 45.5%, 50.0% y 26.3% respectivamente en sus acciones o P95."
+      }
+    ]
+  }
+}
