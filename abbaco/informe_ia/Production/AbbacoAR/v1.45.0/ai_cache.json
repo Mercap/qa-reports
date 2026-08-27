@@ -1,145 +1,129 @@
 {
-  "hash": "54f2f0819567b852f71d467731b681db1cd766cf3c43941411c81ff0d115ba3e",
+  "hash": "a98a7f7f4d72d9af6bb84d6be226b76f0c491733836fa4f05e105861996e03a5",
   "ai_model": "gemini-2.5-flash",
   "conclusions": {
     "estado_general": "critico",
-    "resumen_ejecutivo": "La versión v1.45.0 de Abbaco presenta un estado crítico de rendimiento, con 4 secciones mostrando degradaciones superiores al 15% respecto al histórico, destacándose 'Screener' (-67.8%) y 'Comparar' (-48.6%). Además, la sección 'Calculadora' mantiene un P95 de 93.66s, y se observan saltos abruptos de rendimiento en acciones clave de 'Mis portafolios' (+1080.4%) y 'Curvas' (+302.34%) en la última versión.",
+    "resumen_ejecutivo": "La plataforma Abbaco en la versión v1.45.0 se encuentra en un estado crítico, con 4 secciones mostrando degradaciones significativas de rendimiento frente a su histórico, destacándose 'Screener' (-62.9%) y 'Comparar' (-43.9%). La sección 'Calculadora' presenta un P95 de 93.25s, superando el umbral de rendimiento, y una de sus acciones clave es persistentemente lenta en 5 de 5 versiones medidas. Además, se observa una degradación masiva del 1002.7% en una acción de 'Mis portafolios'.",
     "escalar": {
-      "titulo": "Degradaciones críticas y lentitud crónica en secciones clave",
-      "detalle": "La acción 'Navegabilidad entre las pestañas Proyección y Agenda de pagos en el portafolio' en 'Mis portafolios' sufrió una degradación del 1080.4% (de 2.6s a 30.69s) en la última versión. Además, 'Simular inversiones de la especie AL30' en 'Calculadora' es persistentemente lenta, superando el umbral en 5 de 5 versiones con un P95 actual de 95.22s."
+      "titulo": "Degradaciones críticas en Mis portafolios, Calculadora y Screener",
+      "detalle": "La acción 'Navegabilidad entre las pestañas Proyección y Agenda de pagos en el portafolio' en Mis portafolios sufrió una degradación del 1002.7% (de 2.6s a 28.67s). Además, la acción 'Simular inversiones de la especie AL30' en Calculadora es persistentemente lenta, superando el umbral en 5 de 5 versiones medidas (P95 actual de 95.16s). La sección Screener degradó 128.7% vs la versión anterior."
     },
     "investigar": {
-      "titulo": "Salto abrupto de rendimiento en Mis portafolios y Curvas",
-      "detalle": "La acción 'Navegabilidad entre las pestañas Proyección y Agenda de pagos en el portafolio' en 'Mis portafolios' experimentó un salto de 2.6s a 30.69s (+1080.4%) en la versión v1.45.0. También, 'Ingreso a la curva Estados Unidos - Soberanos - Treasury Notes/Bonds - USD' en 'Curvas' se degradó un 302.34% (de 7.66s a 30.81s) en la misma transición."
+      "titulo": "Salto abrupto de rendimiento en Mis portafolios",
+      "detalle": "La acción 'Navegabilidad entre las pestañas Proyección y Agenda de pagos en el portafolio' en la sección Mis portafolios experimentó una degradación masiva del 1002.7%, pasando de 2.6s a 28.67s en la versión v1.45.0."
     },
     "optimizar": {
-      "titulo": "Optimizar la sección Calculadora y acciones críticas",
-      "detalle": "La sección 'Calculadora' tiene un P95 de 93.66s y la acción 'Simular inversiones de la especie AL30' es persistentemente lenta (95.22s). Reducir estos tiempos mejoraría significativamente la experiencia de usuario."
+      "titulo": "Mejorar la sección Calculadora y acciones específicas de Curvas",
+      "detalle": "La sección Calculadora presenta el P95 más alto (93.25s) y una acción clave ('Simular inversiones de la especie AL30') es persistentemente lenta. Adicionalmente, la acción 'Ingreso a la curva Estados Unidos - Soberanos - Treasury Notes/Bonds - USD' en Curvas degradó 278.83% vs la versión anterior, a pesar de la mejora general de la sección."
     },
     "hallazgos": [
       {
         "tipo": "alerta",
         "seccion": "Mis portafolios",
-        "descripcion": "La acción 'Navegabilidad entre las pestañas Proyección y Agenda de pagos en el portafolio' sufrió una degradación crítica en la última versión.",
-        "evidencia": "P95 pasó de 2.6s a 30.69s (+1080.4%) en v1.45.0."
+        "descripcion": "Una acción clave sufrió una degradación masiva en la navegación.",
+        "evidencia": "La acción 'Navegabilidad entre las pestañas Proyección y Agenda de pagos en el portafolio' degradó 1002.7%, pasando de 2.6s a 28.67s en v1.45.0."
       },
       {
         "tipo": "alerta",
         "seccion": "Calculadora",
-        "descripcion": "La acción 'Simular inversiones de la especie AL30' es persistentemente lenta y supera el umbral de rendimiento.",
-        "evidencia": "5 de 5 versiones sobre el umbral, P95 actual 95.22s."
-      },
-      {
-        "tipo": "alerta",
-        "seccion": "Curvas",
-        "descripcion": "La acción 'Ingreso a la curva Estados Unidos - Soberanos - Treasury Notes/Bonds - USD' experimentó una degradación significativa en la última versión.",
-        "evidencia": "P95 pasó de 7.66s a 30.81s (+302.34%) en v1.45.0."
-      },
-      {
-        "tipo": "alerta",
-        "seccion": "Screener",
-        "descripcion": "La sección 'Screener' se degradó considerablemente tanto respecto al histórico como a la versión anterior.",
-        "evidencia": "P95 degradó de 2.93s a 6.91s (+135.5%) en la última versión y un 67.8% vs histórico."
-      },
-      {
-        "tipo": "alerta",
-        "seccion": "Comparar",
-        "descripcion": "La sección 'Comparar' muestra una degradación importante en su rendimiento.",
-        "evidencia": "P95 degradó de 13.56s a 21.58s (+59.1%) en la última versión y un 48.6% vs histórico."
+        "descripcion": "Una acción crítica es persistentemente lenta y la sección supera el umbral de rendimiento.",
+        "evidencia": "La acción 'Simular inversiones de la especie AL30' ha superado el umbral en 5 de 5 versiones (P95 actual: 95.16s). La sección Calculadora tiene un P95 de 93.25s, degradando 55.4% vs la versión anterior."
       },
       {
         "tipo": "alerta",
         "seccion": "Arbitraje",
-        "descripcion": "La sección 'Arbitraje' y una de sus acciones clave se degradaron significativamente en la última versión.",
-        "evidencia": "La sección degradó un 22.9% vs histórico, y la acción 'Arbitraje de las especies AL30 y TX28' pasó de 10.51s a 24.65s (+134.5%) en v1.45.0."
+        "descripcion": "Una acción de arbitraje experimentó una degradación significativa.",
+        "evidencia": "La acción 'Arbitraje de las especies AL30 y TX28' degradó 126.3%, pasando de 10.51s a 23.78s en v1.45.0."
       },
       {
-        "tipo": "mejora",
+        "tipo": "degradacion",
+        "seccion": "Screener",
+        "descripcion": "La sección Screener sufrió una fuerte degradación en la versión actual.",
+        "evidencia": "El P95 de Screener degradó 62.9% vs histórico (de 4.12s a 6.71s) y 128.7% vs la versión anterior."
+      },
+      {
+        "tipo": "degradacion",
+        "seccion": "Comparar",
+        "descripcion": "La sección Comparar muestra una degradación considerable.",
+        "evidencia": "El P95 de Comparar degradó 43.9% vs histórico (de 14.52s a 20.89s) y 54.1% vs la versión anterior."
+      },
+      {
+        "tipo": "degradacion",
         "seccion": "Curvas",
-        "descripcion": "La sección 'Curvas' muestra una mejora sustancial en su rendimiento general.",
-        "evidencia": "P95 mejoró de 33.5s a 16.15s (+51.8%) en la última versión y un 62.9% vs histórico."
+        "descripcion": "A pesar de la mejora general de la sección, una acción específica degradó drásticamente.",
+        "evidencia": "La sección Curvas mejoró 64.3% vs histórico (de 43.54s a 15.54s), pero la acción 'Ingreso a la curva Estados Unidos - Soberanos - Treasury Notes/Bonds - USD' degradó 278.83% vs la versión anterior."
+      },
+      {
+        "tipo": "degradacion",
+        "seccion": "Graficador",
+        "descripcion": "La sección Graficador experimentó una regresión de rendimiento.",
+        "evidencia": "El P95 de Graficador degradó 26.6% vs la versión anterior, pasando de 6.61s a 8.37s."
       }
     ],
     "causa_raiz": [
       {
         "seccion": "Mis portafolios",
         "hipotesis": [
-          "Cambios recientes en la lógica de carga de datos o componentes de UI para las pestañas de proyección/agenda.",
-          "Aumento en la complejidad o volumen de datos que se procesan al navegar entre estas pestañas.",
-          "Problemas de rendimiento en las consultas a la base de datos o APIs que alimentan estas vistas."
+          "Revisar cambios en la lógica de carga de datos o componentes de UI en las pestañas 'Proyección' y 'Agenda de pagos'.",
+          "Investigar si hay nuevas consultas a la base de datos o APIs lentas al cambiar entre estas pestañas.",
+          "Analizar la complejidad del renderizado de los datos del portafolio, especialmente si hay un aumento en el volumen de información mostrada."
         ]
       },
       {
         "seccion": "Calculadora",
         "hipotesis": [
-          "Algoritmos de simulación complejos o ineficientes para la especie AL30.",
-          "Dependencia de servicios externos lentos o con alta latencia para cálculos.",
-          "Carga excesiva de datos históricos o de mercado al iniciar la simulación."
+          "Evaluar la complejidad de los cálculos de simulación para la especie AL30, buscando optimizaciones algorítmicas o de infraestructura.",
+          "Verificar si hay dependencias externas o servicios de cálculo que estén experimentando latencia o sobrecarga.",
+          "Analizar el impacto de la carga de datos históricos o de mercado en tiempo real para las simulaciones."
         ]
       },
       {
         "seccion": "Screener",
         "hipotesis": [
-          "Ineficiencias en la carga inicial de filtros o datos del Screener.",
-          "Cambios en la infraestructura de backend que impactan la velocidad de consulta.",
-          "Mayor volumen de datos a procesar o renderizar en la interfaz del Screener."
+          "Investigar si la consulta inicial o el filtrado de bonos en el Screener se ha vuelto más complejo o ineficiente.",
+          "Revisar la indexación de la base de datos o la eficiencia de las APIs que alimentan los datos del Screener.",
+          "Considerar el impacto de un mayor volumen de datos de bonos o criterios de búsqueda más complejos."
         ]
       },
       {
         "seccion": "Comparar",
         "hipotesis": [
-          "Ineficiencias en la lógica de comparación de especies o en la carga de datos para los gráficos.",
-          "Problemas de rendimiento en el componente de visualización de gráficos.",
-          "Consultas a la base de datos o APIs que se han vuelto más lentas."
-        ]
-      },
-      {
-        "seccion": "Arbitraje",
-        "hipotesis": [
-          "Cambios en los algoritmos de cálculo de arbitraje o en la forma en que se presentan los resultados.",
-          "Dependencia de servicios de datos de mercado con mayor latencia.",
-          "Ineficiencias en la carga de datos para las especies AL30 y TX28."
-        ]
-      },
-      {
-        "seccion": "Curvas",
-        "hipotesis": [
-          "Problemas específicos en la carga de datos para la curva 'Estados Unidos - Soberanos - Treasury Notes/Bonds - USD'.",
-          "Ineficiencias en el procesamiento o renderizado de datos para curvas con gran volumen.",
-          "Dependencia de un servicio externo que provee los datos para esta curva y que ha experimentado degradación."
+          "Analizar la eficiencia de las consultas que recuperan datos para la comparativa de especies, especialmente si se agregaron nuevas métricas.",
+          "Revisar la lógica de renderizado de los gráficos y tablas comparativas, buscando cuellos de botella en el frontend.",
+          "Evaluar el impacto de la cantidad de datos históricos o de mercado que se cargan para cada especie al realizar una comparativa."
         ]
       }
     ],
     "recomendaciones": [
       {
         "prioridad": "P1",
-        "accion": "Realizar un análisis de causa raíz urgente para la acción 'Navegabilidad entre las pestañas Proyección y Agenda de pagos en el portafolio', enfocándose en la optimización de consultas y renderizado de UI.",
+        "accion": "Investigar y resolver la degradación crítica de la acción 'Navegabilidad entre las pestañas Proyección y Agenda de pagos en el portafolio'.",
         "seccion": "Mis portafolios",
-        "evidencia": "Degradación de 2.6s a 30.69s (+1080.4%) en v1.45.0."
+        "evidencia": "Degradación del 1002.7% (de 2.6s a 28.67s) en v1.45.0."
       },
       {
         "prioridad": "P1",
-        "accion": "Priorizar la optimización de la acción 'Simular inversiones de la especie AL30' en 'Calculadora', investigando la eficiencia de los algoritmos de simulación y la carga de datos.",
+        "accion": "Priorizar la optimización de la acción 'Simular inversiones de la especie AL30' y la sección Calculadora en general.",
         "seccion": "Calculadora",
-        "evidencia": "5 de 5 versiones sobre el umbral, P95 actual 95.22s."
-      },
-      {
-        "prioridad": "P1",
-        "accion": "Investigar la degradación de la acción 'Ingreso a la curva Estados Unidos - Soberanos - Treasury Notes/Bonds - USD' en 'Curvas', revisando la carga de datos y el procesamiento específico de esta curva.",
-        "seccion": "Curvas",
-        "evidencia": "Degradación de 7.66s a 30.81s (+302.34%) en v1.45.0."
+        "evidencia": "Acción persistentemente lenta (5 de 5 versiones sobre umbral, P95 actual: 95.16s). Sección con P95 de 93.25s y degradación del 55.4% vs versión anterior."
       },
       {
         "prioridad": "P2",
-        "accion": "Auditar el rendimiento de las secciones 'Screener' y 'Comparar', identificando cuellos de botella en la carga de datos y la interacción con la UI.",
-        "seccion": "Screener, Comparar",
-        "evidencia": "Screener degradó 67.8% vs histórico y 135.5% vs anterior; Comparar degradó 48.6% vs histórico y 59.1% vs anterior."
+        "accion": "Realizar un análisis de rendimiento detallado en la sección Screener para identificar la causa de la degradación.",
+        "seccion": "Screener",
+        "evidencia": "Degradación del 62.9% vs histórico y 128.7% vs versión anterior."
+      },
+      {
+        "prioridad": "P2",
+        "accion": "Revisar la acción 'Ingreso a la curva Estados Unidos - Soberanos - Treasury Notes/Bonds - USD' en Curvas para mitigar su degradación.",
+        "seccion": "Curvas",
+        "evidencia": "Degradación del 278.83% vs la versión anterior, a pesar de la mejora general de la sección."
       },
       {
         "prioridad": "P3",
-        "accion": "Continuar monitoreando las mejoras en la sección 'Curvas' y replicar las optimizaciones exitosas en otras áreas de la plataforma.",
-        "seccion": "General",
-        "evidencia": "La sección 'Curvas' mejoró de 43.54s a 16.15s (+62.9%) vs histórico."
+        "accion": "Investigar la degradación de la sección Comparar y la acción 'Arbitraje de las especies AL30 y TX28' en Arbitraje.",
+        "seccion": "Comparar, Arbitraje",
+        "evidencia": "Comparar degradó 43.9% vs histórico; Arbitraje de especies degradó 126.3% (10.51s a 23.78s)."
       }
     ]
   }
