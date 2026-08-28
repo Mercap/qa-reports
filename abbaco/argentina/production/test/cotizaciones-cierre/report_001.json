@@ -1,24 +1,24 @@
 {
   "stats": {
     "suites": 1,
-    "tests": 4,
-    "passes": 2,
-    "pending": 2,
-    "failures": 0,
-    "start": "2026-08-28T12:52:00.915Z",
-    "end": "2026-08-28T12:55:51.442Z",
-    "duration": 230527,
+    "tests": 3,
+    "passes": 1,
+    "pending": 1,
+    "failures": 1,
+    "start": "2026-08-28T15:01:33.547Z",
+    "end": "2026-08-28T15:02:33.118Z",
+    "duration": 59571,
     "testsRegistered": 27,
-    "passPercent": 8,
-    "pendingPercent": 7.4074074074074066,
-    "other": 1,
-    "hasOther": true,
-    "skipped": 22,
+    "passPercent": 3.8461538461538463,
+    "pendingPercent": 3.7037037037037033,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 24,
     "hasSkipped": true
   },
   "results": [
     {
-      "uuid": "19b5e433-efb8-47f0-9e0d-c07ca8142563",
+      "uuid": "a07f7f58-f367-4cfa-9977-0525e78e1373",
       "title": "",
       "fullFile": "build/production/argentina/cotizaciones-cierre/02_check-closing-quotes-abbaco-arg.cy.js",
       "file": "build/production/argentina/cotizaciones-cierre/02_check-closing-quotes-abbaco-arg.cy.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "080db60e-bdcc-4283-974f-99402c4e9a89",
+          "uuid": "0b1992d7-0348-4246-8c9b-35c9887158fc",
           "title": "Validación de las cotizaciones ByMA en el front de Abbaco Argentina",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "Ingresar y hacer login en el front de Abbaco",
               "fullTitle": "Validación de las cotizaciones ByMA en el front de Abbaco Argentina Ingresar y hacer login en el front de Abbaco",
               "timedOut": null,
-              "duration": 32596,
+              "duration": 33022,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -47,8 +47,8 @@
               "context": null,
               "code": "cy.visit(_support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].ABBACO_LOCATION);",
               "err": {},
-              "uuid": "6dadfab1-f1d6-4de1-830e-193ee15893bb",
-              "parentUUID": "080db60e-bdcc-4283-974f-99402c4e9a89",
+              "uuid": "616b8a3a-2a62-4fae-bb87-85967d141421",
+              "parentUUID": "0b1992d7-0348-4246-8c9b-35c9887158fc",
               "isHook": false,
               "skipped": false
             },
@@ -56,17 +56,21 @@
               "title": "Validar en Abbaco que la cotización de cierre del bono AL30 sea la correcta",
               "fullTitle": "Validación de las cotizaciones ByMA en el front de Abbaco Argentina Validar en Abbaco que la cotización de cierre del bono AL30 sea la correcta",
               "timedOut": null,
-              "duration": 11155,
-              "state": "passed",
-              "speed": "slow",
-              "pass": true,
-              "fail": false,
+              "duration": 4059,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
               "pending": false,
               "context": null,
               "code": "cy.guardarCotizacionCierreDesdeAPI(_support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].HARD_DOLLAR);\ncy.validarCotizacionAbbaco(_support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].HARD_DOLLAR);",
-              "err": {},
-              "uuid": "d0bdf4bb-d3c8-4e0a-a441-093547e05ba0",
-              "parentUUID": "080db60e-bdcc-4283-974f-99402c4e9a89",
+              "err": {
+                "message": "Error: ❌ La cotización de AL30 en Abbaco \"85170.0085\" no coincide con la de Pepper \"85190\"",
+                "estack": "Error: ❌ La cotización de AL30 en Abbaco \"85170.0085\" no coincide con la de Pepper \"85190\"\n    at Context.eval (webpack://cypress/./cypress/support/commands.js:1655:0)\n    at getRet (https://bonds.mercapabbaco.com/__cypress/runner/cypress_runner.js:122690:20)\n    at tryCatcher (https://bonds.mercapabbaco.com/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise.attempt.Promise.try (https://bonds.mercapabbaco.com/__cypress/runner/cypress_runner.js:4285:29)\n    at Context.thenFn (https://bonds.mercapabbaco.com/__cypress/runner/cypress_runner.js:122701:66)\n    at Context.then (https://bonds.mercapabbaco.com/__cypress/runner/cypress_runner.js:122952:21)\n    at wrapped (https://bonds.mercapabbaco.com/__cypress/runner/cypress_runner.js:146050:19)\n    at <unknown> (https://bonds.mercapabbaco.com/__cypress/runner/cypress_runner.js:152018:15)\n    at tryCatcher (https://bonds.mercapabbaco.com/__cypress/runner/cypress_runner.js:1777:23)",
+                "diff": null
+              },
+              "uuid": "728e4ead-167f-453f-92f3-5a23cd011ea7",
+              "parentUUID": "0b1992d7-0348-4246-8c9b-35c9887158fc",
               "isHook": false,
               "skipped": false
             },
@@ -74,21 +78,17 @@
               "title": "Validar en Abbaco que el bono AL30 tenga volúmen según la fecha de su último precio de cierre",
               "fullTitle": "Validación de las cotizaciones ByMA en el front de Abbaco Argentina Validar en Abbaco que el bono AL30 tenga volúmen según la fecha de su último precio de cierre",
               "timedOut": null,
-              "duration": 90493,
-              "state": "failed",
+              "duration": 0,
+              "state": "pending",
               "speed": null,
               "pass": false,
-              "fail": true,
-              "pending": false,
+              "fail": false,
+              "pending": true,
               "context": null,
               "code": "cy.validarFechaVelaVolumen(_support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].HARD_DOLLAR);",
-              "err": {
-                "message": "AssertionError: Timed out retrying after 90000ms: No se encontró ninguna vela/barra que coincida con la fecha del popup: expected false to be true",
-                "estack": "AssertionError: Timed out retrying after 90000ms: No se encontró ninguna vela/barra que coincida con la fecha del popup: expected false to be true\n    at Context.eval (webpack://cypress/./cypress/support/commands.js:476:0)\n    at <unknown> (https://bonds.mercapabbaco.com/__cypress/runner/cypress_runner.js:122111:17)\n    at tryCatcher (https://bonds.mercapabbaco.com/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise.attempt.Promise.try (https://bonds.mercapabbaco.com/__cypress/runner/cypress_runner.js:4285:29)\n    at Context.shouldFnWithCallback (https://bonds.mercapabbaco.com/__cypress/runner/cypress_runner.js:122108:66)",
-                "diff": null
-              },
-              "uuid": "8d2f9aed-c6bc-42bc-94f8-0cc252f0f575",
-              "parentUUID": "080db60e-bdcc-4283-974f-99402c4e9a89",
+              "err": {},
+              "uuid": "7bf0ec69-4f66-477e-b6ba-d9fce1a3d606",
+              "parentUUID": "0b1992d7-0348-4246-8c9b-35c9887158fc",
               "isHook": false,
               "skipped": false
             },
@@ -97,36 +97,36 @@
               "fullTitle": "Validación de las cotizaciones ByMA en el front de Abbaco Argentina Validar que el precio base del bono AL30, en el Análisis de sensibilidad, coincida con la cotización de cierre",
               "timedOut": null,
               "duration": 0,
-              "state": "pending",
+              "state": "skipped",
               "speed": null,
               "pass": false,
               "fail": false,
-              "pending": true,
+              "pending": false,
               "context": null,
               "code": "cy.get('body').type('{esc}');\ncy.contains('Análisis de sensibilidad', {\n  matchCase: false\n}).should('be.visible').click();\n_data_parametrosSensibilidad__WEBPACK_IMPORTED_MODULE_1__.parametrosSensibilidad.quantities.forEach(quantity => {\n  _data_parametrosSensibilidad__WEBPACK_IMPORTED_MODULE_1__.parametrosSensibilidad.variables.forEach(variable => {\n    cy.validarPrecioBaseCotizacion({\n      ticker: `${_support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].HARD_DOLLAR}`,\n      quantity,\n      variable,\n      variation: _data_parametrosSensibilidad__WEBPACK_IMPORTED_MODULE_1__.parametrosSensibilidad.variation\n    });\n  });\n});",
               "err": {},
-              "uuid": "66d5a7be-99d3-4d97-a6a4-1141b79fa0e9",
-              "parentUUID": "080db60e-bdcc-4283-974f-99402c4e9a89",
+              "uuid": "9fa06431-bdd2-492c-b2eb-ca0614cd5eb7",
+              "parentUUID": "0b1992d7-0348-4246-8c9b-35c9887158fc",
               "isHook": false,
-              "skipped": false
+              "skipped": true
             },
             {
               "title": "Validar la cotización de cierre en el campo Valor en Simular Inversión del bono AL30",
               "fullTitle": "Validación de las cotizaciones ByMA en el front de Abbaco Argentina Validar la cotización de cierre en el campo Valor en Simular Inversión del bono AL30",
               "timedOut": null,
               "duration": 0,
-              "state": "pending",
+              "state": "skipped",
               "speed": null,
               "pass": false,
               "fail": false,
-              "pending": true,
+              "pending": false,
               "context": null,
               "code": "cy.contains('Simular inversión', {\n  matchCase: false\n}).should('be.visible').click();\ncy.guardarCotizacionCierreDesdeAPI(_support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].HARD_DOLLAR);\ncy.validarCotizacionSimularInversion(_support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].HARD_DOLLAR);",
               "err": {},
-              "uuid": "67e6e50b-f425-458c-8308-f91aa8071bd2",
-              "parentUUID": "080db60e-bdcc-4283-974f-99402c4e9a89",
+              "uuid": "0c7f79f8-bc4f-45b9-80a4-0c045c80d3bf",
+              "parentUUID": "0b1992d7-0348-4246-8c9b-35c9887158fc",
               "isHook": false,
-              "skipped": false
+              "skipped": true
             },
             {
               "title": "Validar en Abbaco que la cotización de cierre del bono MR43O sea la correcta",
@@ -141,8 +141,8 @@
               "context": null,
               "code": "cy.guardarCotizacionCierreDesdeAPI(_support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].DOLLAR_LINKED);\ncy.validarCotizacionAbbaco(_support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].DOLLAR_LINKED);",
               "err": {},
-              "uuid": "dff595b2-34d9-4f96-b1ee-c0a0fd366ec8",
-              "parentUUID": "080db60e-bdcc-4283-974f-99402c4e9a89",
+              "uuid": "4a661605-2e07-46be-ba8e-1767f2b8badc",
+              "parentUUID": "0b1992d7-0348-4246-8c9b-35c9887158fc",
               "isHook": false,
               "skipped": true
             },
@@ -159,8 +159,8 @@
               "context": null,
               "code": "cy.validarFechaVelaVolumen(_support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].DOLLAR_LINKED);",
               "err": {},
-              "uuid": "96b5733e-4e4a-4e35-a74d-4a161d6142c8",
-              "parentUUID": "080db60e-bdcc-4283-974f-99402c4e9a89",
+              "uuid": "36d82992-9693-4592-89e7-c221522d333f",
+              "parentUUID": "0b1992d7-0348-4246-8c9b-35c9887158fc",
               "isHook": false,
               "skipped": true
             },
@@ -177,8 +177,8 @@
               "context": null,
               "code": "cy.get('body').type('{esc}');\ncy.contains('Análisis de sensibilidad', {\n  matchCase: false\n}).should('be.visible').click();\n_data_parametrosSensibilidad__WEBPACK_IMPORTED_MODULE_1__.parametrosSensibilidad.quantities.forEach(quantity => {\n  _data_parametrosSensibilidad__WEBPACK_IMPORTED_MODULE_1__.parametrosSensibilidad.variables.forEach(variable => {\n    cy.validarPrecioBaseCotizacion({\n      ticker: `${_support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].DOLLAR_LINKED}`,\n      quantity,\n      variable,\n      variation: _data_parametrosSensibilidad__WEBPACK_IMPORTED_MODULE_1__.parametrosSensibilidad.variation\n    });\n  });\n});",
               "err": {},
-              "uuid": "35e41602-83a1-44f8-8a2b-df3b1e3676d6",
-              "parentUUID": "080db60e-bdcc-4283-974f-99402c4e9a89",
+              "uuid": "414661a1-957a-453f-b6f8-9c9c57efd1e7",
+              "parentUUID": "0b1992d7-0348-4246-8c9b-35c9887158fc",
               "isHook": false,
               "skipped": true
             },
@@ -195,8 +195,8 @@
               "context": null,
               "code": "cy.contains('Simular inversión', {\n  matchCase: false\n}).should('be.visible').click();\ncy.guardarCotizacionCierreDesdeAPI(_support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].DOLLAR_LINKED);\ncy.validarCotizacionSimularInversion(_support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].DOLLAR_LINKED);",
               "err": {},
-              "uuid": "885d4258-4ab9-42df-b388-fcd4832c6e2c",
-              "parentUUID": "080db60e-bdcc-4283-974f-99402c4e9a89",
+              "uuid": "fca1b612-a63a-4c72-878a-b542b7114091",
+              "parentUUID": "0b1992d7-0348-4246-8c9b-35c9887158fc",
               "isHook": false,
               "skipped": true
             },
@@ -213,8 +213,8 @@
               "context": null,
               "code": "cy.guardarCotizacionCierreDesdeAPI(_support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].TASA_VARIABLE);\ncy.validarCotizacionAbbaco(_support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].TASA_VARIABLE);",
               "err": {},
-              "uuid": "b7c20bb9-c30b-4fbb-9811-4b717a422051",
-              "parentUUID": "080db60e-bdcc-4283-974f-99402c4e9a89",
+              "uuid": "27e89295-efe6-4a09-9f81-28a928b899e5",
+              "parentUUID": "0b1992d7-0348-4246-8c9b-35c9887158fc",
               "isHook": false,
               "skipped": true
             },
@@ -231,8 +231,8 @@
               "context": null,
               "code": "cy.validarFechaVelaVolumen(_support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].TASA_VARIABLE);",
               "err": {},
-              "uuid": "72a7d24c-75cc-4bf4-b9e3-26eeafedcb72",
-              "parentUUID": "080db60e-bdcc-4283-974f-99402c4e9a89",
+              "uuid": "34f77078-6d37-47a7-a005-f1c15980f686",
+              "parentUUID": "0b1992d7-0348-4246-8c9b-35c9887158fc",
               "isHook": false,
               "skipped": true
             },
@@ -249,8 +249,8 @@
               "context": null,
               "code": "cy.get('body').type('{esc}');\ncy.contains('Análisis de sensibilidad', {\n  matchCase: false\n}).should('be.visible').click();\n_data_parametrosSensibilidad__WEBPACK_IMPORTED_MODULE_1__.parametrosSensibilidad.quantities.forEach(quantity => {\n  _data_parametrosSensibilidad__WEBPACK_IMPORTED_MODULE_1__.parametrosSensibilidad.specialVariables.forEach(variable => {\n    cy.validarPrecioBaseCotizacion({\n      ticker: `${_support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].TASA_VARIABLE}`,\n      quantity,\n      variable,\n      variation: _data_parametrosSensibilidad__WEBPACK_IMPORTED_MODULE_1__.parametrosSensibilidad.variation\n    });\n  });\n});",
               "err": {},
-              "uuid": "470efa6a-d159-40a9-b463-558ca829d952",
-              "parentUUID": "080db60e-bdcc-4283-974f-99402c4e9a89",
+              "uuid": "ac935be8-5aeb-4843-8562-de8f6510ea3e",
+              "parentUUID": "0b1992d7-0348-4246-8c9b-35c9887158fc",
               "isHook": false,
               "skipped": true
             },
@@ -267,8 +267,8 @@
               "context": null,
               "code": "cy.contains('Simular inversión', {\n  matchCase: false\n}).should('be.visible').click();\ncy.guardarCotizacionCierreDesdeAPI(_support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].TASA_VARIABLE);\ncy.validarCotizacionSimularInversion(_support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].TASA_VARIABLE);",
               "err": {},
-              "uuid": "07491c0b-d6af-4965-acb0-6863e5ccce08",
-              "parentUUID": "080db60e-bdcc-4283-974f-99402c4e9a89",
+              "uuid": "a1bcef17-a3e5-48f5-b702-fbefff4af9b1",
+              "parentUUID": "0b1992d7-0348-4246-8c9b-35c9887158fc",
               "isHook": false,
               "skipped": true
             },
@@ -285,8 +285,8 @@
               "context": null,
               "code": "cy.guardarCotizacionCierreDesdeAPI(_support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].CER);\ncy.validarCotizacionAbbaco(_support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].CER);",
               "err": {},
-              "uuid": "0040eae2-dba9-4a78-8c9c-af4de186653d",
-              "parentUUID": "080db60e-bdcc-4283-974f-99402c4e9a89",
+              "uuid": "7ef33c6a-00ed-4e7e-ade8-c5041a2024fb",
+              "parentUUID": "0b1992d7-0348-4246-8c9b-35c9887158fc",
               "isHook": false,
               "skipped": true
             },
@@ -303,8 +303,8 @@
               "context": null,
               "code": "cy.validarFechaVelaVolumen(_support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].CER);",
               "err": {},
-              "uuid": "b75e0fac-a602-46f8-a3ad-b61ed6e6894d",
-              "parentUUID": "080db60e-bdcc-4283-974f-99402c4e9a89",
+              "uuid": "a1b69183-8a35-4b08-93ef-ff05aacb2c52",
+              "parentUUID": "0b1992d7-0348-4246-8c9b-35c9887158fc",
               "isHook": false,
               "skipped": true
             },
@@ -321,8 +321,8 @@
               "context": null,
               "code": "cy.get('body').type('{esc}');\ncy.contains('Análisis de sensibilidad', {\n  matchCase: false\n}).should('be.visible').click();\n_data_parametrosSensibilidad__WEBPACK_IMPORTED_MODULE_1__.parametrosSensibilidad.quantities.forEach(quantity => {\n  _data_parametrosSensibilidad__WEBPACK_IMPORTED_MODULE_1__.parametrosSensibilidad.specialVariables.forEach(variable => {\n    cy.validarPrecioBaseCotizacion({\n      ticker: `${_support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].CER}`,\n      quantity,\n      variable,\n      variation: _data_parametrosSensibilidad__WEBPACK_IMPORTED_MODULE_1__.parametrosSensibilidad.variation\n    });\n  });\n});",
               "err": {},
-              "uuid": "8fc8ebdc-6239-4167-abd8-228e35ea97e4",
-              "parentUUID": "080db60e-bdcc-4283-974f-99402c4e9a89",
+              "uuid": "4ae40ff5-15bf-477b-8210-d612f65454b1",
+              "parentUUID": "0b1992d7-0348-4246-8c9b-35c9887158fc",
               "isHook": false,
               "skipped": true
             },
@@ -339,45 +339,45 @@
               "context": null,
               "code": "cy.contains('Simular inversión', {\n  matchCase: false\n}).should('be.visible').click();\ncy.guardarCotizacionCierreDesdeAPI(_support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].CER);\ncy.validarCotizacionSimularInversion(_support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].CER);",
               "err": {},
-              "uuid": "66dc2874-1a99-400f-91e7-816b062c39e1",
-              "parentUUID": "080db60e-bdcc-4283-974f-99402c4e9a89",
+              "uuid": "8bdd7cd6-bd4c-4ea0-b9a7-f20c1fb4bcf2",
+              "parentUUID": "0b1992d7-0348-4246-8c9b-35c9887158fc",
               "isHook": false,
               "skipped": true
             }
           ],
           "suites": [],
           "passes": [
-            "6dadfab1-f1d6-4de1-830e-193ee15893bb",
-            "d0bdf4bb-d3c8-4e0a-a441-093547e05ba0"
+            "616b8a3a-2a62-4fae-bb87-85967d141421"
           ],
           "failures": [
-            "8d2f9aed-c6bc-42bc-94f8-0cc252f0f575"
+            "728e4ead-167f-453f-92f3-5a23cd011ea7"
           ],
           "pending": [
-            "66d5a7be-99d3-4d97-a6a4-1141b79fa0e9",
-            "67e6e50b-f425-458c-8308-f91aa8071bd2"
+            "7bf0ec69-4f66-477e-b6ba-d9fce1a3d606"
           ],
           "skipped": [
-            "dff595b2-34d9-4f96-b1ee-c0a0fd366ec8",
-            "96b5733e-4e4a-4e35-a74d-4a161d6142c8",
-            "35e41602-83a1-44f8-8a2b-df3b1e3676d6",
-            "885d4258-4ab9-42df-b388-fcd4832c6e2c",
-            "b7c20bb9-c30b-4fbb-9811-4b717a422051",
-            "72a7d24c-75cc-4bf4-b9e3-26eeafedcb72",
-            "470efa6a-d159-40a9-b463-558ca829d952",
-            "07491c0b-d6af-4965-acb0-6863e5ccce08",
-            "0040eae2-dba9-4a78-8c9c-af4de186653d",
-            "b75e0fac-a602-46f8-a3ad-b61ed6e6894d",
-            "8fc8ebdc-6239-4167-abd8-228e35ea97e4",
-            "66dc2874-1a99-400f-91e7-816b062c39e1"
+            "9fa06431-bdd2-492c-b2eb-ca0614cd5eb7",
+            "0c7f79f8-bc4f-45b9-80a4-0c045c80d3bf",
+            "4a661605-2e07-46be-ba8e-1767f2b8badc",
+            "36d82992-9693-4592-89e7-c221522d333f",
+            "414661a1-957a-453f-b6f8-9c9c57efd1e7",
+            "fca1b612-a63a-4c72-878a-b542b7114091",
+            "27e89295-efe6-4a09-9f81-28a928b899e5",
+            "34f77078-6d37-47a7-a005-f1c15980f686",
+            "ac935be8-5aeb-4843-8562-de8f6510ea3e",
+            "a1bcef17-a3e5-48f5-b702-fbefff4af9b1",
+            "7ef33c6a-00ed-4e7e-ade8-c5041a2024fb",
+            "a1b69183-8a35-4b08-93ef-ff05aacb2c52",
+            "4ae40ff5-15bf-477b-8210-d612f65454b1",
+            "8bdd7cd6-bd4c-4ea0-b9a7-f20c1fb4bcf2"
           ],
-          "duration": 134244,
+          "duration": 37081,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
         },
         {
-          "uuid": "7a482018-2e4a-44e8-a93c-91a83d14edbe",
+          "uuid": "3946e608-038f-4f88-ab29-c88c9e557492",
           "title": "Validar la cotizaciones de cierre  en Mis Portafolios",
           "fullFile": "",
           "file": "",
@@ -397,7 +397,7 @@
               "context": null,
               "code": "cy.contains('Mis Portafolios', {\n  matchCase: false\n}).should('be.visible').click();",
               "err": {},
-              "uuid": "ead15867-10c7-4eb4-8c6d-5ab4dd9ef07d",
+              "uuid": "04fb0fec-7cb0-416b-b678-531fb9569e0e",
               "parentUUID": null,
               "isHook": false,
               "skipped": true
@@ -415,7 +415,7 @@
               "context": null,
               "code": "cy.guardarCotizacionCierreDesdeAPI(_support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].DOLLAR_LINKED);\ncy.guardarCotizacionCierreDesdeAPI(_support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].TASA_VARIABLE);\ncy.guardarCotizacionCierreDesdeAPI(_support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].CER);\ncy.validarCotizacionPortafolioAbbaco([_support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].DOLLAR_LINKED, _support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].TASA_VARIABLE, _support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].CER]);",
               "err": {},
-              "uuid": "beebfe81-3b3b-4a6a-80b1-fe9356ef9835",
+              "uuid": "a5fb3b1a-fb19-460e-b469-728a7420c29f",
               "parentUUID": null,
               "isHook": false,
               "skipped": true
@@ -426,8 +426,8 @@
           "failures": [],
           "pending": [],
           "skipped": [
-            "ead15867-10c7-4eb4-8c6d-5ab4dd9ef07d",
-            "beebfe81-3b3b-4a6a-80b1-fe9356ef9835"
+            "04fb0fec-7cb0-416b-b678-531fb9569e0e",
+            "a5fb3b1a-fb19-460e-b469-728a7420c29f"
           ],
           "duration": 0,
           "root": false,
@@ -435,7 +435,7 @@
           "_timeout": 2000
         },
         {
-          "uuid": "e0dfa372-e3c2-47da-b0d6-8e5fcd20fddb",
+          "uuid": "9e0272ce-c156-405e-8db5-c7e7076d6dd8",
           "title": "Validar las cotizaciones de cierre en Calculadora",
           "fullFile": "",
           "file": "",
@@ -455,7 +455,7 @@
               "context": null,
               "code": "cy.contains('Calculadora', {\n  matchCase: false\n}).should('be.visible').click();",
               "err": {},
-              "uuid": "67d0604c-9eea-448e-a9e2-77638c3ff5ba",
+              "uuid": "50031d93-7e7e-4b01-8d94-5f1dd57ae4a8",
               "parentUUID": null,
               "isHook": false,
               "skipped": true
@@ -473,7 +473,7 @@
               "context": null,
               "code": "cy.guardarCotizacionCierreDesdeAPI(_support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].HARD_DOLLAR);\ncy.validarCotizacionCalculadoraAbbaco({\n  especie: _support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].HARD_DOLLAR\n});",
               "err": {},
-              "uuid": "24a4cdc7-d40c-4adf-90e6-d11323925267",
+              "uuid": "47c04852-d243-416f-9d51-a4b2c080e690",
               "parentUUID": null,
               "isHook": false,
               "skipped": true
@@ -491,7 +491,7 @@
               "context": null,
               "code": "cy.guardarCotizacionCierreDesdeAPI(_support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].DOLLAR_LINKED);\ncy.validarCotizacionCalculadoraAbbaco({\n  especie: _support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].DOLLAR_LINKED\n});",
               "err": {},
-              "uuid": "825567f1-e942-450d-b9bb-8fd9bf2a80d6",
+              "uuid": "76be82b1-6636-4f85-83ea-3ef8ee898b52",
               "parentUUID": null,
               "isHook": false,
               "skipped": true
@@ -509,7 +509,7 @@
               "context": null,
               "code": "cy.guardarCotizacionCierreDesdeAPI(_support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].TASA_VARIABLE);\ncy.validarCotizacionCalculadoraAbbaco({\n  especie: _support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].TASA_VARIABLE\n});",
               "err": {},
-              "uuid": "04ab4772-0e6f-4d08-b143-6467f3445c2c",
+              "uuid": "4b2dac9a-65a3-4b99-aaac-ba51b2eb4cd4",
               "parentUUID": null,
               "isHook": false,
               "skipped": true
@@ -527,7 +527,7 @@
               "context": null,
               "code": "cy.guardarCotizacionCierreDesdeAPI(_support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].CER);\ncy.validarCotizacionCalculadoraAbbaco({\n  especie: _support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].CER\n});",
               "err": {},
-              "uuid": "9d21609a-b843-4a85-bd91-5c4a80db00cd",
+              "uuid": "4285c7f1-d6bb-4452-8926-94e9792deec4",
               "parentUUID": null,
               "isHook": false,
               "skipped": true
@@ -538,11 +538,11 @@
           "failures": [],
           "pending": [],
           "skipped": [
-            "67d0604c-9eea-448e-a9e2-77638c3ff5ba",
-            "24a4cdc7-d40c-4adf-90e6-d11323925267",
-            "825567f1-e942-450d-b9bb-8fd9bf2a80d6",
-            "04ab4772-0e6f-4d08-b143-6467f3445c2c",
-            "9d21609a-b843-4a85-bd91-5c4a80db00cd"
+            "50031d93-7e7e-4b01-8d94-5f1dd57ae4a8",
+            "47c04852-d243-416f-9d51-a4b2c080e690",
+            "76be82b1-6636-4f85-83ea-3ef8ee898b52",
+            "4b2dac9a-65a3-4b99-aaac-ba51b2eb4cd4",
+            "4285c7f1-d6bb-4452-8926-94e9792deec4"
           ],
           "duration": 0,
           "root": false,
@@ -550,7 +550,7 @@
           "_timeout": 2000
         },
         {
-          "uuid": "c4bd55fc-a4d1-4b22-98be-de7ada04e606",
+          "uuid": "2f39dbb8-4c70-454c-9116-97c3035eeaa2",
           "title": "Validar las cotizaciones de cierre en Curvas",
           "fullFile": "",
           "file": "",
@@ -570,7 +570,7 @@
               "context": null,
               "code": "cy.contains('Curvas', {\n  matchCase: false\n}).should('be.visible').click();\ncy.contains('a', `${CURVA_2}`, {\n  matchCase: false\n}).click();\ncy.guardarCotizacionCierreDesdeAPI(_support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].TASA_VARIABLE);\ncy.validarCotizacionCurvas(_support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].TASA_VARIABLE);",
               "err": {},
-              "uuid": "0ea0ad23-dbc7-4d0d-a574-cebaf7b052c0",
+              "uuid": "70c6dbfa-a689-4ace-b153-3cfe780fc0e7",
               "parentUUID": null,
               "isHook": false,
               "skipped": true
@@ -588,7 +588,7 @@
               "context": null,
               "code": "cy.contains('Curvas', {\n  matchCase: false\n}).should('be.visible').click();\ncy.contains('a', `${CURVA_3}`, {\n  matchCase: false\n}).click();\ncy.guardarCotizacionCierreDesdeAPI(_support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].CER);\ncy.validarCotizacionCurvas(_support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].CER);",
               "err": {},
-              "uuid": "e4679a1f-c8e0-45db-ab05-0ac760ed565b",
+              "uuid": "23ecc551-9e3a-441c-9c2d-2c22aab49576",
               "parentUUID": null,
               "isHook": false,
               "skipped": true
@@ -606,7 +606,7 @@
               "context": null,
               "code": "cy.contains('Curvas', {\n  matchCase: false\n}).should('be.visible').click();\ncy.contains('a', `${CURVA_4}`, {\n  matchCase: false\n}).click();\ncy.guardarCotizacionCierreDesdeAPI(_support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].DOLLAR_LINKED);\ncy.validarCotizacionCurvas(_support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].DOLLAR_LINKED);",
               "err": {},
-              "uuid": "6f341a80-8fc5-45ce-9896-d60184eec5eb",
+              "uuid": "acb22893-e83f-4bd4-988b-401035735041",
               "parentUUID": null,
               "isHook": false,
               "skipped": true
@@ -617,9 +617,9 @@
           "failures": [],
           "pending": [],
           "skipped": [
-            "0ea0ad23-dbc7-4d0d-a574-cebaf7b052c0",
-            "e4679a1f-c8e0-45db-ab05-0ac760ed565b",
-            "6f341a80-8fc5-45ce-9896-d60184eec5eb"
+            "70c6dbfa-a689-4ace-b153-3cfe780fc0e7",
+            "23ecc551-9e3a-441c-9c2d-2c22aab49576",
+            "acb22893-e83f-4bd4-988b-401035735041"
           ],
           "duration": 0,
           "root": false,
