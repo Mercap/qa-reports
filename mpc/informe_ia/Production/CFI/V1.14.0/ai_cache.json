@@ -1,107 +1,93 @@
 {
-  "hash": "16fcbbcd5d1c279c62e211c81a1a5e7f5451a84f874b831f13999b9f39b39011",
+  "hash": "1177731a822c31a191fe9ba5d64e51e8a0f70e97b6b17c221d3c37d508d3f7c9",
   "ai_model": "gemini-2.5-flash",
   "conclusions": {
     "estado_general": "atencion",
-    "resumen_ejecutivo": "La versión V1.14.0 de MPC muestra una degradación significativa en la sección Home, con un P95 que ha aumentado un 29.4% respecto al histórico, alcanzando los 27.5s. Además, se ha perdido completamente la visibilidad de las métricas en cinco secciones clave (Agenda, Mis operaciones, Mis portfolios, Rendimiento, Mis depositarios) debido a la discontinuación del 100% de sus acciones medidas, incluyendo algunas con P95s muy elevados en su última medición.",
+    "resumen_ejecutivo": "La versión V1.14.0 de MPC muestra una degradación significativa en la sección Home, con un P95 que aumentó de 21.26s a 27.5s (+29.4%) respecto al histórico y una tendencia de empeoramiento sostenida en las últimas 4 versiones. Además, la falta de mediciones en 5 secciones clave (Agenda, Mis operaciones, Mis portfolios, Rendimiento, Mis depositarios) debido a la discontinuación del 100% de sus acciones impide una evaluación completa de la plataforma y oculta posibles problemas críticos.",
     "escalar": {
-      "titulo": "Pérdida de visibilidad crítica y degradación sostenida en Home",
-      "detalle": "Cinco secciones clave (Agenda, Mis operaciones, Mis portfolios, Rendimiento, Mis depositarios) han discontinuado el 100% de sus acciones medidas en V1.13.4, perdiendo visibilidad sobre P95s de hasta 146.25s. Adicionalmente, la sección Home ha degradado su P95 de 13.16s a 27.5s en 4 versiones consecutivas."
+      "titulo": "Degradación sostenida en Home y falta de cobertura de pruebas",
+      "detalle": "La sección Home ha degradado un 29.4% (de 21.26s a 27.5s) y muestra una tendencia de empeoramiento en las últimas 4 versiones. Adicionalmente, 5 secciones clave han sido completamente discontinuadas en las mediciones de esta versión, lo que oculta su estado real y la posible existencia de problemas críticos."
     },
     "investigar": {
-      "titulo": "Causa de la discontinuación masiva de acciones en 5 secciones",
-      "detalle": "Se debe investigar por qué el 100% de las acciones en Agenda, Mis operaciones, Mis portfolios, Rendimiento y Mis depositarios fueron discontinuadas en la versión V1.13.4, especialmente considerando que algunas de ellas tenían P95s muy altos (ej. 146.25s en Mis operaciones)."
+      "titulo": "Tendencia de degradación sostenida en Home y acciones discontinuadas",
+      "detalle": "La sección Home ha empeorado consistentemente durante 4 versiones, pasando de 13.16s a 27.5s. Adicionalmente, la acción 'Segundo ingreso: Tipo de instrumento Bonos, estado: Pendiente, fecha: 1 mes haci' de Agenda fue discontinuada tras degradar un 687.8% (de 12.08s a 95.17s) en V1.13.4."
     },
     "optimizar": {
-      "titulo": "Estabilizar y mejorar el rendimiento de la sección Home",
-      "detalle": "La sección Home ha mostrado una tendencia de degradación sostenida en las últimas 4 versiones, pasando de 13.16s a 27.5s. Estabilizar y optimizar esta sección es la mayor oportunidad de mejora para la experiencia del usuario."
+      "titulo": "Mejorar la performance de carga de portfolios en Home",
+      "detalle": "La sección Home, con un P95 de 27.5s, es la única medida y presenta la mayor oportunidad de mejora. Acciones como 'Primer ingreso al portfolio Consolidado CFI desde el Home' (28.9s) son las más lentas y podrían beneficiarse de optimizaciones."
     },
     "hallazgos": [
       {
+        "tipo": "degradacion",
+        "seccion": "Home",
+        "descripcion": "La sección Home ha experimentado una degradación significativa y sostenida.",
+        "evidencia": "P95 degradó de 21.26s a 27.5s (-29.4%) vs histórico, y muestra una tendencia de empeoramiento en 4 versiones (de 13.16s a 27.5s)."
+      },
+      {
         "tipo": "alerta",
         "seccion": "Agenda",
-        "descripcion": "Mejora aparente — se discontinuaron 62/62 acciones medidas en V1.13.4 (P95 máx removidas: 95.17s).",
-        "evidencia": "62 de 62 acciones removidas en V1.13.4, con un P95 máximo de 95.17s para las acciones discontinuadas."
+        "descripcion": "Mejora aparente debido a la discontinuación de acciones críticas.",
+        "evidencia": "Se removieron 62/62 acciones (P95 máx: 95.17s), incluyendo una que degradó 687.8% en V1.13.4."
       },
       {
         "tipo": "alerta",
         "seccion": "Mis operaciones",
-        "descripcion": "Mejora aparente — se discontinuaron 12/12 acciones medidas en V1.13.4 (P95 máx removidas: 146.25s).",
-        "evidencia": "12 de 12 acciones removidas en V1.13.4, con un P95 máximo de 146.25s para las acciones discontinuadas."
+        "descripcion": "Mejora aparente — se discontinuaron 12/12 acciones medidas en V1.13.4.",
+        "evidencia": "P95 máx de acciones removidas: 146.25s."
       },
       {
         "tipo": "alerta",
         "seccion": "Mis portfolios",
-        "descripcion": "Mejora aparente — se discontinuaron 14/14 acciones medidas en V1.13.4 (P95 máx removidas: 31.36s).",
-        "evidencia": "14 de 14 acciones removidas en V1.13.4, con un P95 máximo de 31.36s para las acciones discontinuadas."
+        "descripcion": "Mejora aparente — se discontinuaron 14/14 acciones medidas en V1.13.4.",
+        "evidencia": "P95 máx de acciones removidas: 31.36s."
       },
       {
         "tipo": "alerta",
         "seccion": "Rendimiento",
-        "descripcion": "Mejora aparente — se discontinuaron 182/182 acciones medidas en V1.13.4 (P95 máx removidas: 19.19s).",
-        "evidencia": "182 de 182 acciones removidas en V1.13.4, con un P95 máximo de 19.19s para las acciones discontinuadas."
+        "descripcion": "Mejora aparente — se discontinuaron 182/182 acciones medidas en V1.13.4.",
+        "evidencia": "P95 máx de acciones removidas: 19.19s."
       },
       {
         "tipo": "alerta",
         "seccion": "Mis depositarios",
-        "descripcion": "Mejora aparente — se discontinuaron 28/28 acciones medidas en V1.13.4 (P95 máx removidas: 4.66s).",
-        "evidencia": "28 de 28 acciones removidas en V1.13.4, con un P95 máximo de 4.66s para las acciones discontinuadas."
-      },
-      {
-        "tipo": "alerta",
-        "seccion": "Agenda",
-        "descripcion": "La acción 'Segundo ingreso: Tipo de instrumento Bonos, estado: Pendiente, fecha: 1 mes haci' fue discontinuada en V1.13.4 con una degradación del 687.8%.",
-        "evidencia": "P95 de 95.17s en V1.13.4 (vs 12.08s en la versión anterior)."
-      },
-      {
-        "tipo": "degradacion",
-        "seccion": "Home",
-        "descripcion": "La sección Home ha degradado su P95 por 4 versiones consecutivas, y en la actual versión V1.14.0 se observa una degradación del 29.4% vs histórico.",
-        "evidencia": "P95 actual 27.5s vs histórico 21.26s (+29.4%), con una tendencia sostenida desde V1.12.4 (13.16s a 27.5s)."
+        "descripcion": "Mejora aparente — se discontinuaron 28/28 acciones medidas en V1.13.4.",
+        "evidencia": "P95 máx de acciones removidas: 4.66s."
       }
     ],
     "causa_raiz": [
       {
         "seccion": "Home",
         "hipotesis": [
-          "Podría deberse a un aumento en la complejidad de los datos o la lógica de negocio procesada para mostrar los portfolios destacados y accesos directos.",
-          "Revisar si hay cambios recientes en las consultas a la base de datos o en las APIs que alimentan la sección Home, introduciendo latencia adicional.",
-          "Posibles regresiones en el código frontend de la sección Home que afectan el renderizado o la ejecución de scripts, contribuyendo a la lentitud."
-        ]
-      },
-      {
-        "seccion": "General (Acciones Discontinuadas)",
-        "hipotesis": [
-          "Las acciones discontinuadas podrían haber sido eliminadas debido a su bajo rendimiento, lo que sesga las métricas generales al remover los peores casos.",
-          "Cambios significativos en la estructura de la aplicación o flujos de usuario que hicieron obsoletas estas acciones, requiriendo nuevas mediciones.",
-          "Problemas en la configuración de las mediciones de Cypress que impidieron la ejecución de estos flujos, resultando en una pérdida de cobertura."
+          "Aumento en el volumen de datos o complejidad de los portfolios mostrados en la vista principal, afectando la carga inicial.",
+          "Ineficiencias en las consultas a la base de datos o en la lógica de negocio para consolidar la información de los portfolios.",
+          "Problemas de rendimiento en el lado del cliente (ej. renderizado de componentes, procesamiento de grandes datasets en el navegador) que se agudizan con el tiempo."
         ]
       }
     ],
     "recomendaciones": [
       {
         "prioridad": "P1",
-        "accion": "Investigar la causa raíz de la degradación sostenida en la sección Home.",
+        "accion": "Realizar un análisis de perfilado detallado en la sección Home para identificar cuellos de botella en la carga de portfolios y la renderización de la UI.",
         "seccion": "Home",
-        "evidencia": "El P95 de Home aumentó de 13.16s a 27.5s en 4 versiones consecutivas, con una degradación del 29.4% vs histórico en la versión actual."
+        "evidencia": "P95 de Home aumentó de 13.16s a 27.5s en 4 versiones."
       },
       {
         "prioridad": "P1",
-        "accion": "Restaurar la medición de acciones en las secciones con 100% de dropout para recuperar la visibilidad.",
+        "accion": "Reincorporar las mediciones E2E para Agenda, Mis operaciones, Mis portfolios, Rendimiento y Mis depositarios para asegurar la visibilidad de su performance.",
         "seccion": "General",
-        "evidencia": "Cinco secciones (Agenda, Mis operaciones, Mis portfolios, Rendimiento, Mis depositarios) tuvieron un 100% de acciones discontinuadas en V1.13.4, perdiendo visibilidad sobre acciones con P95 de hasta 146.25s."
+        "evidencia": "5 secciones con 100% de acciones discontinuadas en V1.13.4, incluyendo acciones con P95 de hasta 146.25s."
       },
       {
         "prioridad": "P2",
-        "accion": "Analizar la acción 'Segundo ingreso: Tipo de instrumento Bonos, estado: Pendiente, fecha: 1 mes haci' en Agenda.",
+        "accion": "Investigar por qué la acción 'Segundo ingreso: Tipo de instrumento Bonos...' en Agenda fue discontinuada tras una degradación del 687.8%.",
         "seccion": "Agenda",
-        "evidencia": "Esta acción fue discontinuada en V1.13.4 tras una degradación del 687.8%, alcanzando 95.17s."
+        "evidencia": "Acción discontinuada en V1.13.4 con P95 de 95.17s (+687.8%)."
       },
       {
         "prioridad": "P2",
-        "accion": "Optimizar la efectividad del cache en la sección Home para asegurar mejoras consistentes.",
+        "accion": "Enfocarse en optimizar las acciones de ingreso a portfolios como 'Primer ingreso al portfolio Consolidado CFI desde el Home', que es una de las más lentas.",
         "seccion": "Home",
-        "evidencia": "Algunas acciones en Home, como 'Primer ingreso al portfolio FFI desde el Home', muestran una degradación del 2.4% con cache, indicando ineficiencias."
+        "evidencia": "'Primer ingreso al portfolio Consolidado CFI desde el Home' tiene un P95 actual de 28.9s."
       }
     ]
   }
