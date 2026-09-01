@@ -2,14 +2,14 @@
   "stats": {
     "suites": 1,
     "tests": 1,
-    "passes": 0,
+    "passes": 1,
     "pending": 0,
-    "failures": 1,
-    "start": "2026-08-28T15:17:07.435Z",
-    "end": "2026-08-28T15:23:38.941Z",
-    "duration": 391506,
+    "failures": 0,
+    "start": "2026-09-01T16:12:08.070Z",
+    "end": "2026-09-01T16:12:31.337Z",
+    "duration": 23267,
     "testsRegistered": 1,
-    "passPercent": 0,
+    "passPercent": 100,
     "pendingPercent": 0,
     "other": 0,
     "hasOther": false,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "aeb1f3d8-8a42-4449-a8ea-535f9e3a6ea3",
+      "uuid": "a0c9da32-65af-4592-a2d1-d3c389f347f6",
       "title": "",
       "fullFile": "build/production/cfi/specs/performance/01_login.cy.js",
       "file": "build/production/cfi/specs/performance/01_login.cy.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "d1a58200-d64e-43d6-aba3-c5ba9b85278e",
+          "uuid": "ac53ea9c-e307-4adf-a22d-b350c2177a73",
           "title": "Login",
           "fullFile": "",
           "file": "",
@@ -38,33 +38,29 @@
               "title": "Ingreso al admin de MPC y setup de portfolios",
               "fullTitle": "Login Ingreso al admin de MPC y setup de portfolios",
               "timedOut": null,
-              "duration": 387390,
-              "state": "failed",
-              "speed": null,
-              "pass": false,
-              "fail": true,
+              "duration": 17596,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
               "pending": false,
               "context": null,
-              "code": "cy.adminLoginMPC();\n      cy.visit(_support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].ADMIN_LOCATION);\n      cy.guardarEsquemasValuacion();\n      cy.visit(`${_support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].MPC_LOCATION}${investmentAcccountsPath}`);\n      cy.guardarNombresPortfolios();\n      cy.visit(`${_support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].MPC_LOCATION}${depositaryPath}`);\n      cy.contains('Seleccioná una o varias cuentas para verificar la información consolidada.').\n      should('be.visible');\n      cy.guardarNombresDepositarios();\n      cy.guardarCuentasDepositarios();",
-              "err": {
-                "message": "AssertionError: Timed out retrying after 360000ms: Expected to find content: 'Seleccioná una o varias cuentas para verificar la información consolidada.' but never did.",
-                "estack": "AssertionError: Timed out retrying after 360000ms: Expected to find content: 'Seleccioná una o varias cuentas para verificar la información consolidada.' but never did.\n    at Context.eval (webpack://cypress/./build/production/cfi/flows/performance/login.js:18:0)",
-                "diff": null
-              },
-              "uuid": "905263b9-73a8-4bf0-ac12-1f1b1ba94fa8",
-              "parentUUID": "d1a58200-d64e-43d6-aba3-c5ba9b85278e",
+              "code": "cy.adminLoginMPC();\n      cy.visitarConLoginSiHaceFalta(_support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].ADMIN_LOCATION);\n      cy.guardarEsquemasValuacion();\n      cy.visitarConLoginSiHaceFalta(`${_support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].MPC_LOCATION}${investmentAcccountsPath}`);\n      cy.guardarNombresPortfolios();\n      cy.visitarConLoginSiHaceFalta(`${_support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].MPC_LOCATION}${depositaryPath}`);\n      cy.contains('Seleccioná una o varias cuentas para verificar la información consolidada.').\n      should('be.visible');\n      cy.guardarNombresDepositarios();\n      cy.guardarCuentasDepositarios();",
+              "err": {},
+              "uuid": "62931434-6356-4e84-8ef1-e9240fa3c351",
+              "parentUUID": "ac53ea9c-e307-4adf-a22d-b350c2177a73",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
-          "passes": [],
-          "failures": [
-            "905263b9-73a8-4bf0-ac12-1f1b1ba94fa8"
+          "passes": [
+            "62931434-6356-4e84-8ef1-e9240fa3c351"
           ],
+          "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 387390,
+          "duration": 17596,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
