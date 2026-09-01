@@ -1,113 +1,132 @@
 {
-  "hash": "62d0b8ceca546aa1f9624043969dde7d94ab5e2d62823b5474f629ce4426ac57",
+  "hash": "0960dba205341cbe1318a46216e8df9ff38378dc3ac9f38f329c4295618e1d23",
   "ai_model": "gemini-2.5-flash",
   "conclusions": {
     "estado_general": "critico",
-    "resumen_ejecutivo": "La versión v1.45.2 de Abbaco presenta un estado crítico debido a una degradación significativa del 38.9% en la sección 'Curvas' y la sección 'Calculadora' que permanece sobre el umbral de rendimiento con 66.64s. A pesar de esto, 6 de las 9 secciones muestran mejoras, destacando 'Graficador' con un 62% de mejora y 'Analizar' con un 31.9%.",
+    "resumen_ejecutivo": "La versión v1.45.2 de Abbaco presenta un estado crítico de performance, con dos secciones, \"Curvas\" y \"Screener\", mostrando degradaciones significativas del -41.3% y -120.7% respectivamente frente a su P95 histórico. Además, la sección \"Calculadora\" permanece sobre el umbral de rendimiento con un P95 de 71.3s, y se observan saltos abruptos en acciones clave de \"Mis portafolios\" y \"Arbitraje\" en versiones recientes.",
     "escalar": {
-      "titulo": "Degradación crítica en Curvas y lentitud persistente en Calculadora",
-      "detalle": "La sección 'Curvas' sufrió una degradación del 38.9% (P95 actual 43.09s) y la acción 'Ingreso a la curva Chile - Soberanos - Bonos Globales - USD' en 'Curvas' se degradó un 243.93% de v1.45.0 a v1.45.2. Además, la acción 'Simular inversiones de la especie AL30' en 'Calculadora' ha estado sobre el umbral en 5 de 5 versiones."
+      "titulo": "Degradaciones críticas y lentitud persistente en Calculadora, Curvas y Screener",
+      "detalle": "La acción 'Simular inversiones de la especie AL30' en Calculadora es persistentemente lenta (79.3s, 5 de 5 versiones sobre umbral). Las secciones Curvas y Screener degradaron -41.3% y -120.7% vs histórico, respectivamente, requiriendo atención inmediata."
     },
     "investigar": {
-      "titulo": "Degradación extrema en acciones de Curvas",
-      "detalle": "La acción 'Ingreso a la curva Chile - Soberanos - Bonos Globales - USD' en 'Curvas' se degradó un 243.93% de 15.19s a 52.23s entre v1.45.0 y v1.45.2, contribuyendo a la degradación general de la sección y mostrando un comportamiento crónico."
+      "titulo": "Saltos abruptos en acciones de Mis portafolios y Arbitraje en v1.45.0",
+      "detalle": "La acción 'Navegabilidad entre las pestañas Proyección y Agenda de pagos en el portafolio' (Mis portafolios) saltó de 2.6s a 26.64s (+924.6%) en v1.45.0. Similarmente, 'Arbitraje de las especies AL30 y TX28' (Arbitraje) saltó de 10.51s a 22.92s (+118.1%) en la misma versión, indicando regresiones puntuales severas."
     },
     "optimizar": {
-      "titulo": "Mejorar rendimiento de la sección Calculadora",
-      "detalle": "La sección 'Calculadora' tiene un P95 de 66.64s, superando el umbral de rendimiento. La acción 'Simular inversiones de la especie AL30' es persistentemente lenta, con 67.23s."
+      "titulo": "Optimizar la sección Calculadora, especialmente la simulación de inversiones",
+      "detalle": "La sección Calculadora tiene un P95 de 71.3s (sobre umbral), y la acción 'Simular inversiones de la especie AL30' es persistentemente lenta con 79.3s, representando la mayor oportunidad de mejora para la experiencia del usuario."
     },
     "hallazgos": [
       {
         "tipo": "alerta",
+        "seccion": "Calculadora",
+        "descripcion": "La acción 'Simular inversiones de la especie AL30' es persistentemente lenta, superando el umbral en 5 de 5 versiones medidas. La sección en general está sobre el umbral de rendimiento.",
+        "evidencia": "P95 actual de la acción: 79.3s. P95 actual de la sección: 71.3s."
+      },
+      {
+        "tipo": "degradacion",
         "seccion": "Curvas",
-        "descripcion": "La sección 'Curvas' se degradó un 38.9% vs histórico y la acción 'Ingreso a la curva Chile - Soberanos - Bonos Globales - USD' se degradó un 243.93% de v1.45.0 a v1.45.2, mostrando además un comportamiento crónico.",
-        "evidencia": "P95 de sección de 31.03s a 43.09s (-38.9%); acción de 15.19s a 52.23s (+243.93%) y 3 de 5 versiones ≥40% sobre su media histórica."
+        "descripcion": "La sección degradó significativamente vs su histórico, y una acción clave muestra comportamiento crónico de lentitud.",
+        "evidencia": "P95 degradó de 31.03s a 43.85s (-41.3%). 'Ingreso a la curva Chile - Soberanos - Bonos Globales - USD' fue ≥40% sobre su media histórica en 3 de 5 versiones."
+      },
+      {
+        "tipo": "degradacion",
+        "seccion": "Screener",
+        "descripcion": "La sección muestra una tendencia sostenida de degradación en las últimas versiones, con un impacto severo en su rendimiento histórico.",
+        "evidencia": "P95 aumentó de 2.93s a 9.68s en 3 versiones consecutivas, degradando un -120.7% vs histórico."
       },
       {
         "tipo": "alerta",
-        "seccion": "Calculadora",
-        "descripcion": "La acción 'Simular inversiones de la especie AL30' en 'Calculadora' es persistentemente lenta, con 5 de 5 versiones sobre el umbral.",
-        "evidencia": "P95 actual de la acción 67.23s; sección 'Calculadora' sobre umbral con P95 de 66.64s."
+        "seccion": "Mis portafolios",
+        "descripcion": "Una acción clave sufrió un salto abrupto en la versión anterior, aunque la sección en general ha mostrado una mejora reciente.",
+        "evidencia": "La acción 'Navegabilidad entre las pestañas Proyección y Agenda de pagos en el portafolio' saltó de 2.6s a 26.64s (+924.6%) en v1.45.0. La sección mejoró de 11.97s a 7.88s (+34.1%) vs la versión anterior."
+      },
+      {
+        "tipo": "alerta",
+        "seccion": "Arbitraje",
+        "descripcion": "Se observan degradaciones significativas en acciones de ingreso al menú y realización de arbitrajes en versiones recientes.",
+        "evidencia": "La acción 'Ingresar al menú Arbitraje' degradó un -139.1% vs histórico (de 1.01s a 2.42s). La acción 'Arbitraje de las especies AL30 y TX28' saltó a 22.92s (+118.1%) en v1.45.0."
       },
       {
         "tipo": "mejora",
         "seccion": "Graficador",
-        "descripcion": "La sección 'Graficador' mostró una mejora significativa en todas sus acciones.",
-        "evidencia": "P95 mejoró de 8.28s a 3.15s (+62.0%); 'Graficar la especie AL30' mejoró un 80.83% de 9.63s a 1.85s."
+        "descripcion": "La sección ha experimentado una mejora notable tanto respecto a su histórico como a la versión anterior.",
+        "evidencia": "P95 mejoró de 8.28s a 5.42s (+34.5%) vs histórico y de 8.37s a 5.42s (+35.2%) vs v1.45.0."
       },
       {
         "tipo": "mejora",
         "seccion": "Analizar",
-        "descripcion": "La sección 'Analizar' presenta una mejora generalizada en la mayoría de sus acciones.",
-        "evidencia": "P95 mejoró de 15.49s a 10.55s (+31.9%); 18 de 22 acciones mejoraron, destacando 'Navegabilidad por los botones TIRs y Paridades Históricas de la especie AL30' con -80.82%."
-      },
-      {
-        "tipo": "mejora",
-        "seccion": "Mis portafolios",
-        "descripcion": "La sección 'Mis portafolios' experimentó una mejora notable en su rendimiento.",
-        "evidencia": "P95 mejoró de 11.33s a 7.25s (+36.0%); 8 de 10 acciones mejoraron, destacando 'Navegabilidad entre las pestañas Proyección y Agenda de pagos en el portafolio' con -76.96%."
-      },
-      {
-        "tipo": "mejora",
-        "seccion": "Screener",
-        "descripcion": "La sección 'Screener' mostró una fuerte recuperación respecto a la versión anterior.",
-        "evidencia": "P95 mejoró de 6.51s a 3.21s (+50.6%) entre v1.45.0 y v1.45.2."
-      },
-      {
-        "tipo": "degradacion",
-        "seccion": "Comparar",
-        "descripcion": "La sección 'Comparar' muestra una ligera degradación en su rendimiento.",
-        "evidencia": "P95 se degradó de 16.94s a 18.55s (-9.5%) vs histórico."
+        "descripcion": "La sección muestra una mejora generalizada en la mayoría de sus acciones, contribuyendo a un mejor rendimiento.",
+        "evidencia": "P95 mejoró de 15.49s a 11.15s (+28.0%) vs histórico, con 17 de 22 acciones mejorando."
       }
     ],
     "causa_raiz": [
       {
         "seccion": "Curvas",
         "hipotesis": [
-          "Cambios recientes en la lógica de carga o procesamiento de datos para curvas específicas (Chile, Paraguay) que introdujeron latencia.",
-          "Problemas de rendimiento en el backend o en la integración con fuentes de datos externas para la información de bonos soberanos.",
-          "Aumento en la complejidad de los cálculos o la cantidad de datos a renderizar para ciertas curvas, afectando el tiempo de carga de la UI."
+          "La degradación del -41.3% y el comportamiento crónico de algunas curvas podrían deberse a la complejidad creciente de los datos de bonos globales o a ineficiencias en las consultas a fuentes externas.",
+          "Posibles problemas en la optimización de las consultas a la base de datos o en el procesamiento de grandes volúmenes de información al cargar curvas específicas."
+        ]
+      },
+      {
+        "seccion": "Screener",
+        "hipotesis": [
+          "La tendencia sostenida de degradación y el -120.7% vs histórico sugieren que la lógica de filtrado o la cantidad de activos a procesar en el Screener están generando cuellos de botella en el backend o en la UI.",
+          "Podría haber una falta de indexación adecuada o un aumento en la complejidad de los criterios de búsqueda que impacta negativamente el rendimiento."
         ]
       },
       {
         "seccion": "Calculadora",
         "hipotesis": [
-          "Ineficiencias en los algoritmos de simulación o en la recuperación de datos históricos para bonos específicos como AL30.",
-          "Problemas de escalabilidad en el servicio de cálculo que se manifiestan con cargas de datos más complejas o voluminosas.",
-          "Interacciones complejas en la UI que requieren múltiples llamadas al servidor o procesamiento intensivo en el cliente."
+          "La lentitud persistente de la acción 'Simular inversiones de la especie AL30' y el P95 de 79.3s indican que los cálculos complejos para ciertas especies podrían estar sobrecargando el motor de simulación o la infraestructura de cómputo.",
+          "Posibles ineficiencias en los algoritmos de cálculo o en la gestión de memoria durante simulaciones intensivas."
+        ]
+      },
+      {
+        "seccion": "Arbitraje",
+        "hipotesis": [
+          "Los saltos abruptos y la degradación en el acceso al menú y la realización de arbitrajes podrían ser causados por una inicialización lenta del módulo, dependencias externas o la carga ineficiente de datos de mercado para comparación.",
+          "Revisar la latencia de las APIs de datos de mercado utilizadas para el arbitraje y la optimización de la renderización inicial del componente."
+        ]
+      },
+      {
+        "seccion": "Mis portafolios",
+        "hipotesis": [
+          "A pesar de la mejora general, el salto abrupto en la navegación de pestañas de portafolio sugiere que la renderización de componentes complejos o la recuperación de datos para 'Proyección' y 'Agenda de pagos' puede tener picos de latencia.",
+          "Investigar la carga perezosa (lazy loading) de los datos y componentes dentro de las pestañas para evitar bloqueos iniciales."
         ]
       }
     ],
     "recomendaciones": [
       {
         "prioridad": "P1",
-        "accion": "Investigar y resolver la degradación crítica en la sección 'Curvas' y la acción 'Ingreso a la curva Chile - Soberanos - Bonos Globales - USD'.",
-        "seccion": "Curvas",
-        "evidencia": "Degradación del 38.9% en la sección (P95 43.09s) y un salto del 243.93% en la acción específica (P95 52.23s)."
+        "accion": "Investigar y optimizar la acción 'Simular inversiones de la especie AL30' para reducir su tiempo de respuesta.",
+        "seccion": "Calculadora",
+        "evidencia": "La acción ha estado sobre el umbral en 5 de 5 versiones medidas, con un P95 actual de 79.3s."
       },
       {
         "prioridad": "P1",
-        "accion": "Priorizar la optimización de la acción 'Simular inversiones de la especie AL30'.",
-        "seccion": "Calculadora",
-        "evidencia": "La acción ha estado sobre el umbral en 5 de 5 versiones, con un P95 actual de 67.23s."
+        "accion": "Realizar un análisis de causa raíz exhaustivo para la sección 'Curvas', enfocándose en la carga de datos y procesamiento de curvas específicas.",
+        "seccion": "Curvas",
+        "evidencia": "La sección degradó un -41.3% vs histórico (de 31.03s a 43.85s)."
+      },
+      {
+        "prioridad": "P1",
+        "accion": "Abordar la degradación sostenida de la sección 'Screener' y optimizar su lógica de filtrado y carga de datos.",
+        "seccion": "Screener",
+        "evidencia": "El P95 aumentó de 2.93s a 9.68s en 3 versiones consecutivas, degradando un -120.7% vs histórico."
       },
       {
         "prioridad": "P2",
-        "accion": "Realizar un análisis de rendimiento exhaustivo de la sección 'Calculadora'.",
-        "seccion": "Calculadora",
-        "evidencia": "La sección completa está 'Sobre umbral' con un P95 de 66.64s."
-      },
-      {
-        "prioridad": "P2",
-        "accion": "Investigar la degradación en la sección 'Comparar'.",
-        "seccion": "Comparar",
-        "evidencia": "Degradación del 9.5% vs histórico (P95 18.55s)."
+        "accion": "Investigar los saltos abruptos en acciones clave de 'Arbitraje' y 'Mis portafolios' para estabilizar su rendimiento.",
+        "seccion": "Arbitraje, Mis portafolios",
+        "evidencia": "Acciones como 'Ingresar al menú Arbitraje' (-139.1% vs histórico) y 'Navegabilidad entre las pestañas Proyección y Agenda de pagos en el portafolio' (salto a 26.64s en v1.45.0) muestran inestabilidad."
       },
       {
         "prioridad": "P3",
-        "accion": "Documentar y replicar las mejoras de rendimiento en las secciones 'Graficador', 'Analizar' y 'Mis portafolios'.",
-        "seccion": "General",
-        "evidencia": "Mejoras del 62.0%, 31.9% y 36.0% respectivamente vs histórico."
+        "accion": "Continuar monitoreando y aplicando las mejores prácticas de optimización en secciones con mejoras recientes para mantener la tendencia positiva.",
+        "seccion": "Analizar, Graficador",
+        "evidencia": "Analizar mejoró un 28.0% y Graficador un 34.5% vs histórico."
       }
     ]
   }
