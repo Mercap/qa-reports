@@ -1,0 +1,94 @@
+{
+  "hash": "befaf85bde1c1bf326b292783af9c852357fe91122db963acdb0927f176f3d6b",
+  "ai_model": "gemini-2.5-flash",
+  "conclusions": {
+    "estado_general": "excelente",
+    "resumen_ejecutivo": "La versión actual de Abbaco muestra un rendimiento excelente, con todas las 9 secciones analizadas presentando mejoras significativas en sus tiempos P95 respecto al histórico. No se detectaron degradaciones ni secciones que superen los umbrales de rendimiento críticos. Sin embargo, la acción 'Simular inversiones de la especie AL30' en la sección Calculadora sigue siendo un punto de atención crítico, siendo persistentemente lenta con un P95 de 69.33s.",
+    "escalar": {
+      "titulo": "Acción 'Simular inversiones' en Calculadora es persistentemente lenta",
+      "detalle": "La acción 'Simular inversiones de la especie AL30' en la sección Calculadora ha superado el umbral de alerta en 5 de las últimas 5 versiones, con un P95 actual de 69.33s, requiriendo atención inmediata."
+    },
+    "investigar": {
+      "titulo": "Alta variabilidad en la sección Calculadora",
+      "detalle": "La sección Calculadora presenta una alta variabilidad en sus tiempos de carga, con un P95 de 56.09s y un P50 de 2.01s, resultando en un ratio P95/P50 de 27.91. Esto sugiere que un pequeño porcentaje de usuarios experimenta tiempos de carga significativamente más lentos."
+    },
+    "optimizar": {
+      "titulo": "Optimizar la acción 'Simular inversiones' en Calculadora",
+      "detalle": "La acción 'Simular inversiones de la especie AL30' en la sección Calculadora es la más lenta del sistema con un P95 de 69.33s y es una acción persistentemente lenta. Su optimización impactaría significativamente la experiencia de los usuarios más afectados."
+    },
+    "hallazgos": [
+      {
+        "tipo": "alerta",
+        "seccion": "Calculadora",
+        "descripcion": "La acción 'Simular inversiones de la especie AL30' es persistentemente lenta y supera el umbral de alerta, a pesar de la mejora general de la sección.",
+        "evidencia": "Ha superado el umbral en 5 de 5 versiones, con un P95 actual de 69.33s. La sección Calculadora en general mejoró su P95 de 92.24s a 56.09s (+39.2%) vs histórico y de 71.3s a 56.09s (+21.3%) vs versión anterior."
+      },
+      {
+        "tipo": "mejora",
+        "seccion": "Curvas",
+        "descripcion": "La sección Curvas experimentó una mejora muy significativa en su rendimiento.",
+        "evidencia": "El P95 mejoró de 32.65s a 9.57s (+70.7%) vs histórico y de 43.85s a 9.57s (+78.2%) vs versión anterior. La acción 'Ingreso a la curva Chile - Soberanos - Bonos Globales - USD' mejoró un 94.16% (de 50.44s a 2.94s) en la última versión."
+      },
+      {
+        "tipo": "mejora",
+        "seccion": "Graficador",
+        "descripcion": "La sección Graficador muestra una mejora sustancial en sus tiempos de respuesta.",
+        "evidencia": "El P95 mejoró de 8.19s a 3.02s (+63.2%) vs histórico y de 5.42s a 3.02s (+44.4%) vs versión anterior."
+      },
+      {
+        "tipo": "mejora",
+        "seccion": "Screener",
+        "descripcion": "La sección Screener ha mejorado significativamente su performance.",
+        "evidencia": "El P95 mejoró de 5.99s a 3.41s (+43.1%) vs histórico y de 9.68s a 3.41s (+64.8%) vs versión anterior."
+      },
+      {
+        "tipo": "mejora",
+        "seccion": "Comparar",
+        "descripcion": "La sección Comparar muestra una mejora notable en su rendimiento.",
+        "evidencia": "El P95 mejoró de 17.6s a 9.6s (+45.4%) vs histórico y de 18.14s a 9.6s (+47.1%) vs versión anterior."
+      },
+      {
+        "tipo": "mejora",
+        "seccion": "Mis portafolios",
+        "descripcion": "La sección Mis portafolios presenta una mejora considerable.",
+        "evidencia": "El P95 mejoró de 11.13s a 6.25s (+43.8%) vs histórico y de 7.88s a 6.25s (+20.7%) vs versión anterior. La acción 'Navegabilidad entre las pestañas Proyección y Agenda de pagos en el portafolio' mejoró un 86.12% (de 9.6s a 1.33s) en la última versión."
+      },
+      {
+        "tipo": "mejora",
+        "seccion": "Arbitraje",
+        "descripcion": "La sección Arbitraje ha experimentado una mejora importante en su performance.",
+        "evidencia": "El P95 mejoró de 18.08s a 11.01s (+39.1%) vs histórico y de 17.18s a 11.01s (+35.9%) vs versión anterior."
+      }
+    ],
+    "causa_raiz": [
+      {
+        "seccion": "Calculadora",
+        "hipotesis": [
+          "La complejidad de los cálculos o la cantidad de datos financieros procesados para la simulación de inversiones en bonos como AL30 podría estar causando latencia.",
+          "Podría haber ineficiencias en la consulta o procesamiento de datos históricos de la especie AL30 desde la base de datos o APIs externas.",
+          "La interfaz de usuario para la simulación de inversiones podría estar realizando operaciones costosas en el cliente que bloquean el hilo principal, especialmente con grandes volúmenes de datos o interacciones complejas."
+        ]
+      }
+    ],
+    "recomendaciones": [
+      {
+        "prioridad": "P1",
+        "accion": "Investigar y optimizar la acción 'Simular inversiones de la especie AL30' en la sección Calculadora.",
+        "seccion": "Calculadora",
+        "evidencia": "Es una acción persistentemente lenta, superando el umbral en 5 de 5 versiones con un P95 actual de 69.33s."
+      },
+      {
+        "prioridad": "P2",
+        "accion": "Analizar la alta variabilidad (ratio P95/P50) en la sección Calculadora para identificar cuellos de botella que afectan a los usuarios más lentos.",
+        "seccion": "Calculadora",
+        "evidencia": "La sección Calculadora tiene un P95 de 56.09s y un P50 de 2.01s, con un ratio P95/P50 de 27.91, indicando una experiencia inconsistente."
+      },
+      {
+        "prioridad": "P3",
+        "accion": "Continuar monitoreando las mejoras en las secciones 'Curvas', 'Graficador' y 'Screener' para asegurar la sostenibilidad del rendimiento.",
+        "seccion": "General",
+        "evidencia": "Estas secciones mostraron mejoras significativas del P95 vs histórico de +70.7%, +63.2% y +43.1% respectivamente."
+      }
+    ]
+  }
+}
