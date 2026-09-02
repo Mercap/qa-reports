@@ -2,14 +2,14 @@
   "stats": {
     "suites": 1,
     "tests": 2,
-    "passes": 2,
+    "passes": 1,
     "pending": 0,
-    "failures": 0,
-    "start": "2026-09-01T12:36:20.567Z",
-    "end": "2026-09-01T12:36:58.222Z",
-    "duration": 37655,
+    "failures": 1,
+    "start": "2026-09-02T12:22:43.921Z",
+    "end": "2026-09-02T12:26:47.418Z",
+    "duration": 243497,
     "testsRegistered": 2,
-    "passPercent": 100,
+    "passPercent": 50,
     "pendingPercent": 0,
     "other": 0,
     "hasOther": false,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "ff260dba-01ef-4b43-8caf-e9d87a292acb",
+      "uuid": "1ad98925-e0a5-42e3-b131-741423d0944b",
       "title": "",
       "fullFile": "build/production/argentina/smoke/graficador.cy.js",
       "file": "build/production/argentina/smoke/graficador.cy.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "75e2178b-d774-4c80-86d4-d38abb4b8979",
+          "uuid": "12707edd-6b2b-4128-b83b-809edb2b1b2e",
           "title": "Graficador",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "Selecciona todas las curvas, hace clic en \"Graficar\" y espera que se muestren sus elementos correspondientes",
               "fullTitle": "Graficador Selecciona todas las curvas, hace clic en \"Graficar\" y espera que se muestren sus elementos correspondientes",
               "timedOut": null,
-              "duration": 18029,
+              "duration": 18165,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -47,8 +47,8 @@
               "context": null,
               "code": "cy.visit(`${_support_constants__WEBPACK_IMPORTED_MODULE_2__[\"default\"].ABBACO_LOCATION}/plotter`);\n_pages_graficadorPage__WEBPACK_IMPORTED_MODULE_0__.graficador.elements.selectCurvesDropdown().should('be.visible');\n_pages_graficadorPage__WEBPACK_IMPORTED_MODULE_0__.graficador.clickCurvesDropdown();\n_pages_graficadorPage__WEBPACK_IMPORTED_MODULE_0__.graficador.elements.curvesList().should('be.visible');\n_pages_graficadorPage__WEBPACK_IMPORTED_MODULE_0__.graficador.selectAllcurves();\n_selectors_sharedElements__WEBPACK_IMPORTED_MODULE_1__.sharedElements.chartBackground().should('be.visible');",
               "err": {},
-              "uuid": "6548ca33-4e6d-4b97-afc5-d6cd026c71a7",
-              "parentUUID": "75e2178b-d774-4c80-86d4-d38abb4b8979",
+              "uuid": "2f257865-4d76-4632-8ae7-3e9694cccaf2",
+              "parentUUID": "12707edd-6b2b-4128-b83b-809edb2b1b2e",
               "isHook": false,
               "skipped": false
             },
@@ -56,30 +56,35 @@
               "title": "Va a la pestaña Especies ingresa AL30, hace clic en \"Graficar\" y espera que se muestren sus elementos correspondientes",
               "fullTitle": "Graficador Va a la pestaña Especies ingresa AL30, hace clic en \"Graficar\" y espera que se muestren sus elementos correspondientes",
               "timedOut": null,
-              "duration": 2431,
-              "state": "passed",
-              "speed": "fast",
-              "pass": true,
-              "fail": false,
+              "duration": 106797,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
               "pending": false,
               "context": null,
               "code": "_pages_graficadorPage__WEBPACK_IMPORTED_MODULE_0__.graficador.goToTab(new RegExp('(Especies|Espécies)', 'i'), {\n  matchCase: false\n});\n_pages_graficadorPage__WEBPACK_IMPORTED_MODULE_0__.graficador.searchAndAddEspecie(_support_constants__WEBPACK_IMPORTED_MODULE_2__[\"default\"].HARD_DOLLAR);\n_selectors_sharedElements__WEBPACK_IMPORTED_MODULE_1__.sharedElements.highchartsMenu().should('be.visible');",
-              "err": {},
-              "uuid": "9e6c3506-3303-41c6-87d3-6ac4d8cf2287",
-              "parentUUID": "75e2178b-d774-4c80-86d4-d38abb4b8979",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 90000ms: Expected to find element: `.highcharts-exporting-group, .highcharts-menu-wrapper`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 90000ms: Expected to find element: `.highcharts-exporting-group, .highcharts-menu-wrapper`, but never found it.\n    at Context.eval (webpack://cypress/./build/production/argentina/flows/smoke/graficador.js:25:20)",
+                "diff": null
+              },
+              "uuid": "13d9cb73-08eb-4c5d-9081-c1d45620b008",
+              "parentUUID": "12707edd-6b2b-4128-b83b-809edb2b1b2e",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "6548ca33-4e6d-4b97-afc5-d6cd026c71a7",
-            "9e6c3506-3303-41c6-87d3-6ac4d8cf2287"
+            "2f257865-4d76-4632-8ae7-3e9694cccaf2"
           ],
-          "failures": [],
+          "failures": [
+            "13d9cb73-08eb-4c5d-9081-c1d45620b008"
+          ],
           "pending": [],
           "skipped": [],
-          "duration": 20460,
+          "duration": 124962,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
