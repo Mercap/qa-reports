@@ -1,129 +1,115 @@
 {
-  "hash": "f0836a909e7623df138695c595c2fd3f2b7be7a32dfa5dced327a4c3fd77a3d9",
+  "hash": "021580dccd37fcd721de84b936f23df078e2fc3f6edf4df420441c9167db487d",
   "ai_model": "gemini-2.5-flash",
   "conclusions": {
     "estado_general": "atencion",
-    "resumen_ejecutivo": "La versión actual de Abbaco muestra un estado de atención debido a la persistente lentitud de la sección Calculadora, cuyo P95 es de 81.32s, y la degradación de Mis portafolios en un 35.1% respecto a la versión anterior. A pesar de esto, se observan mejoras significativas en secciones como Graficador (+44.2%) y Screener (+48.7%).",
+    "resumen_ejecutivo": "La versión v1.45.3 de Abbaco muestra una tendencia positiva general con 7 de 9 secciones mejorando su P95 histórico. Sin embargo, la sección Calculadora permanece sobre el umbral de rendimiento con un P95 de 76.44s, y se observa una degradación significativa del 33.8% en Mis portafolios respecto a la versión anterior, además de una acción crítica en Graficador que se ralentizó un 160.01%.",
     "escalar": {
-      "titulo": "Acción 'Simular inversiones de la especie AL30' en Calculadora",
-      "detalle": "Esta acción es persistentemente lenta, superando el umbral de alerta en 5 de 5 versiones medidas, con un P95 actual de 90.04s. Requiere atención inmediata para evitar un impacto negativo en la experiencia del usuario."
+      "titulo": "Acción 'Simular inversiones AL30' en Calculadora es persistentemente lenta",
+      "detalle": "La acción 'Simular inversiones de la especie AL30' en la sección Calculadora ha superado el umbral de rendimiento en 5 de 5 versiones medidas, con un P95 actual de 89.03s, siendo el principal factor de lentitud de la sección."
     },
     "investigar": {
-      "titulo": "Degradación abrupta en Mis portafolios y Sensibilidad",
-      "detalle": "La sección Mis portafolios se degradó un 35.1% (de 7.88s a 10.65s) y Sensibilidad un 15.3% (de 7.57s a 8.73s) respecto a la versión anterior. Es crucial investigar las causas de estas regresiones puntuales."
+      "titulo": "Degradación abrupta de 'Graficar todas las curvas' en Graficador",
+      "detalle": "La acción 'Graficar todas las curvas' en la sección Graficador sufrió una degradación del 160.01%, pasando de 0.47s a 1.21s entre la versión anterior y la actual, a pesar de la mejora general de la sección."
     },
     "optimizar": {
-      "titulo": "Rendimiento de la sección Calculadora",
-      "detalle": "La sección Calculadora presenta el P95 más alto (81.32s) y una acción críticamente lenta ('Simular inversiones de la especie AL30' con 90.04s). Optimizar esta sección ofrece la mayor oportunidad de mejora en la UX."
+      "titulo": "Optimizar la sección Calculadora, especialmente la simulación de inversiones",
+      "detalle": "La sección Calculadora es la más lenta con un P95 de 76.44s, superando el umbral de rendimiento. La acción 'Simular inversiones de la especie AL30' es el principal contribuyente con 89.03s."
     },
     "hallazgos": [
       {
         "tipo": "alerta",
         "seccion": "Calculadora",
-        "descripcion": "La acción 'Simular inversiones de la especie AL30' es persistentemente lenta.",
-        "evidencia": "Ha superado el umbral de alerta en 5 de 5 versiones medidas, con un P95 actual de 90.04s."
-      },
-      {
-        "tipo": "mejora",
-        "seccion": "Screener",
-        "descripcion": "La sección Screener mostró una mejora significativa en esta versión.",
-        "evidencia": "P95 mejoró de 9.68s a 4.97s (+48.7%) vs. la versión anterior."
-      },
-      {
-        "tipo": "mejora",
-        "seccion": "Graficador",
-        "descripcion": "La sección Graficador experimentó una mejora sustancial.",
-        "evidencia": "P95 mejoró de 8.19s a 4.57s (+44.2%) vs. el histórico."
+        "descripcion": "La acción 'Simular inversiones de la especie AL30' es persistentemente lenta, superando el umbral en 5 de 5 versiones medidas.",
+        "evidencia": "P95 actual de 89.03s, con 5 de 5 versiones sobre el umbral."
       },
       {
         "tipo": "degradacion",
         "seccion": "Mis portafolios",
-        "descripcion": "La sección Mis portafolios sufrió una degradación importante.",
-        "evidencia": "P95 se degradó de 7.88s a 10.65s (-35.1%) vs. la versión anterior."
+        "descripcion": "La sección Mis portafolios se degradó significativamente en la versión actual respecto a la anterior.",
+        "evidencia": "P95 se degradó de 7.88s a 10.55s (+33.8%) entre v1.45.2 y v1.45.3."
       },
       {
         "tipo": "degradacion",
-        "seccion": "Sensibilidad",
-        "descripcion": "La sección Sensibilidad mostró una degradación notable.",
-        "evidencia": "P95 se degradó de 7.57s a 8.73s (-15.3%) vs. la versión anterior."
-      },
-      {
-        "tipo": "degradacion",
-        "seccion": "Curvas",
-        "descripcion": "La sección Curvas experimentó una degradación en su rendimiento.",
-        "evidencia": "P95 se degradó de 32.65s a 37.38s (-14.5%) vs. el histórico."
+        "seccion": "Graficador",
+        "descripcion": "Una acción específica en Graficador sufrió una degradación abrupta en la última versión.",
+        "evidencia": "La acción 'Graficar todas las curvas' se degradó un 160.01% (de 0.47s a 1.21s) entre v1.45.2 y v1.45.3."
       },
       {
         "tipo": "mejora",
-        "seccion": "Arbitraje",
-        "descripcion": "La sección Arbitraje mostró una mejora considerable.",
-        "evidencia": "P95 mejoró de 18.08s a 14.19s (+21.5%) vs. el histórico."
+        "seccion": "Screener",
+        "descripcion": "La sección Screener mostró una mejora muy significativa en la versión actual.",
+        "evidencia": "P95 mejoró de 9.68s a 4.89s (+49.5%) entre v1.45.2 y v1.45.3."
+      },
+      {
+        "tipo": "mejora",
+        "seccion": "Graficador",
+        "descripcion": "La sección Graficador mejoró notablemente su rendimiento general respecto a su histórico.",
+        "evidencia": "P95 mejoró de 8.19s a 4.34s (+47.0%) vs histórico."
+      },
+      {
+        "tipo": "mejora",
+        "seccion": "Comparar",
+        "descripcion": "La sección Comparar experimentó una mejora considerable en la versión actual.",
+        "evidencia": "P95 mejoró de 18.14s a 13.1s (+27.8%) entre v1.45.2 y v1.45.3."
+      },
+      {
+        "tipo": "mejora",
+        "seccion": "Mis portafolios",
+        "descripcion": "Una acción clave en Mis portafolios mejoró drásticamente su rendimiento en la última versión.",
+        "evidencia": "La acción 'Navegabilidad entre las pestañas Proyección y Agenda de pagos en el portafolio' mejoró un 80.28% (de 9.6s a 1.89s) entre v1.45.2 y v1.45.3."
       }
     ],
     "causa_raiz": [
       {
         "seccion": "Calculadora",
         "hipotesis": [
-          "Podría deberse a cálculos complejos o ineficientes específicos para la especie AL30.",
-          "Revisar si hay dependencias de servicios externos lentos para obtener datos de mercado de la especie AL30.",
-          "Investigar posibles problemas de carga de datos históricos o de mercado que impacten la simulación."
+          "Podría deberse a la complejidad de los cálculos financieros o la cantidad de datos procesados para la simulación de bonos específicos como AL30.",
+          "Revisar si hay ineficiencias en las consultas a la base de datos o en la lógica de backend al generar escenarios de inversión.",
+          "Considerar si el renderizado de la interfaz de usuario para resultados de simulación complejos está causando cuellos de botella en el frontend."
         ]
       },
       {
         "seccion": "Mis portafolios",
         "hipotesis": [
-          "Revisar si hubo cambios recientes en la lógica de carga o renderizado de los portfolios que aumenten el tiempo de procesamiento.",
-          "Analizar el impacto de un posible aumento en la complejidad o volumen de datos de los portfolios de los usuarios.",
-          "Investigar si existen problemas de concurrencia o bloqueos en la base de datos al acceder a la información de los portfolios."
+          "La degradación podría estar relacionada con un aumento en el volumen o la complejidad de los datos de portfolio que se cargan o procesan al ingresar a la sección.",
+          "Revisar si cambios recientes en la lógica de agregación de datos o cálculo de métricas de portfolio están impactando negativamente el rendimiento.",
+          "Investigar posibles regresiones en la carga inicial de la vista o en las interacciones con el servicio de backend para obtener la información del portfolio."
         ]
       },
       {
-        "seccion": "Sensibilidad",
+        "seccion": "Graficador",
         "hipotesis": [
-          "Podría deberse a un aumento en la cantidad de datos procesados para el análisis de sensibilidad en la versión actual.",
-          "Revisar la eficiencia de los algoritmos de cálculo de sensibilidad, que podrían haberse vuelto más lentos.",
-          "Investigar posibles problemas de rendimiento en la interfaz de usuario al mostrar los resultados del análisis de sensibilidad."
-        ]
-      },
-      {
-        "seccion": "Curvas",
-        "hipotesis": [
-          "Podría deberse a un aumento en la complejidad de los datos o cálculos asociados a la visualización de curvas.",
-          "Revisar si hay nuevas integraciones o dependencias externas que estén ralentizando la carga de las curvas.",
-          "Analizar el rendimiento de la base de datos al consultar la información necesaria para construir las curvas."
+          "La degradación de 'Graficar todas las curvas' podría indicar un problema de escalabilidad al procesar y renderizar múltiples conjuntos de datos simultáneamente.",
+          "Revisar si hubo actualizaciones en las librerías de gráficos o en los algoritmos de visualización que introdujeron una regresión de rendimiento.",
+          "Investigar posibles problemas de concurrencia o bloqueos en el hilo principal al intentar dibujar un gran número de curvas en la interfaz."
         ]
       }
     ],
     "recomendaciones": [
       {
         "prioridad": "P1",
-        "accion": "Priorizar la optimización de la acción 'Simular inversiones de la especie AL30'.",
+        "accion": "Investigar y optimizar la acción 'Simular inversiones de la especie AL30' en la sección Calculadora.",
         "seccion": "Calculadora",
-        "evidencia": "Es persistentemente lenta, superando el umbral de alerta en 5 de 5 versiones medidas (P95 actual: 90.04s)."
+        "evidencia": "La acción ha estado sobre el umbral en 5 de 5 versiones medidas, con un P95 actual de 89.03s."
       },
       {
         "prioridad": "P1",
-        "accion": "Investigar y resolver la degradación de la sección Mis portafolios.",
+        "accion": "Realizar un análisis de causa raíz urgente para la degradación de la acción 'Graficar todas las curvas'.",
+        "seccion": "Graficador",
+        "evidencia": "Degradación del 160.01% (de 0.47s a 1.21s) entre v1.45.2 y v1.45.3."
+      },
+      {
+        "prioridad": "P2",
+        "accion": "Analizar la regresión del 33.8% en la sección 'Mis portafolios' para identificar la causa subyacente.",
         "seccion": "Mis portafolios",
-        "evidencia": "P95 se degradó de 7.88s a 10.65s (-35.1%) vs. la versión anterior."
-      },
-      {
-        "prioridad": "P2",
-        "accion": "Analizar la causa de la degradación en la sección Sensibilidad.",
-        "seccion": "Sensibilidad",
-        "evidencia": "P95 se degradó de 7.57s a 8.73s (-15.3%) vs. la versión anterior."
-      },
-      {
-        "prioridad": "P2",
-        "accion": "Revisar el rendimiento de la sección Curvas para mitigar la degradación.",
-        "seccion": "Curvas",
-        "evidencia": "P95 se degradó de 32.65s a 37.38s (-14.5%) vs. el histórico."
+        "evidencia": "P95 se degradó de 7.88s a 10.55s entre v1.45.2 y v1.45.3."
       },
       {
         "prioridad": "P3",
-        "accion": "Optimizar la consistencia del rendimiento en la sección Calculadora.",
-        "seccion": "Calculadora",
-        "evidencia": "Presenta un alto ratio P95/P50 de 26.23, indicando variabilidad en la experiencia del usuario."
+        "accion": "Continuar monitoreando y consolidando las mejoras de rendimiento en secciones como Screener y Comparar.",
+        "seccion": "General",
+        "evidencia": "Screener mejoró un 49.5% y Comparar un 27.8% respecto a la versión anterior."
       }
     ]
   }
