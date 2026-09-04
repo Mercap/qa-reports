@@ -1,126 +1,117 @@
 {
-  "hash": "859b2c9694abd1ec584e04949ea0babd1d3119c7a3c2c17b87555a586a09b929",
+  "hash": "be646c1ecb881e3849bf1f492a55558fe76cf8e249cef2ca6ac8549cfa489aa7",
   "ai_model": "gemini-2.5-flash",
   "conclusions": {
     "estado_general": "critico",
-    "resumen_ejecutivo": "La versión V1.14.0 de MPC presenta un estado crítico, con 4 de 6 secciones mostrando degradaciones significativas frente a su histórico. La sección Agenda sufrió una degradación del 202.9% (P95 de 9.94s a 30.12s), y Home empeoró un 22.1%. A pesar de esto, Mis operaciones mostró una mejora drástica del 86.0% (de 49.35s a 6.92s), aunque con un sesgo por acciones discontinuadas.",
+    "resumen_ejecutivo": "La versión V1.14.0 de MPC presenta un estado crítico de performance, con 4 de 6 secciones mostrando degradación significativa (>15%) respecto al histórico. La sección Agenda se degradó un 232.5% (P95 33.05s), y Home, Mis depositarios y Rendimiento muestran tendencias sostenidas de degradación en múltiples versiones. Mis operaciones es la única sección con una mejora notable del 86.4% vs histórico, aunque con un sesgo por acciones discontinuadas.",
     "escalar": {
-      "titulo": "Degradación crítica en Agenda y tendencias negativas sostenidas",
-      "detalle": "La sección Agenda sufrió una degradación del 202.9% (P95 de 9.94s a 30.12s). Además, Mis depositarios y Home muestran tendencias de degradación sostenidas en 5 y 4 versiones respectivamente, requiriendo atención urgente."
+      "titulo": "Degradación crítica en Agenda y tendencias sostenidas",
+      "detalle": "La sección Agenda se degradó un 232.5% vs histórico, alcanzando un P95 de 33.05s. Además, Home, Mis depositarios y Rendimiento presentan degradaciones sostenidas en 4, 5 y 3 versiones respectivamente, requiriendo atención inmediata."
     },
     "investigar": {
-      "titulo": "Tendencias de degradación sostenida en Home y Mis depositarios",
-      "detalle": "La sección Home ha degradado su P95 de 13.16s a 25.97s en 4 versiones consecutivas, mientras que Mis depositarios ha empeorado de 1.83s a 3.45s en 5 versiones, indicando problemas estructurales."
+      "titulo": "Degradación sostenida en Home y Mis depositarios",
+      "detalle": "La sección Home ha degradado su P95 de 13.16s a 25.97s en 4 versiones consecutivas, mientras que Mis depositarios lo hizo de 1.83s a 3.14s en 5 versiones, indicando problemas estructurales."
     },
     "optimizar": {
-      "titulo": "Mejorar la performance de la sección Agenda",
-      "detalle": "La sección Agenda presenta la mayor degradación (202.9%) con un P95 actual de 30.12s. Optimizar esta sección tiene el mayor potencial para mejorar la experiencia general del usuario."
+      "titulo": "Oportunidad de mejora en Mis operaciones y Agenda",
+      "detalle": "Mis operaciones mejoró un 86.4% vs histórico, pasando de 49.35s a 6.69s. Investigar la causa de esta mejora, y la recuperación del 40.8% en Agenda vs la versión anterior, para replicar en otras secciones."
     },
     "hallazgos": [
       {
         "tipo": "alerta",
         "seccion": "Mis operaciones",
-        "descripcion": "Mejora aparente — se discontinuaron 4/12 acciones medidas en V1.13.4 (P95 máx removidas: 146.25s)",
-        "evidencia": "Dropout rate: 33.3%"
+        "descripcion": "La mejora del 94.8% en Mis operaciones vs la versión anterior es aparente, ya que se discontinuaron 4 de 12 acciones medidas en V1.13.4, incluyendo una con P95 de 146.25s.",
+        "evidencia": "Mejora aparente — se discontinuaron 4/12 acciones medidas en V1.13.4 (P95 máx removidas: 146.25s)"
       },
       {
         "tipo": "alerta",
         "seccion": "Agenda",
-        "descripcion": "Acción 'Segundo ingreso: Tipo de instrumento Bonos, estado: Pendiente, fecha: 3 meses ha' fue discontinuada con una degradación significativa.",
-        "evidencia": "P95 de 66.7s en V1.13.4 (+453.5%)"
+        "descripcion": "La sección Agenda sufrió una degradación del 232.5% vs histórico (P95 33.05s), a pesar de una mejora del 40.8% vs la versión anterior. Una acción crítica fue discontinuada tras empeorar 453.5% a 66.7s en V1.13.4.",
+        "evidencia": "P95 degradó de 9.94s a 33.05s (-232.5%) vs histórico; P95 mejoró de 55.84s a 33.05s (+40.8%) vs V1.13.4. Acción 'Segundo ingreso: Tipo de instrumento Bonos, estado: Pendiente, fecha: 3 meses ha' empeoró 453.5% a 66.7s en V1.13.4 antes de ser removida."
       },
       {
-        "tipo": "degradacion",
+        "tipo": "alerta",
         "seccion": "Mis depositarios",
-        "descripcion": "La sección Mis depositarios muestra una tendencia de degradación sostenida en 5 versiones consecutivas.",
-        "evidencia": "P95 creció de 1.83s a 3.45s desde V1.12.3"
+        "descripcion": "La sección Mis depositarios presenta una tendencia sostenida de degradación en 5 versiones consecutivas.",
+        "evidencia": "P95 degradó de 1.83s a 3.14s en 5 versiones consecutivas."
       },
       {
-        "tipo": "degradacion",
+        "tipo": "alerta",
         "seccion": "Home",
-        "descripcion": "La sección Home presenta una tendencia de degradación sostenida en 4 versiones consecutivas.",
-        "evidencia": "P95 creció de 13.16s a 25.97s desde V1.12.4"
+        "descripcion": "La sección Home muestra una tendencia sostenida de degradación en 4 versiones consecutivas.",
+        "evidencia": "P95 degradó de 13.16s a 25.97s en 4 versiones consecutivas."
       },
       {
-        "tipo": "degradacion",
+        "tipo": "alerta",
         "seccion": "Rendimiento",
-        "descripcion": "La sección Rendimiento muestra una tendencia de degradación sostenida en 3 versiones consecutivas.",
-        "evidencia": "P95 creció de 5.38s a 6.18s desde V1.12.5"
-      },
-      {
-        "tipo": "mejora",
-        "seccion": "Agenda",
-        "descripcion": "La sección Agenda mostró una recuperación significativa respecto a la versión anterior.",
-        "evidencia": "P95 mejoró de 55.84s a 30.12s (+46.1%)"
-      },
-      {
-        "tipo": "mejora",
-        "seccion": "Mis operaciones",
-        "descripcion": "La sección Mis operaciones experimentó una mejora drástica respecto a la versión anterior.",
-        "evidencia": "P95 mejoró de 127.45s a 6.92s (+94.6%)"
+        "descripcion": "La sección Rendimiento exhibe una tendencia sostenida de degradación en 3 versiones consecutivas.",
+        "evidencia": "P95 degradó de 5.38s a 6.18s en 3 versiones consecutivas."
       }
     ],
     "causa_raiz": [
       {
         "seccion": "Agenda",
         "hipotesis": [
-          "Revisar la complejidad de las consultas de datos para operaciones programadas y alertas de vencimiento, especialmente con filtros de tiempo.",
-          "Analizar la eficiencia de la carga inicial de la UI de Agenda, que podría estar procesando grandes volúmenes de datos.",
-          "Investigar posibles cuellos de botella en el backend o la base de datos al recuperar información de bonos o estados pendientes."
+          "Podría deberse a consultas complejas o ineficientes en la base de datos para filtrar operaciones programadas, especialmente con grandes volúmenes de datos.",
+          "Revisar si hay problemas de renderizado o carga de componentes en la UI que escalan mal con la cantidad de ítems en la agenda.",
+          "Posibles bloqueos o cuellos de botella en el API al acceder a los datos de la agenda bajo ciertas condiciones de filtro."
         ]
       },
       {
         "seccion": "Home",
         "hipotesis": [
-          "Evaluar la carga de portfolios destacados y accesos directos, que podría estar generando consultas ineficientes o excesivas.",
-          "Considerar si la lógica de personalización o agregación de datos en la Home ha introducido latencias."
+          "La degradación sostenida podría estar relacionada con un aumento en la complejidad o cantidad de datos mostrados en los portfolios destacados.",
+          "Revisar la eficiencia de las consultas que consolidan información de múltiples portfolios para la vista principal.",
+          "Considerar si la carga de nuevos componentes o widgets en la página de inicio está impactando el tiempo de carga inicial."
         ]
       },
       {
         "seccion": "Mis depositarios",
         "hipotesis": [
-          "Investigar la eficiencia de las llamadas a la API para listar y gestionar depositarios, especialmente si hay un aumento en el número de depositarios o cuentas.",
-          "Revisar la lógica de filtrado y selección de cuentas, que podría estar causando re-renderizados costosos o consultas repetitivas."
+          "La tendencia de degradación podría indicar ineficiencias en la recuperación de datos de depositarios, posiblemente por un aumento en el número de cuentas o la complejidad de las integraciones.",
+          "Revisar la paginación o la carga progresiva de datos en esta sección, ya que podría estar cargando más información de la necesaria inicialmente.",
+          "Evaluar la performance de las llamadas a sistemas externos para obtener saldos o información detallada de los depositarios."
         ]
       },
       {
         "seccion": "Rendimiento",
         "hipotesis": [
-          "Analizar la complejidad de los cálculos de retorno y performance histórica, que pueden ser intensivos en recursos.",
-          "Revisar la carga de datos para los gráficos, que podría estar transfiriendo grandes volúmenes o requiriendo procesamiento pesado en el cliente."
+          "La degradación sostenida podría ser causada por cálculos de retorno (TWR/MWR) que no escalan eficientemente con el volumen de datos históricos o la cantidad de portfolios.",
+          "Revisar la eficiencia de la recuperación y procesamiento de datos históricos necesarios para la generación de gráficos de rendimiento.",
+          "Considerar si hay problemas de performance en la librería de gráficos utilizada o en el renderizado de los mismos en el navegador."
         ]
       }
     ],
     "recomendaciones": [
       {
         "prioridad": "P1",
-        "accion": "Realizar un análisis de causa raíz exhaustivo en la sección Agenda para identificar el origen de la degradación del 202.9% y la acción discontinuada.",
+        "accion": "Investigar a fondo la causa raíz de la degradación del 232.5% en la sección Agenda y la acción discontinuada que empeoró 453.5% en V1.13.4.",
         "seccion": "Agenda",
-        "evidencia": "P95 actual de 30.12s (vs 9.94s histórico) y acción 'Segundo ingreso: Tipo de instrumento Bonos...' con P95 de 66.7s (+453.5%) en V1.13.4."
+        "evidencia": "Degradación del 232.5% vs histórico (P95 33.05s) y acción discontinuada con P95 de 66.7s."
       },
       {
         "prioridad": "P1",
-        "accion": "Investigar y revertir la tendencia de degradación sostenida en la sección Home.",
+        "accion": "Analizar y revertir la tendencia sostenida de degradación en la sección Home, que ha aumentado su P95 de 13.16s a 25.97s en 4 versiones.",
         "seccion": "Home",
-        "evidencia": "P95 creció de 13.16s a 25.97s en 4 versiones consecutivas."
+        "evidencia": "P95 degradó de 13.16s a 25.97s en 4 versiones consecutivas."
       },
       {
         "prioridad": "P1",
-        "accion": "Investigar y revertir la tendencia de degradación sostenida en la sección Mis depositarios.",
+        "accion": "Investigar la causa de la degradación sostenida en la sección Mis depositarios, que ha aumentado su P95 de 1.83s a 3.14s en 5 versiones.",
         "seccion": "Mis depositarios",
-        "evidencia": "P95 creció de 1.83s a 3.45s en 5 versiones consecutivas."
+        "evidencia": "P95 degradó de 1.83s a 3.14s en 5 versiones consecutivas."
       },
       {
         "prioridad": "P2",
-        "accion": "Auditar la sección Mis operaciones para validar la mejora reportada, considerando el alto dropout de acciones lentas.",
+        "accion": "Validar la mejora del 94.8% en Mis operaciones, confirmando que no se debe únicamente a la discontinuación de acciones lentas y documentar las causas de la mejora real.",
         "seccion": "Mis operaciones",
-        "evidencia": "33.3% de acciones (4 de 12) fueron discontinuadas en V1.13.4, incluyendo una con P95 de 146.25s."
+        "evidencia": "Mejora del 94.8% vs V1.13.4, con 33.3% de acciones discontinuadas (P95 máx removidas: 146.25s)."
       },
       {
-        "prioridad": "P3",
-        "accion": "Analizar la tendencia de degradación en la sección Rendimiento para evitar un deterioro mayor.",
+        "prioridad": "P2",
+        "accion": "Analizar la tendencia sostenida de degradación en la sección Rendimiento, que ha aumentado su P95 de 5.38s a 6.18s en 3 versiones.",
         "seccion": "Rendimiento",
-        "evidencia": "P95 creció de 5.38s a 6.18s en 3 versiones consecutivas."
+        "evidencia": "P95 degradó de 5.38s a 6.18s en 3 versiones consecutivas."
       }
     ]
   }
