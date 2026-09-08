@@ -1,115 +1,121 @@
 {
-  "hash": "cd7a65898b5c31f4f52792ec4363602e496aedd61de1a8e373a387f6c8daeba7",
+  "hash": "d88cdc300164d5cef5ed569d3f83812752c7255e464a788dfad4ab899d59ec4b",
   "ai_model": "gemini-2.5-flash",
   "conclusions": {
     "estado_general": "atencion",
-    "resumen_ejecutivo": "La versión actual v1.45.3 muestra una mejora general en 8 de 9 secciones respecto al P95 histórico, con secciones como 'Curvas' y 'Graficador' mejorando un 37.7% y 39.0% respectivamente. Sin embargo, la sección 'Calculadora' permanece sobre el umbral de rendimiento con un P95 de 83.99s, y se observan degradaciones significativas en acciones críticas dentro de 'Analizar' y 'Mis portafolios' respecto a la versión anterior.",
+    "resumen_ejecutivo": "La plataforma Abbaco muestra una tendencia general positiva con 8 de 9 secciones mejorando su P95 histórico. Sin embargo, la sección 'Calculadora' permanece como un cuello de botella crítico con un P95 de 83.87s, superando el umbral de rendimiento. Además, 'Analizar' y 'Mis portafolios' experimentaron degradaciones significativas del 24.2% y 22.0% respectivamente en comparación con la versión anterior.",
     "escalar": {
-      "titulo": "Acción 'Simular inversiones AL30' en Calculadora es persistentemente lenta",
-      "detalle": "La acción 'Simular inversiones de la especie AL30' en la sección 'Calculadora' ha estado sobre el umbral de rendimiento en 5 de las últimas 5 versiones, con un P95 actual de 89.99s. Esto contribuye a que la sección 'Calculadora' esté sobre el umbral de 60s (P95 83.99s)."
+      "titulo": "Calculadora: Acción crítica persistentemente lenta y degradación reciente",
+      "detalle": "La acción 'Simular inversiones de la especie AL30' en Calculadora es persistentemente lenta (89.89s, 5 de 5 versiones sobre umbral). La sección Calculadora también degradó un 17.6% vs. la versión anterior."
     },
     "investigar": {
-      "titulo": "Degradación crítica en 'Analizar' para 'Condiciones de Emisión TX28'",
-      "detalle": "La acción 'Ingreso a la pestaña Condiciones de Emisión de la especie TX28' en la sección 'Analizar' sufrió una degradación del 698.19% (de 1.39s a 11.11s) respecto a la versión anterior, siendo la degradación más abrupta detectada."
+      "titulo": "Degradación extrema en acciones de Analizar y Curvas",
+      "detalle": "La acción 'Ingreso a la pestaña Condiciones de Emisión de la especie BDC28' en Analizar se degradó un 674.31% (de 2.19s a 16.98s) en la última versión. También, 'Ingreso a la curva Brasil' en Curvas degradó un 95.42%."
     },
     "optimizar": {
-      "titulo": "Optimizar la sección 'Calculadora' y sus simulaciones de inversión",
-      "detalle": "La sección 'Calculadora' es la más lenta con un P95 de 83.99s, superando el umbral de rendimiento. La acción 'Simular inversiones de la especie AL30' es un contribuyente clave con 89.99s."
+      "titulo": "Optimizar la sección Calculadora y acciones lentas crónicas",
+      "detalle": "La sección Calculadora tiene un P95 de 83.87s, superando el umbral de rendimiento. La acción 'Simular inversiones de la especie AL30' es persistentemente lenta con 89.89s."
     },
     "hallazgos": [
       {
         "tipo": "alerta",
         "seccion": "Calculadora",
-        "descripcion": "La acción 'Simular inversiones de la especie AL30' es persistentemente lenta (5 de 5 versiones sobre el umbral), con un P95 actual de 89.99s, contribuyendo a que la sección 'Calculadora' esté sobre el umbral de rendimiento (P95 83.99s).",
-        "evidencia": "P95 actual de 89.99s para la acción y P95 de 83.99s para la sección."
+        "descripcion": "La acción 'Simular inversiones de la especie AL30' es persistentemente lenta y la sección degradó recientemente.",
+        "evidencia": "La acción tiene un P95 de 89.89s (5 de 5 versiones sobre umbral). La sección Calculadora degradó de 71.3s a 83.87s (-17.6%) vs. la versión anterior."
       },
       {
         "tipo": "degradacion",
         "seccion": "Analizar",
-        "descripcion": "La sección 'Analizar' degradó un 24.3% vs la versión anterior. Específicamente, 'Ingreso a la pestaña Condiciones de Emisión de la especie TX28' degradó un 698.19% vs la versión anterior.",
-        "evidencia": "P95 de 'Analizar' degradó de 11.15s a 13.86s (-24.3%). Acción 'Condiciones de Emisión TX28' pasó de 1.39s a 11.11s (+698.19%)."
+        "descripcion": "La sección Analizar degradó significativamente, con una acción crítica.",
+        "evidencia": "P95 degradó de 11.15s a 13.85s (-24.2%) vs. la versión anterior. La acción 'Ingreso a la pestaña Condiciones de Emisión de la especie BDC28' degradó un 674.31% (de 2.19s a 16.98s) vs. versión anterior."
       },
       {
         "tipo": "degradacion",
         "seccion": "Mis portafolios",
-        "descripcion": "La sección 'Mis portafolios' degradó un 22.6% vs la versión anterior.",
-        "evidencia": "P95 de 'Mis portafolios' degradó de 7.88s a 9.66s (-22.6%)."
+        "descripcion": "La sección Mis portafolios mostró una regresión en rendimiento.",
+        "evidencia": "P95 degradó de 7.88s a 9.62s (-22.0%) vs. la versión anterior."
       },
       {
         "tipo": "mejora",
         "seccion": "Curvas",
-        "descripcion": "La sección 'Curvas' mostró una mejora significativa del 53.6% vs la versión anterior y un 37.7% vs su histórico.",
-        "evidencia": "P95 mejoró de 43.85s a 20.34s (+53.6%) vs versión anterior y de 32.65s a 20.34s (+37.7%) vs histórico."
+        "descripcion": "La sección Curvas mostró una mejora sustancial.",
+        "evidencia": "P95 mejoró de 43.85s a 20.29s (+53.7%) vs. la versión anterior y un 37.9% vs. histórico."
       },
       {
         "tipo": "mejora",
         "seccion": "Screener",
-        "descripcion": "La sección 'Screener' mejoró un 42.0% vs la versión anterior.",
-        "evidencia": "P95 mejoró de 9.68s a 5.61s (+42.0%) vs versión anterior."
-      },
-      {
-        "tipo": "mejora",
-        "seccion": "Comparar",
-        "descripcion": "La sección 'Comparar' mejoró un 22.4% vs la versión anterior.",
-        "evidencia": "P95 mejoró de 18.14s a 14.09s (+22.4%) vs versión anterior."
+        "descripcion": "La sección Screener tuvo una mejora notable.",
+        "evidencia": "P95 mejoró de 9.68s a 5.55s (+42.7%) vs. la versión anterior."
       },
       {
         "tipo": "mejora",
         "seccion": "Graficador",
-        "descripcion": "La sección 'Graficador' mejoró un 39.0% vs su histórico.",
-        "evidencia": "P95 mejoró de 8.19s a 4.99s (+39.0%) vs histórico."
+        "descripcion": "La sección Graficador mejoró significativamente.",
+        "evidencia": "P95 mejoró de 8.19s a 4.98s (+39.1%) vs. histórico."
+      },
+      {
+        "tipo": "mejora",
+        "seccion": "Comparar",
+        "descripcion": "La sección Comparar mostró una mejora importante.",
+        "evidencia": "P95 mejoró de 18.14s a 13.94s (+23.2%) vs. la versión anterior."
       }
     ],
     "causa_raiz": [
       {
         "seccion": "Calculadora",
         "hipotesis": [
-          "La complejidad de los cálculos de simulación de inversiones para la especie AL30 podría ser inherentemente alta o no estar optimizada.",
-          "Dependencia de servicios externos lentos o con alta latencia para obtener datos de mercado en tiempo real durante la simulación.",
-          "Ineficiencias en el algoritmo de cálculo o en la gestión de memoria/CPU en el frontend para esta simulación específica."
+          "Carga de datos complejos o cálculos intensivos en el backend para simulaciones de inversión.",
+          "Ineficiencias en la renderización de la UI o manejo de grandes volúmenes de datos en el frontend.",
+          "Problemas de concurrencia o bloqueo en la base de datos al procesar múltiples simulaciones."
         ]
       },
       {
         "seccion": "Analizar",
         "hipotesis": [
-          "Cambios recientes en la lógica de carga o procesamiento de datos para las 'Condiciones de Emisión' de especies específicas (ej. TX28).",
-          "Problemas de rendimiento en la API o base de datos al consultar información detallada de bonos para la sección de análisis.",
-          "Introducción de componentes UI complejos o scripts pesados en las pestañas de análisis que ralentizan la renderización."
+          "Cambios recientes en la estructura de datos o APIs para 'Condiciones de Emisión' que introdujeron latencia.",
+          "Regresión en la optimización de consultas o procesamiento de datos específicos de la especie BDC28.",
+          "Aumento en la complejidad de los componentes de UI o scripts de terceros cargados en esa pestaña."
         ]
       },
       {
         "seccion": "Mis portafolios",
         "hipotesis": [
-          "Aumento en la complejidad de los cálculos de portfolio o la cantidad de datos a mostrar en la vista de portafolios.",
-          "Ineficiencias en la carga de datos o en la renderización de la lista de portfolios tras cambios recientes.",
-          "Problemas de concurrencia o bloqueo en la base de datos al acceder a múltiples portfolios."
+          "Aumento en la cantidad de datos a cargar o procesar para los portafolios de los usuarios.",
+          "Ineficiencias en las consultas a la base de datos o en la agregación de información de múltiples activos.",
+          "Problemas de rendimiento en componentes de UI que manejan la visualización de portafolios complejos."
         ]
       }
     ],
     "recomendaciones": [
       {
         "prioridad": "P1",
-        "accion": "Optimizar la acción 'Simular inversiones de la especie AL30' en la sección 'Calculadora'.",
+        "accion": "Realizar un análisis de causa raíz profundo en la acción 'Simular inversiones de la especie AL30'.",
         "seccion": "Calculadora",
-        "evidencia": "P95 actual de 89.99s y 5 de 5 versiones sobre el umbral de rendimiento."
+        "evidencia": "P95 actual de 89.89s, siendo persistentemente lenta en 5 de 5 versiones medidas."
       },
       {
         "prioridad": "P1",
-        "accion": "Investigar y corregir la degradación crítica en la acción 'Ingreso a la pestaña Condiciones de Emisión de la especie TX28'.",
+        "accion": "Investigar la regresión del 674.31% en 'Ingreso a la pestaña Condiciones de Emisión de la especie BDC28'.",
         "seccion": "Analizar",
-        "evidencia": "Degradación del 698.19% vs la versión anterior (1.39s a 11.11s)."
+        "evidencia": "Degradación de 2.19s a 16.98s (+674.31%) en la última versión."
       },
       {
         "prioridad": "P2",
-        "accion": "Analizar las causas de la degradación general en las secciones 'Analizar' y 'Mis portafolios' respecto a la versión anterior.",
-        "seccion": "Analizar, Mis portafolios",
-        "evidencia": "'Analizar' degradó 24.3% (11.15s a 13.86s) y 'Mis portafolios' degradó 22.6% (7.88s a 9.66s)."
+        "accion": "Optimizar la sección Calculadora para reducir su P95 general.",
+        "seccion": "Calculadora",
+        "evidencia": "P95 actual de 83.87s (sobre umbral) y degradación del 17.6% vs. versión anterior."
+      },
+      {
+        "prioridad": "P2",
+        "accion": "Revisar el rendimiento de la sección 'Mis portafolios' para identificar la causa de la degradación.",
+        "seccion": "Mis portafolios",
+        "evidencia": "P95 degradó de 7.88s a 9.62s (-22.0%) vs. la versión anterior."
       },
       {
         "prioridad": "P3",
-        "accion": "Documentar y replicar las optimizaciones implementadas en las secciones 'Curvas', 'Screener', 'Comparar' y 'Graficador'.",
+        "accion": "Monitorear de cerca las secciones con mejoras significativas para asegurar su estabilidad.",
         "seccion": "General",
-        "evidencia": "Mejoras del 53.6% en 'Curvas' y 42.0% en 'Screener' vs versión anterior, y 39.0% en 'Graficador' vs histórico."
+        "evidencia": "Secciones como Curvas (+53.7%) y Screener (+42.7%) mostraron mejoras importantes."
       }
     ]
   }
