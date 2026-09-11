@@ -12,13 +12,13 @@
     "hasOther": false,
     "skipped": 0,
     "hasSkipped": false,
-    "start": "2026-09-10T10:01:18.719Z",
-    "end": "2026-09-10T10:02:07.828Z",
-    "duration": 49109
+    "start": "2026-09-11T10:02:11.083Z",
+    "end": "2026-09-11T10:02:53.159Z",
+    "duration": 42076
   },
   "results": [
     {
-      "uuid": "eaa1acb6-50b9-410d-915e-009a15dd8217",
+      "uuid": "f2ec02ee-330b-4a5c-9d29-bcf283d2e781",
       "title": "",
       "fullFile": "build/production/avalian/specs/sanity/sanity.cy.js",
       "file": "build/production/avalian/specs/sanity/sanity.cy.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "6b74ae5b-bbc4-4043-80b9-030aeed99161",
+          "uuid": "f1809a36-3a35-4a09-977c-032e60d8b969",
           "title": "Precondición Admin Login",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "Ingresar y hacer login en el admin de MPC",
               "fullTitle": "Precondición Admin Login Ingresar y hacer login en el admin de MPC",
               "timedOut": null,
-              "duration": 6860,
+              "duration": 7043,
               "state": "passed",
               "speed": "medium",
               "pass": true,
@@ -47,26 +47,26 @@
               "context": null,
               "code": "cy.adminLoginMPC();",
               "err": {},
-              "uuid": "153918e2-3e1c-4733-b640-8ad494e6c0a6",
-              "parentUUID": "6b74ae5b-bbc4-4043-80b9-030aeed99161",
+              "uuid": "bca18747-8f9b-4be3-a446-e1fcc44b8fda",
+              "parentUUID": "f1809a36-3a35-4a09-977c-032e60d8b969",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "153918e2-3e1c-4733-b640-8ad494e6c0a6"
+            "bca18747-8f9b-4be3-a446-e1fcc44b8fda"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 6860,
+          "duration": 7043,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
         },
         {
-          "uuid": "946c182c-36ed-4fc8-9da7-f9f8b08d5393",
+          "uuid": "e11b7b72-09f6-400f-ba15-d5f497b1cb50",
           "title": "Precondición MPC Login",
           "fullFile": "",
           "file": "",
@@ -77,7 +77,7 @@
               "title": "Login en MPC",
               "fullTitle": "Precondición MPC Login Login en MPC",
               "timedOut": null,
-              "duration": 2918,
+              "duration": 2700,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -86,26 +86,26 @@
               "context": null,
               "code": "cy.visit(_support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].MPC_LOCATION);",
               "err": {},
-              "uuid": "aacca5fc-0c3b-4f65-80e5-98e82e4afe6c",
-              "parentUUID": "946c182c-36ed-4fc8-9da7-f9f8b08d5393",
+              "uuid": "192307d8-929c-4430-9080-596ad84f6bf2",
+              "parentUUID": "e11b7b72-09f6-400f-ba15-d5f497b1cb50",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "aacca5fc-0c3b-4f65-80e5-98e82e4afe6c"
+            "192307d8-929c-4430-9080-596ad84f6bf2"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 2918,
+          "duration": 2700,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
         },
         {
-          "uuid": "69e92c1d-2461-4fcf-9741-4dfd1a706f97",
+          "uuid": "16b0487c-859e-42b8-95d2-0bd8319806ec",
           "title": "Verificar la posición valuada de los portfolios",
           "fullFile": "",
           "file": "",
@@ -116,7 +116,7 @@
               "title": "Verificar que existan portfolios creados",
               "fullTitle": "Verificar la posición valuada de los portfolios Verificar que existan portfolios creados",
               "timedOut": null,
-              "duration": 9332,
+              "duration": 8344,
               "state": "passed",
               "speed": "medium",
               "pass": true,
@@ -125,8 +125,8 @@
               "context": null,
               "code": "cy.validacionesHome();\n    cy.skipEncuesta();",
               "err": {},
-              "uuid": "7061fa92-e692-4696-bbb3-1ec232a24d06",
-              "parentUUID": "69e92c1d-2461-4fcf-9741-4dfd1a706f97",
+              "uuid": "850091b1-6eb8-46db-bb8c-b61874020d18",
+              "parentUUID": "16b0487c-859e-42b8-95d2-0bd8319806ec",
               "isHook": false,
               "skipped": false
             },
@@ -134,7 +134,7 @@
               "title": "Revisar que la posición de los portfolios no sea cero",
               "fullTitle": "Verificar la posición valuada de los portfolios Revisar que la posición de los portfolios no sea cero",
               "timedOut": null,
-              "duration": 137,
+              "duration": 69,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -143,8 +143,8 @@
               "context": null,
               "code": "cy.get('.card-body').then(($cards) => {\n      const portfoliosConValorCero = [];\n      $cards.each((index, card) => {\n        const $card = Cypress.$(card);\n        const nombre = $card.find('h6.card-title span[data-toggle=\"tooltip\"]').attr('data-original-title')?.trim();\n        const rawValor = $card.find('h5.card-title span[data-toggle=\"tooltip\"]').attr('data-original-title')?.trim();\n        if (nombre && rawValor) {\n          const valor = parseFloat(rawValor.replace(/\\./g, '').replace(',', '.'));\n          if (valor === 0) {\n            portfoliosConValorCero.push(nombre);\n          }\n        }\n      });\n      cy.then(() => {\n        if (portfoliosConValorCero.length > 0) {\n          const lista = portfoliosConValorCero.join(', ');\n          throw new Error(`❌ Los siguientes portfolios tienen valor cero: ${lista}.`);\n        } else {\n          cy.log('✅ Todos los portfolios tienen valor distinto de cero');\n        }\n      });\n    });",
               "err": {},
-              "uuid": "32274e3f-7f87-4693-b0d8-ce942ecdf243",
-              "parentUUID": "69e92c1d-2461-4fcf-9741-4dfd1a706f97",
+              "uuid": "44b34fbe-c1d2-4d6a-9728-90e0a7e48b91",
+              "parentUUID": "16b0487c-859e-42b8-95d2-0bd8319806ec",
               "isHook": false,
               "skipped": false
             },
@@ -152,7 +152,7 @@
               "title": "Ingresar a todos los portfolios disponibles y validar que carguen correctamente",
               "fullTitle": "Verificar la posición valuada de los portfolios Ingresar a todos los portfolios disponibles y validar que carguen correctamente",
               "timedOut": null,
-              "duration": 19767,
+              "duration": 15690,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -161,22 +161,22 @@
               "context": null,
               "code": "cy.contains('Mis portfolios', { matchCase: false }).click();\n    cy.validacionesMisPortfolios();\n    cy.recorridaPortfolios();",
               "err": {},
-              "uuid": "89818488-5cdf-41a6-8957-63633f5609c1",
-              "parentUUID": "69e92c1d-2461-4fcf-9741-4dfd1a706f97",
+              "uuid": "d2523571-da54-4e97-8711-e533f6c5ef0d",
+              "parentUUID": "16b0487c-859e-42b8-95d2-0bd8319806ec",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "7061fa92-e692-4696-bbb3-1ec232a24d06",
-            "32274e3f-7f87-4693-b0d8-ce942ecdf243",
-            "89818488-5cdf-41a6-8957-63633f5609c1"
+            "850091b1-6eb8-46db-bb8c-b61874020d18",
+            "44b34fbe-c1d2-4d6a-9728-90e0a7e48b91",
+            "d2523571-da54-4e97-8711-e533f6c5ef0d"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 29236,
+          "duration": 24103,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
