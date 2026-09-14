@@ -1,0 +1,109 @@
+{
+  "hash": "d828681744c03d4106c03c3ee556b582c77cea7bff466609471ee24e865b756d",
+  "ai_model": "gemini-2.5-flash",
+  "conclusions": {
+    "estado_general": "excelente",
+    "resumen_ejecutivo": "La versión V1.14.0 de MPC muestra un rendimiento general excelente, con 4 de 6 secciones mejorando su P95 histórico. Destacan las mejoras en 'Mis operaciones' (+81.5%) y 'Agenda' (+35.7%). Sin embargo, 'Mis portfolios' presenta una degradación sostenida del 11.9% y la mejora en 'Mis operaciones' debe ser investigada debido a un sesgo por acciones discontinuadas.",
+    "escalar": {
+      "titulo": "Degradación sostenida en Mis portfolios y sesgo en Mis operaciones",
+      "detalle": "La sección 'Mis portfolios' ha degradado su P95 de 12.35s a 14.14s en 3 versiones consecutivas. Además, la mejora en 'Mis operaciones' es sospechosa debido a la discontinuación del 33.3% de sus acciones, incluyendo algunas lentas (P95 máx 44.03s)."
+    },
+    "investigar": {
+      "titulo": "Impacto de acciones discontinuadas en Mis operaciones",
+      "detalle": "La sección 'Mis operaciones' discontinuó 4 de 12 acciones (33.3%) en la versión anterior, con un P95 máximo de 44.03s para las removidas, lo que podría sesgar la mejora reportada."
+    },
+    "optimizar": {
+      "titulo": "Mejorar la experiencia en Mis portfolios",
+      "detalle": "La sección 'Mis portfolios' ha mostrado una degradación sostenida en las últimas 3 versiones, pasando de 12.35s a 14.14s. Abordar esta tendencia es clave para la UX."
+    },
+    "hallazgos": [
+      {
+        "tipo": "alerta",
+        "seccion": "Mis operaciones",
+        "descripcion": "Mejora aparente — se discontinuaron 4/12 acciones medidas en V1.13.4 (P95 máx removidas: 44.03s).",
+        "evidencia": "dropout_rate_pct: 33.3%, max_p95_dropped_s: 44.03s"
+      },
+      {
+        "tipo": "alerta",
+        "seccion": "Mis portfolios",
+        "descripcion": "Degradación sostenida en las últimas 3 versiones.",
+        "evidencia": "P95 creció de 12.35s a 14.14s desde V1.12.5"
+      },
+      {
+        "tipo": "mejora",
+        "seccion": "Mis operaciones",
+        "descripcion": "La sección mejoró significativamente su P95 en la última versión.",
+        "evidencia": "P95 mejoró de 25.63s a 5.54s (+78.4%) vs V1.13.4"
+      },
+      {
+        "tipo": "mejora",
+        "seccion": "Agenda",
+        "descripcion": "La sección Agenda mostró una mejora notable en su rendimiento.",
+        "evidencia": "P95 mejoró de 6.8s a 4.91s (+27.8%) vs V1.13.4"
+      },
+      {
+        "tipo": "alerta",
+        "seccion": "Rendimiento",
+        "descripcion": "Múltiples acciones individuales dentro de la sección Rendimiento han degradado su performance.",
+        "evidencia": "'Portfolio RE Valor Tecnico: Primer ingreso a la carta de rendimiento...' degradó de 1.29s a 2.13s (-65.1%)"
+      },
+      {
+        "tipo": "mejora",
+        "seccion": "Mis depositarios",
+        "descripcion": "Una acción previamente degradada en V1.13.4 tuvo una recuperación significativa.",
+        "evidencia": "'Deseleccionar la cuenta Parakeet Capital (Parakeet LH FCI)' mejoró de 90.56s a 5.97s (+93.41%) vs V1.13.4"
+      }
+    ],
+    "causa_raiz": [
+      {
+        "seccion": "Mis portfolios",
+        "hipotesis": [
+          "Aumento en la complejidad de los datos de portfolios o en la cantidad de portfolios gestionados por usuario.",
+          "Cambios en las consultas a la base de datos o en la lógica de negocio para la carga de listados/detalles de portfolios.",
+          "Problemas de rendimiento en componentes compartidos que se utilizan al navegar por los portfolios."
+        ]
+      },
+      {
+        "seccion": "Mis operaciones",
+        "hipotesis": [
+          "La discontinuación de acciones podría indicar una refactorización de la sección, donde las acciones removidas eran las más lentas o redundantes.",
+          "Las acciones removidas podrían haber sido flujos de usuario poco frecuentes o con problemas técnicos que se decidió no medir más."
+        ]
+      },
+      {
+        "seccion": "Rendimiento",
+        "hipotesis": [
+          "Las degradaciones puntuales en acciones de rendimiento podrían deberse a la introducción de nuevos cálculos o fuentes de datos para ciertos tipos de reportes.",
+          "Problemas de optimización en las consultas o procesamiento de datos históricos para los rangos de fechas específicos afectados.",
+          "Regresiones en componentes de gráficos o visualización que impactan el renderizado de ciertos reportes."
+        ]
+      }
+    ],
+    "recomendaciones": [
+      {
+        "prioridad": "P1",
+        "accion": "Analizar las 4 acciones removidas de 'Mis operaciones' en V1.13.4 para entender su impacto real en la UX y si su eliminación fue una solución o un enmascaramiento.",
+        "seccion": "Mis operaciones",
+        "evidencia": "33.3% de acciones removidas, con P95 máx de 44.03s"
+      },
+      {
+        "prioridad": "P1",
+        "accion": "Realizar un análisis de causa raíz profundo sobre la tendencia de degradación de 'Mis portfolios' en las últimas 3 versiones.",
+        "seccion": "Mis portfolios",
+        "evidencia": "P95 creció de 12.35s a 14.14s en 3 versiones"
+      },
+      {
+        "prioridad": "P2",
+        "accion": "Priorizar la optimización de las acciones más degradadas en la sección 'Rendimiento', como 'Portfolio RE Valor Tecnico: Primer ingreso a la carta de rendimiento...'.",
+        "seccion": "Rendimiento",
+        "evidencia": "Degradación del 65.1% (de 1.29s a 2.13s) en una acción clave"
+      },
+      {
+        "prioridad": "P3",
+        "accion": "Monitorear de cerca las secciones 'Agenda' y 'Mis operaciones' para asegurar que las mejoras observadas sean sostenibles y no puntuales.",
+        "seccion": "General",
+        "evidencia": "'Agenda' mejoró 27.8% y 'Mis operaciones' 78.4% vs V1.13.4"
+      }
+    ]
+  }
+}
