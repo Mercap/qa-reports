@@ -1,0 +1,171 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2026-09-14T19:59:21.669Z",
+    "end": "2026-09-14T20:00:18.199Z",
+    "duration": 56530,
+    "testsRegistered": 4,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 3,
+    "hasSkipped": true
+  },
+  "results": [
+    {
+      "uuid": "f2364777-45de-412b-891a-b85e0efcc1b5",
+      "title": "",
+      "fullFile": "build/staging/argentina/performance/sensibilidad.cy.js",
+      "file": "build/staging/argentina/performance/sensibilidad.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "d91e2ba1-2dc7-4c31-b633-b1a4a55cfe73",
+          "title": "Sensibilidad",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Ingresar al menú Sensibilidad",
+              "fullTitle": "Sensibilidad Ingresar al menú Sensibilidad",
+              "timedOut": null,
+              "duration": 331,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.visitRecargandoSi401(`${_support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].ABBACO_LOCATION}/sensitivity`);",
+              "err": {
+                "message": "AssertionError: \"before all\" hook failed: Timed out retrying after 30000ms: expected 'https://mercap-staging.auth0.com/u/login?state=hKFo2SBnZGZVRHdnQy1iUC1UUWk1QS1DT1F4bVBHa2Jka0JTcKFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIF9BcEgzLWRVM0pKVnZmSVZlZ0lVazItV1pqWGczaVdIo2NpZNkgNzR1M29KYVJqQjhvNWprTDJPSjF6VVRZRW9vQUxUOG0' to match /(https:\\/\\/bonds\\.staging\\.mercap\\.com\\.ar|custom-prompt)/\n\nThis error occurred while creating the session. Because the session setup failed, we failed the test.\n\nBecause this error occurred during a `after each` hook we are skipping all of the remaining tests.",
+                "estack": "AssertionError: \"before all\" hook failed: Timed out retrying after 30000ms: expected 'https://mercap-staging.auth0.com/u/login?state=hKFo2SBnZGZVRHdnQy1iUC1UUWk1QS1DT1F4bVBHa2Jka0JTcKFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIF9BcEgzLWRVM0pKVnZmSVZlZ0lVazItV1pqWGczaVdIo2NpZNkgNzR1M29KYVJqQjhvNWprTDJPSjF6VVRZRW9vQUxUOG0' to match /(https:\\/\\/bonds\\.staging\\.mercap\\.com\\.ar|custom-prompt)/\n\nThis error occurred while creating the session. Because the session setup failed, we failed the test.\n\nBecause this error occurred during a `after each` hook we are skipping all of the remaining tests.\nAssertionError: Timed out retrying after 30000ms: expected 'https://mercap-staging.auth0.com/u/login?state=hKFo2SBnZGZVRHdnQy1iUC1UUWk1QS1DT1F4bVBHa2Jka0JTcKFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIF9BcEgzLWRVM0pKVnZmSVZlZ0lVazItV1pqWGczaVdIo2NpZNkgNzR1M29KYVJqQjhvNWprTDJPSjF6VVRZRW9vQUxUOG0' to match /(https:\\/\\/bonds\\.staging\\.mercap\\.com\\.ar|custom-prompt)/\n\nThis error occurred while creating the session. Because the session setup failed, we failed the test.\n    at finalizarSesion (webpack://cypress/./cypress/support/commands.js:89:33)\n    at procesarLogin (webpack://cypress/./cypress/support/commands.js:133:0)\n    at intentarLogin (webpack://cypress/./cypress/support/commands.js:152:0)\n    at getRet (https://bonds.staging.mercap.com.ar/__cypress/runner/cypress_runner.js:122690:20)\n    at tryCatcher (https://bonds.staging.mercap.com.ar/__cypress/runner/cypress_runner.js:1777:23)\n    at __webpack_modules__</module.exports/Promise.try (https://bonds.staging.mercap.com.ar/__cypress/runner/cypress_runner.js:4285:29)\n    at thenFn (https://bonds.staging.mercap.com.ar/__cypress/runner/cypress_runner.js:122701:60)\n    at then (https://bonds.staging.mercap.com.ar/__cypress/runner/cypress_runner.js:122952:21)\n    at wrapped (https://bonds.staging.mercap.com.ar/__cypress/runner/cypress_runner.js:146050:19)",
+                "diff": null
+              },
+              "uuid": "08f14318-e998-41ba-b4c1-ae3e8bfd1d68",
+              "parentUUID": "d91e2ba1-2dc7-4c31-b633-b1a4a55cfe73",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Realizar Análisis de sensibilidad",
+              "fullTitle": "Sensibilidad Realizar Análisis de sensibilidad",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.agregarEspecieSensibilidad({\n  especie: `${_support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].HARD_DOLLAR}`\n});\ncy.configurarTresEscenarios({\n  escenario1: {\n    tipo: 'fixedRate',\n    valor: '5'\n  },\n  escenario2: {\n    tipo: 'fixedRate',\n    valor: '-5'\n  },\n  escenario3: {\n    tipo: 'spread',\n    valor: '100'\n  }\n});\n_pages_sensibilidadPage__WEBPACK_IMPORTED_MODULE_1__.sensibilidad.elements.addScenarioButton().should('be.visible');",
+              "err": {},
+              "uuid": "816698d6-daab-4024-8dab-1044274a05a6",
+              "parentUUID": "d91e2ba1-2dc7-4c31-b633-b1a4a55cfe73",
+              "isHook": false,
+              "skipped": true
+            },
+            {
+              "title": "Eliminar escenario",
+              "fullTitle": "Sensibilidad Eliminar escenario",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_pages_sensibilidadPage__WEBPACK_IMPORTED_MODULE_1__.sensibilidad.deleteScenario();\ncy.get('tbody tr').should('have.length', 1);",
+              "err": {},
+              "uuid": "08f6592f-9841-4932-a872-418401bcb637",
+              "parentUUID": "d91e2ba1-2dc7-4c31-b633-b1a4a55cfe73",
+              "isHook": false,
+              "skipped": true
+            },
+            {
+              "title": "Eliminar especie",
+              "fullTitle": "Sensibilidad Eliminar especie",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_pages_sensibilidadPage__WEBPACK_IMPORTED_MODULE_1__.sensibilidad.deleteSpecie();\ncy.get('tbody').should('not.exist');",
+              "err": {},
+              "uuid": "c507556c-2bad-4f83-b2bb-b0c5f6ebed0f",
+              "parentUUID": "d91e2ba1-2dc7-4c31-b633-b1a4a55cfe73",
+              "isHook": false,
+              "skipped": true
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "08f14318-e998-41ba-b4c1-ae3e8bfd1d68"
+          ],
+          "pending": [],
+          "skipped": [
+            "816698d6-daab-4024-8dab-1044274a05a6",
+            "08f6592f-9841-4932-a872-418401bcb637",
+            "c507556c-2bad-4f83-b2bb-b0c5f6ebed0f"
+          ],
+          "duration": 331,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "report",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "cleanReporterJson": false,
+        "html": true,
+        "json": true,
+        "reportFilename": "report",
+        "embeddedScreenshots": true,
+        "inlineAssets": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}
