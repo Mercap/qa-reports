@@ -1,107 +1,101 @@
 {
-  "hash": "ddabea149869e77376b087966a3e380c3163967e4e79b02ba216dd31a978b59a",
+  "hash": "2d796ae8d5fe91275f4c0af596fc8b4c8b49d768999247e7b666a0dcb4e3a241",
   "ai_model": "gemini-2.5-flash",
   "conclusions": {
     "estado_general": "atencion",
-    "resumen_ejecutivo": "La versión V1.14.0 de MPC muestra mejoras significativas en secciones clave como 'Mis operaciones' (+80.5%) y 'Agenda' (+29.0%). Sin embargo, la sección 'Mis portfolios' experimentó una degradación del 17.9% y presenta una tendencia sostenida de empeoramiento en las últimas 3 versiones, lo que requiere atención. Además, se detectó un salto abrupto del 114.0% en una acción crítica de 'Rendimiento' y un sesgo por discontinuidad de acciones en 'Mis operaciones'.",
+    "resumen_ejecutivo": "La versión V1.14.0 de MPC presenta un estado de atención debido a una degradación significativa en la sección 'Mis portfolios' (-24.2% vs histórico) y un salto abrupto en una acción clave dentro de ella. A pesar de esto, se observan mejoras notables en 'Mis operaciones' (+80.8%) y 'Agenda' (+23.4%), aunque la mejora en 'Mis operaciones' debe ser investigada por un posible sesgo de acciones discontinuadas.",
     "escalar": {
-      "titulo": "Degradación sostenida en Mis portfolios y salto abrupto en Rendimiento",
-      "detalle": "La sección 'Mis portfolios' ha degradado su P95 en 3 versiones consecutivas, alcanzando 14.9s. Adicionalmente, la acción 'Portfolio LH Inversiones: Primer ingreso a la carta de rendimiento Último mes co' en 'Rendimiento' sufrió un salto abrupto del 114.0% (de 0.57s a 1.22s) en esta versión."
+      "titulo": "Degradación crítica y sostenida en Mis portfolios",
+      "detalle": "La sección 'Mis portfolios' ha degradado su P95 de 12.35s a 15.69s en 3 versiones consecutivas, y la acción 'Primer ingreso al menú Mis portfolios' sufrió un salto abrupto de 14.54s a 50.78s (+249.2%) en la versión actual."
     },
     "investigar": {
-      "titulo": "Anomalías en Rendimiento y Mis portfolios",
-      "detalle": "Se debe investigar el salto abrupto del 114.0% en la acción 'Portfolio LH Inversiones: Primer ingreso a la carta de rendimiento Último mes co' de la sección 'Rendimiento' (de 0.57s a 1.22s). También, la tendencia sostenida de degradación en 'Mis portfolios' (P95 de 12.35s a 14.9s en 3 versiones) requiere un análisis de causa raíz."
+      "titulo": "Salto abrupto de rendimiento en 'Primer ingreso al menú Mis portfolios'",
+      "detalle": "La acción 'Primer ingreso al menú Mis portfolios' experimentó una degradación del P95 de 14.54s a 50.78s (+249.2%) en la versión V1.14.0, lo que representa la anomalía más llamativa y requiere investigación inmediata."
     },
     "optimizar": {
-      "titulo": "Mejorar la experiencia en Mis portfolios y acciones lentas de Home",
-      "detalle": "La sección 'Mis portfolios' presenta una degradación del 17.9% vs histórico (P95 actual 14.9s) y una tendencia sostenida de empeoramiento. Además, la sección 'Home', aunque estable, tiene acciones con degradaciones notables, como 'Segundo ingreso al portfolio LH Fronting desde el Home' (+31.1%)."
+      "titulo": "Mejorar la carga y navegación en la sección Mis portfolios",
+      "detalle": "La sección 'Mis portfolios' es la mayor oportunidad de mejora, con una degradación del 24.2% vs histórico y una acción clave ('Primer ingreso al menú Mis portfolios') que alcanza los 50.78s."
     },
     "hallazgos": [
       {
         "tipo": "alerta",
         "seccion": "Mis operaciones",
-        "descripcion": "Mejora aparente — se discontinuaron 4/12 acciones medidas en V1.13.4 (P95 máx removidas: 44.03s).",
-        "evidencia": "Dropout rate del 33.3% en V1.13.4."
+        "descripcion": "Mejora aparente — se discontinuaron 4/12 acciones medidas en V1.13.4 (P95 máx removidas: 44.03s)",
+        "evidencia": "Dropout rate: 33.3%"
+      },
+      {
+        "tipo": "degradacion",
+        "seccion": "Mis portfolios",
+        "descripcion": "La sección 'Mis portfolios' muestra una tendencia de degradación sostenida y una acción crítica sufrió un salto abrupto",
+        "evidencia": "P95 aumentó de 12.35s a 15.69s en 3 versiones consecutivas desde V1.12.5, y la acción 'Primer ingreso al menú Mis portfolios' pasó de 14.54s a 50.78s (+249.2%) en V1.14.0"
       },
       {
         "tipo": "alerta",
         "seccion": "Rendimiento",
-        "descripcion": "Una acción clave de rendimiento sufrió un salto abrupto significativo en esta versión.",
-        "evidencia": "La acción 'Portfolio LH Inversiones: Primer ingreso a la carta de rendimiento Último mes co' pasó de 0.57s a 1.22s (+114.0%) en V1.14.0."
-      },
-      {
-        "tipo": "alerta",
-        "seccion": "Mis portfolios",
-        "descripcion": "La sección 'Mis portfolios' muestra una tendencia sostenida de degradación en las últimas 3 versiones.",
-        "evidencia": "El P95 de 'Mis portfolios' aumentó de 12.35s a 14.9s desde V1.12.5."
-      },
-      {
-        "tipo": "mejora",
-        "seccion": "Mis operaciones",
-        "descripcion": "La sección 'Mis operaciones' mejoró significativamente en esta versión.",
-        "evidencia": "P95 mejoró de 25.63s a 5.81s (+77.3%) vs versión anterior."
+        "descripcion": "Acción 'Portfolio RE Valor Tecnico: Segundo ingreso a la carta de rendimiento Desde el i' se degradó significativamente",
+        "evidencia": "P95 pasó de 2.52s a 6.08s (+141.3%) en V1.14.0"
       },
       {
         "tipo": "mejora",
         "seccion": "Agenda",
-        "descripcion": "La sección 'Agenda' muestra una mejora notable en su rendimiento.",
-        "evidencia": "P95 mejoró de 6.8s a 5.42s (+20.3%) vs versión anterior."
+        "descripcion": "La sección 'Agenda' mejoró su rendimiento general",
+        "evidencia": "P95 mejoró de 7.64s a 5.85s (+23.4%)"
       },
       {
-        "tipo": "alerta",
+        "tipo": "degradacion",
         "seccion": "Home",
-        "descripcion": "Aunque la sección 'Home' es estable, varias acciones individuales han degradado su rendimiento.",
-        "evidencia": "5 de 21 acciones de Home degradaron, con la peor 'Segundo ingreso al portfolio LH Fronting desde el Home' (+31.1%) vs versión anterior."
+        "descripcion": "La sección 'Home' experimentó una ligera degradación",
+        "evidencia": "P95 degradó de 17.3s a 18.22s (-5.3%)"
       }
     ],
     "causa_raiz": [
       {
         "seccion": "Mis portfolios",
         "hipotesis": [
-          "Podría deberse a un aumento en la complejidad de los datos de portfolios o en la cantidad de portfolios gestionados por usuario, impactando la carga inicial.",
-          "Revisar si hay cambios recientes en las consultas a la base de datos o en la lógica de negocio para la visualización de portfolios que estén causando latencia.",
-          "Considerar si la infraestructura subyacente está experimentando mayor carga o latencia al procesar solicitudes relacionadas con portfolios."
+          "Aumento en la complejidad de los datos de portfolio o en la cantidad de portfolios a cargar, afectando el tiempo de procesamiento inicial.",
+          "Cambios en las consultas a la base de datos o en la lógica de negocio para la carga de portfolios, resultando en mayor latencia.",
+          "Problemas de rendimiento en componentes de UI que renderizan la lista o el detalle de portfolios, especialmente al cargar el primer ingreso."
         ]
       },
       {
         "seccion": "Rendimiento",
         "hipotesis": [
-          "El salto abrupto en la acción de rendimiento podría estar relacionado con la complejidad del cálculo del método TWR para periodos largos ('Último mes co').",
-          "Revisar si hubo cambios en la fuente de datos o en la API que provee los datos de rendimiento para esta acción específica.",
-          "Investigar si la lógica de renderizado de gráficos para esta acción se volvió más pesada o si hay un cuello de botella en el frontend."
+          "Ineficiencias en el cálculo o la recuperación de datos históricos para el rendimiento de portfolios específicos, especialmente para rangos de fechas amplios.",
+          "Regresión en la optimización de consultas o APIs que alimentan los gráficos de rendimiento, afectando la carga de datos.",
+          "Problemas de caché o re-renderizado excesivo en la UI al cambiar entre vistas de rendimiento o rangos de fechas."
         ]
       }
     ],
     "recomendaciones": [
       {
         "prioridad": "P1",
-        "accion": "Realizar un análisis de causa raíz exhaustivo para la degradación sostenida en 'Mis portfolios'.",
+        "accion": "Investigar y optimizar la carga inicial de la sección 'Mis portfolios' y la acción 'Primer ingreso al menú Mis portfolios'",
         "seccion": "Mis portfolios",
-        "evidencia": "P95 aumentó de 12.35s a 14.9s en 3 versiones consecutivas, y degradación del 17.9% vs histórico."
+        "evidencia": "Degradación del P95 de la sección en 3 versiones consecutivas (12.35s a 15.69s) y salto de 14.54s a 50.78s (+249.2%) en una acción clave"
       },
       {
         "prioridad": "P1",
-        "accion": "Investigar y optimizar la acción 'Portfolio LH Inversiones: Primer ingreso a la carta de rendimiento Último mes co'.",
+        "accion": "Analizar la regresión en la acción 'Portfolio RE Valor Tecnico: Segundo ingreso a la carta de rendimiento Desde el i'",
         "seccion": "Rendimiento",
-        "evidencia": "Salto abrupto del 114.0% (de 0.57s a 1.22s) en V1.14.0."
+        "evidencia": "Salto de P95 de 2.52s a 6.08s (+141.3%) en V1.14.0"
       },
       {
         "prioridad": "P2",
-        "accion": "Auditar las acciones discontinuadas en 'Mis operaciones' y validar la representatividad de las métricas actuales.",
+        "accion": "Revisar las acciones discontinuadas en 'Mis operaciones' para asegurar que la mejora no sea un artefacto de medición",
         "seccion": "Mis operaciones",
-        "evidencia": "33.3% de acciones discontinuadas en la versión anterior, con P95 máximo de 44.03s en las removidas."
+        "evidencia": "33.3% de acciones discontinuadas en V1.14.0, incluyendo algunas lentas (P95 máx 44.03s)"
       },
       {
         "prioridad": "P2",
-        "accion": "Analizar las acciones individuales degradadas en la sección 'Home' para identificar patrones y oportunidades de mejora.",
-        "seccion": "Home",
-        "evidencia": "5 de 21 acciones de Home degradaron, con la peor 'Segundo ingreso al portfolio LH Fronting desde el Home' (+31.1%)."
+        "accion": "Identificar y replicar las optimizaciones que llevaron a la mejora en la sección 'Agenda'",
+        "seccion": "Agenda",
+        "evidencia": "P95 mejoró de 7.64s a 5.85s (+23.4%)"
       },
       {
         "prioridad": "P3",
-        "accion": "Documentar las mejoras implementadas en 'Mis operaciones' y 'Agenda' para replicar las buenas prácticas.",
-        "seccion": "General",
-        "evidencia": "'Mis operaciones' mejoró un 77.3% y 'Agenda' un 20.3% vs versión anterior."
+        "accion": "Monitorear de cerca la sección 'Home' para evitar futuras degradaciones",
+        "seccion": "Home",
+        "evidencia": "Degradación del P95 de 17.3s a 18.22s (-5.3%)"
       }
     ]
   }
