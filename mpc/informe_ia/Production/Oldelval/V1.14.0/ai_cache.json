@@ -1,0 +1,73 @@
+{
+  "hash": "6b1bd41649370c3c8543c3d5452fd6dd394c55ecd8d1c079fa74ad5961c48227",
+  "ai_model": "gemini-2.5-flash",
+  "conclusions": {
+    "estado_general": "bueno",
+    "resumen_ejecutivo": "La versión V1.14.0 de MPC muestra un rendimiento generalmente bueno, con todas las secciones operando dentro de los umbrales de SLA. Al ser la primera medición, no se pueden identificar mejoras o degradaciones respecto a versiones anteriores. La acción 'Primer ingreso al portfolio Oldelval SA desde el Home' es la más lenta con 12.45s.",
+    "escalar": {
+      "titulo": "No hay hallazgos críticos que requieran escalamiento urgente",
+      "detalle": "No se observan degradaciones significativas (>15%), secciones en SLA crítico (P95 >120s) o tendencias sostenidas en esta versión."
+    },
+    "investigar": {
+      "titulo": "Anomalía en el ingreso a portfolios desde Home",
+      "detalle": "La acción 'Primer ingreso al portfolio Oldelval SA desde el Home' es la más lenta de las acciones de usuario con 12.45s, lo que sugiere una posible oportunidad de optimización en el flujo de carga inicial de portfolios."
+    },
+    "optimizar": {
+      "titulo": "Mejorar la carga inicial de la sección Home",
+      "detalle": "La sección Home es la más lenta con un P95 de 9.82s, y contiene las acciones de ingreso a portfolios más lentas, lo que representa la mayor oportunidad para mejorar la experiencia de usuario."
+    },
+    "hallazgos": [
+      {
+        "tipo": "estable",
+        "seccion": "General",
+        "descripcion": "Todas las secciones de MPC operan dentro de los umbrales de SLA, indicando un rendimiento general estable.",
+        "evidencia": "Todas las secciones tienen un P95 actual por debajo de 60s"
+      },
+      {
+        "tipo": "alerta",
+        "seccion": "Home",
+        "descripcion": "La acción 'Primer ingreso al portfolio Oldelval SA desde el Home' es la más lenta de las acciones de usuario.",
+        "evidencia": "P95 actual de 12.45s"
+      },
+      {
+        "tipo": "alerta",
+        "seccion": "Home",
+        "descripcion": "La sección Home presenta el P95 más alto entre todas las secciones.",
+        "evidencia": "P95 actual de 9.82s"
+      },
+      {
+        "tipo": "alerta",
+        "seccion": "Mis depositarios",
+        "descripcion": "La acción 'Deseleccionar la cuenta Allaria (ALLARIA)' en Mis depositarios también es notablemente lenta.",
+        "evidencia": "P95 actual de 11.53s"
+      },
+      {
+        "tipo": "mejora",
+        "seccion": "Rendimiento",
+        "descripcion": "La sección Rendimiento muestra un excelente tiempo de respuesta, siendo la más rápida del sistema.",
+        "evidencia": "P95 actual de 1.45s"
+      }
+    ],
+    "causa_raiz": [],
+    "recomendaciones": [
+      {
+        "prioridad": "P1",
+        "accion": "Analizar y optimizar la carga inicial de portfolios en la sección Home, enfocándose en la acción 'Primer ingreso al portfolio Oldelval SA desde el Home'.",
+        "seccion": "Home",
+        "evidencia": "P95 de 12.45s para la acción más lenta"
+      },
+      {
+        "prioridad": "P2",
+        "accion": "Investigar la acción 'Deseleccionar la cuenta Allaria (ALLARIA)' en Mis depositarios para identificar cuellos de botella.",
+        "seccion": "Mis depositarios",
+        "evidencia": "P95 de 11.53s"
+      },
+      {
+        "prioridad": "P3",
+        "accion": "Establecer una línea base de rendimiento para todas las acciones y secciones para permitir comparaciones futuras y la detección temprana de degradaciones.",
+        "seccion": "General",
+        "evidencia": "Versión anterior N/A y P95 histórico 0.0s"
+      }
+    ]
+  }
+}
