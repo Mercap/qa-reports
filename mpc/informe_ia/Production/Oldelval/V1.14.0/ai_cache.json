@@ -1,72 +1,69 @@
 {
-  "hash": "6b1bd41649370c3c8543c3d5452fd6dd394c55ecd8d1c079fa74ad5961c48227",
+  "hash": "28e97544ddcd39b6688a9fbed04909788f3b9336112e14324cd1eb52b260bedd",
   "ai_model": "gemini-2.5-flash",
   "conclusions": {
     "estado_general": "bueno",
-    "resumen_ejecutivo": "La versión V1.14.0 de MPC muestra un rendimiento generalmente bueno, con todas las secciones operando dentro de los umbrales de SLA. Al ser la primera medición, no se pueden identificar mejoras o degradaciones respecto a versiones anteriores. La acción 'Primer ingreso al portfolio Oldelval SA desde el Home' es la más lenta con 12.45s.",
+    "resumen_ejecutivo": "La versión V1.14.0 de MPC presenta un rendimiento general bueno, con todas las secciones dentro de los umbrales de SLA. Sin embargo, se ha identificado una anomalía en la sección Agenda donde el segundo acceso es un 52.8% más lento que el primero, y la sección Home muestra el P95 más alto entre las secciones de usuario.",
     "escalar": {
-      "titulo": "No hay hallazgos críticos que requieran escalamiento urgente",
-      "detalle": "No se observan degradaciones significativas (>15%), secciones en SLA crítico (P95 >120s) o tendencias sostenidas en esta versión."
+      "titulo": "No hay hallazgos críticos que requieran escalamiento inmediato",
+      "detalle": "Todas las secciones se encuentran dentro de los umbrales de SLA y no se observan degradaciones significativas contra un histórico (no disponible para esta versión)."
     },
     "investigar": {
-      "titulo": "Anomalía en el ingreso a portfolios desde Home",
-      "detalle": "La acción 'Primer ingreso al portfolio Oldelval SA desde el Home' es la más lenta de las acciones de usuario con 12.45s, lo que sugiere una posible oportunidad de optimización en el flujo de carga inicial de portfolios."
+      "titulo": "Anomalía de rendimiento en Agenda al reingresar al menú",
+      "detalle": "El segundo ingreso al menú Agenda es 52.8% más lento (6.04s) que el primer ingreso (3.95s), lo cual es contrario al comportamiento esperado de caché y requiere investigación."
     },
     "optimizar": {
-      "titulo": "Mejorar la carga inicial de la sección Home",
-      "detalle": "La sección Home es la más lenta con un P95 de 9.82s, y contiene las acciones de ingreso a portfolios más lentas, lo que representa la mayor oportunidad para mejorar la experiencia de usuario."
+      "titulo": "Mejorar la velocidad de carga inicial en la sección Home",
+      "detalle": "La sección Home presenta el P95 más alto (9.7s) entre las secciones de usuario, con su acción más lenta en 12.37s, ofreciendo una oportunidad clave de mejora."
     },
     "hallazgos": [
       {
-        "tipo": "estable",
-        "seccion": "General",
-        "descripcion": "Todas las secciones de MPC operan dentro de los umbrales de SLA, indicando un rendimiento general estable.",
-        "evidencia": "Todas las secciones tienen un P95 actual por debajo de 60s"
+        "tipo": "alerta",
+        "seccion": "Agenda",
+        "descripcion": "El segundo ingreso al menú Agenda es significativamente más lento que el primero, indicando un posible problema con la gestión de caché.",
+        "evidencia": "P95 del segundo ingreso fue 6.04s, un 52.8% más lento que el primer ingreso (3.95s)."
       },
       {
         "tipo": "alerta",
         "seccion": "Home",
-        "descripcion": "La acción 'Primer ingreso al portfolio Oldelval SA desde el Home' es la más lenta de las acciones de usuario.",
-        "evidencia": "P95 actual de 12.45s"
-      },
-      {
-        "tipo": "alerta",
-        "seccion": "Home",
-        "descripcion": "La sección Home presenta el P95 más alto entre todas las secciones.",
-        "evidencia": "P95 actual de 9.82s"
+        "descripcion": "La sección Home presenta el P95 más alto entre las secciones de usuario, con una acción de primer ingreso a portfolio destacadamente lenta.",
+        "evidencia": "El P95 actual de Home es 9.7s, y la acción 'Primer ingreso al portfolio Oldelval SA desde el Home' tiene un P95 de 12.37s."
       },
       {
         "tipo": "alerta",
         "seccion": "Mis depositarios",
-        "descripcion": "La acción 'Deseleccionar la cuenta Allaria (ALLARIA)' en Mis depositarios también es notablemente lenta.",
-        "evidencia": "P95 actual de 11.53s"
-      },
-      {
-        "tipo": "mejora",
-        "seccion": "Rendimiento",
-        "descripcion": "La sección Rendimiento muestra un excelente tiempo de respuesta, siendo la más rápida del sistema.",
-        "evidencia": "P95 actual de 1.45s"
+        "descripcion": "Una acción específica en Mis depositarios es una de las más lentas del sistema, impactando la experiencia de usuario en esa sección.",
+        "evidencia": "La acción 'Deseleccionar la cuenta Allaria (ALLARIA)' tiene un P95 de 11.23s."
       }
     ],
-    "causa_raiz": [],
+    "causa_raiz": [
+      {
+        "seccion": "Agenda",
+        "hipotesis": [
+          "Podría deberse a una invalidación incorrecta o re-renderizado costoso de componentes en el segundo acceso al menú Agenda.",
+          "Revisar si hay llamadas a APIs o procesamiento de datos que se ejecutan innecesariamente en el segundo ingreso, sin aprovechar datos ya cargados.",
+          "Considerar si la lógica de caché del lado del cliente o del servidor está configurada de forma inversa o es ineficiente para esta acción."
+        ]
+      }
+    ],
     "recomendaciones": [
       {
         "prioridad": "P1",
-        "accion": "Analizar y optimizar la carga inicial de portfolios en la sección Home, enfocándose en la acción 'Primer ingreso al portfolio Oldelval SA desde el Home'.",
-        "seccion": "Home",
-        "evidencia": "P95 de 12.45s para la acción más lenta"
+        "accion": "Analizar el flujo de datos y renderizado del menú Agenda para identificar por qué el segundo acceso es más lento que el primero.",
+        "seccion": "Agenda",
+        "evidencia": "Segundo ingreso al menú Agenda es 52.8% más lento (6.04s) que el primero (3.95s)."
       },
       {
         "prioridad": "P2",
-        "accion": "Investigar la acción 'Deseleccionar la cuenta Allaria (ALLARIA)' en Mis depositarios para identificar cuellos de botella.",
-        "seccion": "Mis depositarios",
-        "evidencia": "P95 de 11.53s"
+        "accion": "Revisar la eficiencia de las consultas de datos y la carga de componentes para las acciones de primer ingreso a portfolios desde Home.",
+        "seccion": "Home",
+        "evidencia": "P95 de Home es 9.7s, con 'Primer ingreso al portfolio Oldelval SA desde el Home' en 12.37s."
       },
       {
         "prioridad": "P3",
-        "accion": "Establecer una línea base de rendimiento para todas las acciones y secciones para permitir comparaciones futuras y la detección temprana de degradaciones.",
-        "seccion": "General",
-        "evidencia": "Versión anterior N/A y P95 histórico 0.0s"
+        "accion": "Investigar la acción 'Deseleccionar la cuenta Allaria (ALLARIA)' para reducir su tiempo de respuesta.",
+        "seccion": "Mis depositarios",
+        "evidencia": "La acción tiene un P95 de 11.23s."
       }
     ]
   }
