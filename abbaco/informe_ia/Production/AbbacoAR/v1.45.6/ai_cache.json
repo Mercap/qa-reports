@@ -1,99 +1,107 @@
 {
-  "hash": "5e0c2338b16fe4ad014c2770b9ab9535841ff016730bd7fb8ea8ea23afb09e1c",
+  "hash": "7c944057396919dfdda5ea9c73887eb3dce3615c61cab689f88eacd1f07d88b1",
   "ai_model": "gemini-2.5-flash",
   "conclusions": {
     "estado_general": "atencion",
-    "resumen_ejecutivo": "La versión actual de Abbaco muestra una mejora generalizada en la mayoría de sus secciones, con 8 de 9 secciones mejorando su P95 respecto al histórico. Sin embargo, la sección 'Analizar' experimentó una degradación crítica del 80.8% y una acción en 'Calculadora' permanece persistentemente lenta, requiriendo atención inmediata.",
+    "resumen_ejecutivo": "La versión actual de Abbaco muestra una mejora generalizada, con 8 de 9 secciones mejorando su P95 respecto al histórico. Sin embargo, la sección Calculadora sigue sobre el umbral de rendimiento con 63.97s, y la sección Analizar presenta degradaciones críticas en acciones específicas y una tendencia sostenida de ralentización.",
     "escalar": {
-      "titulo": "Degradación crítica y sostenida en Analizar; acción lenta en Calculadora",
-      "detalle": "La sección 'Analizar' se degradó un 80.8% vs histórico (24.65s) y muestra una tendencia sostenida de empeoramiento en las últimas 3 versiones. Además, la acción 'Simular inversiones de la especie AL30' en 'Calculadora' es persistentemente lenta, superando el umbral en 4 de 5 versiones (P95 actual 58.75s)."
+      "titulo": "Degradaciones críticas en Analizar y lentitud persistente en Calculadora",
+      "detalle": "Dos acciones en la sección Analizar ('Armado de escenarios...' y 'Simular inversión...') degradaron 278.2% y 151.9% respectivamente. Además, la acción 'Simular inversiones de la especie AL30' en Calculadora es persistentemente lenta, superando el umbral en 5 de 5 versiones con 67.77s."
     },
     "investigar": {
-      "titulo": "Tendencia de degradación sostenida en la sección Analizar",
-      "detalle": "La sección 'Analizar' ha mostrado una degradación constante en las últimas 3 versiones, con su P95 creciendo de 11.15s a 24.65s desde la v1.45.2, lo que sugiere un problema estructural o recurrente."
+      "titulo": "Tendencia de degradación sostenida y acciones críticas en la sección Analizar",
+      "detalle": "La sección Analizar ha mostrado un aumento en su P95 de 11.15s a 14.03s en 3 versiones consecutivas, sumado a degradaciones severas en acciones clave como 'Armado de escenarios en Análisis de Sensibilidad de la especie TX28' (+278.2%)."
     },
     "optimizar": {
-      "titulo": "Optimizar la acción 'Simular inversiones de la especie AL30' en Calculadora",
-      "detalle": "Esta acción es la más lenta del sistema con un P95 de 58.75s y ha sido persistentemente lenta en 4 de las últimas 5 versiones, representando una oportunidad clave para mejorar la experiencia del usuario."
+      "titulo": "Rendimiento de la sección Calculadora y acciones de simulación",
+      "detalle": "La sección Calculadora tiene el P95 más alto (63.97s) y una acción ('Simular inversiones de la especie AL30') que es persistentemente lenta, lo que representa la mayor oportunidad para mejorar la experiencia de usuario."
     },
     "hallazgos": [
       {
-        "tipo": "degradacion",
+        "tipo": "alerta",
         "seccion": "Analizar",
-        "descripcion": "La sección Analizar experimentó una degradación significativa y sostenida, afectando flujos clave.",
-        "evidencia": "P95 actual de 24.65s, un 80.8% más lento que el histórico (13.63s), y una tendencia de degradación en las últimas 3 versiones. La acción 'Armado de escenarios en Análisis de Sensibilidad de la especie TX28' se degradó un 294.3% (9.95s a 39.24s)."
+        "descripcion": "La sección Analizar muestra una tendencia sostenida de degradación y acciones críticas que se han ralentizado drásticamente.",
+        "evidencia": "El P95 de la sección aumentó de 11.15s a 14.03s en 3 versiones consecutivas. Las acciones 'Armado de escenarios en Análisis de Sensibilidad de la especie TX28' y 'Simular inversión de la especie BDC28' degradaron 278.2% (de 9.95s a 37.64s) y 151.9% (de 9.66s a 24.34s) respectivamente."
       },
       {
         "tipo": "alerta",
         "seccion": "Calculadora",
-        "descripcion": "Una acción crítica en Calculadora es persistentemente lenta, a pesar de la mejora general de la sección.",
-        "evidencia": "La acción 'Simular inversiones de la especie AL30' ha superado el umbral de alerta en 4 de 5 versiones, con P95 actual de 58.75s. La sección Calculadora, en general, mejoró un 46.6% vs histórico."
+        "descripcion": "La sección Calculadora está sobre el umbral de rendimiento y contiene una acción persistentemente lenta.",
+        "evidencia": "El P95 de la sección es de 63.97s (sobre umbral). La acción 'Simular inversiones de la especie AL30' ha superado el umbral de alerta en 5 de 5 versiones medidas, con un P95 actual de 67.77s."
       },
       {
         "tipo": "mejora",
         "seccion": "Curvas",
-        "descripcion": "La sección Curvas muestra una mejora sustancial en su rendimiento.",
-        "evidencia": "El P95 mejoró de 30.65s a 12.88s (+58.0%) vs histórico y un 57.7% vs versión anterior."
-      },
-      {
-        "tipo": "mejora",
-        "seccion": "Graficador",
-        "descripcion": "La sección Graficador presenta una mejora muy fuerte en su P95.",
-        "evidencia": "El P95 mejoró de 6.78s a 2.39s (+64.7%) vs histórico y un 48.4% vs versión anterior."
-      },
-      {
-        "tipo": "mejora",
-        "seccion": "Mis portafolios",
-        "descripcion": "La sección Mis portafolios ha mejorado significativamente su velocidad.",
-        "evidencia": "El P95 mejoró de 10.13s a 5.83s (+42.4%) vs histórico y un 35.7% vs versión anterior."
-      },
-      {
-        "tipo": "mejora",
-        "seccion": "Screener",
-        "descripcion": "La sección Screener muestra una mejora destacada en su rendimiento.",
-        "evidencia": "El P95 mejoró de 6.3s a 2.53s (+59.9%) vs histórico y un 48.7% vs versión anterior."
+        "descripcion": "La sección Curvas experimentó una mejora significativa en su rendimiento general.",
+        "evidencia": "El P95 mejoró de 30.65s a 11.78s (+61.6%) vs histórico y de 30.46s a 11.78s (+61.3%) vs versión anterior. La acción 'Ingreso a la curva Colombia - Soberanos - Bonos Globales - USD' mejoró 85.77%."
       },
       {
         "tipo": "mejora",
         "seccion": "Arbitraje",
-        "descripcion": "La sección Arbitraje ha logrado una mejora considerable en su P95.",
-        "evidencia": "El P95 mejoró de 15.54s a 9.32s (+40.0%) vs histórico y un 31.9% vs versión anterior."
+        "descripcion": "La sección Arbitraje muestra una mejora robusta en su tiempo de respuesta.",
+        "evidencia": "El P95 mejoró de 15.54s a 9.34s (+39.9%) vs histórico y de 13.69s a 9.34s (+31.8%) vs versión anterior."
+      },
+      {
+        "tipo": "mejora",
+        "seccion": "Mis portafolios",
+        "descripcion": "La sección Mis portafolios ha mejorado notablemente su rendimiento.",
+        "evidencia": "El P95 mejoró de 10.13s a 6.87s (+32.2%) vs histórico y de 9.07s a 6.87s (+24.3%) vs versión anterior."
+      },
+      {
+        "tipo": "mejora",
+        "seccion": "Graficador",
+        "descripcion": "La sección Graficador presenta una mejora sustancial en su P95.",
+        "evidencia": "El P95 mejoró de 6.78s a 3.15s (+53.5%) vs histórico y de 4.63s a 3.15s (+32.0%) vs versión anterior."
+      },
+      {
+        "tipo": "mejora",
+        "seccion": "Screener",
+        "descripcion": "La sección Screener ha logrado una mejora significativa en su rendimiento.",
+        "evidencia": "El P95 mejoró de 6.3s a 3.13s (+50.2%) vs histórico y de 4.93s a 3.13s (+36.4%) vs versión anterior."
       }
     ],
     "causa_raiz": [
       {
         "seccion": "Analizar",
         "hipotesis": [
-          "Aumento en la complejidad de los cálculos o el volumen de datos procesados para escenarios de sensibilidad, impactando el tiempo de respuesta.",
-          "Cambios recientes en la integración con servicios externos que proveen datos de especies financieras, introduciendo latencia adicional.",
-          "Ineficiencias en la renderización de la interfaz de usuario o en la lógica de negocio introducidas en las últimas versiones, especialmente en flujos de armado de escenarios."
+          "Podría deberse a un aumento en la complejidad de los cálculos o la cantidad de datos procesados para el armado de escenarios y simulación de inversiones.",
+          "Revisar si hay nuevas integraciones o cambios en las APIs de terceros que impacten la latencia de estas acciones.",
+          "Investigar posibles ineficiencias en el renderizado de la UI o en la lógica de negocio que se ejecuta al interactuar con estas funcionalidades."
+        ]
+      },
+      {
+        "seccion": "Calculadora",
+        "hipotesis": [
+          "La acción 'Simular inversiones de la especie AL30' podría estar realizando consultas a bases de datos o servicios externos de forma ineficiente o con un alto volumen de datos.",
+          "Revisar la complejidad algorítmica de las simulaciones, especialmente para especies con alta volatilidad o datos históricos extensos.",
+          "Considerar si hay cuellos de botella en el backend o en la capa de persistencia de datos que afecten la velocidad de respuesta."
         ]
       }
     ],
     "recomendaciones": [
       {
         "prioridad": "P1",
-        "accion": "Investigar la causa raíz de la degradación sostenida en la sección Analizar, priorizando las acciones 'Armado de escenarios en Análisis de Sensibilidad de la especie TX28' y 'Simular inversión de la especie BDC28'.",
-        "seccion": "Analizar",
-        "evidencia": "La sección se degradó un 80.8% vs histórico y tiene una tendencia sostenida de 3 versiones. La acción 'Armado de escenarios...' se degradó 294.3%."
+        "accion": "Investigar y optimizar la acción 'Simular inversiones de la especie AL30' en la sección Calculadora.",
+        "seccion": "Calculadora",
+        "evidencia": "P95 actual de 67.77s y ha superado el umbral en 5 de 5 versiones medidas."
       },
       {
         "prioridad": "P1",
-        "accion": "Optimizar la acción 'Simular inversiones de la especie AL30' en la sección Calculadora, ya que es persistentemente lenta.",
-        "seccion": "Calculadora",
-        "evidencia": "Ha superado el umbral de alerta en 4 de 5 versiones medidas, con P95 actual de 58.75s."
+        "accion": "Realizar un análisis de causa raíz exhaustivo para las degradaciones críticas y la tendencia sostenida en la sección Analizar.",
+        "seccion": "Analizar",
+        "evidencia": "Las acciones 'Armado de escenarios en Análisis de Sensibilidad de la especie TX28' y 'Simular inversión de la especie BDC28' degradaron 278.2% y 151.9% respectivamente, y la sección muestra una tendencia sostenida de degradación."
       },
       {
         "prioridad": "P2",
-        "accion": "Realizar un análisis de rendimiento detallado de las acciones con alto ratio P95/P50 en secciones mejoradas para identificar posibles cuellos de botella para usuarios específicos.",
-        "seccion": "General",
-        "evidencia": "Calculadora (19.97) y Curvas (14.8) tienen ratios P95/P50 elevados, sugiriendo variabilidad en la experiencia."
+        "accion": "Optimizar el rendimiento general de la sección Calculadora para asegurar que todas sus acciones estén dentro de los umbrales de SLA.",
+        "seccion": "Calculadora",
+        "evidencia": "La sección tiene un P95 de 63.97s, superando el umbral de rendimiento."
       },
       {
         "prioridad": "P3",
-        "accion": "Documentar y replicar las optimizaciones implementadas en secciones como Curvas, Graficador y Mis portafolios para aplicarlas en otras áreas del sistema.",
+        "accion": "Mantener el monitoreo continuo y documentar las mejoras significativas logradas en secciones como Curvas, Graficador y Screener.",
         "seccion": "General",
-        "evidencia": "Curvas mejoró 58.0%, Graficador 64.7%, y Mis portafolios 42.4% vs histórico."
+        "evidencia": "Secciones como Curvas (+61.6%), Graficador (+53.5%) y Screener (+50.2%) muestran mejoras notables que deben sostenerse."
       }
     ]
   }
