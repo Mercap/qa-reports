@@ -1,0 +1,122 @@
+{
+  "hash": "0fa4722c845b3bb62dd913e7e6bf941349eb0f1d8f075ff08e74bd2daaf2a0bb",
+  "ai_model": "gemini-2.5-flash",
+  "conclusions": {
+    "estado_general": "excelente",
+    "resumen_ejecutivo": "La versión actual de Abbaco muestra una mejora general sobresaliente, con todas las 9 secciones analizadas mejorando su P95 respecto al histórico. La sección \"Curvas\" lidera con una mejora del 70.7% (de 29.43s a 8.64s). Sin embargo, se detectan degradaciones puntuales en acciones específicas y una acción en \"Calculadora\" que es persistentemente lenta, requiriendo atención inmediata.",
+    "escalar": {
+      "titulo": "Acción 'Simular inversiones de la especie AL30' es persistentemente lenta",
+      "detalle": "La acción 'Simular inversiones de la especie AL30' en la sección 'Calculadora' ha superado el umbral de alerta en 5 de 5 versiones medidas, con un P95 actual de 70.56s. Esto indica un problema crónico que requiere intervención urgente."
+    },
+    "investigar": {
+      "titulo": "Degradación abrupta en 'Ingreso a la pestaña \"Soberanos\"' de Curvas",
+      "detalle": "La acción 'Ingreso a la pestaña \"Soberanos\"' en la sección 'Curvas' sufrió una degradación del 338.5% en la versión actual, pasando de 0.94s a 4.11s, lo cual es una anomalía significativa a investigar."
+    },
+    "optimizar": {
+      "titulo": "La sección 'Calculadora' es la mayor oportunidad de mejora",
+      "detalle": "A pesar de una mejora del 35.8% vs histórico, la sección 'Calculadora' sigue siendo la más lenta con un P95 de 57.11s, presentando la mayor oportunidad para impactar la experiencia general del usuario."
+    },
+    "hallazgos": [
+      {
+        "tipo": "alerta",
+        "seccion": "Calculadora",
+        "descripcion": "La acción 'Simular inversiones de la especie AL30' es persistentemente lenta, superando el umbral en 5 de 5 versiones medidas.",
+        "evidencia": "P95 actual: 70.56s."
+      },
+      {
+        "tipo": "alerta",
+        "seccion": "Curvas",
+        "descripcion": "La acción 'Ingreso a la pestaña \"Soberanos\"' se degradó abruptamente en la versión actual.",
+        "evidencia": "P95 se degradó de 0.94s a 4.11s (+338.5%) en v1.45.7."
+      },
+      {
+        "tipo": "alerta",
+        "seccion": "Mis portafolios",
+        "descripcion": "La acción 'Navegabilidad entre las pestañas Proyección y Agenda de pagos en el portafolio' sufrió una degradación significativa en la versión actual.",
+        "evidencia": "P95 se degradó de 1.26s a 3.32s (+162.78%) en v1.45.7."
+      },
+      {
+        "tipo": "mejora",
+        "seccion": "Curvas",
+        "descripcion": "La sección 'Curvas' experimentó una mejora sustancial en su rendimiento general.",
+        "evidencia": "P95 mejoró de 29.43s a 8.64s (+70.7%) vs histórico y de 11.78s a 8.64s (+26.6%) vs versión anterior."
+      },
+      {
+        "tipo": "mejora",
+        "seccion": "Calculadora",
+        "descripcion": "La sección 'Calculadora' mostró una mejora significativa en su P95.",
+        "evidencia": "P95 mejoró de 88.94s a 57.11s (+35.8%) vs histórico."
+      },
+      {
+        "tipo": "mejora",
+        "seccion": "Analizar",
+        "descripcion": "La sección 'Analizar' mejoró su rendimiento de manera notable.",
+        "evidencia": "P95 mejoró de 14.03s a 11.0s (+21.6%) vs versión anterior y de 13.56s a 11.0s (+18.9%) vs histórico."
+      },
+      {
+        "tipo": "mejora",
+        "seccion": "Comparar",
+        "descripcion": "La sección 'Comparar' mostró una fuerte mejora en su P95.",
+        "evidencia": "P95 mejoró de 16.24s a 10.63s (+34.5%) vs histórico."
+      }
+    ],
+    "causa_raiz": [
+      {
+        "seccion": "Calculadora",
+        "hipotesis": [
+          "Podría deberse a la complejidad de los cálculos o la cantidad de datos procesados en la simulación de inversiones.",
+          "Revisar si hay dependencias externas o servicios de terceros que introducen latencia en este flujo específico.",
+          "Posible optimización deficiente en el frontend para la renderización de resultados complejos de la simulación."
+        ]
+      },
+      {
+        "seccion": "Curvas",
+        "hipotesis": [
+          "Posibles cambios recientes en la lógica de carga de datos o en la composición de la interfaz de usuario de la pestaña 'Soberanos'.",
+          "Revisar si se introdujo un nuevo componente o widget ineficiente que afecta específicamente a esta pestaña.",
+          "Problemas de caché o pre-carga que no están funcionando correctamente para la pestaña 'Soberanos' en la versión actual."
+        ]
+      },
+      {
+        "seccion": "Mis portafolios",
+        "hipotesis": [
+          "Un aumento en la complejidad o volumen de datos mostrados en las pestañas 'Proyección' o 'Agenda de pagos' podría estar ralentizando la navegación.",
+          "Revisar si hubo una regresión en la optimización del rendimiento al cambiar entre estas pestañas, como re-renderizados innecesarios o re-fetch de datos.",
+          "Posibles problemas de concurrencia o bloqueo al acceder a los datos del portafolio que se manifiestan al navegar entre pestañas."
+        ]
+      }
+    ],
+    "recomendaciones": [
+      {
+        "prioridad": "P1",
+        "accion": "Investigar y optimizar la acción 'Simular inversiones de la especie AL30' para resolver su lentitud crónica.",
+        "seccion": "Calculadora",
+        "evidencia": "P95 actual de 70.56s, superando el umbral en 5 de 5 versiones medidas."
+      },
+      {
+        "prioridad": "P1",
+        "accion": "Realizar un análisis de causa raíz para la degradación abrupta de la acción 'Ingreso a la pestaña \"Soberanos\"'.",
+        "seccion": "Curvas",
+        "evidencia": "Degradación del P95 de 0.94s a 4.11s (+338.5%) en v1.45.7."
+      },
+      {
+        "prioridad": "P1",
+        "accion": "Analizar la regresión en la acción 'Navegabilidad entre las pestañas Proyección y Agenda de pagos en el portafolio'.",
+        "seccion": "Mis portafolios",
+        "evidencia": "Degradación del P95 de 1.26s a 3.32s (+162.78%) en v1.45.7."
+      },
+      {
+        "prioridad": "P2",
+        "accion": "Priorizar la optimización general de la sección 'Calculadora' para mejorar la experiencia del usuario en flujos complejos.",
+        "seccion": "Calculadora",
+        "evidencia": "Es la sección más lenta con un P95 de 57.11s, a pesar de las mejoras."
+      },
+      {
+        "prioridad": "P3",
+        "accion": "Documentar y replicar las estrategias de optimización exitosas de secciones como 'Curvas' y 'Graficador' en otras áreas del sistema.",
+        "seccion": "General",
+        "evidencia": "La sección 'Curvas' mejoró un 70.7% y 'Graficador' un 50.7% vs histórico."
+      }
+    ]
+  }
+}
