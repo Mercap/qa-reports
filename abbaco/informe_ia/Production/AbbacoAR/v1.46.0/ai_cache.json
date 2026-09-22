@@ -1,0 +1,112 @@
+{
+  "hash": "5a9d8fc360fb6e4432b7d6c2f06045210ed8d2f4406f8ea00cd406cad74d8965",
+  "ai_model": "gemini-2.5-flash",
+  "conclusions": {
+    "estado_general": "excelente",
+    "resumen_ejecutivo": "La versión v1.46.0 de Abbaco muestra un rendimiento excelente, con 8 de 9 secciones mejorando su P95 respecto al histórico y ninguna sección superando los umbrales de rendimiento. Sin embargo, la acción 'Simular inversiones de la especie AL30' en la sección Calculadora sigue siendo crónicamente lenta, con un P95 de 70.25s.",
+    "escalar": {
+      "titulo": "Acción 'Simular inversiones de AL30' en Calculadora es crónicamente lenta",
+      "detalle": "La acción 'Simular inversiones de la especie AL30' en la sección Calculadora ha superado el umbral de alerta en 5 de las últimas 5 versiones, con un P95 actual de 70.25s, lo que requiere atención inmediata."
+    },
+    "investigar": {
+      "titulo": "Alta variabilidad en la sección Calculadora",
+      "detalle": "La sección Calculadora presenta un P95 de 56.79s y un ratio P95/P50 de 31.38, lo que sugiere una experiencia muy inconsistente para los usuarios, con algunos flujos siendo significativamente más lentos."
+    },
+    "optimizar": {
+      "titulo": "Optimizar la sección Calculadora para reducir tiempos de espera",
+      "detalle": "La sección Calculadora, con un P95 de 56.79s, es la más lenta del sistema y representa una gran oportunidad de mejora, especialmente la acción 'Simular inversiones de la especie AL30' que tiene un P95 de 70.25s."
+    },
+    "hallazgos": [
+      {
+        "tipo": "alerta",
+        "seccion": "Calculadora",
+        "descripcion": "La acción 'Simular inversiones de la especie AL30' es crónicamente lenta, superando el umbral de alerta en 5 de 5 versiones medidas.",
+        "evidencia": "P95 actual de 70.25s."
+      },
+      {
+        "tipo": "mejora",
+        "seccion": "Curvas",
+        "descripcion": "La sección Curvas experimentó una mejora significativa en su rendimiento.",
+        "evidencia": "P95 mejoró de 28.19s a 9.25s (+67.2%) vs histórico y de 22.84s a 9.25s (+59.5%) vs versión anterior. La acción 'Ingreso a la curva Corporativos - Alimentos - USD' mejoró un 85.31%."
+      },
+      {
+        "tipo": "mejora",
+        "seccion": "Calculadora",
+        "descripcion": "La sección Calculadora muestra una mejora notable en su rendimiento general.",
+        "evidencia": "P95 mejoró de 89.29s a 56.79s (+36.4%) vs histórico y de 83.78s a 56.79s (+32.2%) vs versión anterior. La acción 'Editar P. Simulado, de la primera simulación' mejoró un 40.24%."
+      },
+      {
+        "tipo": "mejora",
+        "seccion": "Comparar",
+        "descripcion": "La sección Comparar ha mejorado su velocidad de carga.",
+        "evidencia": "P95 mejoró de 16.05s a 8.8s (+45.2%) vs histórico y de 11.2s a 8.8s (+21.4%) vs versión anterior."
+      },
+      {
+        "tipo": "mejora",
+        "seccion": "Graficador",
+        "descripcion": "La sección Graficador muestra una mejora considerable en su performance.",
+        "evidencia": "P95 mejoró de 5.03s a 2.73s (+45.8%) vs histórico y de 3.83s a 2.73s (+28.8%) vs versión anterior."
+      },
+      {
+        "tipo": "mejora",
+        "seccion": "Screener",
+        "descripcion": "La sección Screener ha optimizado su tiempo de respuesta.",
+        "evidencia": "P95 mejoró de 6.24s a 2.87s (+54.0%) vs histórico y de 4.16s a 2.87s (+31.1%) vs versión anterior."
+      },
+      {
+        "tipo": "mejora",
+        "seccion": "Sensibilidad",
+        "descripcion": "La sección Sensibilidad presenta una mejora en su velocidad.",
+        "evidencia": "P95 mejoró de 8.45s a 5.55s (+34.3%) vs histórico y de 8.43s a 5.55s (+34.2%) vs versión anterior."
+      },
+      {
+        "tipo": "mejora",
+        "seccion": "Arbitraje",
+        "descripcion": "La sección Arbitraje muestra una mejora significativa en su rendimiento.",
+        "evidencia": "P95 mejoró de 14.96s a 9.85s (+34.1%) vs histórico."
+      },
+      {
+        "tipo": "mejora",
+        "seccion": "Mis portafolios",
+        "descripcion": "La sección Mis portafolios ha mejorado su performance general.",
+        "evidencia": "P95 mejoró de 9.83s a 6.33s (+35.6%) vs histórico. La acción 'Navegabilidad entre las pestañas Proyección y Agenda de pagos en el portafolio' mejoró un 49.34%."
+      },
+      {
+        "tipo": "mejora",
+        "seccion": "Analizar",
+        "descripcion": "La sección Analizar muestra mejoras en acciones específicas.",
+        "evidencia": "La acción 'Navegabilidad por los botones TIRs y Paridades Históricas de la especie AL30' mejoró un 69.79%."
+      }
+    ],
+    "causa_raiz": [
+      {
+        "seccion": "Calculadora",
+        "hipotesis": [
+          "La complejidad de los cálculos o la cantidad de datos procesados para la simulación de inversiones de bonos específicos como AL30 podría estar causando latencia.",
+          "Problemas de optimización en las consultas a la base de datos o en la lógica de negocio del backend para esta acción en particular.",
+          "Ineficiencias en la renderización de la interfaz de usuario o en la gestión del estado de la aplicación al mostrar los resultados de la simulación."
+        ]
+      }
+    ],
+    "recomendaciones": [
+      {
+        "prioridad": "P1",
+        "accion": "Investigar y optimizar la acción 'Simular inversiones de la especie AL30' para reducir su tiempo de respuesta crónicamente alto.",
+        "seccion": "Calculadora",
+        "evidencia": "La acción tiene un P95 actual de 70.25s y ha estado sobre el umbral en 5 de 5 versiones."
+      },
+      {
+        "prioridad": "P2",
+        "accion": "Realizar un análisis de rendimiento exhaustivo de la sección Calculadora para identificar cuellos de botella y mejorar la consistencia de la experiencia de usuario.",
+        "seccion": "Calculadora",
+        "evidencia": "La sección tiene un P95 de 56.79s y un ratio P95/P50 de 31.38, indicando alta variabilidad."
+      },
+      {
+        "prioridad": "P3",
+        "accion": "Continuar monitoreando las secciones con mejoras significativas para asegurar que no haya regresiones en futuras versiones.",
+        "seccion": "General",
+        "evidencia": "8 de 9 secciones mostraron mejoras significativas vs histórico, con 'Curvas' mejorando un 67.2%."
+      }
+    ]
+  }
+}
