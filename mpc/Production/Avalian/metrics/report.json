@@ -2,14 +2,14 @@
   "stats": {
     "suites": 1,
     "tests": 1,
-    "passes": 0,
+    "passes": 1,
     "pending": 0,
-    "failures": 1,
-    "start": "2026-09-22T15:03:54.779Z",
-    "end": "2026-09-22T15:10:08.439Z",
-    "duration": 373660,
+    "failures": 0,
+    "start": "2026-09-23T01:00:45.867Z",
+    "end": "2026-09-23T01:01:09.048Z",
+    "duration": 23181,
     "testsRegistered": 1,
-    "passPercent": 0,
+    "passPercent": 100,
     "pendingPercent": 0,
     "other": 0,
     "hasOther": false,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "cc4646d1-86e8-410b-84c2-caee0ad2e21a",
+      "uuid": "65af81ad-2a20-416d-a311-f01ac6506b53",
       "title": "",
       "fullFile": "build/production/avalian/specs/performance/01_login.cy.js",
       "file": "build/production/avalian/specs/performance/01_login.cy.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "4a5cd59f-4996-4b6d-9afa-81c3b1e2bbde",
+          "uuid": "9b2173fc-3978-4b9a-8d0b-df4c04ff00eb",
           "title": "Login",
           "fullFile": "",
           "file": "",
@@ -38,33 +38,29 @@
               "title": "Ingreso al admin de MPC y setup de portfolios",
               "fullTitle": "Login Ingreso al admin de MPC y setup de portfolios",
               "timedOut": null,
-              "duration": 368568,
-              "state": "failed",
-              "speed": null,
-              "pass": false,
-              "fail": true,
+              "duration": 16775,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
               "pending": false,
               "context": null,
               "code": "cy.adminLoginMPC();\n      cy.visitarConLoginSiHaceFalta(_support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].ADMIN_LOCATION);\n      cy.guardarEsquemasValuacion();\n      cy.visitarConLoginSiHaceFalta(`${_support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].MPC_LOCATION}${investmentAcccountsPath}`);\n      cy.guardarNombresPortfolios();\n      cy.visitarConLoginSiHaceFalta(`${_support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].MPC_LOCATION}${depositaryPath}`);\n      cy.contains('Seleccioná una o varias cuentas para verificar la información consolidada.').\n      should('be.visible');\n      cy.guardarNombresDepositarios();\n      cy.guardarCuentasDepositarios();",
-              "err": {
-                "message": "AssertionError: Timed out retrying after 360000ms: Expected to find content: 'Esquemas de valuación' within the selector: 'h1' but never did.",
-                "estack": "AssertionError: Timed out retrying after 360000ms: Expected to find content: 'Esquemas de valuación' within the selector: 'h1' but never did.\n    at Context.eval (webpack://cypress/./cypress/support/commands/performance.commands.js:72:0)\n    at wrapped (https://mercap.auth0.com/__cypress/runner/cypress_runner.js:146042:43)",
-                "diff": null
-              },
-              "uuid": "e5cb78d4-ebb5-4c1d-b6cb-3630a975578f",
-              "parentUUID": "4a5cd59f-4996-4b6d-9afa-81c3b1e2bbde",
+              "err": {},
+              "uuid": "7bdbe4e3-7637-4f08-94d5-bdea28a15ff1",
+              "parentUUID": "9b2173fc-3978-4b9a-8d0b-df4c04ff00eb",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
-          "passes": [],
-          "failures": [
-            "e5cb78d4-ebb5-4c1d-b6cb-3630a975578f"
+          "passes": [
+            "7bdbe4e3-7637-4f08-94d5-bdea28a15ff1"
           ],
+          "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 368568,
+          "duration": 16775,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
