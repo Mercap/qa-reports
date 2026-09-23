@@ -1,0 +1,94 @@
+{
+  "hash": "b07073e889fa5adf1b90c6e767d23933470d7921220bb4b2b3292e0db0ef0f1a",
+  "ai_model": "gemini-2.5-flash",
+  "conclusions": {
+    "estado_general": "excelente",
+    "resumen_ejecutivo": "La versión v1.46.1 de Abbaco demuestra un rendimiento excelente, con todas las 9 secciones del sistema mostrando mejoras significativas respecto a su histórico, destacando Curvas con un 68.3% de mejora. Sin embargo, la acción 'Simular inversiones de la especie AL30' en Calculadora persiste como un cuello de botella crítico, con un P95 de 70.23s y un historial de lentitud crónica.",
+    "escalar": {
+      "titulo": "Acción 'Simular inversiones' en Calculadora es persistentemente lenta",
+      "detalle": "La acción 'Simular inversiones de la especie AL30' en la sección Calculadora ha superado el umbral de alerta en 5 de 5 versiones, con un P95 actual de 70.23s, indicando un problema crónico."
+    },
+    "investigar": {
+      "titulo": "Variabilidad extrema en Calculadora a pesar de la mejora general",
+      "detalle": "La sección Calculadora muestra un P95 de 56.79s y un P50 de 2.11s, resultando en un ratio P95/P50 de 26.91. Esto sugiere que, aunque el promedio mejoró, hay acciones o casos de uso específicos que son extremadamente lentos."
+    },
+    "optimizar": {
+      "titulo": "Reducir el P95 de la sección Calculadora",
+      "detalle": "La sección Calculadora, con un P95 actual de 56.79s, es la más lenta del sistema. Reducir este tiempo, especialmente la acción 'Simular inversiones de la especie AL30' (70.23s), ofrecería la mayor mejora en UX."
+    },
+    "hallazgos": [
+      {
+        "tipo": "alerta",
+        "seccion": "Calculadora",
+        "descripcion": "La acción 'Simular inversiones de la especie AL30' es persistentemente lenta, superando el umbral de alerta en 5 de 5 versiones, a pesar de que la sección Calculadora mejoró un 32.7% vs histórico.",
+        "evidencia": "P95 actual de la acción es 70.23s. P95 de la sección mejoró de 84.41s a 56.79s (+32.7%)."
+      },
+      {
+        "tipo": "mejora",
+        "seccion": "Curvas",
+        "descripcion": "La sección Curvas experimentó la mayor mejora porcentual del sistema, volviéndose significativamente más rápida.",
+        "evidencia": "P95 mejoró de 30.39s a 9.62s (+68.3%)."
+      },
+      {
+        "tipo": "mejora",
+        "seccion": "Screener",
+        "descripcion": "La sección Screener ha logrado una mejora notable respecto a su histórico, aunque mostró una ligera degradación en la última versión.",
+        "evidencia": "P95 mejoró de 5.55s a 3.3s (+40.5%) vs histórico, pero degradó 15.0% vs versión anterior (de 2.87s a 3.3s)."
+      },
+      {
+        "tipo": "mejora",
+        "seccion": "Arbitraje",
+        "descripcion": "La sección Arbitraje muestra una mejora sustancial en su rendimiento general.",
+        "evidencia": "P95 mejoró de 14.64s a 8.79s (+39.9%)."
+      },
+      {
+        "tipo": "mejora",
+        "seccion": "Comparar",
+        "descripcion": "La sección Comparar ha mejorado considerablemente su performance.",
+        "evidencia": "P95 mejoró de 13.46s a 8.61s (+36.0%)."
+      },
+      {
+        "tipo": "mejora",
+        "seccion": "Graficador",
+        "descripcion": "La sección Graficador muestra una mejora sólida en sus tiempos de carga.",
+        "evidencia": "P95 mejoró de 4.59s a 2.94s (+36.0%)."
+      },
+      {
+        "tipo": "mejora",
+        "seccion": "Analizar",
+        "descripcion": "La sección Analizar muestra una mejora robusta tanto respecto a la versión anterior como a su histórico.",
+        "evidencia": "P95 mejoró de 13.41s a 9.32s (+30.5%) vs histórico y de 13.21s a 9.32s (+29.5%) vs versión anterior."
+      }
+    ],
+    "causa_raiz": [
+      {
+        "seccion": "Calculadora",
+        "hipotesis": [
+          "Revisar la complejidad de los cálculos o la cantidad de datos procesados al simular inversiones de especies específicas como AL30.",
+          "Investigar si hay cuellos de botella en la integración con servicios externos o bases de datos al recuperar información para la simulación.",
+          "Analizar la eficiencia del renderizado de la UI o la lógica de negocio en el frontend para esta acción particular."
+        ]
+      }
+    ],
+    "recomendaciones": [
+      {
+        "prioridad": "P1",
+        "accion": "Realizar un análisis profundo de la acción 'Simular inversiones de la especie AL30' para identificar y resolver la causa raíz de su lentitud crónica.",
+        "seccion": "Calculadora",
+        "evidencia": "P95 actual de 70.23s y 5 de 5 versiones sobre el umbral de alerta."
+      },
+      {
+        "prioridad": "P2",
+        "accion": "Optimizar la sección Calculadora, enfocándose en reducir la variabilidad del rendimiento y mejorar los casos de uso más lentos.",
+        "seccion": "Calculadora",
+        "evidencia": "P95 de 56.79s y un ratio P95/P50 de 26.91, indicando outliers significativos."
+      },
+      {
+        "prioridad": "P3",
+        "accion": "Monitorear de cerca las secciones con pequeñas degradaciones recientes como Screener (-15.0%) y Curvas (-4.0%) para evitar futuras regresiones.",
+        "seccion": "Screener, Curvas",
+        "evidencia": "Screener degradó 15.0% y Curvas 4.0% vs. versión anterior."
+      }
+    ]
+  }
+}
