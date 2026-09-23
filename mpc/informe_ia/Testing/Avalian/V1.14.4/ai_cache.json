@@ -1,0 +1,128 @@
+{
+  "hash": "6742b2f231abd66d2fbed2875036897f4bf02aa20030a281c33fa7cae1694aee",
+  "ai_model": "gemini-2.5-flash",
+  "conclusions": {
+    "estado_general": "critico",
+    "resumen_ejecutivo": "La versión V1.14.4 de MPC presenta un estado crítico de performance, con 4 de 7 secciones experimentando degradaciones significativas respecto a su histórico. La sección Agenda sufrió una degradación masiva del 532.8% (P95 de 8.63s a 54.58s), mientras que Resultado y Rendimiento también empeoraron un 34.0% y 36.9% respectivamente. A pesar de esto, la sección Mis operaciones mostró una mejora notable del 48.5%.",
+    "escalar": {
+      "titulo": "Degradación masiva en Agenda y tendencia negativa en Resultado",
+      "detalle": "La sección Agenda experimentó una degradación del 532.8%, pasando de 8.63s a 54.58s en P95. Además, Resultado muestra una tendencia sostenida de degradación en 3 versiones, alcanzando 40.72s."
+    },
+    "investigar": {
+      "titulo": "Salto abrupto de +753% en acciones clave de Agenda",
+      "detalle": "La acción 'Primer ingreso: Tipo de instrumento Bonos, estado: Pendiente, fecha: 1 mes hacia atras' en Agenda pasó de 9.63s a 82.19s (+753.5%) en la versión V1.14.4, lo que requiere una investigación inmediata."
+    },
+    "optimizar": {
+      "titulo": "Mejorar la performance de la sección Agenda",
+      "detalle": "La sección Agenda es la más lenta con un P95 de 54.58s y la que más se degradó (-532.8%), representando la mayor oportunidad para mejorar la experiencia de usuario."
+    },
+    "hallazgos": [
+      {
+        "tipo": "alerta",
+        "seccion": "Agenda",
+        "descripcion": "La acción 'Primer ingreso: Tipo de instrumento Bonos, estado: Pendiente, fecha: 1 mes hacia atras' en Agenda sufrió un salto abrupto.",
+        "evidencia": "P95 pasó de 9.63s a 82.19s (+753.5%) en V1.14.4"
+      },
+      {
+        "tipo": "alerta",
+        "seccion": "Mis operaciones",
+        "descripcion": "La acción 'Segundo ingreso al depositario ARS' en Mis operaciones sufrió un salto abrupto.",
+        "evidencia": "P95 pasó de 1.07s a 2.23s (+108.4%) en V1.14.4"
+      },
+      {
+        "tipo": "alerta",
+        "seccion": "Rendimiento",
+        "descripcion": "La acción 'Portfolio Estrategia: Primer ingreso a la carta de rendimiento Desde principio d' en Rendimiento sufrió un salto abrupto.",
+        "evidencia": "P95 pasó de 0.82s a 1.79s (+118.3%) en V1.14.4"
+      },
+      {
+        "tipo": "alerta",
+        "seccion": "Resultado",
+        "descripcion": "La acción 'Cambio de esquema de valuación del portfolio Estrategia a ARS-USD MEP' fue discontinuada con una degradación significativa en su última medición.",
+        "evidencia": "Última medición en V1.12.4 fue 29.07s (+106.2%)"
+      },
+      {
+        "tipo": "degradacion",
+        "seccion": "Resultado",
+        "descripcion": "La sección Resultado ha degradado su P95 en 3 versiones consecutivas.",
+        "evidencia": "P95 degradó de 12.14s a 40.72s"
+      },
+      {
+        "tipo": "mejora",
+        "seccion": "Mis operaciones",
+        "descripcion": "La sección Mis operaciones mostró una mejora significativa en su rendimiento.",
+        "evidencia": "P95 mejoró de 28.42s a 14.63s (+48.5%)"
+      },
+      {
+        "tipo": "degradacion",
+        "seccion": "Mis portfolios",
+        "descripcion": "La sección Mis portfolios experimentó una degradación en su rendimiento.",
+        "evidencia": "P95 degradó de 8.39s a 10.22s (-21.8%)"
+      }
+    ],
+    "causa_raiz": [
+      {
+        "seccion": "Agenda",
+        "hipotesis": [
+          "Problemas de optimización en consultas a la base de datos para filtros complejos (ej. Bonos, Pendiente, fechas pasadas) en la sección Agenda.",
+          "Ineficiencias en el procesamiento de grandes volúmenes de datos o cálculos complejos al cargar la Agenda con filtros específicos.",
+          "Cambios recientes en la lógica de negocio o APIs que impactan la carga de datos en la Agenda, especialmente para estados y rangos de fechas."
+        ]
+      },
+      {
+        "seccion": "Resultado",
+        "hipotesis": [
+          "Aumento en la complejidad de los cálculos de P&L o la cantidad de datos a procesar para la sección Resultado.",
+          "Ineficiencias en la agregación o presentación de datos históricos de resultados que se manifiestan con el tiempo.",
+          "Problemas de rendimiento en los servicios backend que alimentan la sección Resultado, exacerbados por la carga de datos."
+        ]
+      },
+      {
+        "seccion": "Mis portfolios",
+        "hipotesis": [
+          "Aumento en la cantidad de portfolios o la complejidad de los datos asociados a cada uno, afectando la carga inicial.",
+          "Consultas ineficientes al listar o detallar portfolios, especialmente si se introdujeron nuevos campos o relaciones."
+        ]
+      },
+      {
+        "seccion": "Rendimiento",
+        "hipotesis": [
+          "Ineficiencias en la generación de gráficos o cálculos de rendimiento para ciertos rangos de tiempo o métodos.",
+          "Aumento en la cantidad de datos históricos necesarios para calcular el rendimiento, impactando la carga inicial de las cartas."
+        ]
+      }
+    ],
+    "recomendaciones": [
+      {
+        "prioridad": "P1",
+        "accion": "Investigar y optimizar las consultas y lógica de negocio para las acciones de filtrado de Bonos Pendientes en la sección Agenda.",
+        "seccion": "Agenda",
+        "evidencia": "La acción 'Primer ingreso: Tipo de instrumento Bonos, estado: Pendiente, fecha: 1 mes hacia atras' pasó de 9.63s a 82.19s (+753.5%)"
+      },
+      {
+        "prioridad": "P1",
+        "accion": "Realizar un análisis de causa raíz para la degradación sostenida en la sección Resultado, enfocándose en la optimización de consultas y procesamiento de datos.",
+        "seccion": "Resultado",
+        "evidencia": "P95 de Resultado degradó en 3 versiones consecutivas de 12.14s a 40.72s"
+      },
+      {
+        "prioridad": "P2",
+        "accion": "Revisar la eficiencia de las consultas y la carga de datos en la sección Mis portfolios para revertir la degradación del 21.8%.",
+        "seccion": "Mis portfolios",
+        "evidencia": "P95 de Mis portfolios degradó de 8.39s a 10.22s (-21.8%)"
+      },
+      {
+        "prioridad": "P2",
+        "accion": "Optimizar la carga de datos y la generación de gráficos en la sección Rendimiento, especialmente para acciones con saltos abruptos.",
+        "seccion": "Rendimiento",
+        "evidencia": "La acción 'Portfolio Estrategia: Primer ingreso a la carta de rendimiento Desde principio d' pasó de 0.82s a 1.79s (+118.3%)"
+      },
+      {
+        "prioridad": "P3",
+        "accion": "Documentar y replicar las optimizaciones realizadas en la sección Mis operaciones para aplicar patrones similares en otras áreas.",
+        "seccion": "Mis operaciones",
+        "evidencia": "P95 de Mis operaciones mejoró de 28.42s a 14.63s (+48.5%)"
+      }
+    ]
+  }
+}
