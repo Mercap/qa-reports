@@ -1,141 +1,128 @@
 {
-  "hash": "e661d70ed7398058d5a5f7b13a997480d3786c48abaae55f535acfd729bddf2e",
+  "hash": "1d8a33766f3b178bc57f4b98a92332c211a467aeba209d3cd428277dc5bb951e",
   "ai_model": "gemini-2.5-flash",
   "conclusions": {
     "estado_general": "atencion",
-    "resumen_ejecutivo": "La versión v1.46.4 de Abbaco muestra una mejora general del rendimiento histórico en todas las secciones. Sin embargo, se observa una degradación significativa en varias secciones clave como 'Curvas' (-97.6%) y 'Comparar' (-27.4%) respecto a la versión anterior, y la acción 'Simular inversiones de la especie AL30' en 'Calculadora' sigue siendo persistentemente lenta con un P95 de 66.16s.",
+    "resumen_ejecutivo": "La versión actual v1.46.4 muestra una degradación generalizada en todas las secciones respecto a la versión anterior, con 'Graficador' empeorando un 105.6%. Aunque 7 de 9 secciones mejoraron su P95 histórico, la sección 'Calculadora' sigue siendo un punto crítico con un P95 de 75.78s y una acción persistentemente lenta.",
     "escalar": {
-      "titulo": "Degradación crítica en Curvas y acción lenta persistente en Calculadora",
-      "detalle": "La sección 'Curvas' sufrió una degradación del 97.6% (de 9.62s a 19.0s) respecto a la versión anterior y la acción 'Simular inversiones de la especie AL30' en 'Calculadora' es persistentemente lenta con un P95 de 66.16s en 5 de 5 versiones."
+      "titulo": "Degradación generalizada y lentitud crónica en Calculadora y Graficador",
+      "detalle": "La versión actual muestra una degradación en todas las secciones respecto a la versión anterior, con 'Graficador' empeorando un 105.6% (de 2.94s a 6.04s). Además, la acción 'Simular inversiones de la especie AL30' en 'Calculadora' es persistentemente lenta, superando el umbral en 5 de 5 versiones con un P95 actual de 82.78s."
     },
     "investigar": {
-      "titulo": "Fuerte regresión en la sección Curvas y degradación en acciones específicas",
-      "detalle": "La sección 'Curvas' ha degradado un 97.6% (de 9.62s a 19.0s) respecto a la versión anterior y muestra una tendencia sostenida de degradación en 3 versiones consecutivas. La acción 'Ingreso a la curva Colombia - Soberanos - Bonos Globales - USD' en 'Curvas' degradó un 132.08% (de 7.12s a 16.53s) entre v1.46.1 y v1.46.4."
+      "titulo": "Regresión masiva en Graficador y tendencias de degradación sostenidas",
+      "detalle": "La sección 'Graficador' ha sufrido una regresión del 105.6% (de 2.94s a 6.04s) desde la versión anterior y muestra una tendencia sostenida de degradación. Además, 'Curvas', 'Sensibilidad' y 'Screener' también presentan tendencias sostenidas de aumento de P95 en las últimas 3 versiones."
     },
     "optimizar": {
-      "titulo": "Optimizar la simulación de inversiones en Calculadora",
-      "detalle": "La acción 'Simular inversiones de la especie AL30' en la sección 'Calculadora' es la más lenta con un P95 de 66.16s, siendo una oportunidad clave para mejorar la experiencia del usuario."
+      "titulo": "Reducir la latencia de la sección Calculadora",
+      "detalle": "La sección 'Calculadora' presenta el P95 más alto (75.78s) y una acción crítica ('Simular inversiones de la especie AL30' con 82.78s) que ha sido persistentemente lenta en 5 de 5 versiones. Optimizarla mejoraría significativamente la experiencia de usuario."
     },
     "hallazgos": [
       {
         "tipo": "alerta",
         "seccion": "Calculadora",
-        "descripcion": "La acción 'Simular inversiones de la especie AL30' es persistentemente lenta, superando el umbral en 5 de 5 versiones medidas.",
-        "evidencia": "P95 actual de 66.16s."
-      },
-      {
-        "tipo": "degradacion",
-        "seccion": "Curvas",
-        "descripcion": "La sección Curvas sufrió una fuerte degradación del 97.6% respecto a la versión anterior y muestra una tendencia sostenida de degradación en 3 versiones consecutivas.",
-        "evidencia": "P95 degradó de 9.62s a 19.0s."
-      },
-      {
-        "tipo": "degradacion",
-        "seccion": "Comparar",
-        "descripcion": "La sección Comparar se degradó un 27.4% respecto a la versión anterior.",
-        "evidencia": "P95 degradó de 8.61s a 10.96s."
-      },
-      {
-        "tipo": "degradacion",
-        "seccion": "Arbitraje",
-        "descripcion": "La sección Arbitraje se degradó un 18.3% respecto a la versión anterior.",
-        "evidencia": "P95 degradó de 8.79s a 10.4s."
-      },
-      {
-        "tipo": "degradacion",
-        "seccion": "Mis portafolios",
-        "descripcion": "La sección Mis portafolios se degradó un 15.8% respecto a la versión anterior.",
-        "evidencia": "P95 degradó de 5.81s a 6.73s."
+        "descripcion": "La acción 'Simular inversiones de la especie AL30' es persistentemente lenta, superando el umbral en 5 de 5 versiones, manteniendo la sección 'Calculadora' sobre el umbral de rendimiento.",
+        "evidencia": "P95 actual de 82.78s para la acción y 75.78s para la sección."
       },
       {
         "tipo": "alerta",
         "seccion": "Graficador",
-        "descripcion": "La sección Graficador muestra una tendencia sostenida de degradación en 3 versiones consecutivas.",
-        "evidencia": "P95 aumentó de 2.73s a 3.17s."
+        "descripcion": "La sección 'Graficador' ha sufrido una degradación del 105.6% respecto a la versión anterior y muestra una tendencia sostenida de degradación en las últimas 3 versiones.",
+        "evidencia": "P95 empeoró de 2.94s a 6.04s (v1.46.1 a v1.46.4) y P95 histórico degradó un 34.6%."
+      },
+      {
+        "tipo": "alerta",
+        "seccion": "Curvas",
+        "descripcion": "La sección 'Curvas' muestra una tendencia sostenida de degradación en 3 versiones y una degradación del 39.9% respecto a la versión anterior, a pesar de una mejora del 53.2% vs su histórico.",
+        "evidencia": "P95 aumentó de 9.25s a 13.45s en 3 versiones y P95 actual es 13.45s."
+      },
+      {
+        "tipo": "alerta",
+        "seccion": "Sensibilidad",
+        "descripcion": "La sección 'Sensibilidad' muestra una tendencia sostenida de degradación en 3 versiones y una degradación del 40.4% respecto a la versión anterior.",
+        "evidencia": "P95 aumentó de 5.55s a 7.94s en 3 versiones y P95 actual es 7.94s."
+      },
+      {
+        "tipo": "alerta",
+        "seccion": "Screener",
+        "descripcion": "La sección 'Screener' muestra una tendencia sostenida de degradación en 3 versiones.",
+        "evidencia": "P95 aumentó de 2.87s a 4.02s en 3 versiones."
+      },
+      {
+        "tipo": "alerta",
+        "seccion": "General",
+        "descripcion": "Todas las secciones han degradado su rendimiento respecto a la versión anterior.",
+        "evidencia": "'Graficador' (-105.6%), 'Sensibilidad' (-40.4%) y 'Curvas' (-39.9%) son las más afectadas."
       },
       {
         "tipo": "mejora",
         "seccion": "Analizar",
-        "descripcion": "La sección Analizar mejoró un 26.8% vs histórico.",
-        "evidencia": "P95 mejoró de 13.48s a 9.87s."
+        "descripcion": "La sección 'Analizar' mostró una mejora significativa en su rendimiento.",
+        "evidencia": "P95 mejoró de 13.48s a 10.36s (+23.1%) vs histórico."
       }
     ],
     "causa_raiz": [
       {
+        "seccion": "Graficador",
+        "hipotesis": [
+          "Posible introducción de nuevas funcionalidades o cambios en la lógica de renderizado que aumentan la complejidad computacional al graficar especies.",
+          "Problemas de optimización en la carga de datos o en la API que alimenta los gráficos, causando latencia adicional.",
+          "Un aumento en el volumen o la complejidad de los datos que se grafican, no manejado eficientemente por la UI."
+        ]
+      },
+      {
         "seccion": "Calculadora",
         "hipotesis": [
-          "La complejidad de los cálculos para la simulación de AL30 es inherentemente alta y no está optimizada.",
-          "Dependencias externas o servicios de datos para AL30 introducen latencia significativa.",
-          "Problemas de concurrencia o bloqueo en la base de datos al procesar simulaciones."
+          "La lógica de simulación de inversiones para especies como AL30 es inherentemente compleja y no ha sido optimizada, o se ha vuelto más pesada con el tiempo.",
+          "Dependencia de servicios externos o bases de datos lentas para obtener datos financieros necesarios para las simulaciones.",
+          "Problemas de rendimiento en el backend que procesa los cálculos, o en la comunicación entre frontend y backend para esta funcionalidad específica."
         ]
       },
       {
         "seccion": "Curvas",
         "hipotesis": [
-          "Cambios recientes en la lógica de carga o renderizado de curvas introdujeron ineficiencias.",
-          "Aumento en el volumen o complejidad de los datos de las curvas, especialmente para ciertas regiones.",
-          "Problemas de rendimiento en la API de datos de curvas o en la infraestructura de red."
+          "La carga de datos para las curvas, especialmente las globales, podría estar experimentando latencia debido a la cantidad de información o la eficiencia de las consultas.",
+          "Cambios recientes en la infraestructura o en la forma en que se procesan los datos de las curvas que introdujeron una regresión.",
+          "Un aumento en la demanda o complejidad de las curvas solicitadas por los usuarios, saturando los recursos."
         ]
       },
       {
-        "seccion": "Comparar",
+        "seccion": "Sensibilidad",
         "hipotesis": [
-          "La lógica de comparación de especies se volvió más compleja o consume más recursos.",
-          "Ineficiencias en la UI al mostrar los resultados de la comparativa, como tablas o gráficos."
-        ]
-      },
-      {
-        "seccion": "Arbitraje",
-        "hipotesis": [
-          "Los algoritmos de cálculo de arbitraje se volvieron más lentos o requieren más datos.",
-          "Latencia en la obtención de datos de mercado en tiempo real para el arbitraje."
-        ]
-      },
-      {
-        "seccion": "Mis portafolios",
-        "hipotesis": [
-          "La gestión de portafolios, especialmente la eliminación, se volvió ineficiente.",
-          "Problemas de rendimiento en la base de datos al actualizar o eliminar información de portafolios."
-        ]
-      },
-      {
-        "seccion": "Graficador",
-        "hipotesis": [
-          "Aumento en la cantidad de datos a graficar o complejidad de las visualizaciones.",
-          "Ineficiencias en la librería de gráficos o en la interacción con el backend."
+          "La complejidad de los cálculos de sensibilidad ha aumentado o la implementación actual no escala bien con la cantidad de variables o datos.",
+          "Problemas en la comunicación con el servicio de backend que realiza los análisis de sensibilidad, o en la base de datos subyacente."
         ]
       }
     ],
     "recomendaciones": [
       {
         "prioridad": "P1",
-        "accion": "Investigar y optimizar la acción 'Simular inversiones de la especie AL30' en la sección Calculadora.",
+        "accion": "Realizar un análisis de rendimiento exhaustivo de la acción 'Simular inversiones de la especie AL30' y la sección 'Calculadora' para identificar cuellos de botella.",
         "seccion": "Calculadora",
-        "evidencia": "P95 actual de 66.16s, siendo persistentemente lenta en 5 de 5 versiones."
+        "evidencia": "P95 actual de 82.78s para la acción, persistente lentitud en 5 de 5 versiones y P95 de la sección de 75.78s."
       },
       {
         "prioridad": "P1",
-        "accion": "Realizar un análisis de causa raíz urgente para la sección Curvas, enfocándose en la regresión reciente y la tendencia sostenida de degradación.",
-        "seccion": "Curvas",
-        "evidencia": "Degradación del 97.6% (de 9.62s a 19.0s) respecto a la versión anterior y tendencia sostenida en 3 versiones."
+        "accion": "Investigar la causa raíz de la degradación del 105.6% en la sección 'Graficador' y la tendencia sostenida de aumento del P95 en las últimas 3 versiones.",
+        "seccion": "Graficador",
+        "evidencia": "Degradación del 105.6% (de 2.94s a 6.04s) respecto a la versión anterior y tendencia sostenida de degradación."
       },
       {
         "prioridad": "P1",
-        "accion": "Investigar la regresión del 27.4% en la sección Comparar, identificando los cambios que la causaron.",
-        "seccion": "Comparar",
-        "evidencia": "P95 degradó de 8.61s a 10.96s respecto a la versión anterior."
+        "accion": "Realizar una auditoría de rendimiento post-despliegue para identificar la causa de la degradación generalizada en todas las secciones respecto a la versión anterior.",
+        "seccion": "General",
+        "evidencia": "Todas las secciones degradaron su rendimiento, con 'Sensibilidad' (-40.4%) y 'Curvas' (-39.9%) como ejemplos."
       },
       {
         "prioridad": "P2",
-        "accion": "Analizar las degradaciones en las secciones Arbitraje y Mis portafolios para identificar posibles ineficiencias introducidas.",
-        "seccion": "Arbitraje, Mis portafolios",
-        "evidencia": "Arbitraje degradó 18.3% (de 8.79s a 10.4s) y Mis portafolios degradó 15.8% (de 5.81s a 6.73s) vs. versión anterior."
+        "accion": "Optimizar la carga de datos y el procesamiento de las curvas, especialmente las que muestran mayor latencia y tendencia sostenida de degradación.",
+        "seccion": "Curvas",
+        "evidencia": "Tendencia sostenida de degradación en 3 versiones (de 9.25s a 13.45s) y degradación del 39.9% vs versión anterior."
       },
       {
         "prioridad": "P3",
-        "accion": "Monitorear de cerca la sección Graficador y evaluar posibles optimizaciones para revertir su tendencia sostenida de degradación.",
-        "seccion": "Graficador",
-        "evidencia": "Tendencia sostenida de degradación en 3 versiones consecutivas, con P95 aumentando de 2.73s a 3.17s."
+        "accion": "Continuar monitoreando y buscando oportunidades de mejora en la sección 'Analizar', que mostró una mejora significativa en esta versión.",
+        "seccion": "Analizar",
+        "evidencia": "Mejora del 23.1% vs histórico (de 13.48s a 10.36s)."
       }
     ]
   }
