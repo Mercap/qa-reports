@@ -1,0 +1,128 @@
+{
+  "hash": "5ede110d3be6cd28514f7450119b95d5fca8ef1d5204e803fcbf18ca1354f977",
+  "ai_model": "gemini-2.5-flash",
+  "conclusions": {
+    "estado_general": "critico",
+    "resumen_ejecutivo": "La versión actual de Abbaco presenta un estado crítico de rendimiento, con tres secciones mostrando degradaciones significativas de más del 15% respecto al histórico, destacándose 'Curvas' con una degradación del 37.6%. Además, la sección 'Calculadora' permanece sobre el umbral de rendimiento con un P95 de 68.78s, y acciones clave en 'Analizar' han sufrido degradaciones extremas de hasta 742.3% en la última versión.",
+    "escalar": {
+      "titulo": "Degradación crítica en Analizar y lentitud crónica en Calculadora",
+      "detalle": "La acción \"Ingreso a la pestaña Condiciones de Emisión de la especie TX28\" en Analizar se degradó un 742.3% (de 1.37s a 11.55s) en la última versión. Además, \"Simular inversiones de la especie AL30\" en Calculadora es crónicamente lenta, superando el umbral en 5 de 5 versiones (84.85s actual)."
+    },
+    "investigar": {
+      "titulo": "Salto abrupto y tendencia sostenida de degradación en Curvas",
+      "detalle": "La sección Curvas experimentó un salto del 98.7% en P95 (de 11.14s a 22.14s) en la última versión, y ha mostrado una tendencia de degradación sostenida en las últimas 4 versiones, pasando de 9.25s a 22.14s."
+    },
+    "optimizar": {
+      "titulo": "Reducir la latencia de la sección Calculadora",
+      "detalle": "La sección Calculadora es la más lenta con un P95 de 68.78s, superando el umbral de rendimiento. La acción \"Simular inversiones de la especie AL30\" contribuye significativamente, con un P95 de 84.85s."
+    },
+    "hallazgos": [
+      {
+        "tipo": "alerta",
+        "seccion": "Calculadora",
+        "descripcion": "La acción \"Simular inversiones de la especie AL30\" es crónicamente lenta, superando el umbral en 5 de 5 versiones medidas.",
+        "evidencia": "P95 actual de 84.85s."
+      },
+      {
+        "tipo": "alerta",
+        "seccion": "Analizar",
+        "descripcion": "Dos acciones clave en la sección Analizar sufrieron degradaciones extremas en la última versión.",
+        "evidencia": "La acción \"Ingreso a la pestaña Condiciones de Emisión de la especie TX28\" se degradó un 742.3% (de 1.37s a 11.55s) y \"Ingresar al Home\" un 107.8% (de 8.33s a 17.3s)."
+      },
+      {
+        "tipo": "alerta",
+        "seccion": "Curvas",
+        "descripcion": "La sección Curvas ha mostrado una tendencia de degradación sostenida y un salto abrupto en la última versión.",
+        "evidencia": "Degradación sostenida en 4 versiones y un salto del 98.7% en P95 (de 11.14s a 22.14s) en la v1.46.5."
+      },
+      {
+        "tipo": "degradacion",
+        "seccion": "Analizar",
+        "descripcion": "La sección Analizar ha degradado su P95 en 3 versiones consecutivas.",
+        "evidencia": "Pasó de 9.32s a 14.58s."
+      },
+      {
+        "tipo": "degradacion",
+        "seccion": "Arbitraje",
+        "descripcion": "La sección Arbitraje ha degradado su P95 en 3 versiones consecutivas.",
+        "evidencia": "Pasó de 8.79s a 13.9s."
+      },
+      {
+        "tipo": "degradacion",
+        "seccion": "Screener",
+        "descripcion": "La sección Screener ha degradado su P95 en 4 versiones consecutivas.",
+        "evidencia": "Pasó de 2.87s a 4.49s."
+      },
+      {
+        "tipo": "mejora",
+        "seccion": "Graficador",
+        "descripcion": "La sección Graficador mostró una mejora significativa en su rendimiento respecto a la versión anterior.",
+        "evidencia": "El P95 mejoró un 26.6%, de 5.29s a 3.88s."
+      }
+    ],
+    "causa_raiz": [
+      {
+        "seccion": "Analizar",
+        "hipotesis": [
+          "Cambios recientes en la lógica de negocio o en la complejidad de los datos mostrados en las pestañas de análisis, como \"Condiciones de Emisión\".",
+          "Ineficiencias en la carga inicial de la página o en la recuperación de datos para el \"Home\" de la sección.",
+          "Posibles cuellos de botella en APIs de backend que alimentan los datos de las especies analizadas."
+        ]
+      },
+      {
+        "seccion": "Curvas",
+        "hipotesis": [
+          "Aumento en el volumen o complejidad de los datos de las curvas, o cambios en la forma en que se procesan y renderizan.",
+          "Problemas de rendimiento en la infraestructura de red o en los servicios de datos externos que proveen la información de las curvas.",
+          "Ineficiencias en el código de frontend para la visualización interactiva de las curvas, especialmente en la carga inicial."
+        ]
+      },
+      {
+        "seccion": "Arbitraje",
+        "hipotesis": [
+          "Mayor carga computacional para el cálculo de arbitrajes, posiblemente por un aumento en la cantidad de especies o la complejidad de los algoritmos.",
+          "Latencia en la obtención de precios en tiempo real o datos de mercado necesarios para las operaciones de arbitraje."
+        ]
+      },
+      {
+        "seccion": "Calculadora",
+        "hipotesis": [
+          "La complejidad de las simulaciones de inversión, especialmente para especies como AL30, podría estar sobrecargando el backend.",
+          "Ineficiencias en la actualización de la UI o en el procesamiento de eventos al editar parámetros de simulación."
+        ]
+      }
+    ],
+    "recomendaciones": [
+      {
+        "prioridad": "P1",
+        "accion": "Investigar y optimizar la acción \"Simular inversiones de la especie AL30\" para reducir su latencia crónica.",
+        "seccion": "Calculadora",
+        "evidencia": "P95 actual de 84.85s, superando el umbral en 5 de 5 versiones."
+      },
+      {
+        "prioridad": "P1",
+        "accion": "Realizar un análisis de causa raíz urgente para la degradación extrema de acciones en la sección Analizar.",
+        "seccion": "Analizar",
+        "evidencia": "Degradación del 742.3% en \"Ingreso a la pestaña Condiciones de Emisión de la especie TX28\" y 107.8% en \"Ingresar al Home\"."
+      },
+      {
+        "prioridad": "P1",
+        "accion": "Priorizar la investigación y corrección de la tendencia de degradación y el salto abrupto en la sección Curvas.",
+        "seccion": "Curvas",
+        "evidencia": "Degradación del 98.7% en P95 en la última versión y tendencia sostenida en 4 versiones."
+      },
+      {
+        "prioridad": "P2",
+        "accion": "Revisar y optimizar la sección Analizar para revertir la tendencia de degradación sostenida.",
+        "seccion": "Analizar",
+        "evidencia": "Degradación del 20.9% vs histórico y tendencia sostenida en 3 versiones."
+      },
+      {
+        "prioridad": "P2",
+        "accion": "Evaluar y mejorar el rendimiento de la sección Calculadora para que opere dentro de los umbrales de SLA.",
+        "seccion": "Calculadora",
+        "evidencia": "P95 actual de 68.78s, superando el umbral de rendimiento."
+      }
+    ]
+  }
+}
