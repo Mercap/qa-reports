@@ -1,0 +1,102 @@
+{
+  "hash": "01df11e9acb2a87f0507029f0ae6bd2a76cd79023599d3a7ae1e56997b687319",
+  "ai_model": "gemini-2.5-flash",
+  "conclusions": {
+    "estado_general": "atencion",
+    "resumen_ejecutivo": "La plataforma Abbaco en la versión v1.46.6 presenta un estado de 'atención'. Aunque se observan mejoras significativas en secciones como Curvas (+53.5% vs histórico) y Analizar (+20.8% vs versión anterior), la sección Calculadora permanece sobre el umbral de rendimiento con un P95 de 68.36s, y Comparar ha sufrido una degradación del 18.0% vs histórico, además de una tendencia sostenida de degradación en las últimas 4 versiones.",
+    "escalar": {
+      "titulo": "Acción crítica en Calculadora y degradación sostenida en Comparar",
+      "detalle": "La acción 'Simular inversiones de la especie AL30' en Calculadora es persistentemente lenta (84.26s, 5 de 5 versiones sobre umbral). Además, la sección Comparar degrada un 18.0% vs histórico y muestra una tendencia sostenida de 4 versiones."
+    },
+    "investigar": {
+      "titulo": "Degradación sostenida en Comparar y su impacto en acciones clave",
+      "detalle": "La sección Comparar ha mostrado una tendencia de degradación sostenida durante 4 versiones, pasando de 8.61s a 13.64s. La acción 'Realizar comparativa entre las especies AL30 y TX28' es la más afectada, con un P95 actual de 14.48s y una degradación del 19.7% vs histórico."
+    },
+    "optimizar": {
+      "titulo": "Optimizar la performance de la sección Calculadora",
+      "detalle": "La sección Calculadora, con un P95 de 68.36s, es la más lenta y está sobre el umbral de rendimiento. La acción 'Simular inversiones de la especie AL30' (84.26s) es un punto crítico que ofrece la mayor oportunidad de mejora."
+    },
+    "hallazgos": [
+      {
+        "tipo": "alerta",
+        "seccion": "Calculadora",
+        "descripcion": "Una acción clave en Calculadora es persistentemente lenta y la sección en general está sobre el umbral de rendimiento.",
+        "evidencia": "La acción 'Simular inversiones de la especie AL30' ha estado sobre el umbral en 5 de 5 versiones, con un P95 actual de 84.26s. La sección tiene un P95 de 68.36s."
+      },
+      {
+        "tipo": "alerta",
+        "seccion": "Comparar",
+        "descripcion": "La sección Comparar muestra una tendencia de degradación sostenida y una regresión en la versión actual.",
+        "evidencia": "P95 aumentó de 8.61s a 13.64s en 4 versiones consecutivas desde v1.46.1, y degradó un 16.1% vs la versión anterior (11.75s a 13.64s)."
+      },
+      {
+        "tipo": "mejora",
+        "seccion": "Curvas",
+        "descripcion": "La sección Curvas experimentó una mejora drástica en esta versión.",
+        "evidencia": "P95 mejoró de 22.14s a 7.82s (+64.7%) vs versión anterior y un 53.5% vs histórico."
+      },
+      {
+        "tipo": "mejora",
+        "seccion": "Analizar",
+        "descripcion": "La sección Analizar ha mejorado significativamente respecto a la versión anterior.",
+        "evidencia": "P95 mejoró de 14.58s a 11.55s (+20.8%)."
+      },
+      {
+        "tipo": "mejora",
+        "seccion": "Screener",
+        "descripcion": "La sección Screener muestra una mejora notable.",
+        "evidencia": "P95 mejoró de 4.49s a 3.92s (+12.6%) vs versión anterior y un 13.1% vs histórico."
+      },
+      {
+        "tipo": "mejora",
+        "seccion": "Graficador",
+        "descripcion": "La sección Graficador muestra una mejora en su rendimiento.",
+        "evidencia": "P95 mejoró de 4.11s a 3.71s (+9.7%) vs histórico."
+      }
+    ],
+    "causa_raiz": [
+      {
+        "seccion": "Comparar",
+        "hipotesis": [
+          "Posible aumento en la complejidad de los cálculos o la cantidad de datos procesados al realizar comparativas entre especies, afectando la acción 'Realizar comparativa entre las especies AL30 y TX28'.",
+          "Problemas de rendimiento en la capa de datos o API que alimenta la sección Comparar, causando latencia en la carga de información.",
+          "Cambios recientes en la UI o lógica de negocio de la sección Comparar que introdujeron ineficiencias en el renderizado o la interacción del usuario."
+        ]
+      },
+      {
+        "seccion": "Calculadora",
+        "hipotesis": [
+          "La lógica de simulación de inversiones, especialmente para especies como AL30, podría ser computacionalmente intensiva o requerir múltiples llamadas a servicios externos.",
+          "Un volumen elevado de datos históricos o parámetros complejos en las simulaciones podría estar ralentizando el procesamiento en el backend o frontend.",
+          "Ineficiencias en la gestión de estado o re-renderizado de componentes en la UI de la Calculadora, exacerbadas por la complejidad de las simulaciones."
+        ]
+      }
+    ],
+    "recomendaciones": [
+      {
+        "prioridad": "P1",
+        "accion": "Realizar un análisis de perfilado de rendimiento exhaustivo para la acción 'Simular inversiones de la especie AL30'.",
+        "seccion": "Calculadora",
+        "evidencia": "Acción persistentemente lenta (84.26s), sobre el umbral en 5 de 5 versiones."
+      },
+      {
+        "prioridad": "P1",
+        "accion": "Investigar la causa raíz de la degradación sostenida en la sección Comparar y la acción 'Realizar comparativa entre las especies AL30 y TX28'.",
+        "seccion": "Comparar",
+        "evidencia": "Degradación del 18.0% vs histórico y tendencia sostenida de aumento del P95 en 4 versiones (de 8.61s a 13.64s)."
+      },
+      {
+        "prioridad": "P2",
+        "accion": "Revisar la arquitectura y optimizar los procesos de carga y cálculo en la sección Calculadora.",
+        "seccion": "Calculadora",
+        "evidencia": "La sección tiene un P95 de 68.36s, superando el umbral de rendimiento."
+      },
+      {
+        "prioridad": "P3",
+        "accion": "Monitorear de cerca las secciones Analizar y Curvas para asegurar que las mejoras recientes sean sostenibles.",
+        "seccion": "General",
+        "evidencia": "Analizar mejoró 20.8% vs anterior y Curvas mejoró 64.7% vs anterior y 53.5% vs histórico."
+      }
+    ]
+  }
+}
