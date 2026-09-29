@@ -1,0 +1,128 @@
+{
+  "hash": "b034a637f51963c67638f5e60ececd4cdd91b278aee68b457711b24f30033dd9",
+  "ai_model": "gemini-2.5-flash",
+  "conclusions": {
+    "estado_general": "excelente",
+    "resumen_ejecutivo": "La versión actual de Abbaco muestra un rendimiento excelente, con todas las 9 secciones mejorando su P95 respecto al histórico. No se detectaron secciones en SLA crítico ni sobre el umbral de rendimiento de 60 segundos. Sin embargo, la acción 'Simular inversiones de la especie AL30' en la sección Calculadora persiste como un punto lento crítico.",
+    "escalar": {
+      "titulo": "Acción 'Simular inversiones de AL30' en Calculadora es crítica",
+      "detalle": "La acción 'Simular inversiones de la especie AL30' en la sección Calculadora es persistentemente lenta, con un P95 actual de 55.35s y superando el umbral en 4 de las últimas 5 versiones. Esto requiere atención inmediata."
+    },
+    "investigar": {
+      "titulo": "Comportamiento crónico de 'Simular inversiones de AL30' en Calculadora",
+      "detalle": "Se debe investigar a fondo la acción 'Simular inversiones de la especie AL30' en Calculadora, ya que su P95 de 55.35s es el más alto y ha sido persistentemente lento en 4 de 5 versiones, indicando un problema estructural."
+    },
+    "optimizar": {
+      "titulo": "Optimizar la sección Calculadora, especialmente la simulación de AL30",
+      "detalle": "La sección Calculadora, con un P95 de 44.83s y el mayor impacto (224.1), ofrece la mayor oportunidad de mejora. Priorizar la optimización de la acción 'Simular inversiones de la especie AL30' (55.35s)."
+    },
+    "hallazgos": [
+      {
+        "tipo": "alerta",
+        "seccion": "Calculadora",
+        "descripcion": "La acción 'Simular inversiones de la especie AL30' es persistentemente lenta, superando el umbral en 4 de 5 versiones medidas.",
+        "evidencia": "P95 actual de 55.35s."
+      },
+      {
+        "tipo": "mejora",
+        "seccion": "Calculadora",
+        "descripcion": "La sección mejoró significativamente su P95 general y varias acciones individuales.",
+        "evidencia": "P95 mejoró de 83.69s a 44.83s (+46.4%) vs histórico y 34.4% vs versión anterior. La acción 'Eliminar todas las simulaciones' mejoró un 45.74%."
+      },
+      {
+        "tipo": "mejora",
+        "seccion": "Comparar",
+        "descripcion": "La sección muestra una fuerte mejora general, aunque una acción puntual degradó.",
+        "evidencia": "P95 mejoró de 12.54s a 8.0s (+36.2%) vs histórico y 41.4% vs versión anterior. La acción 'Realizar comparativa entre las especies AL30 y TX28' mejoró un 46.95%, pero 'Eliminar las especies AL30 y TX28' degradó un 25.7%."
+      },
+      {
+        "tipo": "mejora",
+        "seccion": "Mis portafolios",
+        "descripcion": "La sección experimentó una mejora robusta en su rendimiento general y en múltiples acciones.",
+        "evidencia": "P95 mejoró de 7.77s a 5.16s (+33.5%) vs histórico y 34.6% vs versión anterior. La acción 'Crear un nuevo portafolio' mejoró un 46.86%."
+      },
+      {
+        "tipo": "alerta",
+        "seccion": "Curvas",
+        "descripcion": "La sección mejoró vs histórico, pero mostró una degradación reciente en la última versión y una acción puntual degradó significativamente.",
+        "evidencia": "P95 mejoró de 13.49s a 9.0s (+33.3%) vs histórico, pero degradó un 15.0% vs la versión anterior (de 7.82s a 9.0s). Nueve acciones mejoraron, destacando 'Ingreso a la pestaña \"Soberanos\"' (-42.24%), mientras 'Ingreso a la curva Paraguay - Soberanos - Bonos Globales - USD' degradó un 64.74%."
+      },
+      {
+        "tipo": "mejora",
+        "seccion": "Arbitraje",
+        "descripcion": "La sección muestra una mejora significativa en su P95 general.",
+        "evidencia": "P95 mejoró de 13.38s a 8.96s (+33.0%) vs histórico y 28.9% vs versión anterior."
+      },
+      {
+        "tipo": "mejora",
+        "seccion": "Graficador",
+        "descripcion": "La sección tuvo una mejora considerable en su P95 y en todas sus acciones.",
+        "evidencia": "P95 mejoró de 4.09s a 2.51s (+38.6%) vs histórico y 32.5% vs versión anterior. La acción 'Graficar la especie AL30' mejoró un 36.64%."
+      },
+      {
+        "tipo": "mejora",
+        "seccion": "Screener",
+        "descripcion": "La sección mejoró notablemente su P95 general.",
+        "evidencia": "P95 mejoró de 4.52s a 2.7s (+40.2%) vs histórico y 31.2% vs versión anterior."
+      },
+      {
+        "tipo": "mejora",
+        "seccion": "Sensibilidad",
+        "descripcion": "La sección muestra una mejora sólida en su P95 general.",
+        "evidencia": "P95 mejoró de 8.49s a 5.41s (+36.2%) vs histórico y 27.1% vs versión anterior."
+      }
+    ],
+    "causa_raiz": [
+      {
+        "seccion": "Calculadora",
+        "hipotesis": [
+          "La complejidad de los cálculos o el volumen de datos requeridos para la especie AL30 podría estar causando la lentitud persistente.",
+          "Podría haber problemas de optimización en la lógica de simulación o en la interacción con servicios externos para esta acción específica.",
+          "La carga de datos inicial o el procesamiento pesado en el frontend para 'Simular inversiones de la especie AL30' podría estar bloqueando la UI."
+        ]
+      },
+      {
+        "seccion": "Curvas",
+        "hipotesis": [
+          "La degradación del 15.0% vs la versión anterior podría deberse a un aumento en la complejidad o volumen de datos de curvas cargados recientemente.",
+          "Es posible una regresión en la optimización del renderizado de gráficos o en la carga de datos de la API para la sección Curvas.",
+          "La acción 'Ingreso a la curva Paraguay - Soberanos - Bonos Globales - USD' podría estar experimentando latencia en la API o un procesamiento ineficiente de datos específicos."
+        ]
+      },
+      {
+        "seccion": "Comparar",
+        "hipotesis": [
+          "La degradación del 25.7% en 'Eliminar las especies AL30 y TX28' podría indicar una ineficiencia en la lógica de eliminación o en la actualización del estado de la UI.",
+          "Podría haber un problema de concurrencia o bloqueo al intentar eliminar múltiples especies simultáneamente.",
+          "La interacción con el backend para la eliminación de estas especies podría haber introducido una latencia inesperada."
+        ]
+      }
+    ],
+    "recomendaciones": [
+      {
+        "prioridad": "P1",
+        "accion": "Realizar un análisis de perfilado de rendimiento exhaustivo para la acción 'Simular inversiones de la especie AL30'.",
+        "seccion": "Calculadora",
+        "evidencia": "P95 actual de 55.35s y persistencia de lentitud en 4 de 5 versiones."
+      },
+      {
+        "prioridad": "P2",
+        "accion": "Investigar la degradación del 15.0% en la sección 'Curvas' y la acción 'Ingreso a la curva Paraguay - Soberanos - Bonos Globales - USD'.",
+        "seccion": "Curvas",
+        "evidencia": "P95 degradó de 7.82s a 9.0s (+15.0%) vs versión anterior y la acción específica degradó un 64.74%."
+      },
+      {
+        "prioridad": "P2",
+        "accion": "Analizar la regresión en la acción 'Eliminar las especies AL30 y TX28' para identificar la causa de la degradación.",
+        "seccion": "Comparar",
+        "evidencia": "La acción degradó un 25.7% (de 2.28s a 2.87s) vs histórico."
+      },
+      {
+        "prioridad": "P3",
+        "accion": "Mantener el monitoreo continuo de las secciones con alta variabilidad (ratio P95/P50 alto).",
+        "seccion": "General",
+        "evidencia": "Ratios P95/P50 de 22.53 para Calculadora y 11.24 para Curvas, indicando inconsistencia en la experiencia de usuario."
+      }
+    ]
+  }
+}
