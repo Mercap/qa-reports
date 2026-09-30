@@ -1,0 +1,267 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 0,
+    "pending": 1,
+    "failures": 1,
+    "start": "2026-09-30T13:14:11.307Z",
+    "end": "2026-09-30T13:17:18.099Z",
+    "duration": 186792,
+    "testsRegistered": 9,
+    "passPercent": 0,
+    "pendingPercent": 11.11111111111111,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 7,
+    "hasSkipped": true
+  },
+  "results": [
+    {
+      "uuid": "cc22b3e7-2b02-4dc8-87b2-40d881652da4",
+      "title": "",
+      "fullFile": "build/testing/argentina/smoke/emisores.cy.js",
+      "file": "build/testing/argentina/smoke/emisores.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "88e0fbf7-5981-42dd-9aea-978d9e171f1b",
+          "title": "Emisores ARG",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Ingresar al menú Emisores",
+              "fullTitle": "Emisores ARG Ingresar al menú Emisores",
+              "timedOut": null,
+              "duration": 92422,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.visitRecargandoSi401(`${_support_constants__WEBPACK_IMPORTED_MODULE_1__[\"default\"].ABBACO_LOCATION}/issuers`);\n_pages_emisoresPage__WEBPACK_IMPORTED_MODULE_0__.emisores.elements.emisoresTitle().should('be.visible');\n_pages_emisoresPage__WEBPACK_IMPORTED_MODULE_0__.emisores.elements.emisoresSubtitle().should('be.visible');\n_pages_emisoresPage__WEBPACK_IMPORTED_MODULE_0__.emisores.elements.issuersCard().should('be.visible');\n_pages_emisoresPage__WEBPACK_IMPORTED_MODULE_0__.emisores.waitTableLoaded();",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 90000ms: Expected to find content: 'Emisores' within the selector: '.text-header' but never did.",
+                "estack": "AssertionError: Timed out retrying after 90000ms: Expected to find content: 'Emisores' within the selector: '.text-header' but never did.\n    at Context.eval (webpack://cypress/./build/testing/argentina/flows/smoke/emisores.js:16:18)",
+                "diff": null
+              },
+              "uuid": "5b4e5cf3-aff7-4d5a-a778-bf73964544d5",
+              "parentUUID": "88e0fbf7-5981-42dd-9aea-978d9e171f1b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Validar que el contador de emisores muestre resultados",
+              "fullTitle": "Emisores ARG Validar que el contador de emisores muestre resultados",
+              "timedOut": null,
+              "duration": 0,
+              "state": "pending",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": true,
+              "context": null,
+              "code": "_pages_emisoresPage__WEBPACK_IMPORTED_MODULE_0__.emisores.elements.countBadge().should('be.visible').invoke('text').should('match', /^[\\d.,]+\\s*\\/\\s*[\\d.,]+$/);",
+              "err": {},
+              "uuid": "d287b1eb-a43e-4eb5-b34d-b2c15bfd59e3",
+              "parentUUID": "88e0fbf7-5981-42dd-9aea-978d9e171f1b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Ocultar y volver a mostrar la columna \"Sector\" de la tabla de emisores",
+              "fullTitle": "Emisores ARG Ocultar y volver a mostrar la columna \"Sector\" de la tabla de emisores",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_pages_emisoresPage__WEBPACK_IMPORTED_MODULE_0__.emisores.elements.columnHeader('Sector').should('exist');\n_pages_emisoresPage__WEBPACK_IMPORTED_MODULE_0__.emisores.toggleColumna('Sector');\n_pages_emisoresPage__WEBPACK_IMPORTED_MODULE_0__.emisores.elements.columnHeader('Sector').should('not.exist');\n_pages_emisoresPage__WEBPACK_IMPORTED_MODULE_0__.emisores.toggleColumna('Sector');\n_pages_emisoresPage__WEBPACK_IMPORTED_MODULE_0__.emisores.elements.columnHeader('Sector').should('exist');\n_pages_emisoresPage__WEBPACK_IMPORTED_MODULE_0__.emisores.validarColumnas(COLUMNAS_LISTADO);",
+              "err": {},
+              "uuid": "b37c4a54-116c-4f53-9757-aabe8cabf353",
+              "parentUUID": "88e0fbf7-5981-42dd-9aea-978d9e171f1b",
+              "isHook": false,
+              "skipped": true
+            },
+            {
+              "title": "Validar la pestaña \"Emisiones recientes\"",
+              "fullTitle": "Emisores ARG Validar la pestaña \"Emisiones recientes\"",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_pages_emisoresPage__WEBPACK_IMPORTED_MODULE_0__.emisores.clickTab('recent');\n_pages_emisoresPage__WEBPACK_IMPORTED_MODULE_0__.emisores.waitTableLoaded();\n_pages_emisoresPage__WEBPACK_IMPORTED_MODULE_0__.emisores.validarColumnas(COLUMNAS_RECIENTES);",
+              "err": {},
+              "uuid": "775a01ed-96aa-487c-92bc-154d69813971",
+              "parentUUID": "88e0fbf7-5981-42dd-9aea-978d9e171f1b",
+              "isHook": false,
+              "skipped": true
+            },
+            {
+              "title": "Buscar el emisor Vista Energy Argentina S.A.U.",
+              "fullTitle": "Emisores ARG Buscar el emisor Vista Energy Argentina S.A.U.",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_pages_emisoresPage__WEBPACK_IMPORTED_MODULE_0__.emisores.clickTab('directory');\n_pages_emisoresPage__WEBPACK_IMPORTED_MODULE_0__.emisores.buscarEmisor(EMISOR_BUSQUEDA);\n_pages_emisoresPage__WEBPACK_IMPORTED_MODULE_0__.emisores.elements.issuerLink(EMISOR).should('be.visible');\n_pages_emisoresPage__WEBPACK_IMPORTED_MODULE_0__.emisores.elements.issuerLinks().should('have.length.greaterThan', 0);",
+              "err": {},
+              "uuid": "f113104f-d2f3-4ee3-a457-dfe7838baa71",
+              "parentUUID": "88e0fbf7-5981-42dd-9aea-978d9e171f1b",
+              "isHook": false,
+              "skipped": true
+            },
+            {
+              "title": "Ingresar al detalle del emisor Vista Energy Argentina S.A.U.",
+              "fullTitle": "Emisores ARG Ingresar al detalle del emisor Vista Energy Argentina S.A.U.",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visitRecargandoSi401(`${_support_constants__WEBPACK_IMPORTED_MODULE_1__[\"default\"].ABBACO_LOCATION}/issuers`);\n_pages_emisoresPage__WEBPACK_IMPORTED_MODULE_0__.emisores.waitTableLoaded();\n_pages_emisoresPage__WEBPACK_IMPORTED_MODULE_0__.emisores.buscarEmisor(EMISOR_BUSQUEDA);\n_pages_emisoresPage__WEBPACK_IMPORTED_MODULE_0__.emisores.abrirDetalleEmisor(EMISOR);\n_pages_emisoresPage__WEBPACK_IMPORTED_MODULE_0__.emisores.elements.detailName().should('be.visible').and('have.text', EMISOR);\n_pages_emisoresPage__WEBPACK_IMPORTED_MODULE_0__.emisores.elements.detailDescription().should('be.visible');",
+              "err": {},
+              "uuid": "0feaa6f1-4eac-4e9a-8585-3ca939d76a0e",
+              "parentUUID": "88e0fbf7-5981-42dd-9aea-978d9e171f1b",
+              "isHook": false,
+              "skipped": true
+            },
+            {
+              "title": "Validar la pestaña \"General\" del emisor",
+              "fullTitle": "Emisores ARG Validar la pestaña \"General\" del emisor",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_pages_emisoresPage__WEBPACK_IMPORTED_MODULE_0__.emisores.clickDetailTab('general');\n_pages_emisoresPage__WEBPACK_IMPORTED_MODULE_0__.emisores.elements.cardByTitle('Cronograma de Pagos').should('be.visible');\n_pages_emisoresPage__WEBPACK_IMPORTED_MODULE_0__.emisores.elements.paymentScheduleChart().should('be.visible');\n_pages_emisoresPage__WEBPACK_IMPORTED_MODULE_0__.emisores.elements.upcomingPaymentsTitle().should('be.visible');\n_pages_emisoresPage__WEBPACK_IMPORTED_MODULE_0__.emisores.elements.upcomingPaymentsTable().find('tbody tr').should('have.length.greaterThan', 0);\n_pages_emisoresPage__WEBPACK_IMPORTED_MODULE_0__.emisores.elements.cardByTitle('Datos del Emisor').should('be.visible').and('contain', 'Argentina');",
+              "err": {},
+              "uuid": "d3d360b7-48fc-40bb-8471-aa460b5d87ad",
+              "parentUUID": "88e0fbf7-5981-42dd-9aea-978d9e171f1b",
+              "isHook": false,
+              "skipped": true
+            },
+            {
+              "title": "Validar la pestaña \"Composición de la deuda\" del emisor",
+              "fullTitle": "Emisores ARG Validar la pestaña \"Composición de la deuda\" del emisor",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_pages_emisoresPage__WEBPACK_IMPORTED_MODULE_0__.emisores.clickDetailTab('debtComposition');\n_pages_emisoresPage__WEBPACK_IMPORTED_MODULE_0__.emisores.elements.debtPanelTitle('Composición por unidad de emisión').should('be.visible');\n_pages_emisoresPage__WEBPACK_IMPORTED_MODULE_0__.emisores.elements.debtPanelTitle('Distribución por Vencimiento').should('be.visible');\n_pages_emisoresPage__WEBPACK_IMPORTED_MODULE_0__.emisores.elements.debtPanelTitle('Distribución por Ley').should('be.visible');",
+              "err": {},
+              "uuid": "d033f906-a3f0-4a99-8a66-a2338cdc09a8",
+              "parentUUID": "88e0fbf7-5981-42dd-9aea-978d9e171f1b",
+              "isHook": false,
+              "skipped": true
+            },
+            {
+              "title": "Validar la pestaña \"Emisiones\" del emisor",
+              "fullTitle": "Emisores ARG Validar la pestaña \"Emisiones\" del emisor",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_pages_emisoresPage__WEBPACK_IMPORTED_MODULE_0__.emisores.clickDetailTab('issuances');\n_pages_emisoresPage__WEBPACK_IMPORTED_MODULE_0__.emisores.elements.currentIssuancesTitle().should('be.visible');\n_pages_emisoresPage__WEBPACK_IMPORTED_MODULE_0__.emisores.elements.currentIssuancesTable().find('tbody tr').should('have.length.greaterThan', 0);",
+              "err": {},
+              "uuid": "1cb473e7-35c7-4c92-9c20-f1946e91c58c",
+              "parentUUID": "88e0fbf7-5981-42dd-9aea-978d9e171f1b",
+              "isHook": false,
+              "skipped": true
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "5b4e5cf3-aff7-4d5a-a778-bf73964544d5"
+          ],
+          "pending": [
+            "d287b1eb-a43e-4eb5-b34d-b2c15bfd59e3"
+          ],
+          "skipped": [
+            "b37c4a54-116c-4f53-9757-aabe8cabf353",
+            "775a01ed-96aa-487c-92bc-154d69813971",
+            "f113104f-d2f3-4ee3-a457-dfe7838baa71",
+            "0feaa6f1-4eac-4e9a-8585-3ca939d76a0e",
+            "d3d360b7-48fc-40bb-8471-aa460b5d87ad",
+            "d033f906-a3f0-4a99-8a66-a2338cdc09a8",
+            "1cb473e7-35c7-4c92-9c20-f1946e91c58c"
+          ],
+          "duration": 92422,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "report",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "cleanReporterJson": false,
+        "html": true,
+        "json": true,
+        "reportFilename": "report",
+        "embeddedScreenshots": true,
+        "inlineAssets": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}
