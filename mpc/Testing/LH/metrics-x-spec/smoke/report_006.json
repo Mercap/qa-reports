@@ -1,0 +1,147 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-10-01T23:12:33.384Z",
+    "end": "2026-10-01T23:13:46.555Z",
+    "duration": 73171,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "f496d720-794f-41a2-8b27-7be5d769047f",
+      "title": "",
+      "fullFile": "build/testing/laholando/specs/smoke/06_limites.cy.js",
+      "file": "build/testing/laholando/specs/smoke/06_limites.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "b8161a54-05d7-4f0b-92fc-d4593ceae25a",
+          "title": "Limites",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Creación de nueva política de límites",
+              "fullTitle": "Limites Creación de nueva política de límites",
+              "timedOut": null,
+              "duration": 48313,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.irALimites();\n      cy.validarPantallaLimites();\n      cy.irAConfiguracionPoliticas();\n      cy.clickNuevaPolitica();\n      cy.ingresarNombrePolitica('1-VALIDO Politica CYPRESS');\n      cy.agregarPortfolio('Portfolio CYPRESS');\n      cy.seleccionarUnEsquema(_support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].VALUATION_SCHEME);\n      cy.ingresarFechaDesdeLimite('02/01/2026');\n      cy.irAReglas();\n      cy.agregarReglaInstrumento({\n        nombre: 'Regla por Instrumento sobre Portfolio - AL30',\n        nivel1: 'Bono',\n        instrumento: 'AL30',\n        desde: 0.05,\n        hasta: 85.5\n      });\n      cy.guardarPolitica();\n      cy.resolverAlertInstrumentoSiExiste('AL30');\n      cy.get('.modal-content').should('not.exist');",
+              "err": {},
+              "uuid": "ec0c478d-0f58-4119-884b-23597d98832f",
+              "parentUUID": "b8161a54-05d7-4f0b-92fc-d4593ceae25a",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Validación de la política creada",
+              "fullTitle": "Limites Validación de la política creada",
+              "timedOut": null,
+              "duration": 8315,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.irALimites();\n      cy.filtrarFechaLimites('10/02/2026');\n      cy.filtrarPortfolioLimites('Portfolio CYPRESS');\n      cy.abrirLimitePortfolio();\n      cy.expandirTodasLasReglas();\n      const rules = [\n      // 'Regla por Tipo de Instrumento sobre Portfolio - Plazo fijo',\n      // 'Regla por Subtipo de Instrumento sobre Portfolio - Renta Fija',\n      // 'Regla por Subtipo de Instrumento sobre Portfolio - Título Público',\n      'Regla por Instrumento sobre Portfolio - AL30'];\n      rules.forEach((rule) => {\n        cy.validarReglaOK(rule);\n      });",
+              "err": {},
+              "uuid": "b709d123-8937-48a4-aca6-964c9e101d26",
+              "parentUUID": "b8161a54-05d7-4f0b-92fc-d4593ceae25a",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Eliminación de política de límites",
+              "fullTitle": "Limites Eliminación de política de límites",
+              "timedOut": null,
+              "duration": 11139,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.irALimites();\ncy.validarPantallaLimites();\ncy.irAConfiguracionPoliticas();\ncy.eliminarPolitica('1-VALIDO Politica CYPRESS');\ncy.validaEliminacionPolitica('1-VALIDO Politica CYPRESS');",
+              "err": {},
+              "uuid": "19f990e9-4eb6-4a75-b7f0-fec0f0dc8f46",
+              "parentUUID": "b8161a54-05d7-4f0b-92fc-d4593ceae25a",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "ec0c478d-0f58-4119-884b-23597d98832f",
+            "b709d123-8937-48a4-aca6-964c9e101d26",
+            "19f990e9-4eb6-4a75-b7f0-fec0f0dc8f46"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 67767,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "report",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "cleanReporterJson": false,
+        "html": true,
+        "json": true,
+        "reportFilename": "report",
+        "embeddedScreenshots": true,
+        "inlineAssets": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}
