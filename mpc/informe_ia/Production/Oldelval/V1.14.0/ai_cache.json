@@ -1,60 +1,75 @@
 {
-  "hash": "38f01474e49be0f82f89522cf151d7252a6e8b18832f24584dab189c73f3b85c",
+  "hash": "65862aacd01d275aee684abe4925969e1954800bbc0531177ccce38abbba2ab9",
   "ai_model": "gemini-2.5-flash",
   "conclusions": {
     "estado_general": "bueno",
-    "resumen_ejecutivo": "La versión V1.14.0 de MPC presenta un estado general bueno, con todas las 6 secciones operando dentro de los umbrales de SLA y un P95 global de 6.15s. Sin embargo, se observa una degradación del 33.2% en el segundo acceso al menú Agenda, lo que sugiere un problema de caché.",
+    "resumen_ejecutivo": "La versión V1.14.0 de MPC muestra un rendimiento estable, con todas las secciones dentro de los umbrales de SLA. La sección Home es la más lenta con un P95 de 10.57s, y se observa una anomalía en Agenda donde el acceso con caché es 31.2% más lento que el inicial.",
     "escalar": {
-      "titulo": "Degradación crítica en el rendimiento de caché del menú Agenda",
-      "detalle": "El segundo acceso al menú Agenda es un 33.2% más lento que el primero (5.59s vs 4.2s), lo cual es una regresión significativa para una interacción que debería beneficiarse del caché."
+      "titulo": "No hay hallazgos críticos que requieran escalamiento urgente",
+      "detalle": "Todas las secciones están dentro de los umbrales de SLA y no se detectaron degradaciones significativas contra una línea base histórica."
     },
     "investigar": {
-      "titulo": "Anomalía en el comportamiento de caché del menú Agenda",
-      "detalle": "Se debe investigar por qué el 'Segundo ingreso al menú Agenda' es un 33.2% más lento (5.59s) que el 'Primer ingreso' (4.2s), lo que contradice el comportamiento esperado de caché."
+      "titulo": "Anomalía en el rendimiento de caché del menú Agenda",
+      "detalle": "El segundo ingreso al menú Agenda es 31.2% más lento (5.51s) que el primer ingreso (4.2s), lo cual es un comportamiento inesperado para una vista con caché."
     },
     "optimizar": {
-      "titulo": "Mejorar la experiencia de usuario en la sección Home",
-      "detalle": "La sección Home presenta el P95 más alto entre las secciones de usuario (10.75s), con acciones individuales como el ingreso a portfolios superando los 12s, lo que representa la mayor oportunidad de mejora."
+      "titulo": "Mejorar la experiencia en la sección Home",
+      "detalle": "Con un P95 de 10.57s y acciones como 'Segundo ingreso al portfolio Total Compañia' en 12.19s, representa la mayor oportunidad para impactar positivamente la UX."
     },
     "hallazgos": [
       {
         "tipo": "alerta",
         "seccion": "Agenda",
-        "descripcion": "El segundo acceso al menú Agenda es significativamente más lento que el primero, indicando un problema de caché.",
-        "evidencia": "P95 del segundo ingreso degradó de 4.2s a 5.59s (-33.2%)"
+        "descripcion": "Anomalía en el rendimiento de caché de Agenda, donde el segundo ingreso es 31.2% más lento que el primero.",
+        "evidencia": "P95 de 'Segundo ingreso al menú Agenda' es 5.51s vs 'Primer ingreso' 4.2s (+31.2% más lento)"
+      },
+      {
+        "tipo": "alerta",
+        "seccion": "Login",
+        "descripcion": "La acción de Login es la más lenta del sistema, aunque no se considera una degradación de UX.",
+        "evidencia": "P95 de 'Ingreso al admin de MPC y setup de portfolios' es 19.89s"
       },
       {
         "tipo": "alerta",
         "seccion": "Home",
-        "descripcion": "La sección Home presenta el P95 más alto entre las secciones de usuario, afectando la experiencia inicial.",
-        "evidencia": "P95 actual de 10.75s, con acciones individuales superando los 12s."
+        "descripcion": "La sección Home es la más lenta entre las secciones de usuario, con varias acciones superando los 10 segundos.",
+        "evidencia": "P95 de la sección Home es 10.57s, con acciones como 'Segundo ingreso al portfolio Total Compañia' en 12.19s"
       },
       {
         "tipo": "alerta",
         "seccion": "Mis portfolios",
-        "descripcion": "La sección Mis portfolios también muestra tiempos de respuesta elevados.",
-        "evidencia": "P95 actual de 9.01s, con acciones individuales superando los 10s."
+        "descripcion": "Una acción en Mis portfolios también presenta un tiempo de carga elevado.",
+        "evidencia": "'Segundo ingreso al portfolio Total Compañia desde Mis portfolios' tiene un P95 de 10.46s"
       }
     ],
-    "causa_raiz": [],
+    "causa_raiz": [
+      {
+        "seccion": "Agenda",
+        "hipotesis": [
+          "El mecanismo de caché para el menú Agenda podría estar revalidando o re-procesando datos de forma ineficiente en el segundo acceso.",
+          "Podría haber una sobrecarga en el servidor o la base de datos que se manifiesta de forma inconsistente, afectando más al segundo acceso por alguna lógica específica.",
+          "La lógica de renderizado del lado del cliente para la vista 'cached' podría ser más compleja o pesada que la inicial."
+        ]
+      }
+    ],
     "recomendaciones": [
       {
         "prioridad": "P1",
-        "accion": "Realizar un análisis exhaustivo del comportamiento de caché en el menú Agenda para identificar la causa de la degradación en el segundo acceso.",
+        "accion": "Investigar y corregir la anomalía de rendimiento en el acceso con caché del menú Agenda.",
         "seccion": "Agenda",
-        "evidencia": "El segundo acceso al menú Agenda es un 33.2% más lento que el primero (5.59s vs 4.2s)."
+        "evidencia": "El segundo ingreso al menú Agenda es 31.2% más lento (5.51s) que el primero (4.2s)."
       },
       {
         "prioridad": "P2",
-        "accion": "Identificar y optimizar las acciones más lentas dentro de la sección Home, especialmente los ingresos a portfolios.",
+        "accion": "Optimizar las acciones de carga de portfolios en la sección Home.",
         "seccion": "Home",
-        "evidencia": "P95 de la sección Home es 10.75s, con acciones como 'Segundo ingreso al portfolio Total Compañia' en 12.32s."
+        "evidencia": "La sección Home tiene un P95 de 10.57s, con acciones como 'Segundo ingreso al portfolio Total Compañia' en 12.19s."
       },
       {
         "prioridad": "P3",
-        "accion": "Revisar el rendimiento de las acciones clave en la sección Mis portfolios para reducir los tiempos de espera.",
-        "seccion": "Mis portfolios",
-        "evidencia": "P95 de la sección Mis portfolios es 9.01s, con acciones como 'Segundo ingreso al portfolio Total Compañia' en 10.58s."
+        "accion": "Evaluar la performance de la acción de Login para reducir el tiempo de setup inicial.",
+        "seccion": "Login",
+        "evidencia": "La acción 'Ingreso al admin de MPC y setup de portfolios' tiene un P95 de 19.89s."
       }
     ]
   }
