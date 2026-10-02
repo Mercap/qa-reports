@@ -1,0 +1,308 @@
+{
+  "stats": {
+    "suites": 2,
+    "tests": 9,
+    "passes": 7,
+    "pending": 1,
+    "failures": 1,
+    "start": "2026-10-02T19:28:40.678Z",
+    "end": "2026-10-02T19:32:38.597Z",
+    "duration": 237919,
+    "testsRegistered": 10,
+    "passPercent": 77.77777777777779,
+    "pendingPercent": 10,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 1,
+    "hasSkipped": true
+  },
+  "results": [
+    {
+      "uuid": "2c6c128c-88da-49c4-ac95-70def68a9bc3",
+      "title": "",
+      "fullFile": "build/testing/laholando/specs/smoke/08_rendimiento.cy.js",
+      "file": "build/testing/laholando/specs/smoke/08_rendimiento.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "5b043213-efef-463a-8f10-5f949b77813d",
+          "title": "Ingreso al menú Rendimiento | Portfolio Total | Portfolio Cypress",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Ingreso al menú pre selección de portfolio",
+              "fullTitle": "Ingreso al menú Rendimiento | Portfolio Total | Portfolio Cypress Ingreso al menú pre selección de portfolio",
+              "timedOut": null,
+              "duration": 36705,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(`${_support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].MPC_LOCATION}/historical-performance`);\ncy.get('.alert').\nshould('be.visible').\nand('contain.text', 'Seleccione un portfolio para ver su rendimiento');\ncy.get('div.card.composite-account-composition-details-card').should('be.visible');",
+              "err": {},
+              "uuid": "1bd57b14-1921-4d23-b361-064f5adf4d5d",
+              "parentUUID": "5b043213-efef-463a-8f10-5f949b77813d",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [
+            {
+              "uuid": "70ba7a49-2aa3-418c-b143-2e92f1af2aaf",
+              "title": "Operaciones en Portfolio CYPRESS",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Primer ingreso al portfolio CYPRESS",
+                  "fullTitle": "Ingreso al menú Rendimiento | Portfolio Total | Portfolio Cypress Operaciones en Portfolio CYPRESS Primer ingreso al portfolio CYPRESS",
+                  "timedOut": null,
+                  "duration": 8175,
+                  "state": "passed",
+                  "speed": "medium",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.contains('Portfolio CYPRESS').should('be.visible').click({ force: true });\ncy.validarDashboardRendimiento(true);\ncy.get('h5.card-title').should('be.visible');",
+                  "err": {},
+                  "uuid": "c58d1e11-5d19-4e24-87c5-b97924af5cb2",
+                  "parentUUID": "70ba7a49-2aa3-418c-b143-2e92f1af2aaf",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Ingreso a la carta: Último año (CYPRESS)",
+                  "fullTitle": "Ingreso al menú Rendimiento | Portfolio Total | Portfolio Cypress Operaciones en Portfolio CYPRESS Ingreso a la carta: Último año (CYPRESS)",
+                  "timedOut": null,
+                  "duration": 161,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.get(`label[data-original-title=\"${periodo.nombre}\"]`).click({ force: true });\ncy.validarDashboardRendimiento(periodo.validaLinea);",
+                  "err": {},
+                  "uuid": "8dac1c81-bd85-4ac0-9729-9463b7907dd7",
+                  "parentUUID": "70ba7a49-2aa3-418c-b143-2e92f1af2aaf",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Ingreso a la carta: Desde el inicio (CYPRESS)",
+                  "fullTitle": "Ingreso al menú Rendimiento | Portfolio Total | Portfolio Cypress Operaciones en Portfolio CYPRESS Ingreso a la carta: Desde el inicio (CYPRESS)",
+                  "timedOut": null,
+                  "duration": 2317,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.get(`label[data-original-title=\"${periodo.nombre}\"]`).click({ force: true });\ncy.validarDashboardRendimiento(periodo.validaLinea);",
+                  "err": {},
+                  "uuid": "3b88955c-22a9-4021-9822-2cd4d1940523",
+                  "parentUUID": "70ba7a49-2aa3-418c-b143-2e92f1af2aaf",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Ingreso a la carta: Desde principio de año (CYPRESS)",
+                  "fullTitle": "Ingreso al menú Rendimiento | Portfolio Total | Portfolio Cypress Operaciones en Portfolio CYPRESS Ingreso a la carta: Desde principio de año (CYPRESS)",
+                  "timedOut": null,
+                  "duration": 190,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.get(`label[data-original-title=\"${periodo.nombre}\"]`).click({ force: true });\ncy.validarDashboardRendimiento(periodo.validaLinea);",
+                  "err": {},
+                  "uuid": "82c9b3ad-24f4-4e4d-8e89-04e0792601b1",
+                  "parentUUID": "70ba7a49-2aa3-418c-b143-2e92f1af2aaf",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Ingreso a la carta: Últimos 3 meses (CYPRESS)",
+                  "fullTitle": "Ingreso al menú Rendimiento | Portfolio Total | Portfolio Cypress Operaciones en Portfolio CYPRESS Ingreso a la carta: Últimos 3 meses (CYPRESS)",
+                  "timedOut": null,
+                  "duration": 1524,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.get(`label[data-original-title=\"${periodo.nombre}\"]`).click({ force: true });\ncy.validarDashboardRendimiento(periodo.validaLinea);",
+                  "err": {},
+                  "uuid": "9ea84f40-99b2-49cf-9670-288b601b2a85",
+                  "parentUUID": "70ba7a49-2aa3-418c-b143-2e92f1af2aaf",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Ingreso a la carta: Último mes (CYPRESS)",
+                  "fullTitle": "Ingreso al menú Rendimiento | Portfolio Total | Portfolio Cypress Operaciones en Portfolio CYPRESS Ingreso a la carta: Último mes (CYPRESS)",
+                  "timedOut": null,
+                  "duration": 197,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.get(`label[data-original-title=\"${periodo.nombre}\"]`).click({ force: true });\ncy.validarDashboardRendimiento(periodo.validaLinea);",
+                  "err": {},
+                  "uuid": "ad2a6e5e-a1a3-465d-820c-94711d3c0965",
+                  "parentUUID": "70ba7a49-2aa3-418c-b143-2e92f1af2aaf",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Ingreso a la carta: Desde principio de mes (CYPRESS)",
+                  "fullTitle": "Ingreso al menú Rendimiento | Portfolio Total | Portfolio Cypress Operaciones en Portfolio CYPRESS Ingreso a la carta: Desde principio de mes (CYPRESS)",
+                  "timedOut": null,
+                  "duration": 180558,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.get(`label[data-original-title=\"${periodo.nombre}\"]`).click({ force: true });\ncy.validarDashboardRendimiento(periodo.validaLinea);",
+                  "err": {
+                    "message": "AssertionError: Timed out retrying after 180000ms: expected '<path.highcharts-tracker-line>' to be 'visible'\n\nThis element `<path.highcharts-tracker-line>` is not visible because it has an effective width and height of: `1564 x 0` pixels.",
+                    "estack": "AssertionError: Timed out retrying after 180000ms: expected '<path.highcharts-tracker-line>' to be 'visible'\n\nThis element `<path.highcharts-tracker-line>` is not visible because it has an effective width and height of: `1564 x 0` pixels.\n    at Context.eval (webpack://cypress/./cypress/support/commands/rendimiento.commands.js:12:0)\n    at wrapped (https://mercap-staging-1.us.auth0.com/__cypress/runner/cypress_runner.js:146042:43)",
+                    "diff": null
+                  },
+                  "uuid": "ec97f71a-8fb0-4a22-9cdc-735db416d4b8",
+                  "parentUUID": "70ba7a49-2aa3-418c-b143-2e92f1af2aaf",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Ingreso a la carta: Última semana (CYPRESS)",
+                  "fullTitle": "Ingreso al menú Rendimiento | Portfolio Total | Portfolio Cypress Operaciones en Portfolio CYPRESS Ingreso a la carta: Última semana (CYPRESS)",
+                  "timedOut": null,
+                  "duration": 0,
+                  "state": "pending",
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": true,
+                  "context": null,
+                  "code": "cy.get(`label[data-original-title=\"${periodo.nombre}\"]`).click({ force: true });\ncy.validarDashboardRendimiento(periodo.validaLinea);",
+                  "err": {},
+                  "uuid": "17448f0f-948a-46e4-8294-ba192d3b893b",
+                  "parentUUID": "70ba7a49-2aa3-418c-b143-2e92f1af2aaf",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Ingreso a la carta: Personalizado (CYPRESS)",
+                  "fullTitle": "Ingreso al menú Rendimiento | Portfolio Total | Portfolio Cypress Operaciones en Portfolio CYPRESS Ingreso a la carta: Personalizado (CYPRESS)",
+                  "timedOut": null,
+                  "duration": 0,
+                  "state": "skipped",
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.contains('label', 'Personalizado').click({ force: true });\nconst fechaInicio = '01/05/2026';\nconst fechaFin = '01/06/2026';\ncy.setPeriodoPersonalizado(fechaInicio, fechaFin);\ncy.validarDashboardRendimiento(true);",
+                  "err": {},
+                  "uuid": "f95a0c4c-b562-46fa-b4ad-26803d4d6c2e",
+                  "parentUUID": "70ba7a49-2aa3-418c-b143-2e92f1af2aaf",
+                  "isHook": false,
+                  "skipped": true
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "c58d1e11-5d19-4e24-87c5-b97924af5cb2",
+                "8dac1c81-bd85-4ac0-9729-9463b7907dd7",
+                "3b88955c-22a9-4021-9822-2cd4d1940523",
+                "82c9b3ad-24f4-4e4d-8e89-04e0792601b1",
+                "9ea84f40-99b2-49cf-9670-288b601b2a85",
+                "ad2a6e5e-a1a3-465d-820c-94711d3c0965"
+              ],
+              "failures": [
+                "ec97f71a-8fb0-4a22-9cdc-735db416d4b8"
+              ],
+              "pending": [
+                "17448f0f-948a-46e4-8294-ba192d3b893b"
+              ],
+              "skipped": [
+                "f95a0c4c-b562-46fa-b4ad-26803d4d6c2e"
+              ],
+              "duration": 193122,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [
+            "1bd57b14-1921-4d23-b361-064f5adf4d5d"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 36705,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "report",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "cleanReporterJson": false,
+        "html": true,
+        "json": true,
+        "reportFilename": "report",
+        "embeddedScreenshots": true,
+        "inlineAssets": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}
