@@ -1,149 +1,131 @@
 {
-  "hash": "cb825c3cf59788f0ae709f988eb8b1001f04b17f5d8b4c05ea5bce1a861977f0",
+  "hash": "f7bba74678254e8fa09b6924c8b2dd6d025bbe7cabae5d99d11db4a6978853c5",
   "ai_model": "gemini-2.5-flash",
   "conclusions": {
     "estado_general": "critico",
-    "resumen_ejecutivo": "La versión V1.14.0 de MPC presenta un estado crítico, con la sección Agenda degradándose un 211.7% y Mi dinero en SLA crítico con 126.63s. A pesar de esto, se observan mejoras significativas en Mis operaciones (+84.4% vs V1.13.4) y Mi dinero (+37.8% vs V1.13.4).",
+    "resumen_ejecutivo": "El sistema se encuentra en un estado crítico. Dos secciones, Agenda y Rendimiento, muestran degradaciones significativas del -210.3% y -18.4% respectivamente frente a su P95 histórico. Además, la sección 'Mi dinero' sigue en un estado de SLA crítico con un P95 de 126.63s, a pesar de una mejora del 30.7% en esta versión.",
     "escalar": {
-      "titulo": "Degradación crítica en Agenda y Mi dinero; saltos abruptos en Resultado.",
-      "detalle": "La sección Agenda se degradó un 211.7% (de 9.77s a 30.46s) y Mi dinero permanece en SLA crítico con 126.63s. Además, la acción 'Primer ingreso al portfolio Hard Dollar base de costo a inicio de periodo' en Resultado se degradó un 504.7% (de 10.26s a 62.07s)."
+      "titulo": "Degradaciones críticas y SLA en Mi dinero y Resultado",
+      "detalle": "La sección Agenda se degradó un -210.3% (P95 30.32s) y Rendimiento un -18.4%. Además, 'Mi dinero' sigue en SLA crítico con 126.63s, y acciones clave en 'Resultado' y 'Mis operaciones' sufrieron saltos abruptos de +137.5% y +231.9% respectivamente en esta versión."
     },
     "investigar": {
-      "titulo": "Saltos abruptos en acciones clave de Resultado y Mis operaciones.",
-      "detalle": "Investigar la degradación de 'Primer ingreso al portfolio Estrategia base de costo a inicio de periodo' en Resultado, que saltó un 138.0% (de 48.27s a 114.9s) en esta versión, y 'Primer ingreso al menú Mis operaciones' que saltó un 236.4% (de 6.7s a 22.54s)."
+      "titulo": "Degradaciones extremas en acciones de Rendimiento y Resultado",
+      "detalle": "Investigar el salto de +567.8% en 'Portfolio Cobertura: Primer ingreso a la carta de rendimiento Última semana con método TWR' en Rendimiento (de 0.6s a 3.99s) y el +504.4% en 'Primer ingreso al portfolio Hard Dollar base de costo a inicio de periodo' en Resultado (de 10.26s a 62.04s)."
     },
     "optimizar": {
-      "titulo": "Reducir el P95 de Mi dinero, actualmente en SLA crítico.",
-      "detalle": "La sección Mi dinero, con un P95 de 126.63s, es la más lenta del sistema y está en SLA crítico. Reducir este tiempo mejoraría significativamente la experiencia de usuario."
+      "titulo": "Reducir el P95 de la sección Mi dinero",
+      "detalle": "La sección Mi dinero tiene un P95 de 126.63s, siendo la más lenta del sistema y en SLA crítico. Mejorar 'Primer ingreso al menú Mi dinero' (127.57s) es clave para impactar esta sección."
     },
     "hallazgos": [
       {
         "tipo": "alerta",
         "seccion": "Mi dinero",
-        "descripcion": "La acción 'Primer ingreso al menú Mi dinero' es persistentemente lenta.",
-        "evidencia": "Ha estado sobre el umbral en 5 de 5 versiones, con P95 actual de 127.57s."
+        "descripcion": "La acción 'Primer ingreso al menú Mi dinero' ha estado sobre el umbral en 5 de 5 versiones medidas, con un P95 actual de 127.57s, contribuyendo al SLA crítico de la sección.",
+        "evidencia": "P95 actual 127.57s, 5 de 5 versiones sobre el umbral"
       },
       {
         "tipo": "alerta",
         "seccion": "Resultado",
-        "descripcion": "Se detectó un salto abrupto en el tiempo de carga de un portfolio específico.",
-        "evidencia": "La acción 'Primer ingreso al portfolio Estrategia base de costo a inicio de periodo' pasó de 48.27s a 114.9s (+138.0%) en V1.14.0."
+        "descripcion": "La acción 'Primer ingreso al portfolio Estrategia base de costo a inicio de periodo' se degradó de 48.27s a 114.65s (+137.5%) en V1.14.0, y la sección muestra una tendencia sostenida de degradación en 3 versiones (de 36.87s a 42.98s).",
+        "evidencia": "P95 de acción de 48.27s a 114.65s (+137.5%); P95 de sección de 36.87s a 42.98s en 3 versiones"
       },
       {
         "tipo": "alerta",
         "seccion": "Mis operaciones",
-        "descripcion": "Se observó un salto abrupto en el ingreso al menú principal de operaciones.",
-        "evidencia": "La acción 'Primer ingreso al menú Mis operaciones' pasó de 6.7s a 22.54s (+236.4%) en V1.14.0."
+        "descripcion": "La acción 'Primer ingreso al menú Mis operaciones' se degradó de 6.7s a 22.24s (+231.9%) en V1.14.0, a pesar de que la sección general mejoró.",
+        "evidencia": "P95 de acción de 6.7s a 22.24s (+231.9%) en V1.14.0"
       },
       {
         "tipo": "alerta",
         "seccion": "Rendimiento",
-        "descripcion": "La sección Rendimiento muestra una tendencia sostenida de degradación.",
-        "evidencia": "El P95 ha aumentado en 4 versiones consecutivas, de 2.87s a 4.12s."
-      },
-      {
-        "tipo": "alerta",
-        "seccion": "Resultado",
-        "descripcion": "La sección Resultado presenta una tendencia sostenida de degradación.",
-        "evidencia": "El P95 ha aumentado en 3 versiones consecutivas, de 36.87s a 43.81s."
-      },
-      {
-        "tipo": "mejora",
-        "seccion": "Mi dinero",
-        "descripcion": "La sección Mi dinero muestra una mejora significativa respecto a la versión anterior.",
-        "evidencia": "El P95 mejoró de 203.42s a 126.63s (+37.8%) vs V1.13.4."
-      },
-      {
-        "tipo": "mejora",
-        "seccion": "Mis operaciones",
-        "descripcion": "La sección Mis operaciones experimentó una mejora sustancial en esta versión.",
-        "evidencia": "El P95 mejoró de 52.65s a 8.22s (+84.4%) vs V1.13.4."
+        "descripcion": "La sección muestra una tendencia sostenida de degradación en 4 versiones, pasando de 2.87s a 4.09s.",
+        "evidencia": "P95 de sección de 2.87s a 4.09s en 4 versiones consecutivas"
       },
       {
         "tipo": "degradacion",
         "seccion": "Home",
-        "descripcion": "Una acción clave en Home presenta un comportamiento crónico de lentitud.",
-        "evidencia": "La acción 'Primer ingreso al menú Home' fue ≥40% más lenta que su media histórica en 3 de 5 versiones."
+        "descripcion": "La acción 'Primer ingreso al menú Home' muestra un comportamiento crónico, estando ≥40% sobre su media histórica en 3 de 5 versiones.",
+        "evidencia": "3 de 5 versiones ≥40% sobre su media histórica (P95 actual 10.15s)"
       },
       {
-        "tipo": "degradacion",
+        "tipo": "mejora",
         "seccion": "Agenda",
-        "descripcion": "La sección Agenda sufrió una degradación severa en su rendimiento general.",
-        "evidencia": "El P95 se degradó de 9.77s a 30.46s (-211.7%) vs histórico."
+        "descripcion": "El P95 de la sección mejoró de 37.86s a 30.32s (+19.9%) respecto a la versión anterior.",
+        "evidencia": "P95 mejoró de 37.86s a 30.32s (+19.9%)"
       }
     ],
     "causa_raiz": [
       {
         "seccion": "Agenda",
         "hipotesis": [
-          "Aumento en la complejidad de las consultas de operaciones programadas.",
-          "Ineficiencias en la carga de datos o renderizado de la tabla de alertas.",
-          "Cambios en la lógica de filtrado o paginación que impactan el P95."
+          "Posible aumento en la complejidad de las consultas de operaciones programadas o alertas de vencimiento.",
+          "Problemas de rendimiento en la carga inicial de datos o en la renderización de la tabla de la agenda.",
+          "Ineficiencias en la integración con sistemas externos que proveen datos para la agenda."
         ]
       },
       {
         "seccion": "Mi dinero",
         "hipotesis": [
-          "Consultas a la base de datos con alto volumen de datos históricos o transaccionales.",
-          "Problemas de optimización en la agregación de flujos de fondos.",
-          "Dependencias externas lentas para obtener movimientos de efectivo."
-        ]
-      },
-      {
-        "seccion": "Resultado",
-        "hipotesis": [
-          "Cálculos complejos de P&L para portfolios con muchos activos o transacciones.",
-          "Ineficiencias en la recuperación de datos de valuación o costos históricos.",
-          "Problemas de rendimiento en la API que provee los datos de resultados."
-        ]
-      },
-      {
-        "seccion": "Rendimiento",
-        "hipotesis": [
-          "Ineficiencias en la generación de gráficos de retorno para periodos extensos.",
-          "Consultas a la base de datos no optimizadas para el cálculo de performance histórica.",
-          "Problemas de rendimiento en el servicio de cálculo de TWR/MWR."
+          "Gran volumen de movimientos de efectivo o flujo de fondos que ralentiza la carga inicial.",
+          "Problemas de optimización en las consultas a la base de datos para obtener el detalle de movimientos.",
+          "Ineficiencias en la renderización de tablas con muchos registros o en la paginación de datos."
         ]
       },
       {
         "seccion": "Mis operaciones",
         "hipotesis": [
-          "Aumento en el volumen de operaciones a cargar en la vista inicial.",
-          "Cambios en la lógica de carga de la tabla de operaciones que introducen latencia.",
-          "Problemas de indexación en la base de datos para la consulta de operaciones."
+          "La acción 'Primer ingreso al menú Mis operaciones' podría estar realizando una consulta no optimizada o cargando un dataset muy grande.",
+          "Posible regresión en el backend que sirve los datos para esta vista específica.",
+          "Problemas de indexación o filtros ineficientes en la base de datos para la carga inicial de operaciones."
+        ]
+      },
+      {
+        "seccion": "Rendimiento",
+        "hipotesis": [
+          "Aumento en el volumen de datos históricos a procesar para los gráficos de retorno.",
+          "Ineficiencias en los algoritmos de cálculo de performance (MWR/TWR) o en la visualización de los gráficos.",
+          "Problemas de latencia en la recuperación de datos de portfolios para los cálculos de rendimiento."
+        ]
+      },
+      {
+        "seccion": "Resultado",
+        "hipotesis": [
+          "Consultas de P&L más complejas o con mayor volumen de transacciones a procesar.",
+          "Problemas de optimización en la base de datos para la agregación de resultados por portfolio.",
+          "Impacto de nuevas funcionalidades o cambios en la lógica de cálculo de costo base que afectan la carga inicial de portfolios."
         ]
       }
     ],
     "recomendaciones": [
       {
         "prioridad": "P1",
-        "accion": "Realizar una auditoría de rendimiento exhaustiva en la acción 'Primer ingreso al menú Mi dinero'.",
+        "accion": "Investigar y optimizar la acción 'Primer ingreso al menú Mi dinero', que es persistentemente lenta y contribuye al SLA crítico de la sección.",
         "seccion": "Mi dinero",
-        "evidencia": "P95 actual de 127.57s y 5 de 5 versiones sobre el umbral de SLA."
+        "evidencia": "Acción 'Primer ingreso al menú Mi dinero' con P95 actual de 127.57s, sobre el umbral en 5 de 5 versiones."
       },
       {
         "prioridad": "P1",
-        "accion": "Investigar y optimizar las consultas y el renderizado de la sección Agenda.",
-        "seccion": "Agenda",
-        "evidencia": "Degradación del P95 en un 211.7% (de 9.77s a 30.46s) vs histórico."
-      },
-      {
-        "prioridad": "P1",
-        "accion": "Analizar la causa del salto abrupto en la carga de portfolios específicos en Resultado.",
+        "accion": "Analizar la regresión de la acción 'Primer ingreso al portfolio Estrategia base de costo a inicio de periodo' para identificar la causa del salto abrupto.",
         "seccion": "Resultado",
-        "evidencia": "'Primer ingreso al portfolio Estrategia base de costo a inicio de periodo' pasó de 48.27s a 114.9s (+138.0%) en V1.14.0."
+        "evidencia": "Acción degradada de 48.27s a 114.65s (+137.5%) en V1.14.0."
       },
       {
-        "prioridad": "P2",
-        "accion": "Revisar la optimización de las consultas y cálculos de gráficos en la sección Rendimiento.",
-        "seccion": "Rendimiento",
-        "evidencia": "Tendencia sostenida de degradación en 4 versiones consecutivas (de 2.87s a 4.12s)."
-      },
-      {
-        "prioridad": "P2",
-        "accion": "Investigar la regresión de rendimiento en el ingreso al menú Mis operaciones.",
+        "prioridad": "P1",
+        "accion": "Revisar la acción 'Primer ingreso al menú Mis operaciones' para entender el motivo de su degradación repentina.",
         "seccion": "Mis operaciones",
-        "evidencia": "'Primer ingreso al menú Mis operaciones' pasó de 6.7s a 22.54s (+236.4%) en V1.14.0."
+        "evidencia": "Acción degradada de 6.7s a 22.24s (+231.9%) en V1.14.0."
+      },
+      {
+        "prioridad": "P2",
+        "accion": "Priorizar la investigación de la tendencia sostenida de degradación de la sección Rendimiento.",
+        "seccion": "Rendimiento",
+        "evidencia": "P95 de sección aumentó de 2.87s a 4.09s en 4 versiones consecutivas."
+      },
+      {
+        "prioridad": "P2",
+        "accion": "Investigar la causa de la degradación significativa en la sección Agenda.",
+        "seccion": "Agenda",
+        "evidencia": "P95 de sección degradó un -210.3% (de 9.77s a 30.32s)."
       }
     ]
   }
