@@ -1,24 +1,24 @@
 {
   "stats": {
-    "suites": 3,
-    "tests": 2,
-    "passes": 0,
-    "pending": 1,
-    "failures": 1,
-    "start": "2026-10-02T14:37:28.228Z",
-    "end": "2026-10-02T14:38:50.445Z",
-    "duration": 82217,
+    "suites": 4,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-10-02T14:51:33.527Z",
+    "end": "2026-10-02T14:59:26.925Z",
+    "duration": 473398,
     "testsRegistered": 3,
-    "passPercent": 0,
-    "pendingPercent": 33.33333333333333,
+    "passPercent": 100,
+    "pendingPercent": 0,
     "other": 0,
     "hasOther": false,
-    "skipped": 1,
-    "hasSkipped": true
+    "skipped": 0,
+    "hasSkipped": false
   },
   "results": [
     {
-      "uuid": "fbefe24d-d413-4678-8682-d54722a71f37",
+      "uuid": "bdd31c3d-e0f9-49b0-b472-4c98442dc232",
       "title": "",
       "fullFile": "build/testing/laholando/specs/importacion/12_importacion_archivo.cy.js",
       "file": "build/testing/laholando/specs/importacion/12_importacion_archivo.cy.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "795fc2a2-ee91-4a07-a01c-b12399d35dd8",
+          "uuid": "4cdc9f93-d9c4-4564-888e-09ec03bae853",
           "title": "Importación de archivo",
           "fullFile": "",
           "file": "",
@@ -36,7 +36,7 @@
           "tests": [],
           "suites": [
             {
-              "uuid": "fb71da0b-1a51-4ee9-b3be-a1ca6adc9c58",
+              "uuid": "3a36a4cf-d16a-4a23-8315-d4cfd48e2dc6",
               "title": "Importación del template de Mercap",
               "fullFile": "",
               "file": "",
@@ -47,39 +47,35 @@
                   "title": "Mercap template unificado Importación y validación",
                   "fullTitle": "Importación de archivo Importación del template de Mercap Mercap template unificado Importación y validación",
                   "timedOut": null,
-                  "duration": 71626,
-                  "state": "failed",
-                  "speed": null,
-                  "pass": false,
-                  "fail": true,
+                  "duration": 175905,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
                   "pending": false,
                   "context": null,
                   "code": "cy.importOperations('Mercap (.xlsx)', 'Mercap-Template-Unificado.xlsx', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', _support_templates_importacion__WEBPACK_IMPORTED_MODULE_2__.CARPETA_TEMPLATES_FECHADOS);\n        cy.validarTabsEncabezadosImportacion();\n        cy.validarTablaEncabezadosImportacion();\n        // Validación de operaciones en la tabla en flujo de Importación.\n        operaciones.forEach((item) => cy.importTalbeValidation(item.especie, item));\n        // Flujo de Importación.\n        cy.ejecutarFlujoImportacion('01/01/2024');\n        // Spec largo: el import pesado puede consumir la vida del token/SSO de Auth0 y un cy.visit\n        // posterior rebotaría a la pantalla de login (/u/login) en vez de la app.\n        // cy.session().validate() solo corre al inicio del spec, no en cada navegación — así que\n        // antes de las validaciones (Mis Operaciones + Mis Portfolios) revalidamos la sesión con\n        // cy.LogIn(): es idempotente (revalida y solo re-loguea real si la sesión murió, no-op\n        // barato si sigue viva). Ver .claude/tasks/lessons.md.\n        cy.LogIn();\n        // Validación de operaciones importadas desde Mis Operaciones.\n        cy.irAMisOperaciones();\n        cy.filtrarFecha('01/01/2024');\n        operaciones.forEach((item) => cy.importTalbeValidation(item.especie, item));\n        // Validación de la operación desde el portfolio.\n        cy.irAMisPortfolios();\n        cy.abrirPortfolio('Portfolio CYPRESS');\n        // Suma/resta las operaciones de todas las solapas por especie y valida la posición neta\n        cy.validarPosicionesNetasPortfolio(operaciones);",
-                  "err": {
-                    "message": "Error: El import de \"Mercap-Template-Unificado.xlsx\" (Mercap (.xlsx)) devolvió errores: (*) Tienes 176 instrumento(s) sin precio(s). Ya fuimos notificados, si esto persiste, por favor contáctanos. | (*) Tienes 6 instrumento(s) vencido(s), para calcular correctamente la posición valuada de tus portfolios asociados a estos títulos, efectúa los cobros correspondientes desde la Agenda, o entre los intrumentos de tu Posición Valuada con el simbolo:",
-                    "estack": "Error: El import de \"Mercap-Template-Unificado.xlsx\" (Mercap (.xlsx)) devolvió errores: (*) Tienes 176 instrumento(s) sin precio(s). Ya fuimos notificados, si esto persiste, por favor contáctanos. | (*) Tienes 6 instrumento(s) vencido(s), para calcular correctamente la posición valuada de tus portfolios asociados a estos títulos, efectúa los cobros correspondientes desde la Agenda, o entre los intrumentos de tu Posición Valuada con el simbolo:\n    at Context.eval (webpack://cypress/./cypress/support/commands/importacion.archivos.commands.js:119:0)\n    at getRet (https://mercap-staging-1.us.auth0.com/__cypress/runner/cypress_runner.js:122690:20)\n    at tryCatcher (https://mercap-staging-1.us.auth0.com/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise.attempt.Promise.try (https://mercap-staging-1.us.auth0.com/__cypress/runner/cypress_runner.js:4285:29)\n    at Context.thenFn (https://mercap-staging-1.us.auth0.com/__cypress/runner/cypress_runner.js:122701:66)\n    at Context.then (https://mercap-staging-1.us.auth0.com/__cypress/runner/cypress_runner.js:122952:21)\n    at wrapped (https://mercap-staging-1.us.auth0.com/__cypress/runner/cypress_runner.js:146050:19)\n    at <unknown> (https://mercap-staging-1.us.auth0.com/__cypress/runner/cypress_runner.js:152018:15)\n    at tryCatcher (https://mercap-staging-1.us.auth0.com/__cypress/runner/cypress_runner.js:1777:23)",
-                    "diff": null
-                  },
-                  "uuid": "745e8c43-0a28-465a-b0b1-7f89460f4342",
-                  "parentUUID": "fb71da0b-1a51-4ee9-b3be-a1ca6adc9c58",
+                  "err": {},
+                  "uuid": "c17ed640-e6b2-4f1f-9d37-a0d5433df6b7",
+                  "parentUUID": "3a36a4cf-d16a-4a23-8315-d4cfd48e2dc6",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
-              "passes": [],
-              "failures": [
-                "745e8c43-0a28-465a-b0b1-7f89460f4342"
+              "passes": [
+                "c17ed640-e6b2-4f1f-9d37-a0d5433df6b7"
               ],
+              "failures": [],
               "pending": [],
               "skipped": [],
-              "duration": 71626,
+              "duration": 175905,
               "root": false,
               "rootEmpty": false,
               "_timeout": 2000
             },
             {
-              "uuid": "19655f69-4c17-4ac6-b8f5-3d862bfa5f4a",
+              "uuid": "82b459e3-77c6-4e42-8603-9b3b7a33af5d",
               "title": "Importación del template de Fondos Pellegrini",
               "fullFile": "",
               "file": "",
@@ -90,35 +86,35 @@
                   "title": "Pellegrini Template Importación y validación",
                   "fullTitle": "Importación de archivo Importación del template de Fondos Pellegrini Pellegrini Template Importación y validación",
                   "timedOut": null,
-                  "duration": 0,
-                  "state": "pending",
-                  "speed": null,
-                  "pass": false,
+                  "duration": 116099,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
                   "fail": false,
-                  "pending": true,
+                  "pending": false,
                   "context": null,
                   "code": "cy.importOperations('Pellegrini (.xls)', 'Pellegrini-Template-Multiples.xls', 'application/vnd.ms-excel', _support_templates_importacion__WEBPACK_IMPORTED_MODULE_2__.CARPETA_TEMPLATES_FECHADOS);\n        cy.validarTabsEncabezadosImportacion();\n        cy.validarTablaEncabezadosImportacion();\n        // Validación de operaciones en la tabla en flujo de Importación.\n        fondosPellegrini.forEach((f) => cy.importTalbeValidation(f.especie, f));\n        // Flujo de Importación.\n        cy.ejecutarFlujoImportacion('01/01/2024');\n        // Revalida la sesión antes de las validaciones (spec largo, ver comentario en el bloque\n        // Mercap): cy.LogIn() re-loguea real solo si el token Auth0 venció a mitad del spec.\n        cy.LogIn();\n        // Validación de operaciones importadas desde Mis Operaciones.\n        cy.irAMisOperaciones();\n        cy.filtrarFecha('01/01/2024');\n        fondosPellegrini.forEach((f) => cy.importTalbeValidation(f.especie, f));\n        // Validación de la operación desde el portfolio.\n        cy.irAMisPortfolios();\n        cy.abrirPortfolio('Portfolio CYPRESS');\n        // Calcula las tenencias finales de los fondos tras suscripciones/rescates y las valida\n        cy.validarPosicionesNetasPortfolio(fondosPellegrini);",
                   "err": {},
-                  "uuid": "e85a3b94-7f34-43ab-9065-6463863ea7c5",
-                  "parentUUID": "19655f69-4c17-4ac6-b8f5-3d862bfa5f4a",
+                  "uuid": "ffb747c5-b2e0-424d-9316-83ed32e605c8",
+                  "parentUUID": "82b459e3-77c6-4e42-8603-9b3b7a33af5d",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
-              "passes": [],
-              "failures": [],
-              "pending": [
-                "e85a3b94-7f34-43ab-9065-6463863ea7c5"
+              "passes": [
+                "ffb747c5-b2e0-424d-9316-83ed32e605c8"
               ],
+              "failures": [],
+              "pending": [],
               "skipped": [],
-              "duration": 0,
+              "duration": 116099,
               "root": false,
               "rootEmpty": false,
               "_timeout": 2000
             },
             {
-              "uuid": "4904dfe7-273d-427c-a908-0f4d92b353ea",
+              "uuid": "c9a6e94b-1a15-4c2f-9671-48bb5e355159",
               "title": "Importación del template balanz",
               "fullFile": "",
               "file": "",
@@ -129,29 +125,29 @@
                   "title": "Balanz template Importación y validación",
                   "fullTitle": "Importación de archivo Importación del template balanz Balanz template Importación y validación",
                   "timedOut": null,
-                  "duration": 0,
-                  "state": "skipped",
-                  "speed": null,
-                  "pass": false,
+                  "duration": 170726,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
                   "fail": false,
                   "pending": false,
                   "context": null,
                   "code": "// Concertación/liquidación de todos los boletos = día hábil anterior a hoy (actualizar-fechas.js).\n        const fecha = (0,_support_dias_habiles__WEBPACK_IMPORTED_MODULE_1__.formatearFecha)((0,_support_dias_habiles__WEBPACK_IMPORTED_MODULE_1__.diaHabilAnterior)(referencia));\n        const balanzTrades = [\n        { operatoria: 'Venta', especie: 'AL30', fecha, cantidad: '5.040,00', montoTotal: '4.033.512,00', moneda: 'ARS' },\n        { operatoria: 'Compra', especie: 'AL30', fecha, cantidad: '26.220,00', montoTotal: '6.362.020,80', moneda: 'ARS' },\n        { operatoria: 'Venta', especie: 'AL30', fecha, cantidad: '60.000,00', montoTotal: '16.096,80', moneda: 'USD' },\n        { operatoria: 'Compra', especie: 'AL30', fecha, cantidad: '5.670,00', montoTotal: '3.848,23', moneda: 'USD' },\n        { operatoria: 'Compra', especie: 'GD30', fecha, cantidad: '8.616,00', montoTotal: '1.788,68', moneda: 'USD' },\n        { operatoria: 'Compra', especie: 'B.BA', fecha, cantidad: '152,00', montoTotal: '465.120,00', moneda: 'ARS' },\n        { operatoria: 'Compra', especie: 'NFLX.BA', fecha, cantidad: '155,00', montoTotal: '823.980,00', moneda: 'ARS' },\n        { operatoria: 'Compra', especie: 'AAPL.BA', fecha, cantidad: '90,00', montoTotal: '146.250,00', moneda: 'ARS' },\n        { operatoria: 'Compra', especie: 'PAMP.BA', fecha, cantidad: '2.450,00', montoTotal: '114.415,00', moneda: 'ARS' },\n        { operatoria: 'Compra', especie: 'AAPL.BA', fecha, cantidad: '160,00', montoTotal: '2.912,00', moneda: 'USD' },\n        { operatoria: 'Compra', especie: 'KO.BA', fecha, cantidad: '60,00', montoTotal: '3.757,19', moneda: 'USD' },\n        { operatoria: 'Venta', especie: 'NVDA.BA', fecha, cantidad: '2.000,00', montoTotal: '10.720.000,00', moneda: 'ARS' },\n        { operatoria: 'Compra', especie: 'NVDA.BA', fecha, cantidad: '1.500,00', montoTotal: '7.965.000,00', moneda: 'ARS' },\n        { operatoria: 'Venta', especie: 'TSLA.BA', fecha, cantidad: '144,00', montoTotal: '2.916.000,00', moneda: 'ARS' },\n        { operatoria: 'Compra', especie: 'TSLA.BA', fecha, cantidad: '360,00', montoTotal: '7.857.000,00', moneda: 'ARS' }];\n        // Posición neta PREVIA por especie (agnóstico al ambiente): el import Balanz SUMA sus\n        // trades a lo que ya haya en el portfolio, así que después validamos \"previa + neto\".\n        cy.irAMisPortfolios();\n        cy.abrirPortfolio('Portfolio CYPRESS');\n        cy.capturarPosicionesPortfolio(balanzTrades).as('posicionAntes');\n        cy.importOperations('Balanz (.xlsx)', 'Boletos-Balanz-Ejemplo.xlsx', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', _support_templates_importacion__WEBPACK_IMPORTED_MODULE_2__.CARPETA_TEMPLATES_FECHADOS);\n        cy.validarTabsEncabezadosImportacion();\n        cy.validarTablaEncabezadosImportacion();\n        // --- VALIDACIÓN DE FILAS (PREVIEW) ---\n        // Ahora es una sola línea súper limpia 👇\n        balanzTrades.forEach((trade) => cy.importTalbeValidation(trade.especie, trade));\n        // --- FLUJO DE IMPORTACIÓN ---\n        cy.ejecutarFlujoImportacion('01/01/2024');\n        // Revalida la sesión antes de las validaciones (spec largo, ver comentario en el bloque\n        // Mercap): cy.LogIn() re-loguea real solo si el token Auth0 venció a mitad del spec.\n        cy.LogIn();\n        // --- VALIDACIÓN DE FILAS IMPORTADAS (TRADING) ---\n        cy.visit(`${_support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].MPC_LOCATION}/trading`);\n        cy.esperarNavegacionCompleta();\n        cy.filtrarFecha('01/01/2024');\n        balanzTrades.forEach((trade) => cy.importTalbeValidation(trade.especie, trade));\n        // --- NUEVA VALIDACIÓN DE POSICIÓN EN PORTFOLIO ---\n        cy.irAMisPortfolios();\n        cy.abrirPortfolio('Portfolio CYPRESS');\n        cy.get('@posicionAntes').then((posicionAntes) =>\n        cy.validarPosicionesNetasPortfolio(balanzTrades, posicionAntes)\n        );",
                   "err": {},
-                  "uuid": "9a8caed8-becd-46e0-8fde-6e3cd8ca95a5",
-                  "parentUUID": null,
+                  "uuid": "cbc680c3-2602-48d7-ace1-bda5695ec6c5",
+                  "parentUUID": "c9a6e94b-1a15-4c2f-9671-48bb5e355159",
                   "isHook": false,
-                  "skipped": true
+                  "skipped": false
                 }
               ],
               "suites": [],
-              "passes": [],
+              "passes": [
+                "cbc680c3-2602-48d7-ace1-bda5695ec6c5"
+              ],
               "failures": [],
               "pending": [],
-              "skipped": [
-                "9a8caed8-becd-46e0-8fde-6e3cd8ca95a5"
-              ],
-              "duration": 0,
+              "skipped": [],
+              "duration": 170726,
               "root": false,
               "rootEmpty": false,
               "_timeout": 2000
