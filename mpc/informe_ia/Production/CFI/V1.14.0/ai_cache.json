@@ -1,137 +1,131 @@
 {
-  "hash": "c5d29a05315c8cb7272d029665f5849fd2f62adcbd2aa357995e7641ac75f935",
+  "hash": "45c7c3bd3cbbb77ccf48ae7713140574285a213574006dd25ba03a96c1e3abd1",
   "ai_model": "gemini-2.5-flash",
   "conclusions": {
     "estado_general": "critico",
-    "resumen_ejecutivo": "La versión V1.14.0 de MPC presenta un estado crítico de rendimiento, con 5 de 6 secciones experimentando degradaciones significativas. Destacan 'Agenda' con un P95 que empeoró un 301.6% y 'Mis portfolios' con una degradación del 38.4% y un salto abrupto en una acción clave.",
+    "resumen_ejecutivo": "La versión V1.14.0 de MPC presenta un estado crítico de performance, con 5 de 6 secciones principales experimentando degradaciones significativas respecto al histórico. La sección Agenda se degradó un -304.8% (de 9.94s a 40.24s), mientras que Mis Operaciones mostró una notable mejora del 86.6% (de 49.35s a 6.6s).",
     "escalar": {
-      "titulo": "Degradaciones críticas en Mis portfolios y Agenda",
-      "detalle": "La acción 'Primer ingreso al menú Mis portfolios' se degradó un 362.6% (de 12.63s a 58.43s) en esta versión. Además, la sección 'Agenda' empeoró un 301.6% (de 9.94s a 39.92s) y 'Mis portfolios' un 38.4% (de 16.76s a 23.19s) vs. histórico, con una tendencia sostenida de 5 versiones."
+      "titulo": "Degradaciones críticas en Mis Portfolios y Agenda",
+      "detalle": "La acción 'Primer ingreso al menú Mis portfolios' se degradó un 353.8% (de 12.63s a 57.31s) en la versión actual. Además, la sección Agenda sufrió una degradación del 304.8% vs histórico, con acciones discontinuadas que alcanzaban los 66.7s."
     },
     "investigar": {
-      "titulo": "Salto abrupto en Mis portfolios y tendencias de degradación",
-      "detalle": "Investigar el salto del 362.6% en 'Primer ingreso al menú Mis portfolios' (de 12.63s a 58.43s). También, las secciones 'Mis portfolios' y 'Home' muestran degradaciones sostenidas en 5 y 4 versiones consecutivas, respectivamente."
+      "titulo": "Salto abrupto en 'Primer ingreso al menú Mis portfolios'",
+      "detalle": "La acción 'Primer ingreso al menú Mis portfolios' en la sección Mis portfolios experimentó un salto abrupto del 353.8%, pasando de 12.63s a 57.31s en la versión V1.14.0, lo que requiere una investigación inmediata."
     },
     "optimizar": {
-      "titulo": "Mejorar rendimiento de Agenda y Mis portfolios",
-      "detalle": "La sección 'Agenda' presenta la mayor degradación (-301.6%) y un P95 de 39.92s. 'Mis portfolios' también se degradó un 38.4% y tiene una tendencia sostenida de 5 versiones, con un P95 actual de 23.19s."
+      "titulo": "Optimizar la sección Agenda y sus filtros",
+      "detalle": "La sección Agenda es la de mayor impacto (score 2253.4) y sufrió una degradación del 304.8% vs histórico, con acciones como 'Segundo ingreso: Tipo de instrumento Bonos, estado: Pendiente, fecha: 1 mes hacia atras' alcanzando 98.93s."
     },
     "hallazgos": [
       {
         "tipo": "alerta",
         "seccion": "Mis operaciones",
-        "descripcion": "Mejora aparente — se discontinuaron 4/12 acciones medidas en V1.13.4 (P95 máx removidas: 146.25s)",
-        "evidencia": "P95 de la sección mejoró de 127.45s a 6.7s (+94.8%)"
+        "descripcion": "Mejora aparente — se discontinuaron 4/12 acciones medidas en V1.13.4 (P95 máx removidas: 146.25s). A pesar de esto, la sección mejoró un 94.8% (de 127.45s a 6.6s) respecto a la versión anterior.",
+        "evidencia": "Dropout bias del 33.3% en V1.13.4; P95 mejoró de 127.45s a 6.6s (+94.8%) vs V1.13.4"
       },
       {
         "tipo": "alerta",
         "seccion": "Mis portfolios",
-        "descripcion": "Degradación crítica en una acción clave",
-        "evidencia": "La acción 'Primer ingreso al menú Mis portfolios' pasó de 12.63s a 58.43s (+362.6%) en V1.14.0."
+        "descripcion": "La acción 'Primer ingreso al menú Mis portfolios' se degradó un 353.8% (de 12.63s a 57.31s) en V1.14.0. La sección también muestra una degradación sostenida en las últimas 5 versiones.",
+        "evidencia": "P95 de acción 'Primer ingreso al menú Mis portfolios' pasó de 12.63s a 57.31s (+353.8%); P95 de sección aumentó de 7.83s a 23.22s en 5 versiones"
       },
       {
         "tipo": "alerta",
         "seccion": "Agenda",
-        "descripcion": "Acción crítica discontinuada con fuerte degradación",
-        "evidencia": "La acción 'Segundo ingreso: Tipo de instrumento Bonos, estado: Pendiente, fecha: 3 meses ha' fue discontinuada en V1.14.0, habiendo empeorado un 453.5% a 66.7s en V1.13.4."
+        "descripcion": "La acción 'Segundo ingreso: Tipo de instrumento Bonos, estado: Pendiente, fecha: 3 meses ha' fue discontinuada con un P95 de 66.7s en V1.13.4. La sección, aunque mejoró un 27.9% vs la versión anterior, se degradó un 304.8% vs histórico.",
+        "evidencia": "Acción discontinuada con P95 de 66.7s; P95 de sección mejoró de 55.84s a 40.24s (+27.9%) vs V1.13.4, pero degradó de 9.94s a 40.24s (-304.8%) vs histórico"
       },
       {
         "tipo": "degradacion",
         "seccion": "Mis depositarios",
-        "descripcion": "Degradación sostenida en la sección Mis depositarios",
-        "evidencia": "El P95 de la sección 'Mis depositarios' ha aumentado en 5 versiones consecutivas, de 1.83s a 3.99s."
+        "descripcion": "La sección Mis depositarios presenta una degradación sostenida en las últimas 5 versiones, con su P95 aumentando de 1.83s a 3.81s.",
+        "evidencia": "P95 de sección aumentó de 1.83s a 3.81s en 5 versiones consecutivas"
       },
       {
         "tipo": "degradacion",
         "seccion": "Home",
-        "descripcion": "Degradación sostenida en la sección Home",
-        "evidencia": "El P95 de la sección 'Home' ha aumentado en 4 versiones consecutivas, de 13.16s a 29.07s."
+        "descripcion": "La sección Home muestra una degradación sostenida en las últimas 4 versiones, con su P95 aumentando de 13.16s a 28.98s.",
+        "evidencia": "P95 de sección aumentó de 13.16s a 28.98s en 4 versiones consecutivas"
       },
       {
         "tipo": "degradacion",
         "seccion": "Rendimiento",
-        "descripcion": "Degradación sostenida en la sección Rendimiento",
-        "evidencia": "El P95 de la sección 'Rendimiento' ha aumentado en 3 versiones consecutivas, de 5.38s a 6.21s."
-      },
-      {
-        "tipo": "mejora",
-        "seccion": "Agenda",
-        "descripcion": "Recuperación significativa en la sección Agenda",
-        "evidencia": "El P95 mejoró de 55.84s a 39.92s (+28.5%) respecto a la versión anterior."
+        "descripcion": "La sección Rendimiento presenta una degradación sostenida en las últimas 3 versiones, con su P95 aumentando de 5.38s a 6.21s.",
+        "evidencia": "P95 de sección aumentó de 5.38s a 6.21s en 3 versiones consecutivas"
       }
     ],
     "causa_raiz": [
       {
         "seccion": "Agenda",
         "hipotesis": [
-          "Posiblemente, cambios en la lógica de filtrado o carga de datos para operaciones programadas están impactando negativamente el rendimiento.",
-          "Revisar la eficiencia de las consultas a la base de datos para los tipos de instrumento y estados específicos en la Agenda.",
-          "Considerar la optimización de la UI/UX para la carga de grandes volúmenes de datos en la Agenda."
-        ]
-      },
-      {
-        "seccion": "Home",
-        "hipotesis": [
-          "La degradación sostenida en Home podría estar ligada a la carga de portfolios destacados o accesos directos, que ahora requieren más tiempo para renderizarse o consultar datos.",
-          "Revisar la eficiencia de las llamadas a la API que alimentan la vista principal del Home.",
-          "Analizar si la introducción de nuevas funcionalidades o widgets en el Home ha incrementado su complejidad."
-        ]
-      },
-      {
-        "seccion": "Mis depositarios",
-        "hipotesis": [
-          "La tendencia sostenida de degradación en Mis depositarios sugiere un problema recurrente en la gestión o visualización de la información de los depositarios.",
-          "Investigar si hay un aumento en la cantidad de datos por depositario o si las consultas para obtenerlos se han vuelto más lentas.",
-          "Revisar la lógica de filtrado y selección de cuentas dentro de la sección Mis depositarios."
+          "Aumento en el volumen o complejidad de los datos de operaciones programadas y alertas de vencimiento.",
+          "Ineficiencias en las consultas a la base de datos o en la lógica de filtrado/ordenamiento de la agenda.",
+          "Problemas de rendimiento en el backend al procesar los tipos de instrumentos o estados específicos."
         ]
       },
       {
         "seccion": "Mis portfolios",
         "hipotesis": [
-          "El aumento del 362.6% en el 'Primer ingreso al menú Mis portfolios' sugiere un problema en la carga inicial de la vista, quizás por un aumento en la complejidad de los datos o consultas ineficientes.",
-          "La tendencia sostenida de degradación indica un problema estructural que se ha acumulado en las últimas 5 versiones, posiblemente relacionado con la gestión de datos de portfolios.",
-          "Evaluar la carga de datos y la renderización de componentes al acceder a la lista y detalle de portfolios."
+          "Carga de datos de portfolios más complejos o con mayor cantidad de activos.",
+          "Ineficiencias en la renderización de la lista o el detalle de portfolios, especialmente al cargar el primer ingreso.",
+          "Latencia en la comunicación con servicios externos para obtener información consolidada de portfolios."
+        ]
+      },
+      {
+        "seccion": "Home",
+        "hipotesis": [
+          "Mayor complejidad en la agregación de datos para los portfolios destacados o accesos directos.",
+          "Ineficiencias en la carga de widgets o componentes que se muestran en la vista principal.",
+          "Aumento en el número de llamadas a APIs o servicios al cargar la página de inicio."
+        ]
+      },
+      {
+        "seccion": "Mis depositarios",
+        "hipotesis": [
+          "Carga de información detallada de depositarios o cuentas asociadas que se ha vuelto más lenta.",
+          "Problemas de rendimiento en la interfaz de usuario al mostrar o interactuar con la lista de depositarios.",
+          "Consultas ineficientes para obtener los datos de los depositarios y sus movimientos."
         ]
       },
       {
         "seccion": "Rendimiento",
         "hipotesis": [
-          "La degradación sostenida en Rendimiento podría indicar ineficiencias en los cálculos o la generación de gráficos de retorno y performance histórica.",
-          "Evaluar la complejidad de los algoritmos de cálculo de TWR/MWR y la carga de datos históricos.",
-          "Considerar la optimización de la infraestructura de backend que soporta la generación de reportes de rendimiento."
+          "Cálculos de retorno y performance histórica más complejos o sobre un mayor volumen de datos.",
+          "Ineficiencias en la generación de gráficos o la visualización de datos históricos.",
+          "Dependencia de servicios externos para la obtención de datos de mercado o benchmarks."
         ]
       }
     ],
     "recomendaciones": [
       {
         "prioridad": "P1",
-        "accion": "Realizar un análisis de causa raíz profundo para la acción 'Primer ingreso al menú Mis portfolios' y la sección en general, priorizando la optimización de consultas y carga de datos.",
+        "accion": "Investigar la degradación del 353.8% en la acción 'Primer ingreso al menú Mis portfolios'.",
         "seccion": "Mis portfolios",
-        "evidencia": "La acción 'Primer ingreso al menú Mis portfolios' se degradó un 362.6% (de 12.63s a 58.43s) en V1.14.0, y la sección muestra una tendencia sostenida de degradación en 5 versiones."
+        "evidencia": "P95 de acción 'Primer ingreso al menú Mis portfolios' pasó de 12.63s a 57.31s (+353.8%) en V1.14.0"
       },
       {
         "prioridad": "P1",
-        "accion": "Priorizar la optimización de la sección 'Agenda', especialmente las acciones relacionadas con filtros de tipo de instrumento y estado, que muestran P95s muy altos.",
+        "accion": "Realizar un análisis de causa raíz exhaustivo en la sección Agenda, enfocándose en la optimización de consultas y el manejo de grandes volúmenes de datos.",
         "seccion": "Agenda",
-        "evidencia": "La sección 'Agenda' se degradó un 301.6% (de 9.94s a 39.92s) vs. histórico, con acciones individuales superando los 90s."
+        "evidencia": "Degradación del 304.8% vs histórico (P95 de 9.94s a 40.24s) y acciones lentas como 98.93s"
       },
       {
         "prioridad": "P1",
-        "accion": "Iniciar investigaciones de causa raíz para las tendencias de degradación sostenida en 'Home' (4 versiones) y 'Mis depositarios' (5 versiones).",
-        "seccion": "Home, Mis depositarios",
-        "evidencia": "Home se degradó de 13.16s a 29.07s en 4 versiones, y Mis depositarios de 1.83s a 3.99s en 5 versiones consecutivas."
+        "accion": "Auditar la sección Mis operaciones para entender el impacto del 'dropout_bias' y confirmar la genuinidad de la mejora reportada.",
+        "seccion": "Mis operaciones",
+        "evidencia": "Dropout bias del 33.3% (4/12 acciones discontinuadas) con P95 máx de 146.25s en V1.13.4"
       },
       {
         "prioridad": "P2",
-        "accion": "Revisar las acciones discontinuadas en 'Agenda' y 'Mis operaciones' que mostraban degradaciones significativas, para asegurar que no se hayan removido problemas en lugar de resolverlos.",
-        "seccion": "Agenda, Mis operaciones",
-        "evidencia": "Acciones como 'Segundo ingreso: Tipo de instrumento Bonos, estado: Pendiente, fecha: 3 meses ha' (Agenda) empeoraron un 453.5% a 66.7s antes de ser discontinuadas."
+        "accion": "Analizar las tendencias de degradación sostenida en Home y Mis portfolios, buscando patrones de ineficiencia acumulada.",
+        "seccion": "Home, Mis portfolios",
+        "evidencia": "Home degradó de 13.16s a 28.98s en 4 versiones; Mis portfolios de 7.83s a 23.22s en 5 versiones"
       },
       {
-        "prioridad": "P2",
-        "accion": "Continuar el monitoreo de la sección 'Rendimiento' y planificar optimizaciones para revertir la tendencia de degradación sostenida.",
-        "seccion": "Rendimiento",
-        "evidencia": "El P95 de la sección 'Rendimiento' ha aumentado en 3 versiones consecutivas, de 5.38s a 6.21s."
+        "prioridad": "P3",
+        "accion": "Revisar las secciones Mis depositarios y Rendimiento para identificar las causas de sus degradaciones sostenidas.",
+        "seccion": "Mis depositarios, Rendimiento",
+        "evidencia": "Mis depositarios degradó de 1.83s a 3.81s en 5 versiones; Rendimiento de 5.38s a 6.21s en 3 versiones"
       }
     ]
   }
