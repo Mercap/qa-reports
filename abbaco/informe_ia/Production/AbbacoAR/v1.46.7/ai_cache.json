@@ -1,109 +1,121 @@
 {
-  "hash": "c931db0665dd1c6ac2e5ca3d0ca6ae421741aae45e2a1b5c7737ccea5a0af9d3",
+  "hash": "911f18fca4099366d96f76b38f47a2bf749f857c14f5761966ffb467b6665387",
   "ai_model": "gemini-2.5-flash",
   "conclusions": {
     "estado_general": "critico",
-    "resumen_ejecutivo": "La versión v1.46.7 de Abbaco presenta un estado crítico de performance, con 6 de 9 secciones mostrando degradación y dos de ellas superando el 15% respecto al histórico. La sección 'Curvas' se degradó un 36.6% (18.43s) y 'Analizar' un 20.8% (13.68s), mientras que 'Calculadora' sigue siendo la más lenta con 82.36s y una acción crónicamente lenta.",
+    "resumen_ejecutivo": "La versión v1.46.7 de Abbaco presenta un estado crítico con degradaciones significativas en secciones clave. Dos secciones, 'Analizar' y 'Curvas', muestran una degradación del P95 superior al 20% y 30% respectivamente, y 'Calculadora' permanece sobre el umbral de rendimiento con 82.25s.",
     "escalar": {
-      "titulo": "Acción crítica en Calculadora y degradación severa en Curvas/Analizar",
-      "detalle": "La acción 'Simular inversiones de la especie AL30' en Calculadora es persistentemente lenta (90.29s, 5 de 5 versiones sobre umbral). Además, las secciones Curvas y Analizar sufrieron degradaciones del 36.6% (18.43s) y 20.8% (13.68s) respectivamente, con saltos abruptos en acciones clave."
+      "titulo": "Degradación crítica en Curvas y lentitud crónica en Calculadora",
+      "detalle": "La sección 'Curvas' sufrió una degradación del 32.6% vs histórico y un salto del 128.6% vs la versión anterior. Además, la acción 'Simular inversiones de la especie AL30' en 'Calculadora' es persistentemente lenta (89.62s en 5 de 5 versiones)."
     },
     "investigar": {
-      "titulo": "Degradación extrema en acciones de Analizar y Curvas en la última versión",
-      "detalle": "Investigar el salto de 'Ingreso a la pestaña Condiciones de Emisión de la especie AL30' en Analizar, que se degradó un 802.68% (de 0.65s a 5.86s) en la v1.46.7, y 'Ingreso a la curva Estados Unidos...' en Curvas, con un 539.07% de degradación (de 3.02s a 19.33s) en la misma versión."
+      "titulo": "Salto abrupto en la carga de curvas de bonos de EE.UU.",
+      "detalle": "La acción 'Ingreso a la curva Estados Unidos - Soberanos - Treasury Notes/Bonds - USD' en la sección 'Curvas' experimentó una degradación del 535.58% de 3.02s a 19.23s entre v1.46.6 y v1.46.7."
     },
     "optimizar": {
-      "titulo": "Mejorar rendimiento de la sección Calculadora y sus acciones clave",
-      "detalle": "La sección Calculadora es la más lenta con un P95 de 82.36s, y la acción 'Simular inversiones de la especie AL30' es crónicamente lenta (90.29s), ofreciendo la mayor oportunidad para impactar positivamente la experiencia de usuario."
+      "titulo": "Mayor oportunidad de mejora en la sección Calculadora",
+      "detalle": "La sección 'Calculadora' tiene un P95 de 82.25s, siendo la más lenta del sistema y superando el umbral de rendimiento. La acción 'Simular inversiones de la especie AL30' contribuye significativamente con 89.62s."
     },
     "hallazgos": [
       {
         "tipo": "alerta",
         "seccion": "Calculadora",
-        "descripcion": "La acción 'Simular inversiones de la especie AL30' es persistentemente lenta, superando el umbral en 5 de 5 versiones medidas.",
-        "evidencia": "P95 actual de 90.29s y 5 de 5 versiones sobre el umbral."
-      },
-      {
-        "tipo": "alerta",
-        "seccion": "Analizar",
-        "descripcion": "La sección se degradó un 20.8% (de 11.32s a 13.68s) vs histórico, con la acción 'Ingreso a la pestaña Condiciones de Emisión de la especie AL30' sufriendo un salto del 802.68% en la v1.46.7.",
-        "evidencia": "P95 mejoró de 0.65s a 5.86s (+802.68%) para la acción específica."
+        "descripcion": "La sección 'Calculadora' presenta lentitud crónica con un P95 de 82.25s, y la acción 'Simular inversiones de la especie AL30' ha estado sobre el umbral en 5 de 5 versiones.",
+        "evidencia": "P95 actual de la sección 82.25s. Acción 'Simular inversiones de la especie AL30' con P95 de 89.62s en 5 de 5 versiones sobre el umbral."
       },
       {
         "tipo": "alerta",
         "seccion": "Curvas",
-        "descripcion": "La sección se degradó un 36.6% (de 13.49s a 18.43s) vs histórico, y la acción 'Ingreso a la curva Estados Unidos - Soberanos - Treasury Notes/Bonds - USD' un 539.07% en la v1.46.7.",
-        "evidencia": "P95 mejoró de 3.02s a 19.33s (+539.07%) para la acción específica."
+        "descripcion": "La sección 'Curvas' sufrió una degradación significativa, con un salto abrupto en una acción clave.",
+        "evidencia": "P95 degradó de 13.49s a 17.89s (-32.6%) vs histórico. La acción 'Ingreso a la curva Estados Unidos - Soberanos - Treasury Notes/Bonds - USD' se degradó un 535.58% de 3.02s a 19.23s en v1.46.7."
+      },
+      {
+        "tipo": "alerta",
+        "seccion": "Analizar",
+        "descripcion": "La sección 'Analizar' se degradó notablemente, con una acción específica mostrando un deterioro extremo.",
+        "evidencia": "P95 degradó de 11.32s a 13.62s (-20.3%) vs histórico. La acción 'Ingreso a la pestaña Condiciones de Emisión de la especie AL30' se degradó un 710.34% de 0.65s a 5.26s en v1.46.7."
       },
       {
         "tipo": "degradacion",
         "seccion": "Screener",
-        "descripcion": "La sección Screener se degradó significativamente respecto a la versión anterior.",
-        "evidencia": "P95 degradó de 3.92s a 4.77s (-21.5%) vs versión anterior."
+        "descripcion": "La sección 'Screener' experimentó una degradación significativa en comparación con la versión anterior.",
+        "evidencia": "P95 degradó de 3.92s a 4.76s (-21.3%) vs versión anterior."
       },
       {
         "tipo": "degradacion",
         "seccion": "Sensibilidad",
-        "descripcion": "La sección Sensibilidad mostró una degradación notable respecto a la versión anterior.",
-        "evidencia": "P95 degradó de 7.42s a 9.1s (-22.5%) vs versión anterior."
+        "descripcion": "La sección 'Sensibilidad' muestra una degradación considerable respecto a la versión anterior.",
+        "evidencia": "P95 degradó de 7.42s a 9.07s (-22.2%) vs versión anterior."
+      },
+      {
+        "tipo": "mejora",
+        "seccion": "Analizar",
+        "descripcion": "Una acción específica en la sección 'Analizar' mostró una mejora sustancial en su rendimiento.",
+        "evidencia": "La acción 'Ingreso a la pestaña Condiciones de Emisión de la especie TX28' mejoró un 88.3% de 8.12s a 0.95s."
+      },
+      {
+        "tipo": "mejora",
+        "seccion": "Graficador",
+        "descripcion": "Una acción clave en la sección 'Graficador' experimentó una mejora significativa.",
+        "evidencia": "La acción 'Graficar la especie AL30' mejoró un 50.6% de 5.26s a 2.6s."
       }
     ],
     "causa_raiz": [
       {
         "seccion": "Analizar",
         "hipotesis": [
-          "Podría deberse a cambios en la complejidad de los cálculos o la cantidad de datos cargados para las condiciones de emisión de especies.",
-          "Revisar si hay ineficiencias en la renderización de componentes dinámicos o dependencias de servicios externos para esta sección.",
-          "Posibles problemas de optimización en las consultas a la base de datos para obtener información detallada de las especies."
+          "Cambios recientes en la lógica de carga de condiciones de emisión o datos asociados a especies específicas (AL30) podrían estar causando la lentitud.",
+          "Un aumento en la complejidad de los cálculos o la cantidad de datos procesados al simular inversiones en esta sección.",
+          "Problemas de rendimiento en APIs o servicios de backend que alimentan los datos de las especies."
         ]
       },
       {
         "seccion": "Curvas",
         "hipotesis": [
-          "El aumento en el volumen de datos de curvas o la complejidad de los algoritmos de graficación podría estar impactando el rendimiento.",
-          "Revisar la latencia de las APIs externas que proveen datos de curvas, especialmente para mercados internacionales como Estados Unidos.",
-          "Posibles problemas de renderizado o procesamiento de gráficos complejos con un mayor número de puntos de datos o interacciones."
+          "La integración de nuevas fuentes de datos o la actualización de las curvas de bonos de EE.UU. podría estar generando latencia en la carga.",
+          "Un incremento en el volumen de datos o la complejidad de los gráficos de curvas, especialmente para mercados internacionales.",
+          "Ineficiencias en la consulta o renderizado de datos para las curvas, exacerbadas por la cantidad de información."
         ]
       },
       {
         "seccion": "Calculadora",
         "hipotesis": [
-          "Los cálculos financieros para la simulación de inversiones podrían no estar optimizados o ser excesivamente complejos.",
-          "Revisar si existen dependencias de servicios externos lentos o cuellos de botella en la base de datos durante las simulaciones.",
-          "Posibles problemas de concurrencia o bloqueo que afectan el rendimiento de las simulaciones, especialmente con especies específicas."
+          "La complejidad de los algoritmos de simulación para inversiones como AL30 podría estar causando un cuello de botella.",
+          "Problemas de escalabilidad en el servicio de cálculo que no soporta la carga o complejidad de las simulaciones.",
+          "Dependencias externas o servicios de terceros que la calculadora utiliza están experimentando alta latencia."
         ]
       }
     ],
     "recomendaciones": [
       {
         "prioridad": "P1",
-        "accion": "Optimizar la acción 'Simular inversiones de la especie AL30' y la sección Calculadora en general.",
+        "accion": "Investigar y optimizar la acción 'Simular inversiones de la especie AL30'.",
         "seccion": "Calculadora",
-        "evidencia": "P95 actual de 90.29s y 5 de 5 versiones sobre el umbral para la acción, y P95 de 82.36s para la sección."
+        "evidencia": "Es persistentemente lenta, con P95 de 89.62s en 5 de 5 versiones sobre el umbral."
       },
       {
         "prioridad": "P1",
-        "accion": "Investigar y corregir la degradación extrema en la acción 'Ingreso a la pestaña Condiciones de Emisión de la especie AL30'.",
-        "seccion": "Analizar",
-        "evidencia": "Degradación del 802.68% (de 0.65s a 5.86s) en v1.46.7."
+        "accion": "Analizar la causa raíz del salto abrupto en la acción 'Ingreso a la curva Estados Unidos - Soberanos - Treasury Notes/Bonds - USD'.",
+        "seccion": "Curvas",
+        "evidencia": "Degradación del 535.58% (de 3.02s a 19.23s) en la versión actual."
       },
       {
         "prioridad": "P1",
-        "accion": "Investigar y corregir la degradación extrema en la acción 'Ingreso a la curva Estados Unidos - Soberanos - Treasury Notes/Bonds - USD'.",
-        "seccion": "Curvas",
-        "evidencia": "Degradación del 539.07% (de 3.02s a 19.33s) en v1.46.7."
-      },
-      {
-        "prioridad": "P2",
-        "accion": "Realizar un análisis de performance exhaustivo de la sección Curvas para identificar la causa de la degradación general.",
-        "seccion": "Curvas",
-        "evidencia": "Degradación del 36.6% vs histórico (18.43s) y 135.5% vs versión anterior."
-      },
-      {
-        "prioridad": "P2",
-        "accion": "Revisar el rendimiento general de la sección Analizar, más allá de las acciones puntuales.",
+        "accion": "Revisar la implementación de la acción 'Ingreso a la pestaña Condiciones de Emisión de la especie AL30'.",
         "seccion": "Analizar",
-        "evidencia": "Degradación del 20.8% vs histórico (13.68s) y 18.5% vs versión anterior."
+        "evidencia": "Degradación del 710.34% (de 0.65s a 5.26s) en la versión actual."
+      },
+      {
+        "prioridad": "P2",
+        "accion": "Realizar una auditoría de rendimiento exhaustiva en la sección 'Calculadora'.",
+        "seccion": "Calculadora",
+        "evidencia": "La sección tiene un P95 de 82.25s, superando el umbral de rendimiento."
+      },
+      {
+        "prioridad": "P2",
+        "accion": "Investigar la degradación general de la sección 'Curvas' y sus acciones asociadas.",
+        "seccion": "Curvas",
+        "evidencia": "La sección se degradó un 32.6% vs histórico y un 128.6% vs la versión anterior."
       }
     ]
   }
