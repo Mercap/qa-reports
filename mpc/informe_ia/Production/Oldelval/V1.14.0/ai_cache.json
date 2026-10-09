@@ -1,75 +1,75 @@
 {
-  "hash": "fc0afc84963b400dbb3fa9355f87e747dfdf9129a9be67f8aef04b8ee9aa84e7",
+  "hash": "89bf374d151cee8967a801452456ff34356ca3fd9389b0c35a6889ef61ce68c5",
   "ai_model": "gemini-2.5-flash",
   "conclusions": {
     "estado_general": "bueno",
-    "resumen_ejecutivo": "La versión V1.14.0 de MPC muestra un rendimiento general bueno, con todas las secciones operando dentro de los umbrales de SLA y sin degradaciones significativas reportadas contra un histórico. El P95 más alto de una sección de usuario es de 10.07s para Home, mientras que la acción más lenta es el 'Ingreso al admin de MPC y setup de portfolios' en Login con 22.19s.",
+    "resumen_ejecutivo": "La versión V1.14.0 de MPC presenta un rendimiento general bueno, con todas las secciones operando dentro de los umbrales de SLA. Sin embargo, se observa una degradación del 15.8% en el segundo acceso al menú Agenda, lo que sugiere un problema de caché. Las acciones de carga de portfolios desde Home y Mis portfolios son las más lentas para el usuario final.",
     "escalar": {
-      "titulo": "No se identifican elementos críticos que requieran escalamiento urgente",
-      "detalle": "No se identifican elementos que requieran escalamiento urgente en esta versión, ya que todas las secciones están dentro de los umbrales de SLA y no hay degradaciones significativas."
+      "titulo": "No se identificaron problemas críticos que requieran escalado inmediato",
+      "detalle": "Todas las secciones de la plataforma se encuentran dentro de los umbrales de rendimiento definidos, y no hay degradaciones significativas contra un histórico (ya que es la primera versión con métricas)."
     },
     "investigar": {
-      "titulo": "Anomalía en rendimiento de caché del menú Agenda",
-      "detalle": "La acción 'Segundo ingreso al menú Agenda' es un 17% más lenta (5.17s) que el primer ingreso (4.42s), lo cual es inusual para una operación con caché."
+      "titulo": "Degradación del rendimiento en el segundo acceso al menú Agenda",
+      "detalle": "El 'Segundo ingreso al menú Agenda' fue 15.8% más lento (5.08s) que el primer ingreso (4.39s), lo que indica una posible ineficiencia en la gestión de caché o re-renderizado."
     },
     "optimizar": {
-      "titulo": "Mejorar tiempos de carga en la sección Home y acceso a portfolios",
-      "detalle": "Optimizar la sección Home, que presenta el P95 más alto entre las secciones de usuario con 10.07s, especialmente las acciones de ingreso a portfolios que superan los 10s."
+      "titulo": "Mejorar la carga de portfolios en Home y Mis portfolios",
+      "detalle": "Las secciones Home (P95 de 10.06s) y Mis portfolios (P95 de 8.94s) presentan las acciones más lentas para el usuario final, como el ingreso a portfolios específicos."
     },
     "hallazgos": [
       {
         "tipo": "alerta",
         "seccion": "Agenda",
-        "descripcion": "El segundo ingreso al menú Agenda es más lento que el primero, indicando un posible problema con la gestión de caché.",
-        "evidencia": "P95 de segundo ingreso fue 5.17s, mientras que el primer ingreso fue 4.42s (+17% más lento)."
+        "descripcion": "Se observa una degradación en el rendimiento al acceder al menú Agenda por segunda vez.",
+        "evidencia": "El 'Segundo ingreso al menú Agenda' fue 15.8% más lento (5.08s) que el primer ingreso (4.39s)."
+      },
+      {
+        "tipo": "mejora",
+        "seccion": "General",
+        "descripcion": "Todas las secciones de la plataforma MPC están operando dentro de los umbrales de rendimiento definidos.",
+        "evidencia": "Las 6 secciones medidas tienen un P95 actual por debajo de 60s, indicando un buen estado general."
+      },
+      {
+        "tipo": "alerta",
+        "seccion": "Login",
+        "descripcion": "La acción de ingreso al administrador de MPC es la más lenta de la plataforma.",
+        "evidencia": "El 'Ingreso al admin de MPC y setup de portfolios' tiene un P95 actual de 22.07s."
       },
       {
         "tipo": "alerta",
         "seccion": "Home",
-        "descripcion": "La sección Home presenta el P95 más alto entre las secciones de usuario.",
-        "evidencia": "P95 actual de 10.07s."
-      },
-      {
-        "tipo": "alerta",
-        "seccion": "Home",
-        "descripcion": "Las acciones de ingreso a portfolios desde Home son las más lentas de la plataforma (excluyendo Login).",
-        "evidencia": "Segundo ingreso al portfolio Total Compañia desde el Home con P95 de 11.67s."
-      },
-      {
-        "tipo": "estable",
-        "seccion": "Mis depositarios",
-        "descripcion": "La sección Mis depositarios tiene el mayor impacto potencial debido a la gran cantidad de acciones medidas.",
-        "evidencia": "P95 de 6.05s con 106 acciones, resultando en un impact_score de 641.3."
+        "descripcion": "Las acciones de ingreso a portfolios desde la sección Home son las más lentas para el usuario final.",
+        "evidencia": "Acciones como 'Segundo ingreso al portfolio Total Compañia desde el Home' (11.54s) y 'Primer ingreso al portfolio Oldelval SA desde el Home' (11.34s) son las más lentas."
       }
     ],
     "causa_raiz": [
       {
         "seccion": "Agenda",
         "hipotesis": [
-          "Podría deberse a una configuración incorrecta del cache-control en el servidor o en el CDN para los recursos del menú Agenda.",
-          "Revisar si el segundo ingreso al menú Agenda realiza una llamada a la API más costosa o con mayor latencia que el primer ingreso, invalidando el beneficio del caché.",
-          "Considerar si hay un problema de contención de recursos o de procesamiento en el cliente que se manifiesta en el segundo acceso."
+          "Podría deberse a una invalidación incorrecta de la caché o a una lógica de re-renderizado que es más costosa en el segundo acceso.",
+          "Revisar si el segundo acceso al menú Agenda dispara una consulta de datos más compleja o un procesamiento adicional en el backend/frontend.",
+          "Considerar si hay un problema con la gestión de estado de la UI que cause una recarga innecesaria de componentes."
         ]
       }
     ],
     "recomendaciones": [
       {
         "prioridad": "P1",
-        "accion": "Investigar la causa de la degradación del rendimiento en el segundo ingreso al menú Agenda, enfocándose en la gestión de caché y las llamadas a la API.",
+        "accion": "Analizar la lógica de caché y el flujo de datos para el menú Agenda, especialmente en el segundo acceso.",
         "seccion": "Agenda",
-        "evidencia": "El segundo ingreso es un 17% más lento (5.17s) que el primero (4.42s)."
+        "evidencia": "El 'Segundo ingreso al menú Agenda' es 15.8% más lento (5.08s) que el primero (4.39s)."
       },
       {
         "prioridad": "P2",
-        "accion": "Analizar y optimizar las acciones de ingreso a portfolios dentro de la sección Home para reducir los tiempos de carga.",
-        "seccion": "Home",
-        "evidencia": "La sección Home tiene un P95 de 10.07s, con acciones individuales como 'Segundo ingreso al portfolio Total Compañia' en 11.67s."
+        "accion": "Identificar cuellos de botella en la carga de datos y renderizado de los detalles de portfolio.",
+        "seccion": "Home, Mis portfolios",
+        "evidencia": "Acciones como 'Segundo ingreso al portfolio Total Compañia desde el Home' (11.54s) son las más lentas para el usuario final."
       },
       {
         "prioridad": "P3",
-        "accion": "Monitorear de cerca la sección 'Mis depositarios' debido a su alto número de acciones y potencial impacto en la experiencia del usuario.",
-        "seccion": "Mis depositarios",
-        "evidencia": "P95 de 6.05s con 106 acciones, generando el impact_score más alto (641.3)."
+        "accion": "Investigar si el 'Ingreso al admin de MPC y setup de portfolios' puede ser optimizado.",
+        "seccion": "Login",
+        "evidencia": "Es la acción más lenta registrada con 22.07s, aunque no es un flujo de UX recurrente."
       }
     ]
   }
