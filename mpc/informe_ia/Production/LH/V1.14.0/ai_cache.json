@@ -1,117 +1,119 @@
 {
-  "hash": "be29101a01221dc1b910b310f328fc786069bdc31d8651a39a722d75a5e296a4",
+  "hash": "312b415dd9ed8489dc293ca97da02d42cd060c444df98336d85e3015e930f112",
   "ai_model": "gemini-2.5-flash",
   "conclusions": {
     "estado_general": "atencion",
-    "resumen_ejecutivo": "La versión V1.14.0 de MPC presenta un estado de atención debido a degradaciones significativas en secciones clave. Aunque 'Mis operaciones' y 'Agenda' muestran mejoras del 80.3% y 18.9% respectivamente, 'Mis portfolios' se degradó un 26.2% y el P95 global aumentó de 11.75s a 13.17s. Además, se observan saltos abruptos en acciones críticas y una degradación sostenida en 'Mis portfolios'.",
+    "resumen_ejecutivo": "La versión V1.14.0 de MPC presenta un estado de atención debido a degradaciones significativas en secciones clave. Mis portfolios degradó un 26.1% vs histórico y muestra una tendencia sostenida de empeoramiento. Además, se observan saltos abruptos en acciones específicas de Mis operaciones y Rendimiento, con mejoras notables en Agenda y Mis operaciones (aunque esta última con sesgo por acciones discontinuadas).",
     "escalar": {
-      "titulo": "Degradación crítica en Mis Operaciones y Mis Portfolios",
-      "detalle": "La acción 'Primer ingreso: Filtro de 1 mes de operaciones' en Mis Operaciones se degradó un 537.4% (de 2.03s a 12.94s) en V1.14.0. Además, Mis Portfolios muestra una degradación sostenida en 3 versiones, alcanzando 15.94s."
+      "titulo": "Degradación crítica en Mis portfolios y saltos abruptos en acciones clave",
+      "detalle": "La sección Mis portfolios ha degradado un 26.1% vs histórico y muestra una tendencia sostenida de empeoramiento en 3 versiones. Además, la acción 'Primer ingreso: Filtro de 1 mes de operaciones' en Mis operaciones saltó de 2.03s a 12.24s (+503%) en la versión actual."
     },
     "investigar": {
-      "titulo": "Salto abrupto en filtro de operaciones y degradación en Rendimiento",
-      "detalle": "Investigar el salto de 537.4% en 'Primer ingreso: Filtro de 1 mes de operaciones' en Mis Operaciones y la degradación de 186.1% en 'Portfolio RE Mercado: Segundo ingreso...' en Rendimiento."
+      "titulo": "Salto abrupto en acción de Mis operaciones",
+      "detalle": "La acción 'Primer ingreso: Filtro de 1 mes de operaciones' en Mis operaciones experimentó una degradación del 503% en la versión actual, pasando de 2.03s a 12.24s."
     },
     "optimizar": {
-      "titulo": "Mejorar la carga de Mis Portfolios y la gestión de filtros",
-      "detalle": "La sección Mis Portfolios tiene una degradación sostenida y un P95 de 15.94s. Optimizar el filtro de operaciones, que pasó de 2.03s a 12.94s, representa una gran oportunidad de mejora."
+      "titulo": "Mejorar rendimiento de Mis portfolios",
+      "detalle": "La sección Mis portfolios ha degradado un 26.1% vs histórico (15.93s) y muestra una tendencia sostenida de empeoramiento en las últimas 3 versiones, afectando la experiencia del usuario."
     },
     "hallazgos": [
       {
         "tipo": "alerta",
         "seccion": "Mis operaciones",
-        "descripcion": "Mejora aparente — se discontinuaron 4/12 acciones medidas en V1.13.4 (P95 máx removidas: 44.03s).",
-        "evidencia": "Dropout rate del 33.3% en V1.13.4."
+        "descripcion": "Mejora aparente — se discontinuaron 4/12 acciones medidas en V1.13.4 (P95 máx removidas: 44.03s)",
+        "evidencia": "dropout_rate_pct: 33.3%"
       },
       {
         "tipo": "alerta",
         "seccion": "Mis operaciones",
-        "descripcion": "La acción 'Primer ingreso: Filtro de 1 mes de operaciones' sufrió un salto abrupto en la versión actual.",
-        "evidencia": "P95 de la acción pasó de 2.03s a 12.94s (+537.4%) en V1.14.0."
-      },
-      {
-        "tipo": "degradacion",
-        "seccion": "Mis portfolios",
-        "descripcion": "La sección 'Mis portfolios' muestra una degradación sostenida en 3 versiones consecutivas.",
-        "evidencia": "P95 aumentó de 12.35s a 15.94s desde V1.12.5."
+        "descripcion": "La acción 'Primer ingreso: Filtro de 1 mes de operaciones' experimentó un salto abrupto",
+        "evidencia": "P95 pasó de 2.03s a 12.24s (+503%) en V1.14.0"
       },
       {
         "tipo": "alerta",
         "seccion": "Rendimiento",
-        "descripcion": "La acción 'Portfolio RE Mercado: Segundo ingreso a la carta de rendimiento Desde principio ' se degradó significativamente en la versión actual.",
-        "evidencia": "P95 de la acción pasó de 1.44s a 4.12s (+186.1%) en V1.14.0."
+        "descripcion": "La acción 'Portfolio RE Mercado: Segundo ingreso a la carta de rendimiento Desde principio' experimentó un salto abrupto",
+        "evidencia": "P95 pasó de 1.44s a 4.05s (+181.2%) en V1.14.0"
       },
       {
-        "tipo": "mejora",
-        "seccion": "Home",
-        "descripcion": "La acción 'Primer ingreso al menú Home' mejoró significativamente entre versiones.",
-        "evidencia": "P95 mejoró de 30.05s a 16.72s (+44.36%) entre V1.13.4 y V1.14.0."
+        "tipo": "degradacion",
+        "seccion": "Mis portfolios",
+        "descripcion": "La sección Mis portfolios muestra una tendencia sostenida de degradación",
+        "evidencia": "P95 aumentó de 12.35s a 15.93s en 3 versiones consecutivas desde V1.12.5"
       },
       {
         "tipo": "mejora",
         "seccion": "Agenda",
-        "descripcion": "La sección 'Agenda' mejoró su P95 respecto al histórico.",
-        "evidencia": "P95 mejoró de 7.64s a 6.19s (+18.9%)."
+        "descripcion": "La sección Agenda muestra una mejora notable en su rendimiento",
+        "evidencia": "P95 mejoró de 7.64s a 6.2s (+18.9%)"
       },
       {
         "tipo": "degradacion",
         "seccion": "Home",
-        "descripcion": "La sección 'Home' degradó su P95 respecto al histórico, con una acción específica mostrando una degradación notable.",
-        "evidencia": "P95 degradó de 17.3s a 19.31s (-11.6%), y la acción 'Segundo ingreso al portfolio LH ART desde el Home' degradó un 30.81%."
+        "descripcion": "La sección Home experimentó una degradación moderada",
+        "evidencia": "P95 degradó de 17.3s a 19.38s (-12.1%)"
       }
     ],
     "causa_raiz": [
       {
         "seccion": "Mis portfolios",
         "hipotesis": [
-          "La degradación sostenida podría deberse a un aumento en la complejidad de los datos de portfolios o consultas ineficientes al cargar la lista y detalles.",
-          "Revisar si hay cambios recientes en la lógica de negocio o en la infraestructura de la base de datos que afecten la recuperación de información de portfolios."
+          "Podría deberse a un aumento en la complejidad o volumen de datos de los portfolios gestionados.",
+          "Revisar si hubo cambios en las consultas a la base de datos o APIs que alimentan la sección.",
+          "Investigar posibles regresiones en el procesamiento o renderizado de la UI para esta sección."
         ]
       },
       {
         "seccion": "Mis operaciones",
         "hipotesis": [
-          "El salto abrupto en el filtro de operaciones podría indicar un problema con la indexación de datos o la cantidad de operaciones a procesar para el período seleccionado.",
-          "La mejora aparente de la sección es sospechosa debido a la discontinuación de 4 acciones lentas, lo que podría sesgar el P95 general."
+          "La acción 'Primer ingreso: Filtro de 1 mes de operaciones' podría estar afectada por ineficiencias en la aplicación de filtros de fecha o en la consulta de datos históricos.",
+          "Revisar la indexación de la base de datos para rangos de fechas específicos en esta sección."
         ]
       },
       {
         "seccion": "Rendimiento",
         "hipotesis": [
-          "La degradación en acciones específicas de rendimiento podría estar ligada a la complejidad de los cálculos de métricas financieras o a la carga de datos históricos para los portfolios."
+          "La acción 'Portfolio RE Mercado: Segundo ingreso a la carta de rendimiento Desde principio' podría indicar problemas de caché o re-cálculo innecesario al reingresar a la vista de rendimiento.",
+          "Investigar si hubo cambios en los algoritmos de cálculo de rendimiento o en la infraestructura de datos subyacente."
         ]
       }
     ],
     "recomendaciones": [
       {
         "prioridad": "P1",
-        "accion": "Investigar y optimizar la acción 'Primer ingreso: Filtro de 1 mes de operaciones' para identificar la causa del salto abrupto.",
-        "seccion": "Mis operaciones",
-        "evidencia": "P95 de la acción pasó de 2.03s a 12.94s (+537.4%) en V1.14.0."
+        "accion": "Realizar un análisis de causa raíz exhaustivo sobre la degradación sostenida de la sección Mis portfolios.",
+        "seccion": "Mis portfolios",
+        "evidencia": "P95 aumentó de 12.35s a 15.93s en 3 versiones consecutivas."
       },
       {
         "prioridad": "P1",
-        "accion": "Realizar un análisis de causa raíz exhaustivo para la degradación sostenida en la sección 'Mis portfolios'.",
-        "seccion": "Mis portfolios",
-        "evidencia": "P95 de la sección aumentó de 12.35s a 15.94s en 3 versiones consecutivas."
-      },
-      {
-        "prioridad": "P2",
-        "accion": "Investigar la degradación de la acción 'Portfolio RE Mercado: Segundo ingreso a la carta de rendimiento Desde principio '.",
-        "seccion": "Rendimiento",
-        "evidencia": "P95 de la acción pasó de 1.44s a 4.12s (+186.1%) en V1.14.0."
-      },
-      {
-        "prioridad": "P2",
-        "accion": "Revisar las acciones discontinuadas en 'Mis operaciones' para asegurar que la cobertura de pruebas sigue siendo representativa de la experiencia del usuario.",
+        "accion": "Investigar y corregir la regresión en la acción 'Primer ingreso: Filtro de 1 mes de operaciones'.",
         "seccion": "Mis operaciones",
-        "evidencia": "Se discontinuaron 4 de 12 acciones (33.3%) en V1.13.4, incluyendo acciones con P95 de hasta 44.03s."
+        "evidencia": "P95 pasó de 2.03s a 12.24s (+503%) en V1.14.0."
+      },
+      {
+        "prioridad": "P1",
+        "accion": "Analizar la causa del salto abrupto en la acción 'Portfolio RE Mercado: Segundo ingreso a la carta de rendimiento Desde principio'.",
+        "seccion": "Rendimiento",
+        "evidencia": "P95 pasó de 1.44s a 4.05s (+181.2%) en V1.14.0."
+      },
+      {
+        "prioridad": "P1",
+        "accion": "Revisar la cobertura de las acciones de performance en 'Mis operaciones' para asegurar que las métricas reflejen la experiencia real del usuario.",
+        "seccion": "Mis operaciones",
+        "evidencia": "Se discontinuaron 4/12 acciones (33.3%) en V1.13.4, incluyendo acciones lentas (P95 máx 44.03s)."
+      },
+      {
+        "prioridad": "P2",
+        "accion": "Monitorear de cerca la sección Home y analizar las acciones individuales que contribuyen a su degradación.",
+        "seccion": "Home",
+        "evidencia": "P95 degradó de 17.3s a 19.38s (-12.1%) vs histórico."
       },
       {
         "prioridad": "P3",
-        "accion": "Monitorear de cerca la sección 'Home' y analizar las acciones individuales que contribuyen a su degradación general.",
-        "seccion": "Home",
-        "evidencia": "La sección 'Home' degradó un 11.6% vs histórico (17.3s a 19.31s) y una acción específica degradó un 30.81%."
+        "accion": "Documentar y replicar las optimizaciones que llevaron a la mejora en la sección Agenda.",
+        "seccion": "Agenda",
+        "evidencia": "P95 mejoró de 7.64s a 6.2s (+18.9%)."
       }
     ]
   }
