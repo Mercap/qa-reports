@@ -1,66 +1,60 @@
 {
-  "hash": "cc684cebc6107f4fb1da846c79f78146bc7882822734ae2a78d968b72344023c",
+  "hash": "10de1bca78343c0304405a5cb0c6f8abd9970c963d7b6c432edb72fbf8462e7f",
   "ai_model": "gemini-2.5-flash",
   "conclusions": {
     "estado_general": "bueno",
-    "resumen_ejecutivo": "La versión V1.14.0 de MPC muestra un rendimiento estable, con todas las secciones operando dentro de los umbrales de SLA. Al ser la primera versión con datos, no se dispone de una línea base histórica para evaluar mejoras o degradaciones. La acción más lenta identificada en una sección de usuario es 'Primer ingreso: Filtro de 1 mes de operaciones' en 'Mis operaciones' con un P95 de 25.84s.",
+    "resumen_ejecutivo": "La versión V1.14.0 de MPC muestra un rendimiento estable y dentro de los SLAs definidos, sin degradaciones significativas respecto a la línea base. Sin embargo, se identifican acciones puntuales como 'Primer ingreso: Filtro de 1 mes de operaciones' en Mis operaciones con 21.78s y la sección Home con un P95 de 10.03s que requieren atención.",
     "escalar": {
-      "titulo": "No hay problemas críticos que requieran escalamiento urgente",
-      "detalle": "No se identifican problemas críticos que requieran escalamiento urgente en esta versión, ya que todas las secciones están dentro de los umbrales de SLA y no hay degradaciones significativas contra un histórico."
+      "titulo": "Nada crítico que escalar",
+      "detalle": "Todas las secciones están dentro de los SLAs definidos y no se observan degradaciones significativas en esta versión."
     },
     "investigar": {
-      "titulo": "Degradación en el manejo de caché del menú Agenda",
-      "detalle": "La acción 'Primer ingreso al menú Agenda' muestra una degradación del 14.9% en su tiempo de carga con caché (de 4.91s a 5.65s), lo que sugiere una posible ineficiencia en el manejo de caché para esta acción."
+      "titulo": "Anomalía en el impacto de caché en Agenda",
+      "detalle": "La acción 'Primer ingreso al menú Agenda' es 4.3% más lenta en el segundo ingreso (5.6s) que en el primero (5.37s), lo cual es contrario al comportamiento esperado de caché."
     },
     "optimizar": {
-      "titulo": "Optimizar el filtro de operaciones en 'Mis operaciones'",
-      "detalle": "La sección 'Mis operaciones' presenta una oportunidad de mejora significativa, con la acción 'Primer ingreso: Filtro de 1 mes de operaciones' alcanzando un P95 de 25.84s, siendo la acción más lenta en una sección de usuario."
+      "titulo": "Optimizar la acción más lenta para el usuario final",
+      "detalle": "La acción 'Primer ingreso: Filtro de 1 mes de operaciones' en Mis operaciones es la más lenta con un P95 de 21.78s, representando la mayor oportunidad de mejora."
     },
     "hallazgos": [
       {
         "tipo": "alerta",
+        "seccion": "Agenda",
+        "descripcion": "Se detecta una degradación en el rendimiento de caché para la acción 'Primer ingreso al menú Agenda'.",
+        "evidencia": "P95 del segundo ingreso (5.6s) es 4.3% más lento que el primer ingreso (5.37s)"
+      },
+      {
+        "tipo": "alerta",
         "seccion": "Mis operaciones",
-        "descripcion": "La acción 'Primer ingreso: Filtro de 1 mes de operaciones' es la más lenta para el usuario en una sección funcional.",
-        "evidencia": "P95 actual de 25.84s."
+        "descripcion": "La acción 'Primer ingreso: Filtro de 1 mes de operaciones' es la más lenta de la plataforma para el usuario final.",
+        "evidencia": "P95 actual de 21.78s"
       },
       {
         "tipo": "alerta",
         "seccion": "Home",
-        "descripcion": "La sección 'Home' presenta el P95 más alto entre las secciones de usuario, con acciones individuales que superan este promedio.",
-        "evidencia": "P95 actual de 10.04s, con 'Segundo ingreso al portfolio Total Compañia desde el Home' en 11.41s."
-      },
-      {
-        "tipo": "alerta",
-        "seccion": "Agenda",
-        "descripcion": "Se observa una degradación en el tiempo de carga de una acción del menú Agenda al reingresar con caché.",
-        "evidencia": "La acción 'Primer ingreso al menú Agenda' pasó de 4.91s a 5.65s (+14.9%) en el reingreso con caché."
+        "descripcion": "La sección Home presenta un P95 relativamente alto en comparación con otras secciones.",
+        "evidencia": "P95 actual de 10.03s"
       }
     ],
     "causa_raiz": [],
     "recomendaciones": [
       {
         "prioridad": "P1",
+        "accion": "Investigar la causa de la degradación en el impacto de caché para el menú Agenda.",
+        "seccion": "Agenda",
+        "evidencia": "Segundo ingreso al menú Agenda es 4.3% más lento (5.6s) que el primero (5.37s)"
+      },
+      {
+        "prioridad": "P2",
         "accion": "Optimizar la acción 'Primer ingreso: Filtro de 1 mes de operaciones' para reducir su tiempo de respuesta.",
         "seccion": "Mis operaciones",
-        "evidencia": "P95 actual de 25.84s."
-      },
-      {
-        "prioridad": "P2",
-        "accion": "Investigar y optimizar las acciones de carga de portfolios en la sección 'Home'.",
-        "seccion": "Home",
-        "evidencia": "P95 de la sección de 10.04s."
-      },
-      {
-        "prioridad": "P2",
-        "accion": "Analizar la ineficiencia en el manejo de caché para la acción 'Primer ingreso al menú Agenda'.",
-        "seccion": "Agenda",
-        "evidencia": "Degradación del 14.9% en el reingreso con caché (de 4.91s a 5.65s)."
+        "evidencia": "P95 de 21.78s, siendo la acción más lenta para el usuario final"
       },
       {
         "prioridad": "P3",
-        "accion": "Establecer una línea base histórica de rendimiento para futuras versiones de MPC.",
-        "seccion": "General",
-        "evidencia": "La versión actual es la primera con datos, sin histórico para comparaciones."
+        "accion": "Revisar y optimizar las acciones de la sección Home para mejorar la experiencia de carga inicial.",
+        "seccion": "Home",
+        "evidencia": "P95 de la sección Home es 10.03s, con acciones individuales superando los 11s"
       }
     ]
   }
