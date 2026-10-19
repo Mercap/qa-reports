@@ -1,123 +1,115 @@
 {
-  "hash": "f7dde1ede97884451494e49b5933ae66fe10807ef659a61cd3927315b4011370",
+  "hash": "4e85567273a89832160e82325e3635727a14f674a0672fd7cc8b51b678ac1a11",
   "ai_model": "gemini-2.5-flash",
   "conclusions": {
     "estado_general": "critico",
-    "resumen_ejecutivo": "La plataforma Abbaco en la versión v1.46.7 se encuentra en un estado crítico de rendimiento. Tres secciones clave, \"Analizar\", \"Curvas\" y \"Mis portafolios\", muestran degradaciones significativas superiores al 15% respecto a su histórico, con \"Curvas\" empeorando un 92.0%. Además, la sección \"Calculadora\" persiste con un P95 de 82.36s, superando el umbral de rendimiento y afectando la experiencia del usuario.",
+    "resumen_ejecutivo": "La versión v1.46.7 de Abbaco presenta un estado crítico de performance, con 3 secciones experimentando degradaciones significativas (>15%) respecto a su histórico, destacándose 'Curvas' con un -71.4% y 'Analizar' con un -35.9%. Además, la sección 'Calculadora' continúa sobre el umbral de rendimiento con un P95 de 82.25s, y una de sus acciones es persistentemente lenta.",
     "escalar": {
-      "titulo": "Degradaciones críticas en Curvas y Analizar; Calculadora persistentemente lenta",
-      "detalle": "Las secciones \"Curvas\" y \"Analizar\" han sufrido degradaciones del 92.0% y 35.9% respectivamente vs. histórico. La acción \"Simular inversiones de la especie AL30\" en \"Calculadora\" es persistentemente lenta con P95 de 86.67s en 5 de 5 versiones."
+      "titulo": "Acción crítica en Calculadora y degradaciones severas en Curvas y Analizar",
+      "detalle": "La acción 'Simular inversiones de la especie AL30' en Calculadora es persistentemente lenta (86.56s, 5 de 5 versiones sobre umbral). Además, las secciones 'Curvas' y 'Analizar' han sufrido degradaciones del -71.4% y -35.9% respectivamente, impactando la experiencia del usuario."
     },
     "investigar": {
-      "titulo": "Degradación extrema en Curvas y acciones de Analizar",
-      "detalle": "La sección \"Curvas\" experimentó un salto del 231.1% en su P95 de la versión anterior a la actual. Adicionalmente, la acción \"Simular inversión de la especie BDC28\" en \"Analizar\" degradó un -451.3% vs histórico, pasando de 5.84s a 32.19s."
+      "titulo": "Salto abrupto de rendimiento en la sección Curvas",
+      "detalle": "La sección 'Curvas' experimentó un salto abrupto de rendimiento del 195.7% entre la versión v1.46.6 (7.82s) y la actual v1.46.7 (23.12s), lo que requiere una investigación inmediata para identificar la causa raíz."
     },
     "optimizar": {
-      "titulo": "Mejorar Calculadora y Curvas para impacto en UX",
-      "detalle": "La sección \"Calculadora\" es la más lenta con un P95 de 82.36s, siendo la acción \"Simular inversiones de la especie AL30\" la principal oportunidad. La sección \"Curvas\" presenta la mayor degradación porcentual (-92.0% vs histórico), indicando un alto potencial de mejora."
+      "titulo": "Mejorar la performance de la sección Calculadora",
+      "detalle": "La sección 'Calculadora' es la más lenta con un P95 de 82.25s y la acción 'Simular inversiones de la especie AL30' es persistentemente lenta (86.56s), representando la mayor oportunidad para mejorar la experiencia de usuario."
     },
     "hallazgos": [
       {
         "tipo": "alerta",
         "seccion": "Calculadora",
-        "descripcion": "La acción \"Simular inversiones de la especie AL30\" es persistentemente lenta, superando el umbral en 5 de 5 versiones medidas.",
-        "evidencia": "P95 actual de 86.67s, siendo la acción más lenta del sistema."
+        "descripcion": "La acción 'Simular inversiones de la especie AL30' es persistentemente lenta y la sección está sobre el umbral de rendimiento.",
+        "evidencia": "P95 actual de 86.56s, superando el umbral en 5 de 5 versiones medidas. La sección 'Calculadora' tiene un P95 de 82.25s."
       },
       {
-        "tipo": "degradacion",
+        "tipo": "alerta",
         "seccion": "Curvas",
-        "descripcion": "La sección \"Curvas\" sufrió una degradación severa y un salto abrupto en su rendimiento.",
-        "evidencia": "P95 empeoró de 13.49s a 25.9s (+92.0%) vs histórico y un salto del 231.1% vs la versión anterior. La acción \"Ingreso a la curva Estados Unidos - Soberanos - Treasury Notes/Bonds - USD\" degradó un 580.6% de 3.02s a 20.59s entre v1.46.6 y v1.46.7."
+        "descripcion": "La sección 'Curvas' sufrió un salto abrupto de rendimiento entre la versión anterior y la actual.",
+        "evidencia": "P95 de la sección pasó de 7.82s a 23.12s (+195.7%) entre v1.46.6 y v1.46.7."
       },
       {
         "tipo": "degradacion",
         "seccion": "Analizar",
-        "descripcion": "La sección \"Analizar\" experimentó una degradación significativa y un salto abrupto en una acción clave.",
-        "evidencia": "P95 empeoró de 11.32s a 15.39s (+35.9%) vs histórico y un 33.3% vs la versión anterior. La acción \"Validaciones en la pestaña General de la especie MR43O\" degradó un 856.56% de 0.19s a 1.78s entre v1.46.6 y v1.46.7."
+        "descripcion": "La sección 'Analizar' se degradó significativamente, con una acción mostrando una degradación extrema.",
+        "evidencia": "P95 mejoró de 11.32s a 15.39s (-35.9%). La acción 'Validaciones en la pestaña General de la especie MR43O' se degradó un 1864.92% (de 0.19s a 3.65s)."
       },
       {
         "tipo": "degradacion",
         "seccion": "Mis portafolios",
-        "descripcion": "La sección \"Mis portafolios\" mostró una degradación notable en su rendimiento.",
-        "evidencia": "P95 empeoró de 7.77s a 9.15s (+17.9%) vs histórico y un 15.9% vs la versión anterior."
+        "descripcion": "La sección 'Mis portafolios' experimentó una degradación notable respecto a su histórico.",
+        "evidencia": "P95 mejoró de 7.77s a 9.15s (-17.8%)."
       },
       {
         "tipo": "degradacion",
         "seccion": "Sensibilidad",
-        "descripcion": "La sección \"Sensibilidad\" degradó su rendimiento en la versión actual.",
-        "evidencia": "P95 actual de 9.18s, degradando un 23.6% vs la versión anterior."
+        "descripcion": "La sección 'Sensibilidad' se degradó respecto a la versión inmediatamente anterior.",
+        "evidencia": "P95 se degradó de 7.42s a 9.25s (-24.6%) entre v1.46.6 y v1.46.7."
       },
       {
         "tipo": "degradacion",
         "seccion": "Screener",
-        "descripcion": "La sección \"Screener\" mostró una degradación en su rendimiento en la versión actual.",
-        "evidencia": "P95 actual de 4.7s, degradando un 19.7% vs la versión anterior."
+        "descripcion": "La sección 'Screener' mostró una degradación respecto a la versión inmediatamente anterior.",
+        "evidencia": "P95 se degradó de 3.92s a 4.7s (-19.7%) entre v1.46.6 y v1.46.7."
       }
     ],
     "causa_raiz": [
       {
-        "seccion": "Analizar",
+        "seccion": "Calculadora",
         "hipotesis": [
-          "Posible aumento en la complejidad de los cálculos o la cantidad de datos procesados para las simulaciones de inversión.",
-          "Problemas de rendimiento en la recuperación de datos de especies específicas (ej. BDC28, MR43O) o en la lógica de validación de pestañas.",
-          "Ineficiencias en la renderización de la UI o en la ejecución de scripts tras la carga de datos en esta sección."
+          "Problemas de rendimiento en la lógica de cálculo o recuperación de datos para simulaciones complejas, especialmente con especies como AL30.",
+          "Cuellos de botella en la infraestructura de backend al procesar grandes volúmenes de datos o cálculos intensivos requeridos por la calculadora.",
+          "Ineficiencias en la renderización de la UI o en la gestión del estado de la aplicación que se manifiestan con la complejidad de las simulaciones."
         ]
       },
       {
         "seccion": "Curvas",
         "hipotesis": [
-          "Aumento en el volumen de datos de curvas soberanas o complejidad en la lógica de carga y visualización de estas.",
-          "Problemas de latencia en la API que provee los datos de las curvas, especialmente para regiones específicas como Estados Unidos, México, Colombia o Brasil.",
-          "Ineficiencias en el procesamiento o filtrado de grandes conjuntos de datos de curvas antes de su presentación al usuario."
+          "Cambios recientes en la forma en que se cargan o procesan los datos de las curvas, posiblemente por un aumento en la cantidad de datos o una nueva fuente de datos.",
+          "Problemas de optimización en las consultas a la base de datos o en la API que sirve los datos de las curvas, exacerbados por la carga de múltiples curvas o curvas con muchos puntos.",
+          "Regresión en el código de frontend que maneja la visualización de gráficos complejos, causando lentitud en el renderizado."
         ]
       },
       {
-        "seccion": "Calculadora",
+        "seccion": "Analizar",
         "hipotesis": [
-          "La lógica de simulación de inversiones para especies como AL30 es inherentemente compleja y no ha sido optimizada.",
-          "Dependencia de servicios externos o cálculos intensivos que no escalan bien con la carga o complejidad de la simulación.",
-          "Problemas de rendimiento en la base de datos al consultar o procesar datos históricos para las simulaciones."
-        ]
-      },
-      {
-        "seccion": "Mis portafolios",
-        "hipotesis": [
-          "Mayor carga de datos al listar o detallar los portfolios, posiblemente por un incremento en el número de operaciones o activos.",
-          "Problemas de rendimiento en la persistencia o recuperación de datos de configuración de portafolios.",
-          "Ineficiencias en la actualización o renderización de componentes de la UI que muestran el estado del portafolio."
+          "Ineficiencias en la carga de datos o en la lógica de negocio asociada a la simulación de inversiones o validaciones para especies específicas.",
+          "Problemas de rendimiento en componentes compartidos que se utilizan en múltiples acciones dentro de la sección 'Analizar', como validaciones o carga de condiciones de emisión.",
+          "Un aumento en la complejidad de los cálculos o la cantidad de datos a procesar para las simulaciones en esta sección."
         ]
       }
     ],
     "recomendaciones": [
       {
         "prioridad": "P1",
-        "accion": "Investigar y optimizar urgentemente la acción \"Simular inversiones de la especie AL30\" en la sección \"Calculadora\".",
+        "accion": "Realizar un análisis profundo de la acción 'Simular inversiones de la especie AL30' para identificar cuellos de botella en la lógica de cálculo o la recuperación de datos.",
         "seccion": "Calculadora",
-        "evidencia": "P95 de 86.67s, superando el umbral en 5 de 5 versiones medidas."
+        "evidencia": "P95 actual de 86.56s, persistentemente lenta en 5 de 5 versiones."
       },
       {
         "prioridad": "P1",
-        "accion": "Realizar un análisis de causa raíz profundo en la sección \"Curvas\" para identificar el origen de la degradación y los saltos abruptos.",
+        "accion": "Priorizar la investigación del salto abrupto del 195.7% en la sección 'Curvas' para identificar cambios recientes en código o datos que causaron la regresión.",
         "seccion": "Curvas",
-        "evidencia": "Degradación del 92.0% vs histórico y un salto del 231.1% vs versión anterior, con acciones individuales degradando hasta 580.6%."
+        "evidencia": "P95 de la sección pasó de 7.82s a 23.12s (+195.7%) entre v1.46.6 y v1.46.7."
       },
       {
         "prioridad": "P1",
-        "accion": "Priorizar la optimización de la sección \"Analizar\", con especial atención a las acciones de simulación de inversión y validaciones.",
+        "accion": "Revisar las acciones de validación y simulación de inversión en 'Analizar', especialmente 'Validaciones en la pestaña General de la especie MR43O', que se degradó un 1864.92%.",
         "seccion": "Analizar",
-        "evidencia": "Degradación del 35.9% vs histórico, con la acción \"Validaciones en la pestaña General de la especie MR43O\" degradando un 856.56%."
+        "evidencia": "La sección se degradó un 35.9% y la acción 'Validaciones en la pestaña General de la especie MR43O' pasó de 0.19s a 3.65s."
       },
       {
         "prioridad": "P2",
-        "accion": "Revisar el rendimiento de la sección \"Mis portafolios\", enfocándose en la eficiencia de carga y renderizado de datos.",
-        "seccion": "Mis portafolios",
-        "evidencia": "Degradación del 17.9% vs histórico y un 15.9% vs la versión anterior."
+        "accion": "Implementar mejoras de rendimiento generales en la sección 'Calculadora' para reducir su P95 y mejorar la experiencia del usuario.",
+        "seccion": "Calculadora",
+        "evidencia": "La sección 'Calculadora' tiene un P95 de 82.25s y está sobre el umbral de rendimiento."
       },
       {
-        "prioridad": "P3",
-        "accion": "Analizar las degradaciones recientes en las secciones \"Sensibilidad\" y \"Screener\" para prevenir futuras regresiones.",
+        "prioridad": "P2",
+        "accion": "Realizar un análisis de las degradaciones recientes en 'Mis portafolios' (-17.8% vs histórico), 'Sensibilidad' (-24.6% vs anterior) y 'Screener' (-19.7% vs anterior).",
         "seccion": "General",
-        "evidencia": "Degradaciones del 23.6% en \"Sensibilidad\" y 19.7% en \"Screener\" vs la versión anterior."
+        "evidencia": "Múltiples secciones muestran degradaciones significativas en la versión actual."
       }
     ]
   }
