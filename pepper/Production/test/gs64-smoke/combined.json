@@ -1,0 +1,1089 @@
+{
+  "stats": {
+    "suites": 8,
+    "tests": 33,
+    "passes": 12,
+    "pending": 6,
+    "failures": 6,
+    "testsRegistered": 33,
+    "passPercent": 36.36363636363637,
+    "pendingPercent": 18.181818181818183,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 9,
+    "hasSkipped": true,
+    "start": "2026-10-21T11:01:04.762Z",
+    "end": "2026-10-21T11:14:11.775Z",
+    "duration": 787013
+  },
+  "results": [
+    {
+      "uuid": "cf381b08-3588-4518-a151-2f9f5613652d",
+      "title": "",
+      "fullFile": "build/production/br-gs64/gs64/smoke/01_login.cy.js",
+      "file": "build/production/br-gs64/gs64/smoke/01_login.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "d7403927-9770-4871-87a2-92d5200ff8b8",
+          "title": "Login",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Ingresar al admin y hacer login",
+              "fullTitle": "Login Ingresar al admin y hacer login",
+              "timedOut": null,
+              "duration": 6391,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.clearAllCookies();\ncy.clearAllLocalStorage();\ncy.clearAllSessionStorage();\ncy.PepperSessionGS64();",
+              "err": {},
+              "uuid": "d5cad0ac-cb08-4e9f-839f-af80935e3773",
+              "parentUUID": "d7403927-9770-4871-87a2-92d5200ff8b8",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "d5cad0ac-cb08-4e9f-839f-af80935e3773"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 6391,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "4be4810d-2f9b-4632-b435-07afe7c3b4ac",
+      "title": "",
+      "fullFile": "build/production/br-gs64/gs64/smoke/bonos.cy.js",
+      "file": "build/production/br-gs64/gs64/smoke/bonos.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "4fa01ecc-1cce-43e5-a4bf-6b5cd59f7e8a",
+          "title": "Bonos",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Mostrar todos los elementos de Bonos correctamente",
+              "fullTitle": "Bonos Mostrar todos los elementos de Bonos correctamente",
+              "timedOut": null,
+              "duration": 4589,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(_support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].PEPPER_LOCATION + \"/instruments/management/bonds\");\ncy.validacionesHome();",
+              "err": {},
+              "uuid": "1c166587-6bba-4414-bc08-b4c757207724",
+              "parentUUID": "4fa01ecc-1cce-43e5-a4bf-6b5cd59f7e8a",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Recorrer todos los bonos haciendo click en Eliminar",
+              "fullTitle": "Bonos Recorrer todos los bonos haciendo click en Eliminar",
+              "timedOut": null,
+              "duration": 3796,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.recorrerBonosEliminables();",
+              "err": {},
+              "uuid": "bbd5b377-2fc5-46cb-8169-f3d8cc57dadd",
+              "parentUUID": "4fa01ecc-1cce-43e5-a4bf-6b5cd59f7e8a",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Mostrar todos los elementos de cahflow correctamente",
+              "fullTitle": "Bonos Mostrar todos los elementos de cahflow correctamente",
+              "timedOut": null,
+              "duration": 60198,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.abrir_previsualizacion_Cashflow(\"firstBond\");\ncy.mostrar_previsualizacion_Cashflow();",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 60000ms: Expected to find element: `#issuerSearch`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 60000ms: Expected to find element: `#issuerSearch`, but never found it.\n    at Context.eval (webpack:///../../../cypress/support/commands/bonos.commands.js:1286:0)\n    at getRet (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:122807:20)\n    at tryCatcher (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise.attempt.Promise.try (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:4285:29)\n    at Context.thenFn (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:122818:66)\n    at Context.then (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:123069:21)\n    at wrapped (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:146327:19)",
+                "diff": null
+              },
+              "uuid": "b5f20387-ccba-406d-a107-522b2ad95519",
+              "parentUUID": "4fa01ecc-1cce-43e5-a4bf-6b5cd59f7e8a",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Hacer click en Agregar, validar la ventana y luego cancelar",
+              "fullTitle": "Bonos Hacer click en Agregar, validar la ventana y luego cancelar",
+              "timedOut": null,
+              "duration": 0,
+              "state": "pending",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": true,
+              "context": null,
+              "code": "cy.validarAltaSinAgregar();",
+              "err": {},
+              "uuid": "974927b0-f6c5-421b-92a0-49b49804a1bb",
+              "parentUUID": "4fa01ecc-1cce-43e5-a4bf-6b5cd59f7e8a",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "1c166587-6bba-4414-bc08-b4c757207724",
+            "bbd5b377-2fc5-46cb-8169-f3d8cc57dadd"
+          ],
+          "failures": [
+            "b5f20387-ccba-406d-a107-522b2ad95519"
+          ],
+          "pending": [
+            "974927b0-f6c5-421b-92a0-49b49804a1bb"
+          ],
+          "skipped": [],
+          "duration": 68583,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "852e7ebe-71e8-48fd-897c-e829c5fc72d9",
+      "title": "",
+      "fullFile": "build/production/br-gs64/gs64/smoke/calendarios.cy.js",
+      "file": "build/production/br-gs64/gs64/smoke/calendarios.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "b46dda9c-3977-4140-a8ec-dcbbe3cbc204",
+          "title": "Calendarios",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Ingresar en Calendarios",
+              "fullTitle": "Calendarios Ingresar en Calendarios",
+              "timedOut": null,
+              "duration": 1233,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(_support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].PEPPER_LOCATION + \"/parametrizations/instruments/calendars\");\ncy.validacionesGralesMenu();",
+              "err": {},
+              "uuid": "c378fff0-1187-42fb-b7a6-5104864a7bf8",
+              "parentUUID": "b46dda9c-3977-4140-a8ec-dcbbe3cbc204",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Validar las opciones del menú de acciones de un Calendario",
+              "fullTitle": "Calendarios Validar las opciones del menú de acciones de un Calendario",
+              "timedOut": null,
+              "duration": 621,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(_support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].PEPPER_LOCATION + \"/parametrizations/instruments/calendars\");\ncy.validarMenuAccionesCalendario();",
+              "err": {},
+              "uuid": "e8d395c4-8ae6-4040-b4bb-ece36df33705",
+              "parentUUID": "b46dda9c-3977-4140-a8ec-dcbbe3cbc204",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Consultar los días hábiles de un Calendario",
+              "fullTitle": "Calendarios Consultar los días hábiles de un Calendario",
+              "timedOut": null,
+              "duration": 2426,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(_support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].PEPPER_LOCATION + \"/parametrizations/instruments/calendars\");\ncy.validarDiasHabilesCalendario((0,_support_utils_helpers__WEBPACK_IMPORTED_MODULE_1__.fechaOffset)({\n  meses: -1\n}), (0,_support_utils_helpers__WEBPACK_IMPORTED_MODULE_1__.fechaOffset)());",
+              "err": {},
+              "uuid": "72621e58-bb56-4060-b4d6-267eac0576ec",
+              "parentUUID": "b46dda9c-3977-4140-a8ec-dcbbe3cbc204",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Ver las reglas de un Calendario y validar el alta de regla",
+              "fullTitle": "Calendarios Ver las reglas de un Calendario y validar el alta de regla",
+              "timedOut": null,
+              "duration": 1021,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(_support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].PEPPER_LOCATION + \"/parametrizations/instruments/calendars\");\ncy.validarReglasCalendario();",
+              "err": {},
+              "uuid": "e8e6d711-e323-43b3-a747-470204fbff38",
+              "parentUUID": "b46dda9c-3977-4140-a8ec-dcbbe3cbc204",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Recorrer todos los calendarios haciendo click en Editar",
+              "fullTitle": "Calendarios Recorrer todos los calendarios haciendo click en Editar",
+              "timedOut": null,
+              "duration": 61176,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(_support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].PEPPER_LOCATION + \"/parametrizations/instruments/calendars\");\ncy.recorrerElementosEditables();",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 60000ms: Expected to find content: 'Modificar' within the selector: 'button.btn.btn-primary' but never did.",
+                "estack": "AssertionError: Timed out retrying after 60000ms: Expected to find content: 'Modificar' within the selector: 'button.btn.btn-primary' but never did.\n    at eval (webpack:///../../../cypress/support/commands/instrumentos.commands.js:67:0)\n    at Context.eval (webpack:///../../../cypress/support/commands/instrumentos.commands.js:47:0)\n    at getRet (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:122807:20)\n    at tryCatcher (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise.attempt.Promise.try (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:4285:29)\n    at Context.thenFn (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:122818:66)\n    at Context.then (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:123069:21)\n    at wrapped (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:146327:19)",
+                "diff": null
+              },
+              "uuid": "f06d2efd-1dd4-4531-969b-d09971d8e288",
+              "parentUUID": "b46dda9c-3977-4140-a8ec-dcbbe3cbc204",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Recorrer todos los calendarios haciendo click en Eliminar",
+              "fullTitle": "Calendarios Recorrer todos los calendarios haciendo click en Eliminar",
+              "timedOut": null,
+              "duration": 0,
+              "state": "pending",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": true,
+              "context": null,
+              "code": "cy.visit(_support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].PEPPER_LOCATION + \"/parametrizations/instruments/calendars\");\ncy.recorrerElementosEliminables();",
+              "err": {},
+              "uuid": "be38945e-f9a4-47b9-947f-b26dacd3e596",
+              "parentUUID": "b46dda9c-3977-4140-a8ec-dcbbe3cbc204",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Validar la creación de una regla de Calendario",
+              "fullTitle": "Calendarios Validar la creación de una regla de Calendario",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.validarReglaCalendario();",
+              "err": {},
+              "uuid": "a946efdb-89ed-42d7-9378-1bfdf6374df1",
+              "parentUUID": "b46dda9c-3977-4140-a8ec-dcbbe3cbc204",
+              "isHook": false,
+              "skipped": true
+            },
+            {
+              "title": "Hacer click en Agregar, validar la ventana y luego cancelar",
+              "fullTitle": "Calendarios Hacer click en Agregar, validar la ventana y luego cancelar",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.validarAltaSinAgregar();",
+              "err": {},
+              "uuid": "1974e520-7e1b-43c8-a88f-d99386f124d7",
+              "parentUUID": "b46dda9c-3977-4140-a8ec-dcbbe3cbc204",
+              "isHook": false,
+              "skipped": true
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "c378fff0-1187-42fb-b7a6-5104864a7bf8",
+            "e8d395c4-8ae6-4040-b4bb-ece36df33705",
+            "72621e58-bb56-4060-b4d6-267eac0576ec",
+            "e8e6d711-e323-43b3-a747-470204fbff38"
+          ],
+          "failures": [
+            "f06d2efd-1dd4-4531-969b-d09971d8e288"
+          ],
+          "pending": [
+            "be38945e-f9a4-47b9-947f-b26dacd3e596"
+          ],
+          "skipped": [
+            "a946efdb-89ed-42d7-9378-1bfdf6374df1",
+            "1974e520-7e1b-43c8-a88f-d99386f124d7"
+          ],
+          "duration": 66477,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "d40f2b0e-4f13-4885-9081-65d5237a8f45",
+      "title": "",
+      "fullFile": "build/production/br-gs64/gs64/smoke/cotizaciones.cy.js",
+      "file": "build/production/br-gs64/gs64/smoke/cotizaciones.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "e1ae5801-b644-4bc1-b528-46b402f4ece2",
+          "title": "Cotizaciones",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "b80ee428-3c68-4726-92ee-c672911e58f4",
+              "title": "Cotizaciones de Tipo de Cambio",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Mostrar todos los elementos de Cotizaciones de Tipo de Cambio",
+                  "fullTitle": "Cotizaciones Cotizaciones de Tipo de Cambio Mostrar todos los elementos de Cotizaciones de Tipo de Cambio",
+                  "timedOut": null,
+                  "duration": 1809,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.visit(_support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].PEPPER_LOCATION);\ncy.ingresarAlMenuCotizacionesDeTipoDeCambio();",
+                  "err": {},
+                  "uuid": "b6a9e0ac-c155-40e4-89a3-e8e196cf5f2c",
+                  "parentUUID": "b80ee428-3c68-4726-92ee-c672911e58f4",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Validar modal Importar Cotizaciones de Tipo de Cambio",
+                  "fullTitle": "Cotizaciones Cotizaciones de Tipo de Cambio Validar modal Importar Cotizaciones de Tipo de Cambio",
+                  "timedOut": null,
+                  "duration": 60183,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.validarModalImportarCotizacionesTipoDeCambio();",
+                  "err": {
+                    "message": "CypressError: Timed out retrying after 60050ms: `cy.click()` failed because this element:\n\n`<button type=\"button\" class=\"btn btn-outline-primary\">Importar</button>`\n\nis being covered by another element:\n\n`<div role=\"dialog\" aria-modal=\"true\" class=\"fade modal show\" tabindex=\"-1\" style=\"display: block;\">...</div>`\n\nFix this problem, or use {force: true} to disable error checking.\n\nhttps://on.cypress.io/element-cannot-be-interacted-with",
+                    "estack": "CypressError: Timed out retrying after 60050ms: `cy.click()` failed because this element:\n\n`<button type=\"button\" class=\"btn btn-outline-primary\">Importar</button>`\n\nis being covered by another element:\n\n`<div role=\"dialog\" aria-modal=\"true\" class=\"fade modal show\" tabindex=\"-1\" style=\"display: block;\">...</div>`\n\nFix this problem, or use {force: true} to disable error checking.\n\nhttps://on.cypress.io/element-cannot-be-interacted-with\n    at ensureIsDescendent (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:115162:68)\n    at ensureDescendents (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:115213:5)\n    at ensureDescendentsAndScroll (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:115219:14)\n    at ensureElIsNotCovered (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:115350:5)\n    at runAllChecks (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:115549:52)\n    at retryActionability (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:115586:16)\n    at tryCatcher (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise.attempt.Promise.try (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:4285:29)\n    at whenStable (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:152023:68)\n    at <unknown> (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:151964:14)\n    at tryCatcher (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:1546:18)\n    at Promise._settlePromise0 (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:1591:10)\n    at Promise._settlePromises (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:1671:18)\n    at Promise._fulfill (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:1615:18)\n    at <unknown> (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:5420:46)",
+                    "diff": null
+                  },
+                  "uuid": "23e62a5e-6808-45d1-a6ff-eaa68d9a093b",
+                  "parentUUID": "b80ee428-3c68-4726-92ee-c672911e58f4",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "b6a9e0ac-c155-40e4-89a3-e8e196cf5f2c"
+              ],
+              "failures": [
+                "23e62a5e-6808-45d1-a6ff-eaa68d9a093b"
+              ],
+              "pending": [],
+              "skipped": [],
+              "duration": 61992,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "45480189-3829-4f07-8c2f-d8de613f20c6",
+              "title": "Cotizaciones de Indices Financieros",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Mostrar todos los elementos de Cotizaciones de Indices Financieros",
+                  "fullTitle": "Cotizaciones Cotizaciones de Indices Financieros Mostrar todos los elementos de Cotizaciones de Indices Financieros",
+                  "timedOut": null,
+                  "duration": 0,
+                  "state": "pending",
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": true,
+                  "context": null,
+                  "code": "cy.visit(_support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].PEPPER_LOCATION);\ncy.ingresarAlMenuCotizacionesDeIndicesFinancieros();",
+                  "err": {},
+                  "uuid": "4d8fa152-4215-4910-920e-61218acff37a",
+                  "parentUUID": "45480189-3829-4f07-8c2f-d8de613f20c6",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Validar modal Importar Cotizaciones de Indice Financiero",
+                  "fullTitle": "Cotizaciones Cotizaciones de Indices Financieros Validar modal Importar Cotizaciones de Indice Financiero",
+                  "timedOut": null,
+                  "duration": 0,
+                  "state": "skipped",
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.validarModalImportarCotizacionesIndiceFinanciero();",
+                  "err": {},
+                  "uuid": "4f873ec4-bdc3-4226-a158-c46add9705b0",
+                  "parentUUID": "45480189-3829-4f07-8c2f-d8de613f20c6",
+                  "isHook": false,
+                  "skipped": true
+                }
+              ],
+              "suites": [],
+              "passes": [],
+              "failures": [],
+              "pending": [
+                "4d8fa152-4215-4910-920e-61218acff37a"
+              ],
+              "skipped": [
+                "4f873ec4-bdc3-4226-a158-c46add9705b0"
+              ],
+              "duration": 0,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "6f3995d8-8620-4632-868c-d671bc18fc14",
+              "title": "Cotizaciones de Unidades Indexadas",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Mostrar todos los elementos de Cotizaciones de Unidades Indexadas",
+                  "fullTitle": "Cotizaciones Cotizaciones de Unidades Indexadas Mostrar todos los elementos de Cotizaciones de Unidades Indexadas",
+                  "timedOut": null,
+                  "duration": 0,
+                  "state": "skipped",
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.visit(_support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].PEPPER_LOCATION);\ncy.ingresarAlMenuCotizacionesDeUnidadesIndexadas();",
+                  "err": {},
+                  "uuid": "fdd1a280-62cf-4a15-8c9d-1c8ac6753781",
+                  "parentUUID": null,
+                  "isHook": false,
+                  "skipped": true
+                },
+                {
+                  "title": "validar el modal de importar cotizaciones de unidades indexadas",
+                  "fullTitle": "Cotizaciones Cotizaciones de Unidades Indexadas validar el modal de importar cotizaciones de unidades indexadas",
+                  "timedOut": null,
+                  "duration": 0,
+                  "state": "skipped",
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.validarModalImportarCotizacionesUnidadIndexada();",
+                  "err": {},
+                  "uuid": "ad40bf91-7c9b-46fc-823d-425e770f381d",
+                  "parentUUID": null,
+                  "isHook": false,
+                  "skipped": true
+                }
+              ],
+              "suites": [],
+              "passes": [],
+              "failures": [],
+              "pending": [],
+              "skipped": [
+                "fdd1a280-62cf-4a15-8c9d-1c8ac6753781",
+                "ad40bf91-7c9b-46fc-823d-425e770f381d"
+              ],
+              "duration": 0,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "482275d8-f14a-4fdb-aabe-c31edec1e143",
+      "title": "",
+      "fullFile": "build/production/br-gs64/gs64/smoke/currency_rics.cy.js",
+      "file": "build/production/br-gs64/gs64/smoke/currency_rics.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "2f466a83-c0af-4a54-aaf2-59dda5b094c9",
+          "title": "Currency RICs",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Ingresar en Currency RICs",
+              "fullTitle": "Currency RICs Ingresar en Currency RICs",
+              "timedOut": null,
+              "duration": 1314,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(_support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].PEPPER_LOCATION + \"/parametrizations/rics/currency-rics\");\ncy.validacionesGralesMenu();",
+              "err": {},
+              "uuid": "9c4d4a6f-bf56-454d-9823-029aea137500",
+              "parentUUID": "2f466a83-c0af-4a54-aaf2-59dda5b094c9",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Recorrer todos los Currency RICs haciendo click en Editar",
+              "fullTitle": "Currency RICs Recorrer todos los Currency RICs haciendo click en Editar",
+              "timedOut": null,
+              "duration": 60123,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.recorrerElementosEditables();",
+              "err": {
+                "message": "CypressError: Timed out retrying after 60000ms: `cy.trigger()` failed because this element:\n\n`<tr class=\"table-body-row\">...</tr>`\n\nis being covered by another element:\n\n`<div class=\"p-3 p-md-4 modal-header\">...</div>`\n\nFix this problem, or use {force: true} to disable error checking.\n\nhttps://on.cypress.io/element-cannot-be-interacted-with",
+                "estack": "CypressError: Timed out retrying after 60000ms: `cy.trigger()` failed because this element:\n\n`<tr class=\"table-body-row\">...</tr>`\n\nis being covered by another element:\n\n`<div class=\"p-3 p-md-4 modal-header\">...</div>`\n\nFix this problem, or use {force: true} to disable error checking.\n\nhttps://on.cypress.io/element-cannot-be-interacted-with\n    at ensureIsDescendent (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:115162:68)\n    at ensureDescendents (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:115213:5)\n    at ensureDescendentsAndScroll (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:115219:14)\n    at ensureElIsNotCovered (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:115350:5)\n    at runAllChecks (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:115549:52)\n    at retryActionability (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:115586:16)\n    at tryCatcher (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise.attempt.Promise.try (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:4285:29)\n    at whenStable (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:152023:68)\n    at <unknown> (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:151964:14)\n    at tryCatcher (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:1546:18)\n    at Promise._settlePromise0 (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:1591:10)\n    at Promise._settlePromises (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:1671:18)\n    at Promise._fulfill (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:1615:18)\n    at <unknown> (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:5420:46)\nFrom Your Spec Code:\n    at Context.eval (webpack:///../../../cypress/support/commands/utilitarios.commands.js:145:0)\n    at getRet (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:122807:20)\n    at tryCatcher (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise.attempt.Promise.try (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:4285:29)\n    at Context.thenFn (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:122818:66)\n    at Context.then (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:123069:21)\n    at wrapped (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:146327:19)",
+                "diff": null
+              },
+              "uuid": "c7efea6f-8d0c-4d00-a92a-8cf61ce52600",
+              "parentUUID": "2f466a83-c0af-4a54-aaf2-59dda5b094c9",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Recorrer todos los Currency RICs haciendo click en Eliminar",
+              "fullTitle": "Currency RICs Recorrer todos los Currency RICs haciendo click en Eliminar",
+              "timedOut": null,
+              "duration": 0,
+              "state": "pending",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": true,
+              "context": null,
+              "code": "cy.recorrerElementosEliminables();",
+              "err": {},
+              "uuid": "533a95a0-ab4c-4922-9ea1-227c8e1fe75d",
+              "parentUUID": "2f466a83-c0af-4a54-aaf2-59dda5b094c9",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Validar los campos de configuración de precios en el alta",
+              "fullTitle": "Currency RICs Validar los campos de configuración de precios en el alta",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.validarPreciosCurrencyRic();",
+              "err": {},
+              "uuid": "85ee7552-a0d2-4c91-98d1-5be11495d9a8",
+              "parentUUID": "2f466a83-c0af-4a54-aaf2-59dda5b094c9",
+              "isHook": false,
+              "skipped": true
+            },
+            {
+              "title": "Hacer click en Agregar, validar la ventana y luego cancelar",
+              "fullTitle": "Currency RICs Hacer click en Agregar, validar la ventana y luego cancelar",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.validarAltaSinAgregar();",
+              "err": {},
+              "uuid": "e72aeec3-aa48-4a97-afa3-1c7efb849861",
+              "parentUUID": "2f466a83-c0af-4a54-aaf2-59dda5b094c9",
+              "isHook": false,
+              "skipped": true
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "9c4d4a6f-bf56-454d-9823-029aea137500"
+          ],
+          "failures": [
+            "c7efea6f-8d0c-4d00-a92a-8cf61ce52600"
+          ],
+          "pending": [
+            "533a95a0-ab4c-4922-9ea1-227c8e1fe75d"
+          ],
+          "skipped": [
+            "85ee7552-a0d2-4c91-98d1-5be11495d9a8",
+            "e72aeec3-aa48-4a97-afa3-1c7efb849861"
+          ],
+          "duration": 61437,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "75519073-5719-4170-9bf2-beac8e44f969",
+      "title": "",
+      "fullFile": "build/production/br-gs64/gs64/smoke/emisores.cy.js",
+      "file": "build/production/br-gs64/gs64/smoke/emisores.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "5f516ad9-6098-43b3-bb87-26cd9bcec4b9",
+          "title": "Emisores",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Ingresar en Emisores",
+              "fullTitle": "Emisores Ingresar en Emisores",
+              "timedOut": null,
+              "duration": 1159,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(_support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].PEPPER_LOCATION + \"/parametrizations/instruments/issuers\");\ncy.validacionesGralesMenu();",
+              "err": {},
+              "uuid": "1f6cc7ba-7a66-420e-9bc9-b34433f227ea",
+              "parentUUID": "5f516ad9-6098-43b3-bb87-26cd9bcec4b9",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Recorrer todos los emisores haciendo click en Editar",
+              "fullTitle": "Emisores Recorrer todos los emisores haciendo click en Editar",
+              "timedOut": null,
+              "duration": 60148,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.recorrerElementosEditables();",
+              "err": {
+                "message": "CypressError: Timed out retrying after 60000ms: `cy.trigger()` failed because this element:\n\n`<tr class=\"table-body-row\">...</tr>`\n\nis being covered by another element:\n\n`<div role=\"dialog\" aria-modal=\"true\" class=\"fade modal show\" tabindex=\"-1\" style=\"display: block;\">...</div>`\n\nFix this problem, or use {force: true} to disable error checking.\n\nhttps://on.cypress.io/element-cannot-be-interacted-with",
+                "estack": "CypressError: Timed out retrying after 60000ms: `cy.trigger()` failed because this element:\n\n`<tr class=\"table-body-row\">...</tr>`\n\nis being covered by another element:\n\n`<div role=\"dialog\" aria-modal=\"true\" class=\"fade modal show\" tabindex=\"-1\" style=\"display: block;\">...</div>`\n\nFix this problem, or use {force: true} to disable error checking.\n\nhttps://on.cypress.io/element-cannot-be-interacted-with\n    at ensureIsDescendent (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:115162:68)\n    at ensureDescendents (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:115213:5)\n    at ensureDescendentsAndScroll (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:115219:14)\n    at ensureElIsNotCovered (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:115350:5)\n    at runAllChecks (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:115549:52)\n    at retryActionability (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:115586:16)\n    at tryCatcher (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise.attempt.Promise.try (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:4285:29)\n    at whenStable (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:152023:68)\n    at <unknown> (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:151964:14)\n    at tryCatcher (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:1546:18)\n    at Promise._settlePromise0 (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:1591:10)\n    at Promise._settlePromises (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:1671:18)\n    at Promise._fulfill (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:1615:18)\n    at <unknown> (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:5420:46)\nFrom Your Spec Code:\n    at Context.eval (webpack:///../../../cypress/support/commands/utilitarios.commands.js:145:0)\n    at getRet (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:122807:20)\n    at tryCatcher (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise.attempt.Promise.try (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:4285:29)\n    at Context.thenFn (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:122818:66)\n    at Context.then (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:123069:21)\n    at wrapped (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:146327:19)",
+                "diff": null
+              },
+              "uuid": "78e2b508-0789-44b0-a554-db2b266c1295",
+              "parentUUID": "5f516ad9-6098-43b3-bb87-26cd9bcec4b9",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Recorrer todos los emisores haciendo click en Eliminar",
+              "fullTitle": "Emisores Recorrer todos los emisores haciendo click en Eliminar",
+              "timedOut": null,
+              "duration": 0,
+              "state": "pending",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": true,
+              "context": null,
+              "code": "cy.recorrerElementosEliminables();",
+              "err": {},
+              "uuid": "20485911-66a8-4297-a0b1-b29610a94a12",
+              "parentUUID": "5f516ad9-6098-43b3-bb87-26cd9bcec4b9",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "ABM de de Emisores",
+              "fullTitle": "Emisores ABM de de Emisores",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.abmParametrizaciones(\"Cypress\");",
+              "err": {},
+              "uuid": "f8abc564-4600-486d-b114-132d786bb327",
+              "parentUUID": "5f516ad9-6098-43b3-bb87-26cd9bcec4b9",
+              "isHook": false,
+              "skipped": true
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "1f6cc7ba-7a66-420e-9bc9-b34433f227ea"
+          ],
+          "failures": [
+            "78e2b508-0789-44b0-a554-db2b266c1295"
+          ],
+          "pending": [
+            "20485911-66a8-4297-a0b1-b29610a94a12"
+          ],
+          "skipped": [
+            "f8abc564-4600-486d-b114-132d786bb327"
+          ],
+          "duration": 61307,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "63fb0134-fb25-4d1c-8440-b5f642d92b73",
+      "title": "",
+      "fullFile": "build/production/br-gs64/gs64/smoke/home.cy.js",
+      "file": "build/production/br-gs64/gs64/smoke/home.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "c731ba3e-d109-4f71-b14c-8eade450be88",
+          "title": "Home",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Los elementos del Home deben mostrarse correctamente",
+              "fullTitle": "Home Los elementos del Home deben mostrarse correctamente",
+              "timedOut": null,
+              "duration": 867,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(_support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].PEPPER_LOCATION + \"/home\");\ncy.validacionesHome();",
+              "err": {},
+              "uuid": "a16d83e3-38b5-4fb9-b99e-d8fc3a8f0ba1",
+              "parentUUID": "c731ba3e-d109-4f71-b14c-8eade450be88",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "a16d83e3-38b5-4fb9-b99e-d8fc3a8f0ba1"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 867,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "904d08dc-1366-47ed-8eaf-c719c64304d6",
+      "title": "",
+      "fullFile": "build/production/br-gs64/gs64/smoke/index_rics.cy.js",
+      "file": "build/production/br-gs64/gs64/smoke/index_rics.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "26179785-6138-4d3c-8709-ab0f57382e11",
+          "title": "Index RICs",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Ingresar en Index RICs",
+              "fullTitle": "Index RICs Ingresar en Index RICs",
+              "timedOut": null,
+              "duration": 1208,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(_support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].PEPPER_LOCATION + \"/parametrizations/rics/index-rics\");\ncy.validacionesGralesMenu();",
+              "err": {},
+              "uuid": "e4b010e6-5dfc-4b37-8353-e05f0b612061",
+              "parentUUID": "26179785-6138-4d3c-8709-ab0f57382e11",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Recorrer todos los Index RICs haciendo click en Editar",
+              "fullTitle": "Index RICs Recorrer todos los Index RICs haciendo click en Editar",
+              "timedOut": null,
+              "duration": 60147,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.recorrerElementosEditables();",
+              "err": {
+                "message": "CypressError: Timed out retrying after 60000ms: `cy.trigger()` failed because this element:\n\n`<tr class=\"table-body-row\">...</tr>`\n\nis being covered by another element:\n\n`<div role=\"dialog\" aria-modal=\"true\" class=\"fade modal show\" tabindex=\"-1\" style=\"display: block;\">...</div>`\n\nFix this problem, or use {force: true} to disable error checking.\n\nhttps://on.cypress.io/element-cannot-be-interacted-with",
+                "estack": "CypressError: Timed out retrying after 60000ms: `cy.trigger()` failed because this element:\n\n`<tr class=\"table-body-row\">...</tr>`\n\nis being covered by another element:\n\n`<div role=\"dialog\" aria-modal=\"true\" class=\"fade modal show\" tabindex=\"-1\" style=\"display: block;\">...</div>`\n\nFix this problem, or use {force: true} to disable error checking.\n\nhttps://on.cypress.io/element-cannot-be-interacted-with\n    at ensureIsDescendent (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:115162:68)\n    at ensureDescendents (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:115213:5)\n    at ensureDescendentsAndScroll (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:115219:14)\n    at ensureElIsNotCovered (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:115350:5)\n    at runAllChecks (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:115549:52)\n    at retryActionability (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:115586:16)\n    at tryCatcher (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise.attempt.Promise.try (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:4285:29)\n    at whenStable (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:152023:68)\n    at <unknown> (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:151964:14)\n    at tryCatcher (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:1546:18)\n    at Promise._settlePromise0 (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:1591:10)\n    at Promise._settlePromises (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:1671:18)\n    at Promise._fulfill (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:1615:18)\n    at <unknown> (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:5420:46)\nFrom Your Spec Code:\n    at Context.eval (webpack:///../../../cypress/support/commands/utilitarios.commands.js:145:0)\n    at getRet (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:122807:20)\n    at tryCatcher (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise.attempt.Promise.try (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:4285:29)\n    at Context.thenFn (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:122818:66)\n    at Context.then (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:123069:21)\n    at wrapped (https://admin-64.brasil.mercap.com.ar/__cypress/runner/cypress_runner.js:146327:19)",
+                "diff": null
+              },
+              "uuid": "9c8602c8-181a-4503-bde2-616d79e9877c",
+              "parentUUID": "26179785-6138-4d3c-8709-ab0f57382e11",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Recorrer todos los Index RICs haciendo click en Eliminar",
+              "fullTitle": "Index RICs Recorrer todos los Index RICs haciendo click en Eliminar",
+              "timedOut": null,
+              "duration": 0,
+              "state": "pending",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": true,
+              "context": null,
+              "code": "cy.recorrerElementosEliminables();",
+              "err": {},
+              "uuid": "3ea9329a-84b9-48bf-a1ed-b833b2a7d5bd",
+              "parentUUID": "26179785-6138-4d3c-8709-ab0f57382e11",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Hacer click en Agregar, validar la ventana y luego cancelar",
+              "fullTitle": "Index RICs Hacer click en Agregar, validar la ventana y luego cancelar",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.validarAltaSinAgregar();",
+              "err": {},
+              "uuid": "4af6ecce-0550-4cc0-906a-ae2a4b41ab0f",
+              "parentUUID": "26179785-6138-4d3c-8709-ab0f57382e11",
+              "isHook": false,
+              "skipped": true
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "e4b010e6-5dfc-4b37-8353-e05f0b612061"
+          ],
+          "failures": [
+            "9c8602c8-181a-4503-bde2-616d79e9877c"
+          ],
+          "pending": [
+            "3ea9329a-84b9-48bf-a1ed-b833b2a7d5bd"
+          ],
+          "skipped": [
+            "4af6ecce-0550-4cc0-906a-ae2a4b41ab0f"
+          ],
+          "duration": 61355,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "report",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "cleanReporterJson": false,
+        "html": true,
+        "json": true,
+        "reportFilename": "report",
+        "embeddedScreenshots": true,
+        "inlineAssets": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}
