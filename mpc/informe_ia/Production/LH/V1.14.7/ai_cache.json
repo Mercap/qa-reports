@@ -1,0 +1,102 @@
+{
+  "hash": "f6d175c5bb1fde5122116fda7b518c7d22b97a364c57c6f1759a4d17fecd2529",
+  "ai_model": "gemini-2.5-flash",
+  "conclusions": {
+    "estado_general": "excelente",
+    "resumen_ejecutivo": "La versión V1.14.7 de MPC muestra un rendimiento general excelente, con 4 de 6 secciones mejorando su P95 respecto al histórico. Destacan las mejoras en 'Mis operaciones' (+83.7%) y 'Agenda' (+38.0%). Sin embargo, se observan degradaciones críticas en acciones específicas dentro de 'Mis depositarios' y 'Rendimiento' que requieren atención inmediata.",
+    "escalar": {
+      "titulo": "Degradación crítica en acciones de Mis Depositarios y Rendimiento",
+      "detalle": "La sección Mis Depositarios muestra una degradación sostenida en 3 versiones, con acciones como 'Seleccionar la cuenta Mills Capital Markets' degradando 144.9% (7.7s a 18.86s). En Rendimiento, 'Portfolio LH Inversiones: Segundo ingreso...' degradó 129.8% (0.96s a 2.21s)."
+    },
+    "investigar": {
+      "titulo": "Anomalías de rendimiento en Mis Depositarios y Rendimiento",
+      "detalle": "Mis Depositarios presenta una tendencia de degradación en 3 versiones y acciones con saltos de rendimiento superiores al 100% en la última versión, mientras que Rendimiento tiene acciones con degradaciones similares."
+    },
+    "optimizar": {
+      "titulo": "Estabilizar y optimizar Mis Depositarios y Rendimiento",
+      "detalle": "La reversión de la degradación sostenida en Mis Depositarios y la optimización de las acciones lentas en Rendimiento ofrecen la mayor oportunidad de mejora, impactando directamente la experiencia del usuario."
+    },
+    "hallazgos": [
+      {
+        "tipo": "alerta",
+        "seccion": "Mis depositarios",
+        "descripcion": "La sección Mis depositarios muestra una degradación sostenida en las últimas 3 versiones y acciones puntuales con saltos críticos.",
+        "evidencia": "P95 creció de 8.02s a 9.13s desde V1.13.4, y la acción 'Seleccionar la cuenta Mills Capital Markets (Mills LH FCI)' degradó de 7.7s a 18.86s (+144.9%) en la última versión."
+      },
+      {
+        "tipo": "alerta",
+        "seccion": "Rendimiento",
+        "descripcion": "La sección Rendimiento presenta una acción con una degradación crítica en la última versión.",
+        "evidencia": "La acción 'Portfolio LH Inversiones: Segundo ingreso a la carta de rendimiento Último mes c' degradó de 0.96s a 2.21s (+129.8%) en V1.14.7."
+      },
+      {
+        "tipo": "mejora",
+        "seccion": "Agenda",
+        "descripcion": "La sección Agenda mejoró significativamente respecto a la versión anterior.",
+        "evidencia": "P95 mejoró de 6.21s a 4.47s (+28.1%)."
+      },
+      {
+        "tipo": "mejora",
+        "seccion": "Mis operaciones",
+        "descripcion": "La sección Mis operaciones experimentó una mejora notable en esta versión.",
+        "evidencia": "P95 mejoró de 5.8s a 4.02s (+30.7%)."
+      },
+      {
+        "tipo": "mejora",
+        "seccion": "Mis portfolios",
+        "descripcion": "La sección Mis portfolios muestra una mejora generalizada en sus acciones.",
+        "evidencia": "El P95 de 'Primer ingreso al menú Mis portfolios' mejoró de 23.4s a 7.91s (+66.2%)."
+      },
+      {
+        "tipo": "mejora",
+        "seccion": "Home",
+        "descripcion": "La sección Home muestra una mejora moderada en su rendimiento general.",
+        "evidencia": "P95 mejoró de 19.16s a 17.93s (+6.4%) vs histórico."
+      }
+    ],
+    "causa_raiz": [
+      {
+        "seccion": "Mis depositarios",
+        "hipotesis": [
+          "Cambios recientes en la lógica de filtrado o carga de datos de depositarios/cuentas que impactan el rendimiento.",
+          "Problemas de optimización de consultas a la base de datos o APIs externas al interactuar con grandes volúmenes de datos de cuentas.",
+          "Regresión en componentes de UI que manejan la selección/deselección de cuentas, causando re-renders o cálculos costosos."
+        ]
+      },
+      {
+        "seccion": "Rendimiento",
+        "hipotesis": [
+          "Ineficiencias en el cálculo o la visualización de métricas de rendimiento para ciertos períodos o métodos (MWR/TWR) en portfolios específicos.",
+          "Problemas de caché o pre-cálculo de datos de rendimiento que no están funcionando correctamente para segundos ingresos o filtros específicos.",
+          "Aumento en la complejidad de los datos de los portfolios que se están analizando, llevando a mayores tiempos de procesamiento."
+        ]
+      }
+    ],
+    "recomendaciones": [
+      {
+        "prioridad": "P1",
+        "accion": "Investigar la causa raíz de la degradación sostenida en 'Mis depositarios' y el salto de rendimiento de acciones clave.",
+        "seccion": "Mis depositarios",
+        "evidencia": "La sección degradó de 8.02s a 9.13s en 3 versiones, y 'Seleccionar la cuenta Mills Capital Markets' degradó de 7.7s a 18.86s (+144.9%) en V1.14.7."
+      },
+      {
+        "prioridad": "P1",
+        "accion": "Analizar la regresión de rendimiento en acciones específicas de la sección 'Rendimiento'.",
+        "seccion": "Rendimiento",
+        "evidencia": "La acción 'Portfolio LH Inversiones: Segundo ingreso a la carta de rendimiento Último mes c' degradó de 0.96s a 2.21s (+129.8%) en V1.14.7."
+      },
+      {
+        "prioridad": "P2",
+        "accion": "Monitorear de cerca las secciones con mejoras significativas para asegurar la estabilidad del rendimiento.",
+        "seccion": "General",
+        "evidencia": "Mis operaciones mejoró 30.7% y Agenda 28.1% vs versión anterior."
+      },
+      {
+        "prioridad": "P3",
+        "accion": "Evaluar la efectividad del caching para acciones donde el segundo ingreso no muestra una mejora significativa.",
+        "seccion": "Agenda",
+        "evidencia": "Algunas acciones en Agenda, como 'Primer ingreso: Tipo de instrumento Bonos, estado: Pendiente, fecha: 1 mes hacia atras', muestran una mejora de caché de solo -0.3%."
+      }
+    ]
+  }
+}
