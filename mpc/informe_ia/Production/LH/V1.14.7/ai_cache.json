@@ -1,101 +1,107 @@
 {
-  "hash": "dc467a76d73c2fc957a348a07a56a4c38cc14a72f1f74221a759be6ed8dfc5d0",
+  "hash": "4c4c8f9c82f6bf18fc917a27afe3d38684aab851ef1e390fec1ddf567563dd47",
   "ai_model": "gemini-2.5-flash",
   "conclusions": {
     "estado_general": "excelente",
-    "resumen_ejecutivo": "La versión V1.14.7 de MPC muestra un rendimiento excelente, con 3 de 6 secciones mejorando su P95 respecto al histórico y ninguna superando los umbrales de rendimiento. Sin embargo, se observan degradaciones severas en acciones individuales de 'Mis depositarios' y anomalías en el manejo de caché en 'Agenda' que requieren atención.",
+    "resumen_ejecutivo": "La versión V1.14.7 de MPC muestra un rendimiento excelente, con 4 de 7 secciones mejorando su P95 histórico. Destacan las mejoras del 81.2% en 'Mis operaciones' (de 24.58s a 4.61s) y del 68.8% en 'Mi dinero' (de 82.57s a 25.77s). Sin embargo, se observan degradaciones críticas en acciones específicas de 'Mis depositarios' y 'Rendimiento' que requieren atención inmediata.",
     "escalar": {
-      "titulo": "Degradación severa en acciones clave de Mis depositarios",
-      "detalle": "Tres acciones en 'Mis depositarios' se degradaron más del 128% vs. histórico, con 'Deseleccionar todas las cuentas del depositario Galicia' empeorando un 150.2% (de 8.08s a 20.23s)."
+      "titulo": "Degradaciones críticas en acciones de Mis depositarios y Rendimiento",
+      "detalle": "Acciones clave en 'Mis depositarios' y 'Rendimiento' sufrieron degradaciones superiores al 100%, como 'Deseleccionar todas las cuentas del depositario Galicia' que empeoró un 142.2% (de 8.08s a 19.58s)."
     },
     "investigar": {
-      "titulo": "Rendimiento de caché negativo en la sección Agenda",
-      "detalle": "La sección 'Agenda' muestra que el segundo ingreso al menú es un 19.4% más lento (4.24s) que el primer ingreso (3.55s), sugiriendo un problema con la estrategia de caché."
+      "titulo": "Anomalías en la gestión de cuentas y cálculo de rendimiento",
+      "detalle": "Se deben investigar las causas de las degradaciones de más del 100% en acciones de 'Mis depositarios' y 'Rendimiento', que impactan directamente la interacción del usuario con la plataforma."
     },
     "optimizar": {
-      "titulo": "Optimizar la acción más lenta en Agenda",
-      "detalle": "La acción 'Primer ingreso: Tipo de instrumento Bonos, estado: Pendiente' en 'Agenda' tiene un P95 actual de 60.13s, siendo la acción más lenta del sistema y con potencial de mejora en la experiencia de usuario."
+      "titulo": "Reducir el tiempo de carga inicial en acciones clave de Agenda",
+      "detalle": "La acción 'Primer ingreso: Tipo de instrumento Bonos, estado: Pendiente' en 'Agenda' aún presenta un P95 de 57.45s, a pesar de haber mejorado un 39.7%, lo que representa una oportunidad significativa para optimizar la experiencia de usuario."
     },
     "hallazgos": [
       {
-        "tipo": "mejora",
+        "tipo": "alerta",
+        "seccion": "Mis depositarios",
+        "descripcion": "Degradación crítica en acciones de gestión de cuentas.",
+        "evidencia": "La acción 'Deseleccionar todas las cuentas del depositario Galicia' empeoró un 142.2% (de 8.08s a 19.58s), y 'Seleccionar la cuenta Mills Capital Markets (Mills LH FCI)' un 128.7% (de 7.7s a 17.6s)."
+      },
+      {
+        "tipo": "alerta",
+        "seccion": "Rendimiento",
+        "descripcion": "Degradación significativa en una acción de rendimiento de portfolio.",
+        "evidencia": "La acción 'Portfolio LH Inversiones: Segundo ingreso a la carta de rendimiento Último mes con método MWR' degradó un 139.1% (de 0.87s a 2.07s)."
+      },
+      {
+        "tipo": "alerta",
         "seccion": "Mis operaciones",
-        "descripcion": "La sección 'Mis operaciones' muestra una mejora generalizada en sus acciones.",
-        "evidencia": "7 de 8 acciones mejoraron, con 'Primer ingreso: Filtro de 1 mes de operaciones' mejorando un 78.12% (de 10.85s a 2.37s)."
+        "descripcion": "Salto abrupto histórico recuperado en la versión actual.",
+        "evidencia": "La acción 'Primer ingreso: Filtro de 1 mes de operaciones' sufrió un salto abrupto de 2.03s a 10.85s (+434.5%) en V1.14.0, pero se recuperó a 2.35s en la versión actual (+67.2% vs histórico)."
+      },
+      {
+        "tipo": "alerta",
+        "seccion": "Rendimiento",
+        "descripcion": "Salto abrupto histórico recuperado en la versión actual.",
+        "evidencia": "La acción 'Portfolio RE Mercado: Segundo ingreso a la carta de rendimiento Desde principio ' sufrió un salto abrupto de 1.44s a 4.63s (+221.5%) en V1.14.0, pero se recuperó a 1.69s en la versión actual (+63.47% vs V1.14.0)."
+      },
+      {
+        "tipo": "mejora",
+        "seccion": "Mi dinero",
+        "descripcion": "Recuperación significativa de la sección.",
+        "evidencia": "P95 mejoró de 82.57s a 25.77s (+68.8%)."
       },
       {
         "tipo": "mejora",
         "seccion": "Mis portfolios",
-        "descripcion": "La sección 'Mis portfolios' experimentó mejoras significativas en más de la mitad de sus acciones.",
-        "evidencia": "11 de 20 acciones mejoraron, destacando 'Primer ingreso al menú Mis portfolios' con una mejora del 35.3% (de 23.4s a 15.14s)."
-      },
-      {
-        "tipo": "alerta",
-        "seccion": "Rendimiento",
-        "descripcion": "La sección 'Rendimiento' muestra una degradación sostenida en el P95 de la sección, a pesar de mejoras en muchas acciones individuales.",
-        "evidencia": "El P95 de la sección creció de 2.8s a 3.37s en 3 versiones, mientras que 100 de 242 acciones mejoraron, destacando 'Portfolio RE Mercado: Segundo ingreso a la carta de rendimiento Desde principio' con una mejora del 63.44%."
-      },
-      {
-        "tipo": "alerta",
-        "seccion": "Mis depositarios",
-        "descripcion": "Varias acciones en 'Mis depositarios' sufrieron degradaciones severas.",
-        "evidencia": "'Deseleccionar todas las cuentas del depositario Galicia' se degradó un 150.2% (de 8.08s a 20.23s)."
+        "descripcion": "Mejora generalizada en la sección.",
+        "evidencia": "9 acciones mejoraron, con la sección mostrando un P95 de 14.31s (vs 15.04s histórico, +4.8%)."
       },
       {
         "tipo": "alerta",
         "seccion": "Agenda",
-        "descripcion": "La sección 'Agenda' presenta una acción muy lenta y un comportamiento anómalo de caché.",
-        "evidencia": "La acción 'Primer ingreso: Tipo de instrumento Bonos, estado: Pendiente' tiene un P95 de 60.13s, y el segundo ingreso al menú 'Agenda' es un 19.4% más lento (4.24s) que el primero (3.55s)."
+        "descripcion": "Acción individual con P95 elevado a pesar de la mejora.",
+        "evidencia": "La acción 'Primer ingreso: Tipo de instrumento Bonos, estado: Pendiente' tiene un P95 actual de 57.45s, a pesar de una mejora del 39.7%."
       }
     ],
     "causa_raiz": [
       {
-        "seccion": "Rendimiento",
+        "seccion": "Mis depositarios",
         "hipotesis": [
-          "Posible aumento en la complejidad de los cálculos de rendimiento o la cantidad de datos procesados para los gráficos.",
-          "Ineficiencias en la carga de datos o renderizado de componentes que se activan con mayor frecuencia en esta sección.",
-          "Cambios en la infraestructura de datos o APIs que alimentan la sección, introduciendo latencia adicional."
+          "Cambios recientes en la lógica de filtrado o selección de cuentas que introducen latencia en la consulta de datos o actualización de la UI.",
+          "Problemas de rendimiento en el backend al manejar grandes volúmenes de cuentas o depositarios, exacerbados por operaciones de deselección/selección masiva.",
+          "Ineficiencias en la renderización de la interfaz de usuario al actualizar el estado de múltiples cuentas simultáneamente."
         ]
       },
       {
-        "seccion": "Mis depositarios",
+        "seccion": "Rendimiento",
         "hipotesis": [
-          "Problemas de rendimiento en las operaciones de selección/deselección de cuentas, posiblemente relacionados con la actualización del estado de la UI o llamadas a APIs.",
-          "Aumento en el volumen de datos de depositarios o cuentas que se procesan al interactuar con los filtros.",
-          "Ineficiencias en el manejo de eventos o la re-renderización de la lista de cuentas tras una interacción del usuario."
+          "Consultas de base de datos ineficientes para el cálculo de rendimiento en periodos específicos (ej. 'Último mes') o para portfolios complejos.",
+          "Problemas de serialización/deserialización de datos o procesamiento en el frontend que ralentizan la carga de la carta de rendimiento.",
+          "Aumento en la complejidad de los datos de los portfolios o en la cantidad de transacciones a procesar para el cálculo de rendimiento."
         ]
       }
     ],
     "recomendaciones": [
       {
         "prioridad": "P1",
-        "accion": "Investigar y optimizar las acciones de selección/deselección de cuentas en 'Mis depositarios'.",
+        "accion": "Investigar y resolver las degradaciones críticas en 'Mis depositarios'.",
         "seccion": "Mis depositarios",
-        "evidencia": "'Deseleccionar todas las cuentas del depositario Galicia' se degradó un 150.2% (de 8.08s a 20.23s)."
+        "evidencia": "Degradaciones del 142.2% (de 8.08s a 19.58s) y 128.7% (de 7.7s a 17.6s) en acciones clave."
       },
       {
         "prioridad": "P1",
-        "accion": "Optimizar la acción 'Primer ingreso: Tipo de instrumento Bonos, estado: Pendiente' para reducir su P95.",
-        "seccion": "Agenda",
-        "evidencia": "P95 actual de 60.13s, siendo la acción más lenta del sistema."
-      },
-      {
-        "prioridad": "P2",
-        "accion": "Revisar la estrategia de caché en la sección 'Agenda' para asegurar que las operaciones subsiguientes sean más rápidas.",
-        "seccion": "Agenda",
-        "evidencia": "Segundo ingreso al menú 'Agenda' es un 19.4% más lento (4.24s) que el primero (3.55s)."
-      },
-      {
-        "prioridad": "P2",
-        "accion": "Analizar la causa de la degradación sostenida en el P95 de la sección 'Rendimiento'.",
+        "accion": "Abordar la degradación crítica en la acción de 'Rendimiento'.",
         "seccion": "Rendimiento",
-        "evidencia": "P95 de la sección creció de 2.8s a 3.37s en 3 versiones consecutivas."
+        "evidencia": "Degradación del 139.1% (de 0.87s a 2.07s) en 'Portfolio LH Inversiones: Segundo ingreso a la carta de rendimiento Último mes con método MWR'."
+      },
+      {
+        "prioridad": "P2",
+        "accion": "Optimizar la carga inicial de acciones lentas en 'Agenda'.",
+        "seccion": "Agenda",
+        "evidencia": "La acción 'Primer ingreso: Tipo de instrumento Bonos, estado: Pendiente' tiene un P95 actual de 57.45s."
       },
       {
         "prioridad": "P3",
-        "accion": "Continuar monitoreando las secciones 'Mis operaciones' y 'Mis portfolios' para mantener las mejoras logradas.",
+        "accion": "Mantener y monitorear las mejoras significativas.",
         "seccion": "General",
-        "evidencia": "'Mis operaciones' mejoró un 80.5% y 'Mis portfolios' un 4.8% vs histórico, con muchas acciones individuales mejorando."
+        "evidencia": "'Mi dinero' mejoró un 68.8% (P95 de 82.57s a 25.77s) y 'Mis operaciones' un 81.2% (P95 de 24.58s a 4.61s)."
       }
     ]
   }
