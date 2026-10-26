@@ -1,115 +1,99 @@
 {
-  "hash": "20f9b5607eae593e3ef1b49ce198844675cb85747c25042e25dc395f4f725756",
+  "hash": "a05f14bdac39a4788c8eb01cef15cc43ed0bc4894cc694bf17f2dda9e978521c",
   "ai_model": "gemini-2.5-flash",
   "conclusions": {
     "estado_general": "critico",
-    "resumen_ejecutivo": "La versión V1.14.7 presenta un estado crítico debido a la degradación sostenida de la sección 'Resultado', cuyo P95 aumentó un 31.4% vs. histórico, alcanzando los 58.48s. Adicionalmente, la sección 'Mi dinero' muestra un 100% de acciones discontinuadas y una acción clave persistentemente lenta. A pesar de esto, 5 de 7 secciones han mejorado su rendimiento, destacando 'Mis operaciones' con una mejora del 30.4% vs. la versión anterior.",
+    "resumen_ejecutivo": "La versión V1.14.7 presenta un estado crítico debido a una degradación significativa en la sección 'Resultado' del 31.4% (P95 actual 58.49s) y una tendencia sostenida de empeoramiento. Adicionalmente, la sección 'Mi dinero' ha sido completamente discontinuada, impidiendo su monitoreo. A pesar de esto, se observan mejoras notables en 'Mis operaciones' (+25.9%) y 'Rendimiento' (79.5% de acciones mejoradas).",
     "escalar": {
-      "titulo": "Degradación crítica en Resultado y problemas estructurales en Mi dinero",
-      "detalle": "La sección 'Resultado' degradó un 31.4% vs. histórico (P95 de 58.48s) y muestra una tendencia sostenida de empeoramiento en las últimas 4 versiones. La sección 'Mi dinero' tiene un 100% de acciones discontinuadas y la acción 'Primer ingreso al menú Mi dinero' ha estado sobre el umbral en 4 de 4 versiones medidas, con un P95 de 127.57s."
+      "titulo": "Degradación crítica en 'Resultado' y discontinuación de 'Mi dinero'",
+      "detalle": "La sección 'Resultado' ha degradado un 31.4% vs. histórico, alcanzando un P95 de 58.49s, con una acción a 108.0s. Además, la sección 'Mi dinero' ha discontinuado el 100% de sus acciones, lo que impide su monitoreo y oculta posibles problemas de rendimiento."
     },
     "investigar": {
-      "titulo": "Tendencia de degradación sostenida en 'Resultado' y dropout en 'Mi dinero'",
-      "detalle": "Se debe investigar la causa de la degradación continua de 'Resultado', que ha visto su P95 crecer de 36.87s a 58.48s en las últimas 4 versiones. También es crucial entender el 100% de acciones discontinuadas en 'Mi dinero' y la persistente lentitud de su acción principal."
+      "titulo": "Discontinuación total de acciones en la sección 'Mi dinero'",
+      "detalle": "La sección 'Mi dinero' ha dejado de medir el 100% de sus acciones (3/3) desde la versión V1.14.0, incluyendo acciones con P95 de hasta 127.57s, lo que representa una anomalía crítica en el monitoreo."
     },
     "optimizar": {
-      "titulo": "Mejorar la performance de la sección 'Resultado'",
-      "detalle": "La sección 'Resultado' es la más lenta (P95 de 58.48s) y la que más se degradó (-31.4% vs histórico), representando la mayor oportunidad de mejora para impactar la experiencia del usuario."
+      "titulo": "Optimizar la sección 'Resultado' para revertir la degradación sostenida",
+      "detalle": "La sección 'Resultado' es la mayor oportunidad de mejora, con un P95 actual de 58.49s y una degradación del 31.4% vs. histórico, además de una tendencia sostenida de empeoramiento en las últimas 4 versiones."
     },
     "hallazgos": [
       {
         "tipo": "alerta",
         "seccion": "Mi dinero",
-        "descripcion": "Mejora aparente y acción persistentemente lenta: se discontinuaron 3/3 acciones medidas en V1.14.0 (P95 máx removidas: 127.57s), y la acción 'Primer ingreso al menú Mi dinero' estuvo 4 de 4 versiones sobre el umbral.",
-        "evidencia": "La sección tuvo un dropout del 100% de acciones, y la acción 'Primer ingreso al menú Mi dinero' registró 127.57s en su última medición (V1.14.0), superando el umbral en 4 de 4 versiones."
-      },
-      {
-        "tipo": "degradacion",
-        "seccion": "Resultado",
-        "descripcion": "Degradación sostenida en 4 versiones y una acción clave ('Cambio de esquema de valuación del portfolio Estrategia a ARS-USD CCL') empeoró significativamente.",
-        "evidencia": "El P95 de la sección creció de 36.87s a 58.48s en 4 versiones (+58.6%), y la acción mencionada degradó de 45.34s a 57.7s (+27.26%) vs V1.14.0."
+        "descripcion": "Se discontinuaron todas las acciones (3/3) medidas en V1.14.0 para la sección 'Mi dinero' (P95 máx removidas: 127.57s).",
+        "evidencia": "secc_dropout_bias del 100% para 'Mi dinero'"
       },
       {
         "tipo": "alerta",
         "seccion": "Mis operaciones",
-        "descripcion": "Mejora aparente: se discontinuaron 4/12 acciones medidas en V1.14.0 (P95 máx removidas: 46.35s).",
-        "evidencia": "Dropout del 33.3% de acciones, con P95 máximo de 46.35s entre las removidas."
+        "descripcion": "Mejora aparente en 'Mis operaciones' — se discontinuaron 4/12 acciones medidas en V1.14.0 (P95 máx removidas: 46.35s).",
+        "evidencia": "secc_dropout_bias del 33.3% para 'Mis operaciones'"
       },
       {
         "tipo": "alerta",
         "seccion": "Agenda",
-        "descripcion": "Una acción discontinuada en la versión actual mostró una degradación significativa en su última medición.",
-        "evidencia": "La acción 'Segundo ingreso: Tipo de instrumento Operaciones a plazo...' empeoró un 70.1% (de 1.27s a 2.16s) en V1.14.0 antes de ser removida."
+        "descripcion": "Acción 'Segundo ingreso: Tipo de instrumento Operaciones a plazo, estado: Pendiente, fec' fue discontinuada en V1.14.0 con P95 de 2.16s y una degradación del 70.1%.",
+        "evidencia": "p95_ultima_s de 2.16s y pct_variacion del 70.1% en acciones_discontinuadas_con_tendencia"
+      },
+      {
+        "tipo": "degradacion",
+        "seccion": "Resultado",
+        "descripcion": "La sección 'Resultado' muestra una tendencia sostenida de degradación en las últimas 4 versiones, aumentando su P95 de 36.87s a 58.49s.",
+        "evidencia": "P95 de 36.87s a 58.49s en 4 versiones consecutivas"
+      },
+      {
+        "tipo": "degradacion",
+        "seccion": "Resultado",
+        "descripcion": "La acción 'Primer ingreso al portfolio Estrategia base de costo a inicio de periodo' en 'Resultado' es la más lenta con 108.0s y degradó un 41.8%.",
+        "evidencia": "P95 actual de 108.0s y pct_mejora de -41.8% en top_acciones_degradadas"
       },
       {
         "tipo": "mejora",
         "seccion": "Mis operaciones",
-        "descripcion": "Mejora significativa en la sección, con una acción clave mostrando gran optimización.",
-        "evidencia": "P95 mejoró de 7.31s a 5.09s (+30.4%) vs V1.14.0, destacando 'Primer ingreso al menú Mis operaciones' que mejoró un 65.44% (de 14.31s a 4.95s)."
-      },
-      {
-        "tipo": "mejora",
-        "seccion": "Mis portfolios",
-        "descripcion": "Mejora notable en la sección, con una acción clave optimizada.",
-        "evidencia": "P95 mejoró de 10.3s a 7.99s (+22.4%) vs histórico, y 'Primer ingreso al menú Mis portfolios' mejoró un 54.84% (de 9.54s a 4.31s) vs V1.14.0."
+        "descripcion": "La sección 'Mis operaciones' mejoró un 25.9% respecto a la versión anterior, pasando de 7.31s a 5.42s.",
+        "evidencia": "P95 mejoró de 7.31s a 5.42s (+25.9%)"
       },
       {
         "tipo": "mejora",
         "seccion": "Rendimiento",
-        "descripcion": "Amplia mejora en la sección, con la mayoría de las acciones optimizadas.",
-        "evidencia": "86.9% (106 de 122) de las acciones mejoraron vs V1.14.0, con 'Portfolio Cobertura: Primer ingreso a la carta de rendimiento Desde principio de' mejorando un 76.74% (de 2.29s a 0.53s)."
+        "descripcion": "La sección 'Rendimiento' muestra una mejora generalizada en el 79.5% de sus acciones, con 'Portfolio Cobertura: Primer ingreso a la carta de rendimiento Desde principio de' mejorando un 75.75%.",
+        "evidencia": "79.5% de acciones mejoradas, con una acción destacada mejorando un 75.75%"
       }
     ],
     "causa_raiz": [
       {
         "seccion": "Resultado",
         "hipotesis": [
-          "Podría deberse a un aumento en el volumen de datos procesados para los cálculos de P&L, impactando la performance de las consultas a la base de datos.",
-          "Revisar si hay cambios en la complejidad de los algoritmos de valuación o en la integración con servicios externos que proveen datos de mercado.",
-          "Posible ineficiencia en la carga o renderizado de componentes de la UI que muestran los resultados, especialmente en escenarios de cambio de esquema de valuación."
-        ]
-      },
-      {
-        "seccion": "Mi dinero",
-        "hipotesis": [
-          "La discontinuación del 100% de las acciones sugiere que las mediciones anteriores eran problemáticas o que la sección fue reestructurada, ocultando problemas de rendimiento subyacentes.",
-          "La acción 'Primer ingreso al menú Mi dinero' podría depender de la carga de grandes volúmenes de datos o de servicios externos lentos, lo que explica su lentitud persistente.",
-          "Revisar si la sección 'Mi dinero' fue deshabilitada o si su funcionalidad fue migrada, lo que explicaría la ausencia de mediciones actuales y la remoción de acciones."
-        ]
-      },
-      {
-        "seccion": "Mis operaciones",
-        "hipotesis": [
-          "La mejora del P95 podría ser artificial debido a la remoción de acciones lentas (dropout bias), en lugar de una optimización real del código.",
-          "Revisar si las acciones discontinuadas eran representativas de flujos de usuario importantes y si su remoción afecta la cobertura de las pruebas.",
-          "Podría haber habido una refactorización de la sección que eliminó rutas de código ineficientes, pero la alta tasa de dropout requiere validación."
+          "Podría deberse a cambios en la complejidad de los cálculos de P&L o valuación de portfolios, especialmente para acciones como 'Primer ingreso al portfolio Estrategia base de costo a inicio de periodo'.",
+          "Revisar si existen ineficiencias en la consulta o procesamiento de grandes volúmenes de datos históricos necesarios para los reportes de 'Resultado'.",
+          "Investigar posibles problemas de optimización en la interfaz de usuario o en el backend al aplicar filtros o cambios de esquema de valuación (ej. ARS-USD CCL, ARS-USD MEP)."
         ]
       }
     ],
     "recomendaciones": [
       {
         "prioridad": "P1",
-        "accion": "Investigar y resolver la lentitud persistente de la acción 'Primer ingreso al menú Mi dinero' y el 100% de dropout en la sección 'Mi dinero'.",
-        "seccion": "Mi dinero",
-        "evidencia": "La acción 'Primer ingreso al menú Mi dinero' registró 127.57s en V1.14.0 y ha estado sobre el umbral en 4 de 4 versiones medidas, además del 100% de acciones discontinuadas en la sección."
+        "accion": "Priorizar la optimización de la sección 'Resultado', enfocándose en la acción 'Primer ingreso al portfolio Estrategia base de costo a inicio de periodo' (108.0s) y los cambios de esquema de valuación.",
+        "seccion": "Resultado",
+        "evidencia": "Degradación del 31.4% en la sección y acción a 108.0s"
       },
       {
         "prioridad": "P1",
-        "accion": "Realizar un análisis de causa raíz exhaustivo para la degradación sostenida de la sección 'Resultado' y optimizar las acciones más lentas.",
-        "seccion": "Resultado",
-        "evidencia": "El P95 de la sección 'Resultado' creció de 36.87s a 58.48s en 4 versiones (+58.6%), y la acción 'Cambio de esquema de valuación del portfolio Estrategia a ARS-USD CCL' degradó un 27.26% vs V1.14.0."
+        "accion": "Investigar la causa de la discontinuación del 100% de las acciones de la sección 'Mi dinero' y reestablecer su monitoreo para asegurar la cobertura de métricas críticas.",
+        "seccion": "Mi dinero",
+        "evidencia": "secc_dropout_bias del 100% para 'Mi dinero', P95 máx removidas 127.57s"
       },
       {
         "prioridad": "P2",
-        "accion": "Validar la mejora de la sección 'Mis operaciones' investigando el impacto del dropout de acciones y asegurando que no sea una mejora artificial.",
-        "seccion": "Mis operaciones",
-        "evidencia": "La sección 'Mis operaciones' tuvo un dropout del 33.3% (4 de 12) de acciones medidas en V1.14.0, con un P95 máximo de 46.35s entre las removidas."
+        "accion": "Analizar la alta variabilidad en la sección 'Agenda' (ratio P95/P50 de 36.66) para identificar y mitigar los picos de latencia que afectan la experiencia de algunos usuarios.",
+        "seccion": "Agenda",
+        "evidencia": "P95 actual 35.56s, ratio P95/P50 36.66"
       },
       {
-        "prioridad": "P3",
-        "accion": "Revisar la acción 'Segundo ingreso: Tipo de instrumento Operaciones a plazo...' de la sección 'Agenda' que fue discontinuada tras una degradación del 70.1%.",
-        "seccion": "Agenda",
-        "evidencia": "La acción 'Segundo ingreso: Tipo de instrumento Operaciones a plazo...' empeoró un 70.1% (de 1.27s a 2.16s) en V1.14.0 antes de ser removida."
+        "prioridad": "P2",
+        "accion": "Revisar la sección 'Mis operaciones' para entender si la mejora es genuina o si el 33.3% de acciones discontinuadas está sesgando los resultados, y considerar reincorporar métricas relevantes.",
+        "seccion": "Mis operaciones",
+        "evidencia": "secc_dropout_bias del 33.3% para 'Mis operaciones'"
       }
     ]
   }
