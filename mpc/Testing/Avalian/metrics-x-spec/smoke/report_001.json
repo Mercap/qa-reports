@@ -1,0 +1,153 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 1,
+    "pending": 1,
+    "failures": 1,
+    "start": "2026-10-28T15:28:49.313Z",
+    "end": "2026-10-28T15:32:37.427Z",
+    "duration": 228114,
+    "testsRegistered": 3,
+    "passPercent": 50,
+    "pendingPercent": 33.33333333333333,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "b64b89a1-9285-48d4-9d80-b88c5293bb18",
+      "title": "",
+      "fullFile": "build/testing/avalian/specs/smoke/01_home.cy.js",
+      "file": "build/testing/avalian/specs/smoke/01_home.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "b4be86e9-bff6-45d1-bd39-3292cd7cc1b8",
+          "title": "Precondición tener un Portfolio y Depositario",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Validación del menú Home",
+              "fullTitle": "Precondición tener un Portfolio y Depositario Validación del menú Home",
+              "timedOut": null,
+              "duration": 20537,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.irAlHome();\ncy.validacionHome();\ncy.validarContenidoHomeSiExistePortfolio();",
+              "err": {},
+              "uuid": "af5a700f-6374-4ee6-a484-d111c7fe8d31",
+              "parentUUID": "b4be86e9-bff6-45d1-bd39-3292cd7cc1b8",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Creación de Depositario si NO existe",
+              "fullTitle": "Precondición tener un Portfolio y Depositario Creación de Depositario si NO existe",
+              "timedOut": null,
+              "duration": 192730,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.irAMisDepositarios();\ncy.validarIngresoMisDepositarios();\ncy.crearDepositarioSiNoExiste();",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 180000ms: Expected to find content: 'Seleccioná una o varias cuentas para verificar la información consolidada.' but never did.",
+                "estack": "AssertionError: Timed out retrying after 180000ms: Expected to find content: 'Seleccioná una o varias cuentas para verificar la información consolidada.' but never did.\n    at Context.eval (webpack://cypress/./cypress/support/commands/mis.depositarios.commands.js:5:0)\n    at wrapped (https://mercap-staging-1.us.auth0.com/__cypress/runner/cypress_runner.js:146042:43)",
+                "diff": null
+              },
+              "uuid": "b687583c-2451-4d89-910c-5d07ae5fb554",
+              "parentUUID": "b4be86e9-bff6-45d1-bd39-3292cd7cc1b8",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Creación de Portfolio si NO existe",
+              "fullTitle": "Precondición tener un Portfolio y Depositario Creación de Portfolio si NO existe",
+              "timedOut": null,
+              "duration": 0,
+              "state": "pending",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": true,
+              "context": null,
+              "code": "cy.irAMisPortfolios();\ncy.validarIngresoMisPortfolios();\ncy.crearPortfolioSiNoExiste();\ncy.validarCards('Portfolio CYPRESS');\ncy.ValidarCorrectaCreacionPorfolio();",
+              "err": {},
+              "uuid": "e43f88c0-7c8b-4412-8701-1db82e9c0b0e",
+              "parentUUID": "b4be86e9-bff6-45d1-bd39-3292cd7cc1b8",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "af5a700f-6374-4ee6-a484-d111c7fe8d31"
+          ],
+          "failures": [
+            "b687583c-2451-4d89-910c-5d07ae5fb554"
+          ],
+          "pending": [
+            "e43f88c0-7c8b-4412-8701-1db82e9c0b0e"
+          ],
+          "skipped": [],
+          "duration": 213267,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "report",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "cleanReporterJson": false,
+        "html": true,
+        "json": true,
+        "reportFilename": "report",
+        "embeddedScreenshots": true,
+        "inlineAssets": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

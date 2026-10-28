@@ -1,0 +1,147 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-10-28T15:28:14.488Z",
+    "end": "2026-10-28T15:28:46.975Z",
+    "duration": 32487,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "854a6128-0dec-4fa0-955e-ba548a4a0d60",
+      "title": "",
+      "fullFile": "build/testing/avalian/specs/smoke/00_admin.cy.js",
+      "file": "build/testing/avalian/specs/smoke/00_admin.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "d71106ac-d731-4f54-bdf3-db3474aaaed8",
+          "title": "Precondición tener Parametria (Esquema de valuación y gastos)",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Agregar Esquema de valuación",
+              "fullTitle": "Precondición tener Parametria (Esquema de valuación y gastos) Agregar Esquema de valuación",
+              "timedOut": null,
+              "duration": 15719,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.ValidarIngresoAdmin();\n// Navega a Esquemas de Valuación y espera la tabla (ver L022). La descripción con la marca\n// CYPRESS es la que usa el cleaner para reconocer qué esquemas borrar.\ncy.guardarEsquemasValuacion();\n// Se crea un único esquema, con el nombre de Constants.VALUATION_SCHEME (el que eligen\n// limites y resultado): si un target se desalinea, el alta y la validación lo usan igual.\ncy.altaEsquemaValuacion(\n  _support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].VALUATION_SCHEME,\n  'Valuacion en pesos con cotizaciones en USD al t/c BNA CYPRESS.',\n  'Valuacion BYMA ARS + Instrumentos No Liquidos - USD BNA',\n  'Esquema ARS - USD BNA C'\n);\ncy.validarEsquemaValuacionCreado(_support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].VALUATION_SCHEME);",
+              "err": {},
+              "uuid": "85659875-05ea-4b58-b178-cf2206b7ff1f",
+              "parentUUID": "d71106ac-d731-4f54-bdf3-db3474aaaed8",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Agregar Gastos",
+              "fullTitle": "Precondición tener Parametria (Esquema de valuación y gastos) Agregar Gastos",
+              "timedOut": null,
+              "duration": 441,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Navega a Definiciones de Gastos y espera la tabla. El cleaner no borra gastos: se crean solo si faltan.\ncy.guardarGastos();\ncy.altaGasto('Comisión', 'Comisión del Broker');\ncy.altaGasto('Comisión', 'Comisión del Mercado');\ncy.altaGasto('Impuesto', 'IVA');\ncy.validarGastoCreado('Comisión del Broker');\ncy.validarGastoCreado('Comisión del Mercado');\ncy.validarGastoCreado('IVA');",
+              "err": {},
+              "uuid": "d7b4ee10-4e56-4e2d-830a-006b07aa757d",
+              "parentUUID": "d71106ac-d731-4f54-bdf3-db3474aaaed8",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Mapear cargos de Balanz",
+              "fullTitle": "Precondición tener Parametria (Esquema de valuación y gastos) Mapear cargos de Balanz",
+              "timedOut": null,
+              "duration": 1556,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.irAMapeoDeCargos();\ncy.mapearCargosBroker('Balanz', { 'Arancel': 'Comisión del Broker', 'Costos Mercado': 'Comisión del Mercado' });",
+              "err": {},
+              "uuid": "dd4b390e-705a-410a-a861-9e73bdb4bb5a",
+              "parentUUID": "d71106ac-d731-4f54-bdf3-db3474aaaed8",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "85659875-05ea-4b58-b178-cf2206b7ff1f",
+            "d7b4ee10-4e56-4e2d-830a-006b07aa757d",
+            "dd4b390e-705a-410a-a861-9e73bdb4bb5a"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 17716,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "report",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "cleanReporterJson": false,
+        "html": true,
+        "json": true,
+        "reportFilename": "report",
+        "embeddedScreenshots": true,
+        "inlineAssets": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}
