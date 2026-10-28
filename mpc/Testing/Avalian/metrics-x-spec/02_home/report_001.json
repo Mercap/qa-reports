@@ -1,0 +1,268 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 1,
+    "pending": 1,
+    "failures": 1,
+    "start": "2026-10-28T15:28:59.954Z",
+    "end": "2026-10-28T15:35:26.038Z",
+    "duration": 386084,
+    "testsRegistered": 9,
+    "passPercent": 12.5,
+    "pendingPercent": 11.11111111111111,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 6,
+    "hasSkipped": true
+  },
+  "results": [
+    {
+      "uuid": "78e222e2-582d-47a4-8a14-9fdc06e7829a",
+      "title": "",
+      "fullFile": "build/testing/avalian/specs/performance/02_home.cy.js",
+      "file": "build/testing/avalian/specs/performance/02_home.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "8f32985c-8616-4b73-83b8-ae71ad93070b",
+          "title": "Home",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Ingreso a MPC",
+              "fullTitle": "Home Ingreso a MPC",
+              "timedOut": null,
+              "duration": 6487,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.adminLoginMPC();",
+              "err": {},
+              "uuid": "fc68f3d9-66fc-4abc-b8a0-a920a9127f8b",
+              "parentUUID": "8f32985c-8616-4b73-83b8-ae71ad93070b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Primer ingreso al menú Home",
+              "fullTitle": "Home Primer ingreso al menú Home",
+              "timedOut": null,
+              "duration": 363529,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(_support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].MPC_LOCATION);\ncy.validacionesHome();",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 360000ms: Expected to find element: `rect[class=\"highcharts-background\"]`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 360000ms: Expected to find element: `rect[class=\"highcharts-background\"]`, but never found it.\n    at Context.eval (webpack://cypress/./cypress/support/commands/home.commands.js:191:0)\n    at wrapped (https://mercap-staging-1.us.auth0.com/__cypress/runner/cypress_runner.js:146042:43)",
+                "diff": null
+              },
+              "uuid": "50ed8b49-bb8d-42c2-94b4-14b8add2d7be",
+              "parentUUID": "8f32985c-8616-4b73-83b8-ae71ad93070b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Segundo ingreso al menú Home",
+              "fullTitle": "Home Segundo ingreso al menú Home",
+              "timedOut": null,
+              "duration": 0,
+              "state": "pending",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": true,
+              "context": null,
+              "code": "cy.contains(`${sectionName}`).click();\ncy.validacionesHome();",
+              "err": {},
+              "uuid": "51afdfbb-99c9-4399-88d2-af438a31ac08",
+              "parentUUID": "8f32985c-8616-4b73-83b8-ae71ad93070b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Primer ingreso al portfolio Estrategia desde el Home",
+              "fullTitle": "Home Primer ingreso al portfolio Estrategia desde el Home",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('svg[data-icon=\"arrow-right\"]').eq(index).click();\ncy.validacionesDetallePortfolio();\n// Volver a Home\ncy.contains(`${sectionName}`).click();\ncy.validacionesHome();",
+              "err": {},
+              "uuid": "313b2646-4c73-4a14-bffa-250098a53fdc",
+              "parentUUID": "8f32985c-8616-4b73-83b8-ae71ad93070b",
+              "isHook": false,
+              "skipped": true
+            },
+            {
+              "title": "Primer ingreso al portfolio Hard Dollar desde el Home",
+              "fullTitle": "Home Primer ingreso al portfolio Hard Dollar desde el Home",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('svg[data-icon=\"arrow-right\"]').eq(index).click();\ncy.validacionesDetallePortfolio();\n// Volver a Home\ncy.contains(`${sectionName}`).click();\ncy.validacionesHome();",
+              "err": {},
+              "uuid": "6556627b-aca5-4f9a-9da4-f5ecd9d19b83",
+              "parentUUID": "8f32985c-8616-4b73-83b8-ae71ad93070b",
+              "isHook": false,
+              "skipped": true
+            },
+            {
+              "title": "Primer ingreso al portfolio Cobertura desde el Home",
+              "fullTitle": "Home Primer ingreso al portfolio Cobertura desde el Home",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('svg[data-icon=\"arrow-right\"]').eq(index).click();\ncy.validacionesDetallePortfolio();\n// Volver a Home\ncy.contains(`${sectionName}`).click();\ncy.validacionesHome();",
+              "err": {},
+              "uuid": "1f03a0ac-4163-4878-96e8-72924b252e7e",
+              "parentUUID": "8f32985c-8616-4b73-83b8-ae71ad93070b",
+              "isHook": false,
+              "skipped": true
+            },
+            {
+              "title": "Segundo ingreso al portfolio Estrategia desde el Home",
+              "fullTitle": "Home Segundo ingreso al portfolio Estrategia desde el Home",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('svg[data-icon=\"arrow-right\"]').eq(index).click();\ncy.validacionesDetallePortfolio();\n// Volver a Home\ncy.contains(`${sectionName}`).click();\ncy.validacionesHome();",
+              "err": {},
+              "uuid": "e5ee5cad-0d42-4b14-9485-1cd44ccce6e2",
+              "parentUUID": "8f32985c-8616-4b73-83b8-ae71ad93070b",
+              "isHook": false,
+              "skipped": true
+            },
+            {
+              "title": "Segundo ingreso al portfolio Hard Dollar desde el Home",
+              "fullTitle": "Home Segundo ingreso al portfolio Hard Dollar desde el Home",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('svg[data-icon=\"arrow-right\"]').eq(index).click();\ncy.validacionesDetallePortfolio();\n// Volver a Home\ncy.contains(`${sectionName}`).click();\ncy.validacionesHome();",
+              "err": {},
+              "uuid": "823359ea-76b0-4b39-9791-ba07c03df1d8",
+              "parentUUID": "8f32985c-8616-4b73-83b8-ae71ad93070b",
+              "isHook": false,
+              "skipped": true
+            },
+            {
+              "title": "Segundo ingreso al portfolio Cobertura desde el Home",
+              "fullTitle": "Home Segundo ingreso al portfolio Cobertura desde el Home",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('svg[data-icon=\"arrow-right\"]').eq(index).click();\ncy.validacionesDetallePortfolio();\n// Volver a Home\ncy.contains(`${sectionName}`).click();\ncy.validacionesHome();",
+              "err": {},
+              "uuid": "93fd407a-6a32-4a56-a340-7ae62afd5274",
+              "parentUUID": "8f32985c-8616-4b73-83b8-ae71ad93070b",
+              "isHook": false,
+              "skipped": true
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "fc68f3d9-66fc-4abc-b8a0-a920a9127f8b"
+          ],
+          "failures": [
+            "50ed8b49-bb8d-42c2-94b4-14b8add2d7be"
+          ],
+          "pending": [
+            "51afdfbb-99c9-4399-88d2-af438a31ac08"
+          ],
+          "skipped": [
+            "313b2646-4c73-4a14-bffa-250098a53fdc",
+            "6556627b-aca5-4f9a-9da4-f5ecd9d19b83",
+            "1f03a0ac-4163-4878-96e8-72924b252e7e",
+            "e5ee5cad-0d42-4b14-9485-1cd44ccce6e2",
+            "823359ea-76b0-4b39-9791-ba07c03df1d8",
+            "93fd407a-6a32-4a56-a340-7ae62afd5274"
+          ],
+          "duration": 370016,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "report",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "cleanReporterJson": false,
+        "html": true,
+        "json": true,
+        "reportFilename": "report",
+        "embeddedScreenshots": true,
+        "inlineAssets": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}
