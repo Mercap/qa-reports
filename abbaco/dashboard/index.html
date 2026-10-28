@@ -1,0 +1,1032 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fallos QA Abbaco</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+<style>
+  :root { --color-fg-muted: #718096; --color-bad: #e53e3e; color-scheme: light dark; }
+  html, body { margin: 0; }
+  body { background: #f7fafc; }
+  @media (prefers-color-scheme: dark) { body { background: #0f1720; } }
+  .qa-lectura { color: #fff !important; font-size: 15px !important; padding-top: 14px !important; padding-bottom: 0 !important; }
+</style>
+<script>
+window.__DASH_DATA__ = {"runs":[{"run_id":"36559028908","workflow":"Abbaco Smoke Test","date":"2026-09-29","week":"2026-09-28","month":"2026-09","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/36559028908","result":"Fallo"},{"run_id":"36608929498","workflow":"Abbaco Sanity Test","date":"2026-09-29","week":"2026-09-28","month":"2026-09","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/36608929498","result":"Éxito"},{"run_id":"36585646135","workflow":"Quotes Checker","date":"2026-09-29","week":"2026-09-28","month":"2026-09","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/36585646135","result":"Éxito"},{"run_id":"36565271106","workflow":"Quotes Checker","date":"2026-09-29","week":"2026-09-28","month":"2026-09","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/36565271106","result":"Éxito"},{"run_id":"36718051343","workflow":"Abbaco Smoke Test","date":"2026-09-30","week":"2026-09-28","month":"2026-09","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/36718051343","result":"Cancelado"},{"run_id":"36705828089","workflow":"Abbaco Smoke Test","date":"2026-09-30","week":"2026-09-28","month":"2026-09","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/36705828089","result":"Éxito"},{"run_id":"36755443561","workflow":"Abbaco Sanity Test","date":"2026-09-30","week":"2026-09-28","month":"2026-09","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/36755443561","result":"Fallo"},{"run_id":"36732105266","workflow":"Quotes Checker","date":"2026-09-30","week":"2026-09-28","month":"2026-09","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/36732105266","result":"Éxito"},{"run_id":"36712009776","workflow":"Quotes Checker","date":"2026-09-30","week":"2026-09-28","month":"2026-09","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/36712009776","result":"Éxito"},{"run_id":"36852609387","workflow":"Abbaco Smoke Test","date":"2026-10-01","week":"2026-09-28","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/36852609387","result":"Éxito"},{"run_id":"36903568154","workflow":"Abbaco Sanity Test","date":"2026-10-01","week":"2026-09-28","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/36903568154","result":"Fallo"},{"run_id":"36879508339","workflow":"Quotes Checker","date":"2026-10-01","week":"2026-09-28","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/36879508339","result":"Éxito"},{"run_id":"36858907899","workflow":"Quotes Checker","date":"2026-10-01","week":"2026-09-28","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/36858907899","result":"Éxito"},{"run_id":"36998580192","workflow":"Abbaco Smoke Test","date":"2026-10-02","week":"2026-09-28","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/36998580192","result":"Éxito"},{"run_id":"37044500820","workflow":"Abbaco Sanity Test","date":"2026-10-02","week":"2026-09-28","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/37044500820","result":"Éxito"},{"run_id":"37022657827","workflow":"Quotes Checker","date":"2026-10-02","week":"2026-09-28","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/37022657827","result":"Éxito"},{"run_id":"37004138007","workflow":"Quotes Checker","date":"2026-10-02","week":"2026-09-28","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/37004138007","result":"Éxito"},{"run_id":"37118233688","workflow":"Abbaco Smoke Test","date":"2026-10-03","week":"2026-09-28","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/37118233688","result":"Éxito"},{"run_id":"37197223710","workflow":"Abbaco Smoke Test","date":"2026-10-04","week":"2026-09-28","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/37197223710","result":"Éxito"},{"run_id":"37300125875","workflow":"Abbaco Smoke Test","date":"2026-10-05","week":"2026-10-05","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/37300125875","result":"Éxito"},{"run_id":"37352654029","workflow":"Abbaco Sanity Test","date":"2026-10-05","week":"2026-10-05","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/37352654029","result":"Fallo"},{"run_id":"37327923998","workflow":"Quotes Checker","date":"2026-10-05","week":"2026-10-05","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/37327923998","result":"Éxito"},{"run_id":"37306575885","workflow":"Quotes Checker","date":"2026-10-05","week":"2026-10-05","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/37306575885","result":"Éxito"},{"run_id":"37453506077","workflow":"Abbaco Smoke Test","date":"2026-10-06","week":"2026-10-05","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/37453506077","result":"Éxito"},{"run_id":"37507899747","workflow":"Abbaco Sanity Test","date":"2026-10-06","week":"2026-10-05","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/37507899747","result":"Éxito"},{"run_id":"37482299321","workflow":"Quotes Checker","date":"2026-10-06","week":"2026-10-05","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/37482299321","result":"Éxito"},{"run_id":"37460184991","workflow":"Quotes Checker","date":"2026-10-06","week":"2026-10-05","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/37460184991","result":"Éxito"},{"run_id":"37611118683","workflow":"Abbaco Smoke Test","date":"2026-10-07","week":"2026-10-05","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/37611118683","result":"Éxito"},{"run_id":"37663436650","workflow":"Abbaco Sanity Test","date":"2026-10-07","week":"2026-10-05","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/37663436650","result":"Éxito"},{"run_id":"37640049224","workflow":"Quotes Checker","date":"2026-10-07","week":"2026-10-05","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/37640049224","result":"Éxito"},{"run_id":"37617919560","workflow":"Quotes Checker","date":"2026-10-07","week":"2026-10-05","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/37617919560","result":"Éxito"},{"run_id":"37767176618","workflow":"Abbaco Smoke Test","date":"2026-10-08","week":"2026-10-05","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/37767176618","result":"Éxito"},{"run_id":"37820904927","workflow":"Abbaco Sanity Test","date":"2026-10-08","week":"2026-10-05","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/37820904927","result":"Éxito"},{"run_id":"37795729966","workflow":"Quotes Checker","date":"2026-10-08","week":"2026-10-05","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/37795729966","result":"Éxito"},{"run_id":"37773821534","workflow":"Quotes Checker","date":"2026-10-08","week":"2026-10-05","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/37773821534","result":"Éxito"},{"run_id":"37921043214","workflow":"Abbaco Smoke Test","date":"2026-10-09","week":"2026-10-05","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/37921043214","result":"Éxito"},{"run_id":"37970221136","workflow":"Abbaco Sanity Test","date":"2026-10-09","week":"2026-10-05","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/37970221136","result":"Éxito"},{"run_id":"37947150423","workflow":"Quotes Checker","date":"2026-10-09","week":"2026-10-05","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/37947150423","result":"Éxito"},{"run_id":"37927223688","workflow":"Quotes Checker","date":"2026-10-09","week":"2026-10-05","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/37927223688","result":"Éxito"},{"run_id":"38046856733","workflow":"Abbaco Smoke Test","date":"2026-10-10","week":"2026-10-05","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/38046856733","result":"Éxito"},{"run_id":"38133969587","workflow":"Abbaco Smoke Test","date":"2026-10-11","week":"2026-10-05","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/38133969587","result":"Éxito"},{"run_id":"38239840705","workflow":"Abbaco Smoke Test","date":"2026-10-12","week":"2026-10-12","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/38239840705","result":"Éxito"},{"run_id":"38287973474","workflow":"Abbaco Sanity Test","date":"2026-10-12","week":"2026-10-12","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/38287973474","result":"Fallo"},{"run_id":"38265807190","workflow":"Quotes Checker","date":"2026-10-12","week":"2026-10-12","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/38265807190","result":"Fallo"},{"run_id":"38246267806","workflow":"Quotes Checker","date":"2026-10-12","week":"2026-10-12","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/38246267806","result":"Éxito"},{"run_id":"38387197958","workflow":"Abbaco Smoke Test","date":"2026-10-13","week":"2026-10-12","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/38387197958","result":"Éxito"},{"run_id":"38443211854","workflow":"Abbaco Sanity Test","date":"2026-10-13","week":"2026-10-12","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/38443211854","result":"Éxito"},{"run_id":"38416784859","workflow":"Quotes Checker","date":"2026-10-13","week":"2026-10-12","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/38416784859","result":"Fallo"},{"run_id":"38394134693","workflow":"Quotes Checker","date":"2026-10-13","week":"2026-10-12","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/38394134693","result":"Éxito"},{"run_id":"38553483693","workflow":"Abbaco Smoke Test","date":"2026-10-14","week":"2026-10-12","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/38553483693","result":"Éxito"},{"run_id":"38611431412","workflow":"Abbaco Sanity Test","date":"2026-10-14","week":"2026-10-12","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/38611431412","result":"Éxito"},{"run_id":"38584062652","workflow":"Quotes Checker","date":"2026-10-14","week":"2026-10-12","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/38584062652","result":"Éxito"},{"run_id":"38560577611","workflow":"Quotes Checker","date":"2026-10-14","week":"2026-10-12","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/38560577611","result":"Éxito"},{"run_id":"38724224189","workflow":"Abbaco Smoke Test","date":"2026-10-15","week":"2026-10-12","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/38724224189","result":"Éxito"},{"run_id":"38781984298","workflow":"Abbaco Sanity Test","date":"2026-10-15","week":"2026-10-12","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/38781984298","result":"Éxito"},{"run_id":"38754950259","workflow":"Quotes Checker","date":"2026-10-15","week":"2026-10-12","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/38754950259","result":"Éxito"},{"run_id":"38731384073","workflow":"Quotes Checker","date":"2026-10-15","week":"2026-10-12","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/38731384073","result":"Fallo"},{"run_id":"38890896981","workflow":"Abbaco Smoke Test","date":"2026-10-16","week":"2026-10-12","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/38890896981","result":"Éxito"},{"run_id":"38943981259","workflow":"Abbaco Sanity Test","date":"2026-10-16","week":"2026-10-12","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/38943981259","result":"Éxito"},{"run_id":"38918984261","workflow":"Quotes Checker","date":"2026-10-16","week":"2026-10-12","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/38918984261","result":"Fallo"},{"run_id":"38897524288","workflow":"Quotes Checker","date":"2026-10-16","week":"2026-10-12","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/38897524288","result":"Fallo"},{"run_id":"39027022479","workflow":"Abbaco Smoke Test","date":"2026-10-17","week":"2026-10-12","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/39027022479","result":"Éxito"},{"run_id":"39121461383","workflow":"Abbaco Smoke Test","date":"2026-10-18","week":"2026-10-12","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/39121461383","result":"Éxito"},{"run_id":"39241462644","workflow":"Abbaco Smoke Test","date":"2026-10-19","week":"2026-10-19","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/39241462644","result":"Éxito"},{"run_id":"39298891938","workflow":"Abbaco Sanity Test","date":"2026-10-19","week":"2026-10-19","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/39298891938","result":"Éxito"},{"run_id":"39272526189","workflow":"Quotes Checker","date":"2026-10-19","week":"2026-10-19","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/39272526189","result":"Fallo"},{"run_id":"39248715946","workflow":"Quotes Checker","date":"2026-10-19","week":"2026-10-19","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/39248715946","result":"Fallo"},{"run_id":"39466274683","workflow":"Abbaco Smoke Test","date":"2026-10-20","week":"2026-10-19","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/39466274683","result":"Fallo"},{"run_id":"39411865116","workflow":"Abbaco Smoke Test","date":"2026-10-20","week":"2026-10-19","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/39411865116","result":"Éxito"},{"run_id":"39470937672","workflow":"Abbaco Sanity Test","date":"2026-10-20","week":"2026-10-19","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/39470937672","result":"Fallo"},{"run_id":"39442853236","workflow":"Quotes Checker","date":"2026-10-20","week":"2026-10-19","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/39442853236","result":"Éxito"},{"run_id":"39418994068","workflow":"Quotes Checker","date":"2026-10-20","week":"2026-10-19","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/39418994068","result":"Éxito"},{"run_id":"39669646031","workflow":"Abbaco Smoke Test","date":"2026-10-21","week":"2026-10-19","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/39669646031","result":"Éxito"},{"run_id":"39588690808","workflow":"Abbaco Smoke Test","date":"2026-10-21","week":"2026-10-19","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/39588690808","result":"Fallo"},{"run_id":"39648779993","workflow":"Abbaco Sanity Test","date":"2026-10-21","week":"2026-10-19","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/39648779993","result":"Fallo"},{"run_id":"39620351988","workflow":"Quotes Checker","date":"2026-10-21","week":"2026-10-19","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/39620351988","result":"Fallo"},{"run_id":"39596166189","workflow":"Quotes Checker","date":"2026-10-21","week":"2026-10-19","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/39596166189","result":"Fallo"},{"run_id":"39767290149","workflow":"Abbaco Smoke Test","date":"2026-10-22","week":"2026-10-19","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/39767290149","result":"Éxito"},{"run_id":"39827568096","workflow":"Abbaco Sanity Test","date":"2026-10-22","week":"2026-10-19","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/39827568096","result":"Éxito"},{"run_id":"39799191741","workflow":"Quotes Checker","date":"2026-10-22","week":"2026-10-19","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/39799191741","result":"Fallo"},{"run_id":"39774858567","workflow":"Quotes Checker","date":"2026-10-22","week":"2026-10-19","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/39774858567","result":"Fallo"},{"run_id":"39943009740","workflow":"Abbaco Smoke Test","date":"2026-10-23","week":"2026-10-19","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/39943009740","result":"Éxito"},{"run_id":"39999710754","workflow":"Abbaco Sanity Test","date":"2026-10-23","week":"2026-10-19","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/39999710754","result":"Éxito"},{"run_id":"39973034297","workflow":"Quotes Checker","date":"2026-10-23","week":"2026-10-19","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/39973034297","result":"Éxito"},{"run_id":"39950090272","workflow":"Quotes Checker","date":"2026-10-23","week":"2026-10-19","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/39950090272","result":"Éxito"},{"run_id":"40088129077","workflow":"Abbaco Smoke Test","date":"2026-10-24","week":"2026-10-19","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/40088129077","result":"Éxito"},{"run_id":"40187054306","workflow":"Abbaco Smoke Test","date":"2026-10-25","week":"2026-10-19","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/40187054306","result":"Éxito"},{"run_id":"40311739534","workflow":"Abbaco Smoke Test","date":"2026-10-26","week":"2026-10-26","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/40311739534","result":"Fallo"},{"run_id":"40373840868","workflow":"Abbaco Sanity Test","date":"2026-10-26","week":"2026-10-26","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/40373840868","result":"Éxito"},{"run_id":"40343360815","workflow":"Quotes Checker","date":"2026-10-26","week":"2026-10-26","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/40343360815","result":"Fallo"},{"run_id":"40319221413","workflow":"Quotes Checker","date":"2026-10-26","week":"2026-10-26","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/40319221413","result":"Éxito"},{"run_id":"40492829882","workflow":"Abbaco Smoke Test","date":"2026-10-27","week":"2026-10-26","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/40492829882","result":"Éxito"},{"run_id":"40555837752","workflow":"Abbaco Sanity Test","date":"2026-10-27","week":"2026-10-26","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/40555837752","result":"Éxito"},{"run_id":"40524974791","workflow":"Quotes Checker","date":"2026-10-27","week":"2026-10-26","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/40524974791","result":"Éxito"},{"run_id":"40500362797","workflow":"Quotes Checker","date":"2026-10-27","week":"2026-10-26","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/40500362797","result":"Éxito"},{"run_id":"40676531162","workflow":"Abbaco Smoke Test","date":"2026-10-28","week":"2026-10-26","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/40676531162","result":"Éxito"},{"run_id":"40741005049","workflow":"Abbaco Sanity Test","date":"2026-10-28","week":"2026-10-26","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/40741005049","result":"Éxito"},{"run_id":"40709873314","workflow":"Quotes Checker","date":"2026-10-28","week":"2026-10-26","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/40709873314","result":"Fallo"},{"run_id":"40684296226","workflow":"Quotes Checker","date":"2026-10-28","week":"2026-10-26","month":"2026-10","url":"https://github.com/Mercap/abbaco-cypress/actions/runs/40684296226","result":"Éxito"}],"failures":[{"id":"36559028908-0-0","run_id":"36559028908","workflow":"Abbaco Smoke Test","date":"2026-09-29","week":"2026-09-28","month":"2026-09","module":"Mi portafolio","test":"Eliminar el portafolio creado","type":"Elemento no encontrado","owner":"QA","cause_id":"production/argentina|no-encontrado:Portafolio Cypress Modificado@Mi portafolio","cause":"No aparece un elemento en Mi portafolio"},{"id":"36755443561-1-0","run_id":"36755443561","workflow":"Abbaco Sanity Test","date":"2026-09-30","week":"2026-09-28","month":"2026-09","module":"Curvas","test":"Ingreso a la curva Soberanos - Letras del Tesoro Capitalizables (LECAP) - ARS y validar cuadro de bonos","type":"Elemento no encontrado","owner":"QA","cause_id":"production/argentina|no-encontrado:li[class=\"d-flex justify-content-between align-items-start b@Curvas","cause":"No aparece un elemento en Curvas"},{"id":"37352654029-2-0","run_id":"37352654029","workflow":"Abbaco Sanity Test","date":"2026-10-05","week":"2026-10-05","month":"2026-10","module":"Curvas","test":"Ingreso a la pestaña “Internacionales” y Validar que se muestren todas las curvas esperadas en la pestaña Todas","type":"Elemento no encontrado","owner":"QA","cause_id":"production/argentina|no-encontrado:.tabler-icon.tabler-icon-arrow-left@Curvas","cause":"No aparece un elemento en Curvas"},{"id":"38265807190-3-0","run_id":"38265807190","workflow":"Quotes Checker","date":"2026-10-12","week":"2026-10-12","month":"2026-10","module":"Analizar","test":"Validar en Abbaco que la cotización intradiaria del bono AL30 sea la correcta","type":"Datos incorrectos","owner":"Dev Abbaco","cause_id":"production/argentina|cotizacion-distinta-AL30","cause":"Cotización de AL30 distinta a Pepper"},{"id":"38287973474-4-0","run_id":"38287973474","workflow":"Abbaco Sanity Test","date":"2026-10-12","week":"2026-10-12","month":"2026-10","module":"Curvas","test":"Ingreso en \"Análisis online\" de la curva de: Corporativos - Alimentos - USD","type":"Elemento no encontrado","owner":"QA","cause_id":"production/argentina|no-encontrado:.tab-pane.active button.p-N.text-link.border-N.btn.btn-none@Curvas","cause":"No aparece un elemento en Curvas"},{"id":"38416784859-5-0","run_id":"38416784859","workflow":"Quotes Checker","date":"2026-10-13","week":"2026-10-12","month":"2026-10","module":"Sensibilidad","test":"Validar la cotización intradiaria del bono AL30 sea la correcta","type":"Carga que no termina","owner":"Dev Abbaco","cause_id":"production/argentina|carga-no-termina@Sensibilidad","cause":"Sensibilidad se queda cargando"},{"id":"38731384073-6-0","run_id":"38731384073","workflow":"Quotes Checker","date":"2026-10-15","week":"2026-10-12","month":"2026-10","module":"Mis portafolios","test":"Validar la cotización de cierre de los bonos MR43O, BDC28 y TX28 en Mis Portafolios","type":"Elemento no encontrado","owner":"QA","cause_id":"production/argentina|no-encontrado:/(Nuevo portafolio|Novo portfólio)/i@Mis portafolios","cause":"No aparece un elemento en Mis portafolios"},{"id":"38897524288-7-0","run_id":"38897524288","workflow":"Quotes Checker","date":"2026-10-16","week":"2026-10-12","month":"2026-10","module":"Mis portafolios","test":"Validar la cotización de cierre de los bonos MR43O, BDC28 y TX28 en Mis Portafolios","type":"Elemento no encontrado","owner":"QA","cause_id":"production/argentina|no-encontrado:/(Nuevo portafolio|Novo portfólio)/i@Mis portafolios","cause":"No aparece un elemento en Mis portafolios"},{"id":"38918984261-8-0","run_id":"38918984261","workflow":"Quotes Checker","date":"2026-10-16","week":"2026-10-12","month":"2026-10","module":"Bonos Favoritos","test":"Validar la cotización intradiaria del bono MR43O en la sección Bonos Favoritos","type":"Elemento no encontrado","owner":"QA","cause_id":"production/argentina|no-encontrado:.tradable-security-preview-card@Bonos Favoritos","cause":"No aparece un elemento en Bonos Favoritos"},{"id":"39248715946-9-0","run_id":"39248715946","workflow":"Quotes Checker","date":"2026-10-19","week":"2026-10-19","month":"2026-10","module":"Mis portafolios","test":"Validar la cotización de cierre de los bonos MR43O, BDC28 y TX28 en Mis Portafolios","type":"Elemento no encontrado","owner":"QA","cause_id":"production/argentina|no-encontrado:/(Nuevo portafolio|Novo portfólio)/i@Mis portafolios","cause":"No aparece un elemento en Mis portafolios"},{"id":"39272526189-10-0","run_id":"39272526189","workflow":"Quotes Checker","date":"2026-10-19","week":"2026-10-19","month":"2026-10","module":"Analizar","test":"Validar en Abbaco que la cotización intradiaria del bono BDC28 sea la correcta","type":"Datos incorrectos","owner":"Dev Abbaco","cause_id":"production/argentina|cotizacion-distinta-BDC28","cause":"Cotización de BDC28 distinta a Pepper"},{"id":"39466274683-11-0","run_id":"39466274683","workflow":"Abbaco Smoke Test","date":"2026-10-20","week":"2026-10-19","month":"2026-10","module":"Analizar","test":"Análisis de Sensibilidad de la especie AL30","type":"Elemento tapado","owner":"QA","cause_id":"production/argentina|elemento-tapado@Analizar","cause":"Algo tapa la pantalla en Analizar"},{"id":"39466274683-12-0","run_id":"39466274683","workflow":"Abbaco Smoke Test","date":"2026-10-20","week":"2026-10-19","month":"2026-10","module":"Calculadora","test":"Simular inversiones de la especie AL30 y validar que se muestren correctamente","type":"Elemento tapado","owner":"QA","cause_id":"production/argentina|popover-changelog","cause":"Aviso de novedades tapa la pantalla"},{"id":"39466274683-12-1","run_id":"39466274683","workflow":"Abbaco Smoke Test","date":"2026-10-20","week":"2026-10-19","month":"2026-10","module":"Calculadora","test":"Simular inversiones de la especie AL30 y validar que se muestren correctamente","type":"Elemento tapado","owner":"QA","cause_id":"production/argentina|popover-changelog","cause":"Aviso de novedades tapa la pantalla"},{"id":"39466274683-12-2","run_id":"39466274683","workflow":"Abbaco Smoke Test","date":"2026-10-20","week":"2026-10-19","month":"2026-10","module":"Calculadora","test":"Simular inversiones de la especie AL30 y validar que se muestren correctamente","type":"Elemento tapado","owner":"QA","cause_id":"production/argentina|popover-changelog","cause":"Aviso de novedades tapa la pantalla"},{"id":"39470937672-13-0","run_id":"39470937672","workflow":"Abbaco Sanity Test","date":"2026-10-20","week":"2026-10-19","month":"2026-10","module":"Mi portafolio","test":"Agregar las especie AL30, MR43O, BDC28 y TX28 al portafolio","type":"Elemento tapado","owner":"QA","cause_id":"production/argentina|popover-changelog","cause":"Aviso de novedades tapa la pantalla"},{"id":"39588690808-14-0","run_id":"39588690808","workflow":"Abbaco Smoke Test","date":"2026-10-21","week":"2026-10-19","month":"2026-10","module":"Analizar","test":"Análisis de Sensibilidad de la especie AL30","type":"Elemento tapado","owner":"QA","cause_id":"production/argentina|elemento-tapado@Analizar","cause":"Algo tapa la pantalla en Analizar"},{"id":"39588690808-15-0","run_id":"39588690808","workflow":"Abbaco Smoke Test","date":"2026-10-21","week":"2026-10-19","month":"2026-10","module":"Calculadora","test":"Simular inversiones de la especie AL30 y validar que se muestren correctamente","type":"Elemento tapado","owner":"QA","cause_id":"production/argentina|popover-changelog","cause":"Aviso de novedades tapa la pantalla"},{"id":"39588690808-15-1","run_id":"39588690808","workflow":"Abbaco Smoke Test","date":"2026-10-21","week":"2026-10-19","month":"2026-10","module":"Calculadora","test":"Simular inversiones de la especie AL30 y validar que se muestren correctamente","type":"Elemento tapado","owner":"QA","cause_id":"production/argentina|popover-changelog","cause":"Aviso de novedades tapa la pantalla"},{"id":"39588690808-15-2","run_id":"39588690808","workflow":"Abbaco Smoke Test","date":"2026-10-21","week":"2026-10-19","month":"2026-10","module":"Calculadora","test":"Simular inversiones de la especie AL30 y validar que se muestren correctamente","type":"Elemento tapado","owner":"QA","cause_id":"production/argentina|popover-changelog","cause":"Aviso de novedades tapa la pantalla"},{"id":"39596166189-16-0","run_id":"39596166189","workflow":"Quotes Checker","date":"2026-10-21","week":"2026-10-19","month":"2026-10","module":"Mis portafolios","test":"Validar la cotización de cierre de los bonos MR43O, BDC28 y TX28 en Mis Portafolios","type":"Elemento tapado","owner":"QA","cause_id":"production/argentina|popover-changelog","cause":"Aviso de novedades tapa la pantalla"},{"id":"39620351988-17-0","run_id":"39620351988","workflow":"Quotes Checker","date":"2026-10-21","week":"2026-10-19","month":"2026-10","module":"Sensibilidad","test":"Validar la cotización intradiaria del bono AL30 sea la correcta","type":"Elemento tapado","owner":"QA","cause_id":"production/argentina|popover-changelog","cause":"Aviso de novedades tapa la pantalla"},{"id":"39648779993-18-0","run_id":"39648779993","workflow":"Abbaco Sanity Test","date":"2026-10-21","week":"2026-10-19","month":"2026-10","module":"Mi portafolio","test":"Agregar las especie AL30, MR43O, BDC28 y TX28 al portafolio","type":"Elemento tapado","owner":"QA","cause_id":"production/argentina|popover-changelog","cause":"Aviso de novedades tapa la pantalla"},{"id":"39774858567-19-0","run_id":"39774858567","workflow":"Quotes Checker","date":"2026-10-22","week":"2026-10-19","month":"2026-10","module":"Mis portafolios","test":"Validar la cotización de cierre de los bonos MR43O, BDC28 y TX28 en Mis Portafolios","type":"Elemento tapado","owner":"QA","cause_id":"production/argentina|popover-changelog","cause":"Aviso de novedades tapa la pantalla"},{"id":"39799191741-20-0","run_id":"39799191741","workflow":"Quotes Checker","date":"2026-10-22","week":"2026-10-19","month":"2026-10","module":"Sensibilidad","test":"Validar la cotización intradiaria del bono AL30 sea la correcta","type":"Elemento tapado","owner":"QA","cause_id":"production/argentina|popover-changelog","cause":"Aviso de novedades tapa la pantalla"},{"id":"40311739534-21-0","run_id":"40311739534","workflow":"Abbaco Smoke Test","date":"2026-10-26","week":"2026-10-26","month":"2026-10","module":"Calculadora","test":"Editar la TIR de la primera simulación y verificar en la tabla de Simulaciones","type":"Elemento no encontrado","owner":"QA","cause_id":"production/argentina|no-encontrado:button.editable-value@Calculadora","cause":"No aparece un elemento en Calculadora"},{"id":"40343360815-22-0","run_id":"40343360815","workflow":"Quotes Checker","date":"2026-10-26","week":"2026-10-26","month":"2026-10","module":"Analizar","test":"Validar la cotización de intradiaria en el campo Valor en Simular Inversión del bono TX28","type":"Datos incorrectos","owner":"Dev Abbaco","cause_id":"production/argentina|cotizacion-distinta-TX28","cause":"Cotización de TX28 distinta a Pepper"},{"id":"40743787638-23-0","run_id":"40743787638","workflow":"Abbaco Sanity Test","date":"2026-10-28","week":"2026-10-26","month":"2026-10","module":"Notifications","test":"[PRUEBA SherlockBot] Error provocado: elemento que no existe","type":"Elemento no encontrado","owner":"QA","cause_id":"production/argentina|no-encontrado:[data-cy=\"sherlockbot-prueba-dashboard-ci\"]@Notifications","cause":"No aparece un elemento en Notifications"}],"causes":[{"cause_id":"production/argentina|no-encontrado:Portafolio Cypress Modificado@Mi portafolio","cause":"No aparece un elemento en Mi portafolio","type":"Elemento no encontrado","owner":"QA","occurrences":1,"runs":1,"tests":1,"workflows":"Smoke Test","modules":"Mi portafolio","first_seen":"2026-09-29","last_seen":"2026-09-29","status":"Sin repetirse","example":"Eliminar el portafolio creado","message":"En Mi portafolio no aparece algo que el test espera ver. Puede ser un cambio en la pantalla.","last_run_url":"https://github.com/Mercap/abbaco-cypress/actions/runs/36559028908","slack_url":null,"evidence":"evidence/a57b5d7be575.png","evidence_w":0,"evidence_h":0,"evidence_date":"2026-09-29","evidence_test":"Eliminar el portafolio creado","evidence_workflow":"Abbaco Smoke Test","evidence_run_url":"https://github.com/Mercap/abbaco-cypress/actions/runs/36559028908"},{"cause_id":"production/argentina|no-encontrado:li[class=\"d-flex justify-content-between align-items-start b@Curvas","cause":"No aparece un elemento en Curvas","type":"Elemento no encontrado","owner":"QA","occurrences":1,"runs":1,"tests":1,"workflows":"Sanity Test","modules":"Curvas","first_seen":"2026-09-30","last_seen":"2026-09-30","status":"Sin repetirse","example":"Ingreso a la curva Soberanos - Letras del Tesoro Capitalizables (LECAP) - ARS y validar cuadro de bonos","message":"En Curvas no aparece algo que el test espera ver. Puede ser un cambio en la pantalla.","last_run_url":"https://github.com/Mercap/abbaco-cypress/actions/runs/36755443561","slack_url":null,"evidence":"evidence/9a3378058977.png","evidence_w":0,"evidence_h":0,"evidence_date":"2026-09-30","evidence_test":"Ingreso a la curva Soberanos - Letras del Tesoro Capitalizables (LECAP) - ARS y validar cuadro de bonos","evidence_workflow":"Abbaco Sanity Test","evidence_run_url":"https://github.com/Mercap/abbaco-cypress/actions/runs/36755443561"},{"cause_id":"production/argentina|no-encontrado:.tabler-icon.tabler-icon-arrow-left@Curvas","cause":"No aparece un elemento en Curvas","type":"Elemento no encontrado","owner":"QA","occurrences":1,"runs":1,"tests":1,"workflows":"Sanity Test","modules":"Curvas","first_seen":"2026-10-05","last_seen":"2026-10-05","status":"Sin repetirse","example":"Ingreso a la pestaña “Internacionales” y Validar que se muestren todas las curvas esperadas en la pestaña Toda","message":"En Curvas no aparece algo que el test espera ver. Puede ser un cambio en la pantalla.","last_run_url":"https://github.com/Mercap/abbaco-cypress/actions/runs/37352654029","slack_url":null,"evidence":"evidence/6f81e836751d.png","evidence_w":0,"evidence_h":0,"evidence_date":"2026-10-05","evidence_test":"Ingreso a la pestaña “Internacionales” y Validar que se muestren todas las curvas esperadas en la pestaña Todas","evidence_workflow":"Abbaco Sanity Test","evidence_run_url":"https://github.com/Mercap/abbaco-cypress/actions/runs/37352654029"},{"cause_id":"production/argentina|cotizacion-distinta-AL30","cause":"Cotización de AL30 distinta a Pepper","type":"Datos incorrectos","owner":"Dev Abbaco","occurrences":1,"runs":1,"tests":1,"workflows":"Quotes Checker","modules":"Analizar","first_seen":"2026-10-12","last_seen":"2026-10-12","status":"Sin repetirse","example":"Validar en Abbaco que la cotización intradiaria del bono AL30 sea la correcta","message":"La cotización de AL30 no coincide: Abbaco muestra 86600.0086 y Pepper 86580.","last_run_url":"https://github.com/Mercap/abbaco-cypress/actions/runs/38265807190","slack_url":null,"evidence":"evidence/c261015ce26f.png","evidence_w":0,"evidence_h":0,"evidence_date":"2026-10-12","evidence_test":"Validar en Abbaco que la cotización intradiaria del bono AL30 sea la correcta","evidence_workflow":"Quotes Checker","evidence_run_url":"https://github.com/Mercap/abbaco-cypress/actions/runs/38265807190"},{"cause_id":"production/argentina|no-encontrado:.tab-pane.active button.p-N.text-link.border-N.btn.btn-none@Curvas","cause":"No aparece un elemento en Curvas","type":"Elemento no encontrado","owner":"QA","occurrences":1,"runs":1,"tests":1,"workflows":"Sanity Test","modules":"Curvas","first_seen":"2026-10-12","last_seen":"2026-10-12","status":"Sin repetirse","example":"Ingreso en \"Análisis online\" de la curva de: Corporativos - Alimentos - USD","message":"En Curvas no aparece algo que el test espera ver. Puede ser un cambio en la pantalla.","last_run_url":"https://github.com/Mercap/abbaco-cypress/actions/runs/38287973474","slack_url":null,"evidence":"evidence/23f96d030fc0.png","evidence_w":0,"evidence_h":0,"evidence_date":"2026-10-12","evidence_test":"Ingreso en \"Análisis online\" de la curva de: Corporativos - Alimentos - USD","evidence_workflow":"Abbaco Sanity Test","evidence_run_url":"https://github.com/Mercap/abbaco-cypress/actions/runs/38287973474"},{"cause_id":"production/argentina|carga-no-termina@Sensibilidad","cause":"Sensibilidad se queda cargando","type":"Carga que no termina","owner":"Dev Abbaco","occurrences":1,"runs":1,"tests":1,"workflows":"Quotes Checker","modules":"Sensibilidad","first_seen":"2026-10-13","last_seen":"2026-10-13","status":"Sin repetirse","example":"Validar la cotización intradiaria del bono AL30 sea la correcta","message":"En Sensibilidad la pantalla se quedó cargando y no terminó nunca.","last_run_url":"https://github.com/Mercap/abbaco-cypress/actions/runs/38416784859","slack_url":null,"evidence":"evidence/1bb5b5306d7b.png","evidence_w":0,"evidence_h":0,"evidence_date":"2026-10-13","evidence_test":"Validar la cotización intradiaria del bono AL30 sea la correcta","evidence_workflow":"Quotes Checker","evidence_run_url":"https://github.com/Mercap/abbaco-cypress/actions/runs/38416784859"},{"cause_id":"production/argentina|no-encontrado:/(Nuevo portafolio|Novo portfólio)/i@Mis portafolios","cause":"No aparece un elemento en Mis portafolios","type":"Elemento no encontrado","owner":"QA","occurrences":3,"runs":3,"tests":3,"workflows":"Quotes Checker","modules":"Mis portafolios","first_seen":"2026-10-15","last_seen":"2026-10-19","status":"Sin repetirse","example":"Validar la cotización de cierre de los bonos MR43O, BDC28 y TX28 en Mis Portafolios","message":"En Mis portafolios no aparece algo que el test espera ver. Puede ser un cambio en la pantalla.","last_run_url":"https://github.com/Mercap/abbaco-cypress/actions/runs/39248715946","slack_url":null,"evidence":"evidence/29a086f84ca8.png","evidence_w":0,"evidence_h":0,"evidence_date":"2026-10-19","evidence_test":"Validar la cotización de cierre de los bonos MR43O, BDC28 y TX28 en Mis Portafolios","evidence_workflow":"Quotes Checker","evidence_run_url":"https://github.com/Mercap/abbaco-cypress/actions/runs/39248715946"},{"cause_id":"production/argentina|no-encontrado:.tradable-security-preview-card@Bonos Favoritos","cause":"No aparece un elemento en Bonos Favoritos","type":"Elemento no encontrado","owner":"QA","occurrences":1,"runs":1,"tests":1,"workflows":"Quotes Checker","modules":"Bonos Favoritos","first_seen":"2026-10-16","last_seen":"2026-10-16","status":"Sin repetirse","example":"Validar la cotización intradiaria del bono MR43O en la sección Bonos Favoritos","message":"En Bonos Favoritos no aparece algo que el test espera ver. Puede ser un cambio en la pantalla.","last_run_url":"https://github.com/Mercap/abbaco-cypress/actions/runs/38918984261","slack_url":null,"evidence":"evidence/44059f85dbf2.png","evidence_w":0,"evidence_h":0,"evidence_date":"2026-10-16","evidence_test":"Validar la cotización intradiaria del bono MR43O en la sección Bonos Favoritos","evidence_workflow":"Quotes Checker","evidence_run_url":"https://github.com/Mercap/abbaco-cypress/actions/runs/38918984261"},{"cause_id":"production/argentina|cotizacion-distinta-BDC28","cause":"Cotización de BDC28 distinta a Pepper","type":"Datos incorrectos","owner":"Dev Abbaco","occurrences":1,"runs":1,"tests":1,"workflows":"Quotes Checker","modules":"Analizar","first_seen":"2026-10-19","last_seen":"2026-10-19","status":"Sin repetirse","example":"Validar en Abbaco que la cotización intradiaria del bono BDC28 sea la correcta","message":"La cotización de BDC28 no coincide: Abbaco muestra 101.001 y Pepper 100.","last_run_url":"https://github.com/Mercap/abbaco-cypress/actions/runs/39272526189","slack_url":null,"evidence":"evidence/6a2a11903289.png","evidence_w":0,"evidence_h":0,"evidence_date":"2026-10-19","evidence_test":"Validar en Abbaco que la cotización intradiaria del bono BDC28 sea la correcta","evidence_workflow":"Quotes Checker","evidence_run_url":"https://github.com/Mercap/abbaco-cypress/actions/runs/39272526189"},{"cause_id":"production/argentina|elemento-tapado@Analizar","cause":"Algo tapa la pantalla en Analizar","type":"Elemento tapado","owner":"QA","occurrences":2,"runs":2,"tests":2,"workflows":"Smoke Test","modules":"Analizar","first_seen":"2026-10-20","last_seen":"2026-10-21","status":"Sin repetirse","example":"Análisis de Sensibilidad de la especie AL30","message":"En Analizar hay algo encima de la pantalla que no deja hacer clic.","last_run_url":"https://github.com/Mercap/abbaco-cypress/actions/runs/39588690808","slack_url":null,"evidence":"evidence/5bb355135622.png","evidence_w":0,"evidence_h":0,"evidence_date":"2026-10-21","evidence_test":"Análisis de Sensibilidad de la especie AL30","evidence_workflow":"Abbaco Smoke Test","evidence_run_url":"https://github.com/Mercap/abbaco-cypress/actions/runs/39588690808"},{"cause_id":"production/argentina|popover-changelog","cause":"Aviso de novedades tapa la pantalla","type":"Elemento tapado","owner":"QA","occurrences":12,"runs":8,"tests":12,"workflows":"Quotes Checker, Sanity Test, Smoke Test","modules":"Calculadora, Mi portafolio, Mis portafolios, Sensibilidad","first_seen":"2026-10-20","last_seen":"2026-10-22","status":"Sin repetirse","example":"Validar la cotización intradiaria del bono AL30 sea la correcta","message":"En Sensibilidad quedó abierto el aviso de novedades Actualización de precios y tapa la pantalla.","last_run_url":"https://github.com/Mercap/abbaco-cypress/actions/runs/39799191741","slack_url":null,"evidence":"evidence/2a2697dfd7b5.png","evidence_w":0,"evidence_h":0,"evidence_date":"2026-10-22","evidence_test":"Validar la cotización intradiaria del bono AL30 sea la correcta","evidence_workflow":"Quotes Checker","evidence_run_url":"https://github.com/Mercap/abbaco-cypress/actions/runs/39799191741"},{"cause_id":"production/argentina|no-encontrado:button.editable-value@Calculadora","cause":"No aparece un elemento en Calculadora","type":"Elemento no encontrado","owner":"QA","occurrences":1,"runs":1,"tests":1,"workflows":"Smoke Test","modules":"Calculadora","first_seen":"2026-10-26","last_seen":"2026-10-26","status":"Activa","example":"Editar la TIR de la primera simulación y verificar en la tabla de Simulaciones","message":"En Calculadora no aparece algo que el test espera ver. Puede ser un cambio en la pantalla.","last_run_url":"https://github.com/Mercap/abbaco-cypress/actions/runs/40311739534","slack_url":null,"evidence":"evidence/1921a25e862c.png","evidence_w":0,"evidence_h":0,"evidence_date":"2026-10-26","evidence_test":"Editar la TIR de la primera simulación y verificar en la tabla de Simulaciones","evidence_workflow":"Abbaco Smoke Test","evidence_run_url":"https://github.com/Mercap/abbaco-cypress/actions/runs/40311739534"},{"cause_id":"production/argentina|cotizacion-distinta-TX28","cause":"Cotización de TX28 distinta a Pepper","type":"Datos incorrectos","owner":"Dev Abbaco","occurrences":1,"runs":1,"tests":1,"workflows":"Quotes Checker","modules":"Analizar","first_seen":"2026-10-26","last_seen":"2026-10-26","status":"Activa","example":"Validar la cotización de intradiaria en el campo Valor en Simular Inversión del bono TX28","message":"La cotización de TX28 no coincide: Abbaco muestra 1806.5 y Pepper 1814.","last_run_url":"https://github.com/Mercap/abbaco-cypress/actions/runs/40343360815","slack_url":null,"evidence":"evidence/e101deb49aec.png","evidence_w":0,"evidence_h":0,"evidence_date":"2026-10-26","evidence_test":"Validar la cotización de intradiaria en el campo Valor en Simular Inversión del bono TX28","evidence_workflow":"Quotes Checker","evidence_run_url":"https://github.com/Mercap/abbaco-cypress/actions/runs/40343360815"},{"cause_id":"production/argentina|no-encontrado:[data-cy=\"sherlockbot-prueba-dashboard-ci\"]@Notifications","cause":"No aparece un elemento en Notifications","type":"Elemento no encontrado","owner":"QA","occurrences":1,"runs":1,"tests":1,"workflows":"Sanity Test","modules":"Notifications","first_seen":"2026-10-28","last_seen":"2026-10-28","status":"Activa","example":"[PRUEBA SherlockBot] Error provocado: elemento que no existe","message":"En Notifications no aparece algo que el test espera ver. Puede ser un cambio en la pantalla.","last_run_url":"https://github.com/Mercap/abbaco-cypress/actions/runs/40743787638","slack_url":"https://mercap.slack.com/archives/C07FJ8EEQ5U/p1793211966546649","evidence":"evidence/f4d7c6c9b4dc.png","evidence_w":0,"evidence_h":0,"evidence_date":"2026-10-28","evidence_test":"[PRUEBA SherlockBot] Error provocado: elemento que no existe","evidence_workflow":"Abbaco Sanity Test","evidence_run_url":"https://github.com/Mercap/abbaco-cypress/actions/runs/40743787638"}],"meta":{"updated":"28/10/2026, 03:26 p. m.","summary":"La estabilidad pegó un salto positivo pasando del 54% al 77% de éxito en las 22 corridas de esta semana. El problema principal son los avisos de novedades que tapan la pantalla y las correcciones pendientes les tocan tanto a QA como al equipo de Dev Abbaco.","generated_at":"2026-10-28T18:26:19.718Z"}};
+// Adaptador: la página se escribió para el tipo Dashboard de Claude (dash.calc/data/onData/params);
+// acá esa API se resuelve en el navegador con los datos incrustados arriba.
+window.dash = (function () {
+  var SRC = window.__DASH_DATA__, CALC = {}, subs = [];
+  var defaults = { rango: 'todo', dia: null, repeticion: 'todas' }, params = Object.assign({}, defaults);
+  function get(id) { return Object.prototype.hasOwnProperty.call(SRC, id) ? SRC[id] : CALC[id]; }
+  function run() { subs.forEach(function (f) { f(); }); }
+  var t; window.addEventListener('resize', function () { clearTimeout(t); t = setTimeout(run, 150); });
+  return {
+    calc: function (id, o) { CALC[id] = o.fn.apply(null, o.inputs.map(get)); },
+    data: function (id) { var d = get(id); return { status: d ? 'ok' : 'missing', data: d || [], columns: [], meta: [] }; },
+    onData: function (fn) { subs.push(fn); if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', fn); else fn(); },
+    params: function () { return Object.assign({}, params); },
+    setParams: function (p) { params = Object.assign({}, params, p); run(); },
+    resetParams: function () { params = Object.assign({}, defaults); run(); },
+    setLink: function () {}, refresh: function () {},
+    colors: ['#3182ce', '#dd6b20', '#38a169', '#805ad5', '#d69e2e', '#e53e3e', '#319795', '#718096'],
+  };
+})();
+document.addEventListener('DOMContentLoaded', function () {
+  var m = window.__DASH_DATA__.meta || {};
+  var a = document.getElementById('actualizado'); if (a) a.textContent = m.updated || '—';
+  var l = document.getElementById('lectura'); if (l && m.summary) { l.textContent = '🤖 ' + m.summary; l.hidden = false; }
+});
+</script>
+</head>
+<body>
+<div id="dash-root">
+<style>
+/* Estilo de los informes de abbaco-cypress (AI Failure Report + informe de performance):
+   banda oscura de encabezado, superficie gris clara, tarjetas blancas con sombra, pills semánticas. */
+#dash-root { --dash-gutter: 0; }
+.qa {
+  --qa-header: #1a252f; --qa-header-2: #0f172a; --qa-surface: #f7fafc; --qa-card: #ffffff; --qa-th: #f8fafc;
+  --qa-border: #e2e8f0; --qa-text: #2d3748; --qa-muted: #718096; --qa-accent: #3182ce;
+  --qa-red: #e53e3e; --qa-red-bg: #fff5f5; --qa-red-bd: #feb2b2;
+  --qa-yellow: #b7791f; --qa-yel-bg: #fffff0; --qa-yel-bd: #faf089;
+  --qa-green: #38a169; --qa-grn-bg: #f0fff4; --qa-grn-bd: #9ae6b4;
+  --qa-blue: #3182ce; --qa-blu-bg: #ebf8ff; --qa-blu-bd: #90cdf4;
+  --qa-orange: #dd6b20; --qa-org-bg: #fffaf0; --qa-org-bd: #fbd38d;
+  --qa-gray-bg: #f2f3f4; --qa-gray-bd: #cbd5e0;
+  --qa-shadow: 0 1px 3px rgba(0,0,0,.1), 0 1px 2px rgba(0,0,0,.06);
+  --qa-shadow-md: 0 4px 6px rgba(0,0,0,.07), 0 2px 4px rgba(0,0,0,.06);
+  --qa-c1: #dd6b20; --qa-c2: #3182ce; --qa-c3: #805ad5; --qa-c4: #d69e2e; --qa-c5: #e53e3e; --qa-c6: #319795; --qa-c7: #718096; --qa-c8: #a0aec0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 14px; line-height: 1.6;
+  background: var(--qa-surface); color: var(--qa-text); display: grid; gap: 0;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .qa {
+    --qa-surface: #0f1720; --qa-card: #1a2330; --qa-th: #151d28; --qa-border: #2d3a4b; --qa-text: #e2e8f0; --qa-muted: #94a3b8;
+    --qa-red: #fc8181; --qa-red-bg: rgba(229,62,62,.14); --qa-red-bd: rgba(252,129,129,.4);
+    --qa-yellow: #f6e05e; --qa-yel-bg: rgba(214,158,46,.14); --qa-yel-bd: rgba(246,224,94,.35);
+    --qa-green: #68d391; --qa-grn-bg: rgba(56,161,105,.14); --qa-grn-bd: rgba(104,211,145,.35);
+    --qa-blue: #63b3ed; --qa-blu-bg: rgba(49,130,206,.16); --qa-blu-bd: rgba(99,179,237,.4);
+    --qa-orange: #f6ad55; --qa-org-bg: rgba(221,107,32,.14); --qa-org-bd: rgba(246,173,85,.35);
+    --qa-gray-bg: rgba(148,163,184,.12); --qa-gray-bd: rgba(148,163,184,.35); --qa-accent: #63b3ed;
+    --qa-shadow: 0 1px 3px rgba(0,0,0,.4); --qa-shadow-md: 0 4px 10px rgba(0,0,0,.4);
+  }
+}
+:root[data-theme="dark"] .qa {
+  --qa-surface: #0f1720; --qa-card: #1a2330; --qa-th: #151d28; --qa-border: #2d3a4b; --qa-text: #e2e8f0; --qa-muted: #94a3b8;
+  --qa-red: #fc8181; --qa-red-bg: rgba(229,62,62,.14); --qa-red-bd: rgba(252,129,129,.4);
+  --qa-yellow: #f6e05e; --qa-yel-bg: rgba(214,158,46,.14); --qa-yel-bd: rgba(246,224,94,.35);
+  --qa-green: #68d391; --qa-grn-bg: rgba(56,161,105,.14); --qa-grn-bd: rgba(104,211,145,.35);
+  --qa-blue: #63b3ed; --qa-blu-bg: rgba(49,130,206,.16); --qa-blu-bd: rgba(99,179,237,.4);
+  --qa-orange: #f6ad55; --qa-org-bg: rgba(221,107,32,.14); --qa-org-bd: rgba(246,173,85,.35);
+  --qa-gray-bg: rgba(148,163,184,.12); --qa-gray-bd: rgba(148,163,184,.35); --qa-accent: #63b3ed;
+  --qa-shadow: 0 1px 3px rgba(0,0,0,.4); --qa-shadow-md: 0 4px 10px rgba(0,0,0,.4);
+}
+
+/* Encabezado oscuro, igual en los dos temas, como en los informes */
+.qa-head { background: linear-gradient(135deg, var(--qa-header-2) 0%, var(--qa-header) 100%); color: #fff; }
+.qa-head-inner, .qa-body, .qa-foot { max-width: 1240px; margin-inline: auto; width: 100%; padding-inline: clamp(16px, 3vw, 32px); }
+.qa-head-inner { padding-block: 24px 20px; display: grid; gap: 6px; }
+.qa-eyebrow { font-size: 11px; font-weight: 700; color: #64748b; letter-spacing: 2px; text-transform: uppercase; }
+.qa-head h1 { font-size: 24px; font-weight: 700; letter-spacing: -.3px; margin: 0; color: #fff; display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.qa-badge { display: inline-flex; align-items: center; font-size: 12px; font-weight: 600; padding: 3px 12px; border-radius: 20px; background: #e53e3e22; border: 1px solid #fc818166; color: #feb2b2; }
+.qa-meta { display: flex; flex-wrap: wrap; gap: 6px 22px; font-size: 13px; color: #94a3b8; }
+.qa-meta strong { color: #e2e8f0; font-weight: 500; }
+.qa-takeaway-band { background: #ffffff0d; border-top: 1px solid #ffffff15; }
+.qa-takeaway { max-width: 1240px; margin-inline: auto; padding: 12px clamp(16px, 3vw, 32px); font-size: 14px; color: #cbd5e0; }
+.qa-takeaway b { color: #fff; font-weight: 600; }
+
+.qa-body { padding-block: 24px 8px; display: grid; gap: 28px; }
+.qa-section-title { font-size: 15px; font-weight: 700; color: var(--qa-text); margin: 0 0 14px; padding-bottom: 8px; border-bottom: 2px solid var(--qa-border); display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+
+/* Indicadores */
+.qa-kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 170px), 1fr)); gap: 14px; }
+.qa-kpi { background: var(--qa-card); border: 1px solid var(--qa-border); border-radius: 10px; box-shadow: var(--qa-shadow); padding: 16px 20px; display: grid; gap: 4px; align-content: start; }
+.qa-kpi-label { font-size: 11px; font-weight: 600; color: var(--qa-muted); text-transform: uppercase; letter-spacing: .6px; }
+.qa-kpi-value { font-size: 28px; font-weight: 700; color: var(--qa-text); line-height: 1.15; font-variant-numeric: tabular-nums; }
+.qa-kpi-value.is-good { color: var(--qa-green); } .qa-kpi-value.is-warn { color: var(--qa-yellow); } .qa-kpi-value.is-bad { color: var(--qa-red); }
+.qa-kpi-note { font-size: 11px; color: var(--qa-muted); font-variant-numeric: tabular-nums; }
+.qa-up { color: var(--qa-green); font-weight: 600; } .qa-down { color: var(--qa-red); font-weight: 600; }
+
+/* Tarjetas */
+.qa-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 26rem), 1fr)); gap: 16px; }
+.qa-card { background: var(--qa-card); border: 1px solid var(--qa-border); border-radius: 10px; box-shadow: var(--qa-shadow); padding: 20px 22px; display: grid; gap: 12px; align-content: start; min-width: 0; }
+.qa-card h2 { font-size: 15px; font-weight: 700; margin: 0; color: var(--qa-text); }
+.qa-note { color: var(--qa-muted); font-size: 12px; margin: 0; }
+.qa-wide { grid-column: 1 / -1; }
+.qa-cardhead { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px; padding-bottom: 10px; border-bottom: 2px solid var(--qa-border); }
+
+/* Selectores tipo "sec-pill" */
+.qa-toggle { display: inline-flex; flex-wrap: wrap; gap: 6px; }
+.qa-toggle button { font: inherit; font-size: 13px; font-weight: 600; padding: 5px 16px; border-radius: 20px; border: 1px solid var(--qa-border); background: var(--qa-surface); color: var(--qa-muted); cursor: pointer; }
+.qa-toggle button:hover { color: var(--qa-text); border-color: var(--qa-gray-bd); }
+.qa-toggle button[aria-pressed="true"] { background: var(--qa-accent); border-color: var(--qa-accent); color: #fff; }
+.qa-toggle button:focus-visible { outline: 2px solid var(--qa-accent); outline-offset: 2px; }
+
+.qa-chart { position: relative; min-height: 280px; }
+.qa-legend { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 12px; color: var(--qa-muted); }
+.qa-legend span { display: inline-flex; align-items: center; gap: 6px; }
+.qa-legend i { width: 10px; height: 10px; border-radius: 3px; display: inline-block; }
+.qa-tip { position: absolute; pointer-events: none; background: var(--qa-card); border: 1px solid var(--qa-border); border-radius: 8px; box-shadow: 0 8px 28px rgba(0,0,0,.18); padding: 6px 10px; font-size: 12px; white-space: nowrap; z-index: 2; color: var(--qa-text); }
+.qa-tip .t { color: var(--qa-muted); font-weight: 600; }
+
+/* Tablas */
+.qa-table-wrap { overflow-x: auto; border: 1px solid var(--qa-border); border-radius: 8px; }
+.qa-table { width: 100%; border-collapse: collapse; font-size: 13px; font-variant-numeric: tabular-nums; background: var(--qa-card); }
+.qa-table th { text-align: left; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; color: var(--qa-muted); padding: 10px 14px; border-bottom: 1px solid var(--qa-border); background: var(--qa-th); position: sticky; top: 0; z-index: 1; white-space: nowrap; }
+.qa-table td { padding: 10px 14px; border-bottom: 1px solid var(--qa-border); vertical-align: middle; color: var(--qa-text); }
+.qa-table tbody tr:last-child td { border-bottom: none; }
+.qa-table tbody tr:hover td { background: var(--qa-th); }
+.qa-table .num { text-align: right; }
+.qa-barcell { display: grid; grid-template-columns: 3.2rem 1fr; align-items: center; gap: 10px; min-width: 8rem; font-weight: 600; }
+.qa-bar { height: 8px; border-radius: 4px; background: var(--qa-border); overflow: hidden; }
+.qa-bar > div { height: 100%; border-radius: 4px; }
+.qa-scroll { max-height: 30rem; overflow: auto; }
+.qa-search { font: inherit; font-size: 13px; padding: 6px 12px; border: 1px solid var(--qa-border); border-radius: 8px; background: var(--qa-surface); color: var(--qa-text); min-width: 0; width: min(100%, 18rem); }
+.qa-search:focus-visible { outline: 2px solid var(--qa-accent); outline-offset: 1px; }
+
+/* Pills semánticas */
+.qa-pill { display: inline-flex; align-items: center; gap: 4px; font-size: 11px; font-weight: 600; padding: 2px 9px; border-radius: 12px; border: 1px solid var(--qa-gray-bd); background: var(--qa-gray-bg); color: var(--qa-muted); white-space: nowrap; }
+.qa-pill.on, .qa-pill.red { background: var(--qa-red-bg); border-color: var(--qa-red-bd); color: var(--qa-red); }
+.qa-pill.off { background: var(--qa-gray-bg); border-color: var(--qa-gray-bd); color: var(--qa-muted); }
+.qa-pill.orange { background: var(--qa-org-bg); border-color: var(--qa-org-bd); color: var(--qa-orange); }
+.qa-pill.blue { background: var(--qa-blu-bg); border-color: var(--qa-blu-bd); color: var(--qa-blue); }
+.qa-pill.yellow { background: var(--qa-yel-bg); border-color: var(--qa-yel-bd); color: var(--qa-yellow); }
+
+/* Filtro de período */
+.qa-filter { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; }
+.qa-filter-label { font-size: 11px; font-weight: 700; color: var(--qa-muted); text-transform: uppercase; letter-spacing: .6px; min-width: 6.5rem; }
+.qa-filters { display: grid; gap: 10px; }
+.qa-filter label { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 600; color: var(--qa-muted); text-transform: uppercase; letter-spacing: .5px; }
+.qa-date { font: inherit; font-size: 13px; text-transform: none; letter-spacing: 0; font-weight: 400; padding: 4px 10px; border: 1px solid var(--qa-border); border-radius: 20px; background: var(--qa-surface); color: var(--qa-text); }
+.qa-date.on { border-color: var(--qa-accent); box-shadow: 0 0 0 1px var(--qa-accent); }
+.qa-range { display: flex; flex-wrap: wrap; gap: 4px 22px; padding: 10px 16px; border-radius: 8px; background: var(--qa-blu-bg); border: 1px solid var(--qa-blu-bd); font-size: 13px; font-variant-numeric: tabular-nums; color: var(--qa-text); }
+.qa-range b { font-weight: 700; }
+.qa-range .muted { color: var(--qa-muted); }
+.qa-empty { color: var(--qa-muted); font-size: 13px; padding: 14px; margin: 0; }
+.qa-table tbody tr.has-shot { cursor: zoom-in; }
+.qa-table tbody tr:focus-visible { outline: 2px solid var(--qa-accent); outline-offset: -2px; }
+
+/* Evidencia: una tarjeta por causa con borde izquierdo según estado, como las tarjetas de conclusión */
+.qa-evlist { display: grid; gap: 16px; }
+.qa-ev { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: 20px; padding: 16px 18px; border: 1px solid var(--qa-border); border-left: 5px solid var(--qa-gray-bd); border-radius: 10px; background: var(--qa-card); box-shadow: var(--qa-shadow-md); align-items: start; }
+.qa-ev.is-active { border-left-color: var(--qa-red); }
+@media (max-width: 760px) { .qa-ev { grid-template-columns: minmax(0, 1fr); } }
+.qa-ev figure { margin: 0; display: grid; gap: 6px; min-width: 0; }
+.qa-shot { position: relative; display: block; width: 100%; padding: 0; border: 1px solid var(--qa-border); border-radius: 8px; overflow: hidden; background: var(--qa-surface); cursor: zoom-in; }
+.qa-shot img { display: block; width: 100%; height: auto; }
+.qa-shot:focus-visible { outline: 2px solid var(--qa-accent); outline-offset: 2px; }
+.qa-zoom { position: absolute; right: 10px; bottom: 10px; padding: 3px 12px; border-radius: 20px; background: var(--qa-header); color: #fff; font-size: 12px; font-weight: 600; box-shadow: var(--qa-shadow-md); opacity: .92; }
+@media (hover: hover) { .qa-zoom { opacity: 0; } .qa-shot:hover .qa-zoom, .qa-shot:focus-visible .qa-zoom { opacity: .92; } }
+@media (hover: hover) and (prefers-reduced-motion: no-preference) { .qa-zoom { transition: opacity .2s ease-out; } }
+.qa-ev figcaption { color: var(--qa-muted); font-size: 12px; overflow-wrap: anywhere; }
+.qa-ev-body { display: grid; gap: 10px; align-content: start; min-width: 0; }
+.qa-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.qa-ev-title { font-size: 16px; font-weight: 700; line-height: 1.3; margin: 0; color: var(--qa-text); text-wrap: balance; }
+.qa-ev-msg { font-size: 14px; margin: 0; line-height: 1.6; color: var(--qa-text); }
+.qa-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin: 0; }
+.qa-stats div { display: grid; gap: 2px; min-width: 0; background: var(--qa-surface); border: 1px solid var(--qa-border); border-radius: 8px; padding: 8px 12px; }
+.qa-stats dt { color: var(--qa-muted); font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: .6px; }
+.qa-stats dd { margin: 0; font-size: 20px; font-weight: 700; font-variant-numeric: tabular-nums; color: var(--qa-text); }
+.qa-ev-meta { color: var(--qa-muted); font-size: 12px; margin: 0; }
+.qa-ev-meta b { color: var(--qa-text); font-weight: 600; }
+.qa-ev a, .qa-foot a { font-size: 13px; color: var(--qa-accent); text-decoration: none; justify-self: start; font-weight: 600; }
+.qa-ev a:hover { text-decoration: underline; }
+.qa-more { font: inherit; font-size: 13px; font-weight: 600; justify-self: center; padding: 6px 20px; border: 1px solid var(--qa-accent); border-radius: 20px; background: transparent; color: var(--qa-accent); cursor: pointer; }
+.qa-more:hover { background: var(--qa-accent); color: #fff; }
+.qa-more:focus-visible { outline: 2px solid var(--qa-accent); outline-offset: 2px; }
+
+/* Visor */
+.qa-viewer { width: min(96vw, 1320px); max-height: 94vh; padding: 0; border: 1px solid var(--qa-border); border-radius: 10px; background: var(--qa-card); color: var(--qa-text); box-shadow: 0 20px 50px rgba(0,0,0,.35); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+.qa-viewer::backdrop { background: rgba(10, 14, 20, .75); }
+.qa-viewer-inner { display: grid; grid-template-rows: auto minmax(0, 1fr) auto; max-height: 94vh; }
+.qa-viewer-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 18px; background: var(--qa-header); color: #fff; }
+.qa-viewer-head h3 { margin: 0; font-size: 15px; font-weight: 700; min-width: 0; overflow-wrap: anywhere; color: #fff; }
+.qa-viewer-img { overflow: auto; background: var(--qa-surface); display: grid; place-items: center; }
+.qa-viewer-img img { display: block; max-width: 100%; height: auto; }
+.qa-viewer-foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; padding: 10px 18px; border-top: 1px solid var(--qa-border); font-size: 12px; color: var(--qa-muted); }
+.qa-viewer-nav { display: inline-flex; gap: 8px; align-items: center; font-variant-numeric: tabular-nums; }
+.qa-icon-btn { font: inherit; font-size: 12px; font-weight: 600; padding: 5px 14px; border: 1px solid var(--qa-border); border-radius: 20px; background: var(--qa-surface); color: var(--qa-text); cursor: pointer; white-space: nowrap; }
+.qa-viewer-head .qa-icon-btn { background: #ffffff14; border-color: #ffffff33; color: #fff; }
+.qa-icon-btn:disabled { opacity: .4; cursor: default; }
+.qa-icon-btn:focus-visible { outline: 2px solid var(--qa-accent); outline-offset: 2px; }
+
+.qa-foot { text-align: center; padding-block: 20px 28px; color: var(--qa-muted); font-size: 12px; border-top: 1px solid var(--qa-border); }
+.qa-foot strong { color: var(--qa-accent); }
+.qa-hide-narrow { }
+@media (max-width: 640px) { .qa-hide-narrow { display: none; } }
+[data-dash-source-state=empty] { color: transparent; }
+[data-dash-source-state=refreshing] { opacity: .5; transition: opacity .3s; }
+</style>
+
+<div class="qa">
+  <header class="qa-head">
+    <div class="qa-head-inner">
+      <div class="qa-eyebrow">Abbaco Cypress E2E · Seguimiento de fallos</div>
+      <h1 id="titulo">Fallos QA Abbaco <span class="qa-badge"><span data-source="kpis" data-field="failed_runs" class="dash-skeleton">—</span>&nbsp;runs con fallo</span></h1>
+      <div class="qa-meta">
+        <span>📅 <strong data-source="kpis" data-field="from" class="dash-skeleton">—</strong> al <strong data-source="kpis" data-field="to" class="dash-skeleton">—</strong></span>
+        <span>🌍 <strong>production/argentina</strong></span>
+        <span>⚙️ <strong>Smoke · Sanity · Quotes Checker</strong></span>
+        <span>🔄 Actualizado: <strong id="actualizado">—</strong></span>
+        <span>📦 <strong>Mercap/abbaco-cypress</strong></span>
+      </div>
+    </div>
+    <div class="qa-takeaway-band">
+      <p class="qa-takeaway qa-lectura" id="lectura" hidden></p>
+      <p class="qa-takeaway">La causa principal, <b data-source="kpis" data-field="top_cause" class="dash-skeleton">—</b>, explica <b data-source="kpis" data-field="top_n" class="dash-skeleton">—</b> de los <span data-source="kpis" data-field="failed_tests" class="dash-skeleton">—</span> tests fallidos (<b data-source="kpis" data-field="top_share" class="dash-skeleton">—</b>).</p>
+    </div>
+  </header>
+
+  <div class="qa-body">
+  <section id="resumen" aria-labelledby="resumen-titulo">
+  <h2 class="qa-section-title" id="resumen-titulo">Resumen del período</h2>
+  <div class="qa-kpis">
+    <div class="qa-kpi"><span class="qa-kpi-label">Tasa de éxito de los runs</span><span class="qa-kpi-value dash-skeleton" data-source="kpis" data-field="success_rate">—</span><span class="qa-kpi-note">Últimos 7 días: <span data-source="kpis" data-field="rate_7d">—</span> <span class="qa-delta" data-source="kpis" data-field="delta_7d">—</span> vs. semana anterior</span></div>
+    <div class="qa-kpi"><span class="qa-kpi-label">Runs ejecutados</span><span class="qa-kpi-value dash-skeleton" data-source="kpis" data-field="runs">—</span><span class="qa-kpi-note">Todos los workflows del período</span></div>
+    <div class="qa-kpi"><span class="qa-kpi-label">Runs con fallo o cancelados</span><span class="qa-kpi-value dash-skeleton" data-source="kpis" data-field="failed_runs">—</span><span class="qa-kpi-note">Incluye fallos de infraestructura de CI</span></div>
+    <div class="qa-kpi"><span class="qa-kpi-label">Tests fallidos</span><span class="qa-kpi-value dash-skeleton" data-source="kpis" data-field="failed_tests">—</span><span class="qa-kpi-note">Cada test cuenta una vez por run</span></div>
+    <div class="qa-kpi"><span class="qa-kpi-label">Causas activas</span><span class="qa-kpi-value dash-skeleton" data-source="kpis" data-field="active_causes">—</span><span class="qa-kpi-note">de <span data-source="kpis" data-field="causes">—</span> causas distintas · activa = ocurrió en los últimos 3 días</span></div>
+  </div>
+  </section>
+
+  <section class="qa-grid">
+    <div class="qa-card qa-wide" id="tendencia">
+      <div class="qa-cardhead">
+        <h2>Tests fallidos por tipo</h2>
+        <div class="qa-toggle" role="group" aria-label="Agrupar por">
+          <button type="button" id="g-week" aria-pressed="true">Semana</button>
+          <button type="button" id="g-month" aria-pressed="false">Mes</button>
+        </div>
+      </div>
+      <p class="qa-note">Barras: tests fallidos según el tipo de error. Arriba de cada barra, la tasa de éxito de los runs del período. Septiembre incluye solo del 28 al 30.</p>
+      <div class="qa-legend" id="leyenda" data-source="by_period"></div>
+      <div class="qa-chart" id="chart-trend" data-source="by_period rate_period"></div>
+    </div>
+
+    <div class="qa-card" id="workflows">
+      <h2>Tasa de éxito por workflow</h2>
+      <p class="qa-note">Runs del período completo. Un run cancelado cuenta como fallido.</p>
+      <div class="qa-table-wrap">
+        <table class="qa-table" data-source="by_workflow" data-row-key="workflow">
+          <thead><tr><th data-field="workflow">Workflow</th><th data-field="runs" class="num">Runs</th><th data-field="failed" class="num">Fallidos</th><th data-field="rate">Éxito</th></tr></thead>
+          <tbody id="tb-workflow"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="qa-card" id="tipos">
+      <h2>Tipo de error y a quién le toca</h2>
+      <p class="qa-note">Clasificado con reglas a partir del error y del DOM, sin IA. Dev Abbaco = probable problema de la app; QA = probable ajuste del test o del CI.</p>
+      <div class="qa-table-wrap">
+        <table class="qa-table" data-source="by_type" data-row-key="type">
+          <thead><tr><th data-field="type">Tipo</th><th data-field="owner">Responsable</th><th data-field="n" class="num">Tests</th><th data-field="share">Del total</th></tr></thead>
+          <tbody id="tb-type"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="qa-card qa-wide" id="causas">
+      <div class="qa-cardhead">
+        <h2>Causas de fallo</h2>
+        <input type="search" id="buscar" class="qa-search" placeholder="Buscar causa, módulo o test" aria-label="Buscar causa, módulo o test">
+      </div>
+      <div class="qa-filters">
+      <div class="qa-filter" id="filtro-periodo">
+        <span class="qa-filter-label">Período</span>
+        <div class="qa-toggle" role="group" aria-label="Período de las causas">
+          <button type="button" data-rango="3d" aria-pressed="false">3 días</button>
+          <button type="button" data-rango="7d" aria-pressed="false">7 días</button>
+          <button type="button" data-rango="30d" aria-pressed="false">30 días</button>
+          <button type="button" data-rango="todo" aria-pressed="true">Todo</button>
+        </div>
+        <label for="dia">o un día <input type="date" id="dia" class="qa-date" min="2000-01-01" max="2099-12-31"></label>
+      </div>
+      <div class="qa-filter" id="filtro-repeticion">
+        <span class="qa-filter-label">Repetición</span>
+        <div class="qa-toggle" role="group" aria-label="Repetición de las causas">
+          <button type="button" data-rep="todas" aria-pressed="true">Todas</button>
+          <button type="button" data-rep="repetidas" aria-pressed="false">Se repiten</button>
+          <button type="button" data-rep="reaparecen" aria-pressed="false">Reaparecen</button>
+          <button type="button" data-rep="unicas" aria-pressed="false">Una sola vez</button>
+        </div>
+      </div>
+      </div>
+      <div class="qa-range" id="rango-resumen">
+        <span><b id="rs-label">—</b> <span class="muted" id="rs-dates"></span></span>
+        <span><b id="rs-runs">—</b> <span class="muted">runs</span></span>
+        <span><b id="rs-rate">—</b> <span class="muted">de éxito</span></span>
+        <span><b id="rs-fails">—</b> <span class="muted">tests fallidos</span></span>
+        <span><b id="rs-causes">—</b> <span class="muted">causas</span></span>
+        <span><b id="rs-rep">—</b> <span class="muted">se repiten</span></span>
+      </div>
+      <p class="qa-note">Fallos agrupados por causa: los que comparten causa son un solo problema aunque fallen tests distintos. Los rangos cuentan hacia atrás desde el último run de los datos. <b>Se repite</b>: apareció en 2 o más runs del período. <b>Reaparece</b>: además volvió después de 5 días o más sin aparecer. Hacé clic en una fila para ver su captura.</p>
+      <div class="qa-table-wrap qa-scroll">
+        <table class="qa-table" data-source="causes_view" data-row-key="window,cause_id">
+          <thead><tr>
+            <th data-field="status">Estado</th><th data-field="pattern">Patrón</th><th data-field="cause">Causa</th><th data-field="example" class="qa-hide-narrow">Test de ejemplo</th>
+            <th data-field="owner">Responsable</th><th data-field="occurrences" class="num">Veces</th><th data-field="runs" class="num qa-hide-narrow">Runs</th><th data-field="days" class="num qa-hide-narrow">Días</th>
+            <th data-field="modules" class="qa-hide-narrow">Módulos</th><th data-field="last_seen">Última vez</th>
+          </tr></thead>
+          <tbody id="tb-causes"></tbody>
+        </table>
+        <p class="qa-empty" id="causes-empty" hidden>No hubo tests fallidos en este período.</p>
+      </div>
+    </div>
+
+    <div class="qa-card qa-wide" id="evidencia">
+      <h2>Evidencia</h2>
+      <p class="qa-note">Última captura de cada causa del período elegido: primero las activas y después las más repetidas. Hacé clic en una captura para ampliarla. Los artifacts del run duran 90 días.</p>
+      <div class="qa-evlist" id="galeria"></div>
+      <button type="button" class="qa-more" id="ver-mas" hidden></button>
+    </div>
+  </section>
+  </div>
+  <footer class="qa-foot">Generado por <strong>abbaco-cypress</strong> · datos de GitHub Actions y Failure Reports · mismo clasificador que SherlockBot (scripts/failure-tracker.js) · se regenera después de cada run fallido</footer>
+</div>
+
+<dialog class="qa-viewer" id="visor" aria-labelledby="visor-titulo">
+  <div class="qa-viewer-inner">
+    <div class="qa-viewer-head">
+      <h3 id="visor-titulo"></h3>
+      <button type="button" class="qa-icon-btn" id="visor-cerrar">Cerrar</button>
+    </div>
+    <div class="qa-viewer-img"><img id="visor-img" alt=""></div>
+    <div class="qa-viewer-foot">
+      <span id="visor-pie"></span>
+      <span class="qa-viewer-nav">
+        <button type="button" class="qa-icon-btn" id="visor-prev">← Anterior</button>
+        <span id="visor-pos"></span>
+        <button type="button" class="qa-icon-btn" id="visor-next">Siguiente →</button>
+      </span>
+    </div>
+  </div>
+</dialog>
+
+<script>
+dash.calc('kpis', {
+  title: 'Resumen del período',
+  description: 'Totales de runs, tasa de éxito (7 días vs 7 anteriores), tests fallidos y causa principal.',
+  inputs: ['runs', 'failures', 'causes'],
+  fn: (runs, failures, causes) => {
+    const ok = (a) => a.filter((r) => r.result === 'Éxito').length;
+    const dates = runs.map((r) => r.date).sort();
+    const to = dates[dates.length - 1];
+    const day = (n) => new Date(Date.parse(to + 'T00:00:00Z') - n * 864e5).toISOString().slice(0, 10);
+    const last7 = runs.filter((r) => r.date > day(7));
+    const prev7 = runs.filter((r) => r.date > day(14) && r.date <= day(7));
+    const top = causes.slice().sort((a, b) => b.occurrences - a.occurrences)[0];
+    const rate7 = ok(last7) / last7.length, ratePrev = ok(prev7) / prev7.length;
+    return [{
+      from: dates[0], to, runs: runs.length, success_rate: ok(runs) / runs.length, failed_runs: runs.length - ok(runs),
+      failed_tests: failures.length, causes: causes.length, active_causes: causes.filter((c) => c.status === 'Activa').length,
+      rate_7d: rate7, delta_7d: rate7 - ratePrev, top_cause: top.cause, top_n: top.occurrences, top_share: top.occurrences / failures.length,
+    }];
+  },
+});
+
+dash.calc('by_period', {
+  title: 'Tests fallidos por período y tipo',
+  description: 'Cuenta de tests fallidos por semana (lunes) y por mes, separada por tipo de error.',
+  inputs: ['failures'],
+  fn: (failures) => {
+    const out = {};
+    failures.forEach((f) => {
+      [['Semana', f.week], ['Mes', f.month]].forEach(([g, p]) => {
+        const k = g + '|' + p + '|' + f.type;
+        out[k] = out[k] || { grain: g, period: p, type: f.type, n: 0 };
+        out[k].n += 1;
+      });
+    });
+    return Object.values(out);
+  },
+});
+
+dash.calc('rate_period', {
+  title: 'Tasa de éxito por período',
+  description: 'Runs y tasa de éxito por semana (lunes) y por mes.',
+  inputs: ['runs'],
+  fn: (runs) => {
+    const out = {};
+    runs.forEach((r) => {
+      [['Semana', r.week], ['Mes', r.month]].forEach(([g, p]) => {
+        const k = g + '|' + p;
+        out[k] = out[k] || { grain: g, period: p, runs: 0, ok: 0 };
+        out[k].runs += 1;
+        if (r.result === 'Éxito') out[k].ok += 1;
+      });
+    });
+    return Object.values(out).map((o) => ({ ...o, rate: o.ok / o.runs }));
+  },
+});
+
+dash.calc('by_workflow', {
+  title: 'Éxito por workflow',
+  description: 'Runs, runs fallidos o cancelados y tasa de éxito por workflow.',
+  inputs: ['runs'],
+  fn: (runs) => {
+    const out = {};
+    runs.forEach((r) => {
+      out[r.workflow] = out[r.workflow] || { workflow: r.workflow, runs: 0, failed: 0 };
+      out[r.workflow].runs += 1;
+      if (r.result !== 'Éxito') out[r.workflow].failed += 1;
+    });
+    return Object.values(out).map((o) => ({ ...o, rate: 1 - o.failed / o.runs })).sort((a, b) => a.rate - b.rate);
+  },
+});
+
+dash.calc('by_type', {
+  title: 'Fallos por tipo',
+  description: 'Tests fallidos por tipo de error, con el responsable sugerido y su parte del total.',
+  inputs: ['failures'],
+  fn: (failures) => {
+    const out = {};
+    failures.forEach((f) => {
+      out[f.type] = out[f.type] || { type: f.type, owner: f.owner, n: 0 };
+      out[f.type].n += 1;
+    });
+    return Object.values(out).map((o) => ({ ...o, share: o.n / failures.length })).sort((a, b) => b.n - a.n);
+  },
+});
+
+dash.calc('window_summary', {
+  title: 'Resumen por período',
+  description: 'Runs, tasa de éxito, tests fallidos, causas y causas repetidas (2+ runs) para los últimos 3, 7 y 30 días, todo el período y cada día con runs (window d:AAAA-MM-DD). Los rangos cuentan desde el último run.',
+  inputs: ['runs', 'failures'],
+  fn: (runs, failures) => {
+    const days = [...new Set(runs.map((r) => r.date))].sort();
+    const to = days[days.length - 1];
+    const back = (n) => new Date(Date.parse(to + 'T00:00:00Z') - (n - 1) * 864e5).toISOString().slice(0, 10);
+    const windows = [['3d', back(3), to], ['7d', back(7), to], ['30d', back(30), to], ['todo', days[0], to]]
+      .concat(days.map((d) => ['d:' + d, d, d]));
+    return windows.map(([window, from, until]) => {
+      const rs = runs.filter((r) => r.date >= from && r.date <= until);
+      const fs = failures.filter((f) => f.date >= from && f.date <= until);
+      const ok = rs.filter((r) => r.result === 'Éxito').length;
+      const runsByCause = {};
+      fs.forEach((f) => { (runsByCause[f.cause_id] = runsByCause[f.cause_id] || new Set()).add(f.run_id); });
+      return {
+        window, from, to: until, runs: rs.length, success_rate: rs.length ? ok / rs.length : null,
+        failed_tests: fs.length, causes: Object.keys(runsByCause).length,
+        repeated_causes: Object.values(runsByCause).filter((set) => set.size >= 2).length,
+      };
+    });
+  },
+});
+
+dash.calc('causes_view', {
+  title: 'Causas por período',
+  description: 'Cada causa con sus veces, runs, días, módulos y primera/última vez dentro de cada período del filtro. Patrón: Una vez (1 run), Se repite (2+ runs) o Reaparece (2+ runs con un hueco de 5 días o más).',
+  inputs: ['window_summary', 'failures', 'causes'],
+  fn: (window_summary, failures, causes) => {
+    const out = [];
+    window_summary.forEach((w) => {
+      const byCause = {};
+      failures.filter((f) => f.date >= w.from && f.date <= w.to).forEach((f) => {
+        (byCause[f.cause_id] = byCause[f.cause_id] || []).push(f);
+      });
+      causes.forEach((c) => {
+        const fs = byCause[c.cause_id];
+        if (!fs) return;
+        const dates = fs.map((f) => f.date).sort();
+        const days = [...new Set(dates)];
+        const gaps = days.slice(1).map((d, i) => (Date.parse(d) - Date.parse(days[i])) / 864e5);
+        const runs = new Set(fs.map((f) => f.run_id)).size;
+        const pattern = runs < 2 ? 'Una vez' : gaps.some((g) => g >= 5) ? 'Reaparece' : 'Se repite';
+        out.push({
+          window: w.window, cause_id: c.cause_id, cause: c.cause, type: c.type, owner: c.owner, status: c.status,
+          example: c.example, message: c.message, occurrences: fs.length, runs, days: days.length,
+          max_gap_days: gaps.length ? Math.max(...gaps) : 0, pattern,
+          modules: [...new Set(fs.map((f) => f.module))].sort().join(', '),
+          workflows: [...new Set(fs.map((f) => f.workflow))].sort().join(', '),
+          first_seen: dates[0], last_seen: dates[dates.length - 1],
+        });
+      });
+    });
+    return out;
+  },
+});
+
+(function () {
+  const pct = d3.format('.0%');
+  const signedPts = (v) => (v > 0 ? '+' : v < 0 ? '−' : '±') + Math.abs(Math.round(v * 100)) + ' pts';
+  const fmtDate = (s) => d3.utcFormat('%-d/%-m/%Y')(new Date(s + 'T00:00:00Z'));
+  const fmtShort = (s) => d3.utcFormat('%-d/%-m')(new Date(s + 'T00:00:00Z'));
+  const monthName = (s) => ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic'][+s.slice(5, 7) - 1] + ' ' + s.slice(0, 4);
+  const TYPES = ['Elemento tapado', 'Elemento no encontrado', 'Pantalla que se recarga', 'Datos incorrectos', 'Error del backend', 'Carga que no termina', 'Causa sin identificar', 'Infraestructura CI'];
+  let grain = 'Semana';
+  const typeColor = (t) => 'var(--qa-c' + (TYPES.indexOf(t) + 1 || 8) + ')';
+  const rateClass = (v) => (v >= 0.9 ? 'is-good' : v >= 0.75 ? 'is-warn' : 'is-bad');
+  const rateColor = (v) => (v >= 0.9 ? 'var(--qa-green)' : v >= 0.75 ? 'var(--qa-c4)' : 'var(--qa-red)');
+  const ownerClass = (o) => (o === 'Dev Abbaco' ? 'orange' : 'blue');
+
+  const setText = (sel, v) => document.querySelectorAll(sel).forEach((el) => { el.textContent = v; el.classList.remove('dash-skeleton'); });
+  const failLine = (el) => {
+    el.replaceChildren();
+    const box = document.createElement('div');
+    box.style.cssText = 'display:flex;align-items:center;justify-content:center;gap:8px;min-height:inherit;height:100%;color:var(--color-fg-muted);font-size:var(--cds-font-size-caption)';
+    const dot = document.createElement('span');
+    dot.style.cssText = 'width:.375rem;height:.375rem;border-radius:50%;background:var(--color-bad)';
+    box.append(dot, document.createTextNode('Failed to load'));
+    el.append(box);
+  };
+
+  function drawKpis() {
+    const k = dash.data('kpis');
+    if (k.status !== 'ok' || !k.data.length) {
+      document.querySelectorAll('[data-source="kpis"]').forEach((el) => { el.textContent = '—'; });
+      return;
+    }
+    const r = k.data[0];
+    setText('[data-source="kpis"][data-field="from"]', fmtDate(r.from));
+    setText('[data-source="kpis"][data-field="to"]', fmtDate(r.to));
+    setText('[data-source="kpis"][data-field="success_rate"]', pct(r.success_rate));
+    const sr = document.querySelector('.qa-kpi-value[data-field="success_rate"]');
+    sr.classList.remove('is-good', 'is-warn', 'is-bad');
+    sr.classList.add(rateClass(r.success_rate));
+    setText('[data-source="kpis"][data-field="rate_7d"]', pct(r.rate_7d));
+    setText('[data-source="kpis"][data-field="runs"]', d3.format(',')(r.runs));
+    setText('[data-source="kpis"][data-field="failed_runs"]', d3.format(',')(r.failed_runs));
+    setText('[data-source="kpis"][data-field="failed_tests"]', d3.format(',')(r.failed_tests));
+    setText('[data-source="kpis"][data-field="causes"]', r.causes);
+    setText('[data-source="kpis"][data-field="active_causes"]', r.active_causes);
+    setText('[data-source="kpis"][data-field="top_cause"]', r.top_cause);
+    setText('[data-source="kpis"][data-field="top_n"]', r.top_n);
+    setText('[data-source="kpis"][data-field="top_share"]', pct(r.top_share));
+    const delta = document.querySelector('[data-source="kpis"][data-field="delta_7d"]');
+    delta.textContent = signedPts(r.delta_7d);
+    delta.classList.toggle('qa-up', r.delta_7d > 0);
+    delta.classList.toggle('qa-down', r.delta_7d < 0);
+  }
+
+  function drawTrend() {
+    const el = document.getElementById('chart-trend');
+    const legend = document.getElementById('leyenda');
+    const a = dash.data('by_period'), b = dash.data('rate_period');
+    if (a.status === 'error' || b.status === 'error') { failLine(el); return; }
+    if (a.status !== 'ok' || b.status !== 'ok') { el.replaceChildren(); el.classList.add('dash-skeleton'); return; }
+    el.classList.remove('dash-skeleton');
+    el.replaceChildren();
+
+    const rows = a.data.filter((r) => r.grain === grain);
+    const rates = b.data.filter((r) => r.grain === grain);
+    const periods = rates.map((r) => r.period).sort();
+    const types = TYPES.filter((t) => rows.some((r) => r.type === t));
+    const color = typeColor;
+
+    legend.replaceChildren(...types.map((t) => {
+      const s = document.createElement('span');
+      const i = document.createElement('i');
+      i.style.background = color(t);
+      s.append(i, document.createTextNode(t));
+      return s;
+    }));
+
+    const W = Math.max(280, el.clientWidth), H = 280;
+    const m = { t: 30, r: 8, b: 28, l: 32 };
+    const table = periods.map((p) => {
+      const o = { period: p };
+      types.forEach((t) => { o[t] = d3.sum(rows.filter((r) => r.period === p && r.type === t), (r) => r.n); });
+      return o;
+    });
+    const series = d3.stack().keys(types)(table);
+    const yMax = d3.max(table, (o) => d3.sum(types, (t) => o[t])) || 1;
+    const x = d3.scaleBand(periods, [m.l, W - m.r]).paddingInner(0.35).paddingOuter(0.15);
+    const y = d3.scaleLinear([0, yMax], [H - m.b, m.t]).nice();
+    const label = (p) => (grain === 'Semana' ? 'sem. ' + fmtShort(p) : monthName(p));
+
+    const svg = d3.select(el).append('svg').attr('width', '100%').attr('viewBox', `0 0 ${W} ${H}`).attr('role', 'img')
+      .attr('aria-label', 'Tests fallidos por ' + grain.toLowerCase() + ' y tipo');
+    svg.append('g').selectAll('line').data(y.ticks(4)).join('line')
+      .attr('x1', m.l).attr('x2', W - m.r).attr('y1', (d) => y(d)).attr('y2', (d) => y(d))
+      .style('stroke', 'var(--qa-border)').attr('stroke-width', 1);
+    const ya = svg.append('g').attr('transform', `translate(${m.l},0)`).call(d3.axisLeft(y).ticks(4).tickSize(0).tickFormat(d3.format('d')));
+    ya.attr('font-size', null).attr('font-family', null).select('.domain').remove();
+    ya.selectAll('text').style('fill', 'var(--qa-muted)').style('font-size', '12px');
+    const xa = svg.append('g').attr('transform', `translate(0,${H - m.b})`).call(d3.axisBottom(x).tickSize(0).tickFormat(label));
+    xa.attr('font-size', null).attr('font-family', null);
+    xa.select('.domain').style('stroke', 'var(--qa-gray-bd)');
+    xa.selectAll('text').style('fill', 'var(--qa-muted)').attr('dy', '1.1em').style('font-size', '12px');
+
+    const tip = document.createElement('div');
+    tip.className = 'qa-tip';
+    tip.hidden = true;
+    el.append(tip);
+    const bw = Math.min(x.bandwidth(), 56);
+    const off = (x.bandwidth() - bw) / 2;
+
+    svg.append('g').selectAll('g').data(series).join('g').style('fill', (s) => color(s.key))
+      .selectAll('rect').data((s) => s.map((d) => ({ ...d, key: s.key }))).join('rect')
+      .attr('x', (d) => x(d.data.period) + off).attr('width', bw)
+      .attr('y', (d) => y(d[1])).attr('height', (d) => Math.max(0, y(d[0]) - y(d[1]) - (d[1] > d[0] ? 1 : 0)))
+      .attr('rx', 2)
+      .on('mousemove', function (ev, d) {
+        const [px, py] = d3.pointer(ev, el);
+        tip.replaceChildren();
+        const t = document.createElement('div'); t.className = 't'; t.textContent = label(d.data.period);
+        const v = document.createElement('div'); v.textContent = d.key + ': ' + (d[1] - d[0]) + ' tests';
+        tip.append(t, v);
+        tip.hidden = false;
+        const tw = tip.offsetWidth;
+        tip.style.left = Math.min(Math.max(0, px + 12), el.clientWidth - tw) + 'px';
+        tip.style.top = Math.max(0, py - 40) + 'px';
+      })
+      .on('mouseleave', () => { tip.hidden = true; });
+
+    svg.append('g').selectAll('text').data(periods).join('text')
+      .attr('x', (p) => x(p) + x.bandwidth() / 2)
+      .attr('y', (p) => y(d3.sum(types, (t) => table.find((o) => o.period === p)[t])) - 8)
+      .attr('text-anchor', 'middle').style('fill', 'var(--qa-text)').style('font-size', '12px')
+      .style('font-variant-numeric', 'tabular-nums')
+      .style('font-weight', '600')
+      .text((p) => { const r = rates.find((o) => o.period === p); return pct(r.rate) + ' éxito'; });
+  }
+
+  function barCell(td, value, frac, color) {
+    const wrap = document.createElement('div'); wrap.className = 'qa-barcell';
+    const v = document.createElement('span'); v.textContent = value;
+    const bar = document.createElement('div'); bar.className = 'qa-bar';
+    const fill = document.createElement('div'); fill.style.width = (frac * 100).toFixed(1) + '%'; fill.style.background = color;
+    bar.append(fill); wrap.append(v, bar); td.append(wrap);
+  }
+
+  function cell(tr, text, cls) {
+    const td = document.createElement('td');
+    if (cls) td.className = cls;
+    td.textContent = text;
+    tr.append(td);
+    return td;
+  }
+
+  function ownerCell(tr, owner) {
+    const td = cell(tr, '');
+    const p = document.createElement('span');
+    p.className = 'qa-pill ' + ownerClass(owner);
+    p.textContent = owner;
+    td.append(p);
+    return td;
+  }
+
+  function drawWorkflows() {
+    const tb = document.getElementById('tb-workflow');
+    const d = dash.data('by_workflow');
+    tb.replaceChildren();
+    if (d.status !== 'ok') return;
+    d.data.forEach((r) => {
+      const tr = document.createElement('tr');
+      cell(tr, r.workflow);
+      cell(tr, d3.format(',')(r.runs), 'num');
+      cell(tr, d3.format(',')(r.failed), 'num');
+      const td = document.createElement('td');
+      barCell(td, pct(r.rate), r.rate, rateColor(r.rate));
+      tr.append(td);
+      tb.append(tr);
+    });
+  }
+
+  function drawTypes() {
+    const tb = document.getElementById('tb-type');
+    const d = dash.data('by_type');
+    tb.replaceChildren();
+    if (d.status !== 'ok') return;
+    const max = d3.max(d.data, (r) => r.share) || 1;
+    d.data.forEach((r) => {
+      const tr = document.createElement('tr');
+      cell(tr, r.type);
+      ownerCell(tr, r.owner);
+      cell(tr, r.n, 'num');
+      const td = document.createElement('td');
+      barCell(td, pct(r.share), r.share / max, typeColor(r.type));
+      tr.append(td);
+      tb.append(tr);
+    });
+  }
+
+  // ── Filtro de período: rango ('3d' | '7d' | '30d' | 'todo') o un día ('d:AAAA-MM-DD') ──
+  const RANGO_LABEL = { '3d': 'Últimos 3 días', '7d': 'Últimos 7 días', '30d': 'Últimos 30 días', todo: 'Todo el período' };
+  const currentWindow = () => {
+    const p = dash.params();
+    return p.dia ? 'd:' + p.dia : (RANGO_LABEL[p.rango] ? p.rango : 'todo');
+  };
+  const mark = (el, source, where, field) => {
+    el.dataset.source = source;
+    el.dataset.where = where;
+    el.dataset.field = field;
+  };
+  const whereOf = (win, causeId) => 'window=' + encodeURIComponent(win) + (causeId ? '&cause_id=' + encodeURIComponent(causeId) : '');
+  const REP = { todas: () => true, repetidas: (r) => r.runs >= 2, reaparecen: (r) => r.pattern === 'Reaparece', unicas: (r) => r.runs < 2 };
+  const currentRep = () => (REP[dash.params().repeticion] ? dash.params().repeticion : 'todas');
+  const patternClass = (p) => (p === 'Reaparece' ? 'orange' : p === 'Se repite' ? 'yellow' : 'off');
+  let showAll = false;
+  let viewerItems = [];
+  let viewerIndex = 0;
+
+  function evidenceById() {
+    const c = dash.data('causes');
+    const map = new Map();
+    if (c.status === 'ok') c.data.forEach((r) => { if (r.evidence) map.set(r.cause_id, r); });
+    return map;
+  }
+
+  function causesInWindow(win) {
+    const d = dash.data('causes_view');
+    if (d.status !== 'ok') return null;
+    const keep = REP[currentRep()];
+    return d.data.filter((r) => r.window === win && keep(r));
+  }
+
+  function drawFilter() {
+    const win = currentWindow();
+    document.querySelectorAll('#filtro-periodo [data-rango]').forEach((b) => {
+      b.setAttribute('aria-pressed', String(b.dataset.rango === win));
+    });
+    document.querySelectorAll('#filtro-repeticion [data-rep]').forEach((b) => {
+      b.setAttribute('aria-pressed', String(b.dataset.rep === currentRep()));
+    });
+    const dia = document.getElementById('dia');
+    const s = dash.data('window_summary');
+    if (s.status === 'ok' && s.data.length) {
+      const days = s.data.filter((r) => r.window.startsWith('d:')).map((r) => r.from);
+      dia.min = days[0];
+      dia.max = days[days.length - 1];
+    }
+    if (dia !== document.activeElement) dia.value = dash.params().dia || '';
+    dia.classList.toggle('on', win.startsWith('d:'));
+
+    const ids = ['rs-runs', 'rs-rate', 'rs-fails', 'rs-causes', 'rs-rep'];
+    const row = s.status === 'ok' ? s.data.find((r) => r.window === win) : null;
+    if (!row) {
+      document.getElementById('rs-label').textContent = win.startsWith('d:') ? 'Ese día no hubo runs' : '—';
+      document.getElementById('rs-dates').textContent = '';
+      ids.forEach((id) => { const el = document.getElementById(id); el.textContent = '—'; delete el.dataset.source; });
+      return;
+    }
+    document.getElementById('rs-label').textContent = win.startsWith('d:') ? 'Día ' + fmtDate(row.from) : RANGO_LABEL[win];
+    document.getElementById('rs-dates').textContent = win.startsWith('d:') ? '' : fmtShort(row.from) + ' al ' + fmtShort(row.to);
+    [['rs-runs', 'runs', d3.format(',')(row.runs)], ['rs-rate', 'success_rate', row.success_rate == null ? '—' : pct(row.success_rate)],
+      ['rs-fails', 'failed_tests', d3.format(',')(row.failed_tests)], ['rs-causes', 'causes', d3.format(',')(row.causes)],
+      ['rs-rep', 'repeated_causes', d3.format(',')(row.repeated_causes)]]
+      .forEach(([id, field, text]) => {
+        const el = document.getElementById(id);
+        el.textContent = text;
+        mark(el, 'window_summary', whereOf(win), field);
+      });
+  }
+
+  function drawCauses() {
+    const tb = document.getElementById('tb-causes');
+    const empty = document.getElementById('causes-empty');
+    tb.replaceChildren();
+    const win = currentWindow();
+    const rows = causesInWindow(win);
+    if (!rows) { empty.hidden = true; return; }
+    const shots = evidenceById();
+    const q = document.getElementById('buscar').value.trim().toLowerCase();
+    const byRuns = currentRep() !== 'todas' && currentRep() !== 'unicas';
+    const shown = rows.slice().sort((a, b) => (byRuns ? b.runs - a.runs : 0) || b.occurrences - a.occurrences || b.last_seen.localeCompare(a.last_seen))
+      .filter((r) => !q || [r.cause, r.example, r.modules, r.workflows, r.type].join(' ').toLowerCase().includes(q));
+    empty.hidden = shown.length > 0;
+    empty.textContent = rows.length ? 'Ninguna causa coincide con la búsqueda.'
+      : currentRep() === 'todas' ? 'No hubo tests fallidos en este período.' : 'Ninguna causa de este período coincide con el filtro de repetición.';
+    shown.forEach((r) => {
+      const tr = document.createElement('tr');
+      tr.dataset.key = encodeURIComponent(r.window) + ',' + encodeURIComponent(r.cause_id);
+      const st = cell(tr, '');
+      const pill = document.createElement('span');
+      pill.className = 'qa-pill ' + (r.status === 'Activa' ? 'on' : 'off');
+      pill.textContent = r.status;
+      st.append(pill);
+      const pt = cell(tr, '');
+      const pp = document.createElement('span');
+      pp.className = 'qa-pill ' + patternClass(r.pattern);
+      pp.textContent = r.pattern;
+      pt.append(pp);
+      cell(tr, r.cause);
+      cell(tr, r.example, 'qa-hide-narrow');
+      ownerCell(tr, r.owner);
+      cell(tr, r.occurrences, 'num');
+      cell(tr, r.runs, 'num qa-hide-narrow');
+      cell(tr, r.days, 'num qa-hide-narrow');
+      cell(tr, r.modules, 'qa-hide-narrow');
+      cell(tr, fmtShort(r.last_seen));
+      if (shots.has(r.cause_id)) {
+        tr.classList.add('has-shot');
+        tr.tabIndex = 0;
+        tr.setAttribute('aria-label', 'Ver captura de ' + r.cause);
+        const open = () => openViewerFor(r.cause_id);
+        tr.addEventListener('click', open);
+        tr.addEventListener('keydown', (ev) => { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); open(); } });
+      }
+      tb.append(tr);
+    });
+  }
+
+  function galleryItems() {
+    const win = currentWindow();
+    const rows = causesInWindow(win) || [];
+    const shots = evidenceById();
+    return rows.filter((r) => shots.has(r.cause_id))
+      .sort((a, b) => (b.status === 'Activa') - (a.status === 'Activa') || b.occurrences - a.occurrences)
+      .map((r) => ({ view: r, ev: shots.get(r.cause_id) }));
+  }
+
+  function chip(text, cls) {
+    const s = document.createElement('span');
+    s.className = 'qa-pill ' + (cls || 'off');
+    s.textContent = text;
+    return s;
+  }
+
+  function drawGallery() {
+    const g = document.getElementById('galeria');
+    const more = document.getElementById('ver-mas');
+    g.replaceChildren();
+    const items = galleryItems();
+    viewerItems = items;
+    const LIMIT = 4;
+    const visible = showAll ? items : items.slice(0, LIMIT);
+    more.hidden = items.length <= LIMIT;
+    more.textContent = showAll ? 'Mostrar menos' : 'Ver las ' + items.length + ' capturas';
+    if (!items.length) {
+      const p = document.createElement('p');
+      p.className = 'qa-empty';
+      p.textContent = causesInWindow(currentWindow()) ? 'No hay capturas para este período.' : '';
+      g.append(p);
+      return;
+    }
+    visible.forEach(({ view: r, ev }, i) => {
+      const where = whereOf(r.window, r.cause_id);
+      const card = document.createElement('article');
+      card.className = 'qa-ev' + (r.status === 'Activa' ? ' is-active' : '');
+
+      const fig = document.createElement('figure');
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'qa-shot';
+      btn.setAttribute('aria-label', 'Ampliar captura: ' + r.cause);
+      if (ev.evidence_w && ev.evidence_h) btn.style.aspectRatio = ev.evidence_w + ' / ' + ev.evidence_h;
+      const img = document.createElement('img');
+      img.src = ev.evidence;
+      img.alt = 'Captura del fallo: ' + r.cause;
+      img.loading = 'lazy';
+      img.decoding = 'async';
+      // Una causa vieja puede no tener captura guardada: se muestra solo la ficha
+      img.addEventListener('error', () => { btn.remove(); card.style.gridTemplateColumns = 'minmax(0, 1fr)'; });
+      const zoom = document.createElement('span');
+      zoom.className = 'qa-zoom';
+      zoom.textContent = 'Ampliar';
+      btn.append(img, zoom);
+      btn.addEventListener('click', () => openViewer(i));
+      const cap = document.createElement('figcaption');
+      cap.textContent = 'Captura del ' + fmtDate(ev.evidence_date) + ' · ' + ev.evidence_workflow.replace('Abbaco ', '') + ' · ' + ev.evidence_test.split(' > ').slice(-1)[0];
+      fig.append(btn, cap);
+
+      const body = document.createElement('div');
+      body.className = 'qa-ev-body';
+      const chips = document.createElement('div');
+      chips.className = 'qa-chips';
+      const st = chip(r.status, r.status === 'Activa' ? 'on' : 'off');
+      mark(st, 'causes_view', where, 'status');
+      const ty = chip(r.type);
+      mark(ty, 'causes_view', where, 'type');
+      const ow = chip(r.owner, ownerClass(r.owner));
+      mark(ow, 'causes_view', where, 'owner');
+      const pa = chip(r.pattern, patternClass(r.pattern));
+      mark(pa, 'causes_view', where, 'pattern');
+      chips.append(st, pa, ty, ow);
+
+      const h = document.createElement('h3');
+      h.className = 'qa-ev-title';
+      h.textContent = r.cause;
+      mark(h, 'causes_view', where, 'cause');
+      const msg = document.createElement('p');
+      msg.className = 'qa-ev-msg';
+      msg.textContent = r.message;
+      mark(msg, 'causes_view', where, 'message');
+
+      const dl = document.createElement('dl');
+      dl.className = 'qa-stats';
+      [['Veces', 'occurrences', d3.format(',')(r.occurrences)], ['Runs', 'runs', d3.format(',')(r.runs)], ['Días', 'days', d3.format(',')(r.days)]]
+        .forEach(([label, field, text]) => {
+          const div = document.createElement('div');
+          const dt = document.createElement('dt');
+          dt.textContent = label;
+          const dd = document.createElement('dd');
+          dd.textContent = text;
+          mark(dd, 'causes_view', where, field);
+          div.append(dt, dd);
+          dl.append(div);
+        });
+
+      const meta = document.createElement('p');
+      meta.className = 'qa-ev-meta';
+      const mods = document.createElement('b');
+      mods.textContent = r.modules;
+      mark(mods, 'causes_view', where, 'modules');
+      const first = document.createElement('b');
+      first.textContent = fmtShort(r.first_seen);
+      mark(first, 'causes_view', where, 'first_seen');
+      const last = document.createElement('b');
+      last.textContent = fmtShort(r.last_seen);
+      mark(last, 'causes_view', where, 'last_seen');
+      meta.append('Módulos: ', mods, ' · del ', first, ' al ', last);
+
+      body.append(chips, h, msg, dl, meta);
+      if (/^https:\/\/[\w-]+\.slack\.com\//.test(ev.slack_url || '')) {
+        const sl = document.createElement('a');
+        sl.href = ev.slack_url;
+        sl.target = '_blank';
+        sl.rel = 'noopener';
+        sl.textContent = '💬 Ver hilo de SherlockBot en Slack ↗';
+        body.append(sl);
+      }
+      if (/^https:\/\/github\.com\//.test(ev.evidence_run_url)) {
+        const a = document.createElement('a');
+        a.href = ev.evidence_run_url;
+        a.target = '_blank';
+        a.rel = 'noopener';
+        a.textContent = 'Ver el run de esta captura en GitHub ↗';
+        body.append(a);
+      }
+      card.append(fig, body);
+      g.append(card);
+    });
+  }
+
+  // ── Visor ──
+  const visor = document.getElementById('visor');
+  function renderViewer() {
+    const it = viewerItems[viewerIndex];
+    if (!it) return;
+    document.getElementById('visor-titulo').textContent = it.view.cause;
+    const img = document.getElementById('visor-img');
+    img.src = it.ev.evidence;
+    img.alt = 'Captura del fallo: ' + it.view.cause;
+    document.getElementById('visor-pie').textContent = 'Captura del ' + fmtDate(it.ev.evidence_date) + ' · ' + it.ev.evidence_test;
+    document.getElementById('visor-pos').textContent = (viewerIndex + 1) + ' de ' + viewerItems.length;
+    document.getElementById('visor-prev').disabled = viewerIndex === 0;
+    document.getElementById('visor-next').disabled = viewerIndex === viewerItems.length - 1;
+  }
+  function openViewer(i) {
+    viewerIndex = i;
+    renderViewer();
+    if (!visor.open) visor.showModal();
+  }
+  function openViewerFor(causeId) {
+    const i = viewerItems.findIndex((it) => it.view.cause_id === causeId);
+    if (i >= 0) openViewer(i);
+  }
+  document.getElementById('visor-cerrar').addEventListener('click', () => visor.close());
+  document.getElementById('visor-prev').addEventListener('click', () => { if (viewerIndex > 0) { viewerIndex -= 1; renderViewer(); } });
+  document.getElementById('visor-next').addEventListener('click', () => { if (viewerIndex < viewerItems.length - 1) { viewerIndex += 1; renderViewer(); } });
+  visor.addEventListener('click', (ev) => { if (ev.target === visor) visor.close(); });
+  visor.addEventListener('keydown', (ev) => {
+    if (ev.key === 'ArrowLeft') document.getElementById('visor-prev').click();
+    if (ev.key === 'ArrowRight') document.getElementById('visor-next').click();
+  });
+
+  const draw = () => { drawKpis(); drawTrend(); drawWorkflows(); drawTypes(); drawFilter(); drawGallery(); drawCauses(); };
+  dash.onData(draw);
+
+  ['g-week', 'g-month'].forEach((id) => {
+    document.getElementById(id).addEventListener('click', () => {
+      grain = id === 'g-week' ? 'Semana' : 'Mes';
+      document.getElementById('g-week').setAttribute('aria-pressed', String(grain === 'Semana'));
+      document.getElementById('g-month').setAttribute('aria-pressed', String(grain === 'Mes'));
+      drawTrend();
+    });
+  });
+  document.getElementById('buscar').addEventListener('input', drawCauses);
+
+  document.querySelectorAll('#filtro-periodo [data-rango]').forEach((b) => {
+    b.addEventListener('click', () => {
+      showAll = false;
+      dash.setParams({ rango: b.dataset.rango, dia: null });
+    });
+  });
+  const dia = document.getElementById('dia');
+  dia.addEventListener('change', () => {
+    if (!dia.value) { dash.setParams({ dia: null }); return; }
+    if (dia.validity.valid) {
+      showAll = false;
+      dash.setParams({ dia: dia.value });
+    }
+  });
+  dia.addEventListener('blur', () => { dia.value = dash.params().dia || ''; });
+  document.querySelectorAll('#filtro-repeticion [data-rep]').forEach((b) => {
+    b.addEventListener('click', () => {
+      showAll = false;
+      dash.setParams({ repeticion: b.dataset.rep });
+    });
+  });
+  document.getElementById('ver-mas').addEventListener('click', () => {
+    showAll = !showAll;
+    drawGallery();
+  });
+})();
+</script>
+
+</div>
+</body>
+</html>
