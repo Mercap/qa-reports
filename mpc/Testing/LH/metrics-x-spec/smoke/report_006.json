@@ -5,9 +5,9 @@
     "passes": 1,
     "pending": 0,
     "failures": 0,
-    "start": "2026-10-28T16:01:49.777Z",
-    "end": "2026-10-28T16:01:49.846Z",
-    "duration": 69,
+    "start": "2026-10-28T16:25:46.438Z",
+    "end": "2026-10-28T16:25:46.520Z",
+    "duration": 82,
     "testsRegistered": 3,
     "passPercent": 33.33333333333333,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "1f5026d2-b04d-4489-bc15-971ebf4ffee0",
+      "uuid": "2b80ffbb-6922-4e9e-862c-37b54a932efa",
       "title": "",
       "fullFile": "build/testing/laholando/specs/smoke/06_limites.cy.js",
       "file": "build/testing/laholando/specs/smoke/06_limites.cy.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "17301992-4dfe-4d55-9f63-82061e2c2dd6",
+          "uuid": "2869a197-62d8-4505-8ffd-43af47c7ab68",
           "title": "Limites",
           "fullFile": "",
           "file": "",
@@ -47,8 +47,8 @@
               "context": null,
               "code": "cy.irALimites();\n      cy.validarPantallaLimites();\n      cy.irAConfiguracionPoliticas();\n      cy.clickNuevaPolitica();\n      cy.ingresarNombrePolitica('1-VALIDO Politica CYPRESS');\n      cy.agregarPortfolio('Portfolio CYPRESS');\n      cy.seleccionarUnEsquema(_support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].VALUATION_SCHEME);\n      cy.ingresarFechaDesdeLimite('02/01/2026');\n      cy.irAReglas();\n      // Regla por tipo de instrumento (Bono), no por instrumento AL30: en testing-3/cfi la regla por\n      // instrumento daba valuación 0 con AL30 valuado en la posición (ver L070).\n      cy.agregarReglaTipoInstrumento({\n        nombre: 'Regla por Tipo de Instrumento sobre Portfolio - Bono',\n        nivel1: 'Bono',\n        desde: 0.05,\n        hasta: 85.5\n      });\n      cy.guardarPolitica();\n      cy.get('.modal-content').should('not.exist');",
               "err": {},
-              "uuid": "97b6bfc7-ab76-4386-8c5f-c1008929ea02",
-              "parentUUID": "17301992-4dfe-4d55-9f63-82061e2c2dd6",
+              "uuid": "1d1017b4-bfe3-49e2-86cb-f1452dafc65e",
+              "parentUUID": "2869a197-62d8-4505-8ffd-43af47c7ab68",
               "isHook": false,
               "skipped": false
             },
@@ -65,8 +65,8 @@
               "context": null,
               "code": "cy.irALimites();\n      cy.filtrarFechaLimites('10/02/2026');\n      cy.filtrarPortfolioLimites('Portfolio CYPRESS');\n      cy.abrirLimitePortfolio();\n      cy.expandirTodasLasReglas();\n      const rules = [\n      // 'Regla por Tipo de Instrumento sobre Portfolio - Plazo fijo',\n      // 'Regla por Subtipo de Instrumento sobre Portfolio - Renta Fija',\n      // 'Regla por Subtipo de Instrumento sobre Portfolio - Título Público',\n      'Regla por Tipo de Instrumento sobre Portfolio - Bono'];\n      rules.forEach((rule) => {\n        cy.validarReglaOK(rule);\n      });",
               "err": {},
-              "uuid": "af675b11-d38b-4865-b497-b29c2c043ae2",
-              "parentUUID": "17301992-4dfe-4d55-9f63-82061e2c2dd6",
+              "uuid": "f78ac0c3-c67a-4fb5-8bc7-f8efb69147c7",
+              "parentUUID": "2869a197-62d8-4505-8ffd-43af47c7ab68",
               "isHook": false,
               "skipped": true
             },
@@ -83,21 +83,21 @@
               "context": null,
               "code": "cy.irALimites();\ncy.validarPantallaLimites();\ncy.irAConfiguracionPoliticas();\ncy.eliminarPolitica('1-VALIDO Politica CYPRESS');\ncy.validaEliminacionPolitica('1-VALIDO Politica CYPRESS');",
               "err": {},
-              "uuid": "1e84ad91-9a6c-497e-b663-99159af0ba78",
-              "parentUUID": "17301992-4dfe-4d55-9f63-82061e2c2dd6",
+              "uuid": "9312f379-95ed-4780-9ac2-f4b65ea25105",
+              "parentUUID": "2869a197-62d8-4505-8ffd-43af47c7ab68",
               "isHook": false,
               "skipped": true
             }
           ],
           "suites": [],
           "passes": [
-            "97b6bfc7-ab76-4386-8c5f-c1008929ea02"
+            "1d1017b4-bfe3-49e2-86cb-f1452dafc65e"
           ],
           "failures": [],
           "pending": [],
           "skipped": [
-            "af675b11-d38b-4865-b497-b29c2c043ae2",
-            "1e84ad91-9a6c-497e-b663-99159af0ba78"
+            "f78ac0c3-c67a-4fb5-8bc7-f8efb69147c7",
+            "9312f379-95ed-4780-9ac2-f4b65ea25105"
           ],
           "duration": 0,
           "root": false,

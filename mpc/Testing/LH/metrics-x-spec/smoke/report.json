@@ -1,24 +1,24 @@
 {
   "stats": {
     "suites": 1,
-    "tests": 2,
-    "passes": 0,
-    "pending": 1,
+    "tests": 3,
+    "passes": 2,
+    "pending": 0,
     "failures": 1,
-    "start": "2026-10-28T15:58:25.353Z",
-    "end": "2026-10-28T16:01:38.723Z",
-    "duration": 193370,
+    "start": "2026-10-28T16:22:14.646Z",
+    "end": "2026-10-28T16:25:33.757Z",
+    "duration": 199111,
     "testsRegistered": 3,
-    "passPercent": 0,
-    "pendingPercent": 33.33333333333333,
+    "passPercent": 66.66666666666666,
+    "pendingPercent": 0,
     "other": 0,
     "hasOther": false,
-    "skipped": 1,
-    "hasSkipped": true
+    "skipped": 0,
+    "hasSkipped": false
   },
   "results": [
     {
-      "uuid": "33bca58f-9b5c-4552-99c7-92a493bafa9a",
+      "uuid": "0b738a4d-9243-48ef-bf55-c8a63b01e990",
       "title": "",
       "fullFile": "build/testing/laholando/specs/smoke/00_admin.cy.js",
       "file": "build/testing/laholando/specs/smoke/00_admin.cy.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "51a9c523-1ec9-488c-82b9-1a7cb5bda8be",
+          "uuid": "73935e64-5fa5-44f7-9e4c-d6ccc5c4e114",
           "title": "Precondición tener Parametria (Esquema de valuación y gastos)",
           "fullFile": "",
           "file": "",
@@ -38,21 +38,17 @@
               "title": "Agregar Esquema de valuación",
               "fullTitle": "Precondición tener Parametria (Esquema de valuación y gastos) Agregar Esquema de valuación",
               "timedOut": null,
-              "duration": 188987,
-              "state": "failed",
-              "speed": null,
-              "pass": false,
-              "fail": true,
+              "duration": 11590,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
               "pending": false,
               "context": null,
               "code": "cy.ValidarIngresoAdmin();\n// Navega a Esquemas de Valuación y espera la tabla (ver L022). La descripción con la marca\n// CYPRESS es la que usa el cleaner para reconocer qué esquemas borrar.\ncy.guardarEsquemasValuacion();\n// Se crea un único esquema, con el nombre de Constants.VALUATION_SCHEME (el que eligen\n// limites y resultado): si un target se desalinea, el alta y la validación lo usan igual.\ncy.altaEsquemaValuacion(\n  _support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].VALUATION_SCHEME,\n  'Valuacion en pesos con cotizaciones en USD al t/c BNA CYPRESS.',\n  'Valuacion BYMA ARS + Instrumentos No Liquidos - USD BNA',\n  'Esquema ARS - USD BNA C'\n);\ncy.validarEsquemaValuacionCreado(_support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].VALUATION_SCHEME);",
-              "err": {
-                "message": "AssertionError: Timed out retrying after 180000ms: Expected to find content: 'Esquemas de valuación' within the selector: 'h3' but never did.",
-                "estack": "AssertionError: Timed out retrying after 180000ms: Expected to find content: 'Esquemas de valuación' within the selector: 'h3' but never did.\n    at Context.eval (webpack://cypress/./cypress/support/commands/performance.commands.js:72:0)\n    at wrapped (https://mercap-staging-1.us.auth0.com/__cypress/runner/cypress_runner.js:146042:43)",
-                "diff": null
-              },
-              "uuid": "defc9263-0b1a-4302-b422-f97045675494",
-              "parentUUID": "51a9c523-1ec9-488c-82b9-1a7cb5bda8be",
+              "err": {},
+              "uuid": "df09ce5f-4a49-41ed-9bcc-c4fdce9c36b9",
+              "parentUUID": "73935e64-5fa5-44f7-9e4c-d6ccc5c4e114",
               "isHook": false,
               "skipped": false
             },
@@ -60,17 +56,17 @@
               "title": "Agregar Gastos",
               "fullTitle": "Precondición tener Parametria (Esquema de valuación y gastos) Agregar Gastos",
               "timedOut": null,
-              "duration": 0,
-              "state": "pending",
-              "speed": null,
-              "pass": false,
+              "duration": 741,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
               "fail": false,
-              "pending": true,
+              "pending": false,
               "context": null,
               "code": "// Navega a Definiciones de Gastos y espera la tabla. El cleaner no borra gastos: se crean solo si faltan.\ncy.guardarGastos();\ncy.altaGasto('Comisión', 'Comisión del Broker');\ncy.altaGasto('Comisión', 'Comisión del Mercado');\ncy.altaGasto('Impuesto', 'IVA');\ncy.validarGastoCreado('Comisión del Broker');\ncy.validarGastoCreado('Comisión del Mercado');\ncy.validarGastoCreado('IVA');",
               "err": {},
-              "uuid": "884001b9-c9f2-46ba-84b7-cc78c634e7c6",
-              "parentUUID": "51a9c523-1ec9-488c-82b9-1a7cb5bda8be",
+              "uuid": "ab09bff3-9944-46af-8385-b129fb199a43",
+              "parentUUID": "73935e64-5fa5-44f7-9e4c-d6ccc5c4e114",
               "isHook": false,
               "skipped": false
             },
@@ -78,33 +74,36 @@
               "title": "Mapear cargos de Balanz",
               "fullTitle": "Precondición tener Parametria (Esquema de valuación y gastos) Mapear cargos de Balanz",
               "timedOut": null,
-              "duration": 0,
-              "state": "skipped",
+              "duration": 181274,
+              "state": "failed",
               "speed": null,
               "pass": false,
-              "fail": false,
+              "fail": true,
               "pending": false,
               "context": null,
               "code": "cy.irAMapeoDeCargos();\ncy.mapearCargosBroker('Balanz', { 'Arancel': 'Comisión del Broker', 'Costos Mercado': 'Comisión del Mercado' });",
-              "err": {},
-              "uuid": "6e59ea6f-5262-4f20-839b-5d133b9bb110",
-              "parentUUID": "51a9c523-1ec9-488c-82b9-1a7cb5bda8be",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 180000ms: Expected to find content: 'Editar mapeo de Cargos: Balanz' within the selector: '.modal:visible .modal-title' but never did.",
+                "estack": "AssertionError: Timed out retrying after 180000ms: Expected to find content: 'Editar mapeo de Cargos: Balanz' within the selector: '.modal:visible .modal-title' but never did.\n    at abrirModalMapeo (webpack://cypress/./cypress/support/commands/admin.commands.js:134:79)\n    at abrirModal (webpack://cypress/./cypress/support/commands/admin.commands.js:149:0)\n    at Context.eval (webpack://cypress/./cypress/support/commands/admin.commands.js:153:0)\n    at wrapped (https://mercap-staging-1.us.auth0.com/__cypress/runner/cypress_runner.js:146042:43)",
+                "diff": null
+              },
+              "uuid": "97e3db2b-8b22-4805-b28d-f18be395e5d6",
+              "parentUUID": "73935e64-5fa5-44f7-9e4c-d6ccc5c4e114",
               "isHook": false,
-              "skipped": true
+              "skipped": false
             }
           ],
           "suites": [],
-          "passes": [],
+          "passes": [
+            "df09ce5f-4a49-41ed-9bcc-c4fdce9c36b9",
+            "ab09bff3-9944-46af-8385-b129fb199a43"
+          ],
           "failures": [
-            "defc9263-0b1a-4302-b422-f97045675494"
+            "97e3db2b-8b22-4805-b28d-f18be395e5d6"
           ],
-          "pending": [
-            "884001b9-c9f2-46ba-84b7-cc78c634e7c6"
-          ],
-          "skipped": [
-            "6e59ea6f-5262-4f20-839b-5d133b9bb110"
-          ],
-          "duration": 188987,
+          "pending": [],
+          "skipped": [],
+          "duration": 193605,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
