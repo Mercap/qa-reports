@@ -1,115 +1,107 @@
 {
-  "hash": "b532d6864168d7e23b1850e7dfa3060b35488da5991b49bcd3e7e1312eb128a1",
+  "hash": "1273e94d5091533d938f23475e6c853dbcdbffcd9081f7c201f2ed0b544bf0ff",
   "ai_model": "gemini-2.5-flash",
   "conclusions": {
     "estado_general": "bueno",
-    "resumen_ejecutivo": "La versión V1.14.7 de MPC mantiene un estado general bueno, con todas las secciones dentro de los umbrales de SLA. Sin embargo, se observan degradaciones críticas en acciones puntuales de 'Agenda' (+514.3%) y 'Mis depositarios' (+153.3%), a pesar de una mejora general del 8.6% en 'Mis portfolios' y una recuperación estructural en 'Rendimiento'.",
+    "resumen_ejecutivo": "La versión V1.14.7 presenta un estado general bueno, con la sección Mis portfolios mostrando una mejora del 11.7% (de 8.89s a 7.85s). Sin embargo, se observan degradaciones significativas en acciones puntuales de Agenda y Mis depositarios, con aumentos de P95 de hasta 484.6% y 144.0% respectivamente, que requieren atención inmediata.",
     "escalar": {
-      "titulo": "Degradaciones críticas en acciones de Agenda y Mis depositarios",
-      "detalle": "La acción 'Primer ingreso: Tipo de instrumento Bonos, estado: Pendiente' en 'Agenda' se degradó de 1.17s a 7.16s (+514.3%). Adicionalmente, 'Deseleccionar la cuenta Facimex (FACIMEX)' en 'Mis depositarios' pasó de 5.98s a 15.14s (+153.3%)."
+      "titulo": "Degradaciones críticas en acciones específicas de Agenda y Mis depositarios",
+      "detalle": "La acción 'Primer ingreso: Tipo de instrumento Bonos, estado: Pendiente' en Agenda se degradó un 484.6% (de 1.17s a 6.84s), y 'Deseleccionar la cuenta Facimex' en Mis depositarios un 144.0% (de 5.98s a 14.59s) en la versión V1.14.7."
     },
     "investigar": {
-      "titulo": "Salto abrupto de rendimiento en 'Primer ingreso: Tipo de instrumento Bonos, estado: Pendiente'",
-      "detalle": "La acción 'Primer ingreso: Tipo de instrumento Bonos, estado: Pendiente' en la sección 'Agenda' experimentó un salto de rendimiento del +514.3%, pasando de 1.17s a 7.16s en la versión V1.14.7, siendo la anomalía más llamativa."
+      "titulo": "Salto abrupto de rendimiento en acción clave de Agenda",
+      "detalle": "La acción 'Primer ingreso: Tipo de instrumento Bonos, estado: Pendiente' en la sección Agenda experimentó una degradación del 484.6%, pasando de 1.17s a 6.84s en la versión V1.14.7, lo que sugiere un cambio significativo en su procesamiento."
     },
     "optimizar": {
-      "titulo": "Oportunidad de mejora en la sección Mis depositarios",
-      "detalle": "La sección 'Mis depositarios' muestra una degradación general del 7.1% y contiene acciones con degradaciones muy significativas, como 'Deseleccionar la cuenta Facimex (FACIMEX)' (+153.3%), lo que representa una gran oportunidad de optimización."
+      "titulo": "Mejorar acciones críticas en Mis depositarios para reducir impacto",
+      "detalle": "La sección Mis depositarios, con un P95 actual de 6.58s y el mayor impacto (697.5), presenta acciones como 'Deseleccionar la cuenta Facimex' que se degradó un 144.0% (de 5.98s a 14.59s), ofreciendo una gran oportunidad de mejora."
     },
     "hallazgos": [
       {
         "tipo": "alerta",
         "seccion": "Agenda",
-        "descripcion": "La acción 'Primer ingreso: Tipo de instrumento Bonos, estado: Pendiente' sufrió una degradación crítica en la versión V1.14.7.",
-        "evidencia": "P95 se degradó de 1.17s a 7.16s (+514.3%)"
+        "descripcion": "La acción 'Primer ingreso: Tipo de instrumento Bonos, estado: Pendiente' en Agenda sufrió una degradación crítica.",
+        "evidencia": "P95 se degradó de 1.17s a 6.84s (+484.6%) en V1.14.7."
       },
       {
         "tipo": "alerta",
         "seccion": "Mis depositarios",
-        "descripcion": "La acción 'Deseleccionar la cuenta Facimex (FACIMEX)' se degradó abruptamente en la versión V1.14.7.",
-        "evidencia": "P95 se degradó de 5.98s a 15.14s (+153.3%)"
+        "descripcion": "La acción 'Deseleccionar la cuenta Facimex (FACIMEX)' en Mis depositarios experimentó una degradación severa.",
+        "evidencia": "P95 se degradó de 5.98s a 14.59s (+144.0%) en V1.14.7."
       },
       {
         "tipo": "mejora",
         "seccion": "Rendimiento",
-        "descripcion": "La sección 'Rendimiento' muestra una mejora estructural con el 41.3% de sus acciones mejorando.",
-        "evidencia": "La acción 'Portfolio Oldelval SA: Segundo ingreso a la carta de rendimiento Último año con ' mejoró de 1.45s a 0.85s (+41.3%)"
+        "descripcion": "La sección Rendimiento muestra una mejora general en varias acciones, destacando una en particular.",
+        "evidencia": "La acción 'Portfolio Oldelval SA: Segundo ingreso a la carta de rendimiento Último año con' mejoró de 1.45s a 0.86s (+40.96%)."
+      },
+      {
+        "tipo": "degradacion",
+        "seccion": "Mis operaciones",
+        "descripcion": "La acción 'Primer ingreso: Depositario Adcap filtro de 1 mes de operaciones' en Mis operaciones se degradó.",
+        "evidencia": "P95 se degradó de 0.98s a 1.32s (+34.7%)."
       },
       {
         "tipo": "mejora",
         "seccion": "Mis portfolios",
-        "descripcion": "El P95 de la sección 'Mis portfolios' mejoró respecto a su histórico.",
-        "evidencia": "P95 mejoró de 8.89s a 8.12s (+8.6%)"
-      },
-      {
-        "tipo": "degradacion",
-        "seccion": "Mis depositarios",
-        "descripcion": "El P95 de la sección 'Mis depositarios' se degradó respecto a su histórico.",
-        "evidencia": "P95 se degradó de 6.1s a 6.54s (-7.1%)"
+        "descripcion": "La sección Mis portfolios mejoró su rendimiento general.",
+        "evidencia": "P95 mejoró de 8.89s a 7.85s (+11.7%)."
       },
       {
         "tipo": "degradacion",
         "seccion": "Home",
-        "descripcion": "La acción 'Segundo ingreso al menú Home' se degradó significativamente.",
-        "evidencia": "P95 se degradó de 3.4s a 4.74s (+39.6%)"
+        "descripcion": "La sección Home experimentó una degradación leve en su rendimiento.",
+        "evidencia": "P95 se degradó de 10.01s a 10.88s (-8.7%)."
+      },
+      {
+        "tipo": "degradacion",
+        "seccion": "Mis depositarios",
+        "descripcion": "La sección Mis depositarios mostró una degradación general en su rendimiento.",
+        "evidencia": "P95 se degradó de 6.1s a 6.58s (-7.8%)."
       }
     ],
     "causa_raiz": [
       {
         "seccion": "Agenda",
         "hipotesis": [
-          "Podría deberse a una consulta de base de datos ineficiente o un procesamiento de datos más complejo para bonos pendientes.",
-          "Revisar si hubo cambios recientes en la lógica de negocio o en la interfaz de usuario para esta acción específica.",
-          "Considerar el impacto de la carga de datos o la cantidad de elementos a renderizar en esta vista."
+          "Cambios recientes en la lógica de filtrado o carga de datos para bonos pendientes, que ahora procesa más información o de forma menos eficiente.",
+          "Problemas de rendimiento en la base de datos o en el servicio de backend que provee los datos de bonos pendientes.",
+          "Un aumento en la cantidad de datos de bonos pendientes para el cliente Oldelval, afectando el tiempo de carga."
         ]
       },
       {
         "seccion": "Mis depositarios",
         "hipotesis": [
-          "Podría estar relacionado con la complejidad de la lógica de actualización de la UI o el backend al deseleccionar cuentas, especialmente si hay muchas cuentas o datos asociados.",
-          "Revisar si se introdujeron nuevas validaciones o llamadas a servicios externos que impacten el tiempo de respuesta al interactuar con depositarios.",
-          "Considerar el volumen de datos que se procesa o se actualiza en el cliente al cambiar el estado de selección de una cuenta."
-        ]
-      },
-      {
-        "seccion": "Home",
-        "hipotesis": [
-          "Podría deberse a una recarga de componentes o datos que no están siendo cacheados correctamente en el segundo ingreso al menú Home.",
-          "Revisar si hay nuevas peticiones de red o procesamiento en el cliente que se ejecuten en el segundo ingreso y no en el primero.",
-          "Considerar si la complejidad de los widgets o la información mostrada en el Home ha aumentado, afectando la carga subsiguiente."
+          "La acción de deseleccionar una cuenta ahora dispara una recarga o revalidación de datos más pesada de lo esperado.",
+          "Problemas de concurrencia o bloqueo al actualizar el estado de las cuentas seleccionadas/deseleccionadas.",
+          "Un incremento en la complejidad de los datos asociados a la cuenta Facimex o al conjunto de cuentas gestionadas."
         ]
       }
     ],
     "recomendaciones": [
       {
         "prioridad": "P1",
-        "accion": "Investigar y resolver la degradación crítica de la acción 'Primer ingreso: Tipo de instrumento Bonos, estado: Pendiente'.",
+        "accion": "Investigar y optimizar la acción 'Primer ingreso: Tipo de instrumento Bonos, estado: Pendiente'.",
         "seccion": "Agenda",
-        "evidencia": "P95 se degradó de 1.17s a 7.16s (+514.3%)"
+        "evidencia": "Degradación del 484.6% (de 1.17s a 6.84s) en V1.14.7."
       },
       {
         "prioridad": "P1",
-        "accion": "Investigar y resolver la degradación crítica de la acción 'Deseleccionar la cuenta Facimex (FACIMEX)'.",
+        "accion": "Analizar y corregir la degradación de la acción 'Deseleccionar la cuenta Facimex (FACIMEX)'.",
         "seccion": "Mis depositarios",
-        "evidencia": "P95 se degradó de 5.98s a 15.14s (+153.3%)"
+        "evidencia": "Degradación del 144.0% (de 5.98s a 14.59s) en V1.14.7."
       },
       {
         "prioridad": "P2",
-        "accion": "Analizar la degradación de la acción 'Segundo ingreso al menú Home' y optimizar su rendimiento.",
-        "seccion": "Home",
-        "evidencia": "P95 se degradó de 3.4s a 4.74s (+39.6%)"
-      },
-      {
-        "prioridad": "P2",
-        "accion": "Revisar la sección 'Mis depositarios' para identificar la causa de la degradación general y otras acciones lentas.",
-        "seccion": "Mis depositarios",
-        "evidencia": "La sección se degradó un 7.1% y la acción 'Seleccionar todas las cuentas del depositario Macro Securities' se degradó un 127.6%."
+        "accion": "Realizar un análisis de rendimiento detallado de las secciones Home y Mis depositarios para identificar cuellos de botella.",
+        "seccion": "Home, Mis depositarios",
+        "evidencia": "Home degradó 8.7% (10.01s a 10.88s) y Mis depositarios degradó 7.8% (6.1s a 6.58s)."
       },
       {
         "prioridad": "P3",
-        "accion": "Monitorear la sección 'Rendimiento' para asegurar que las mejoras puntuales se mantengan y no se revierta la tendencia positiva.",
+        "accion": "Documentar y replicar las optimizaciones que llevaron a mejoras significativas en la sección Rendimiento.",
         "seccion": "Rendimiento",
-        "evidencia": "La sección muestra una degradación general del 5.5% a pesar de mejoras en el 41.3% de sus acciones."
+        "evidencia": "La acción 'Portfolio Oldelval SA: Segundo ingreso a la carta de rendimiento Último año con' mejoró un 40.96%."
       }
     ]
   }
