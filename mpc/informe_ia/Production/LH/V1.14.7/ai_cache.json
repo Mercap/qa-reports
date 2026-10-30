@@ -1,95 +1,121 @@
 {
-  "hash": "eeef33430bd52fd7dca783cc8be2a1f6de9b8cee46aff06117b8d51cfa5940e5",
+  "hash": "0da78f56f5795e75f06c37879c1a31074092f8cf6815a80c371bb70f3d23da00",
   "ai_model": "gemini-2.5-flash",
   "conclusions": {
     "estado_general": "excelente",
-    "resumen_ejecutivo": "La versión V1.14.7 de MPC muestra un rendimiento general excelente, con mejoras significativas en las secciones 'Mi dinero' (+68.2%) y 'Mis operaciones' (+72.1%). Sin embargo, se han detectado degradaciones críticas a nivel de acciones individuales en 'Rendimiento' y 'Mis depositarios', que requieren atención urgente para mantener la calidad de la experiencia de usuario.",
+    "resumen_ejecutivo": "La versión V1.14.7 de MPC muestra una mejora general significativa, con 3 secciones (Mi dinero, Mis operaciones, Agenda) mejorando su P95 histórico en un 68.3%, 74.6% y 11.4% respectivamente. Sin embargo, se observan degradaciones críticas a nivel de acciones puntuales en Rendimiento y Mis depositarios, con aumentos de hasta 9851.1% y 677.56% en sus tiempos P95, lo que requiere atención inmediata.",
     "escalar": {
       "titulo": "Degradaciones críticas en acciones de Rendimiento y Mis depositarios",
-      "detalle": "La acción 'Portfolio RE Mercado: Segundo ingreso a la carta de rendimiento Desde principio ' en 'Rendimiento' se degradó a 97.55s (+10503.3%). Similarmente, 'Deseleccionar la cuenta Schroders (Schroders RE FCI)' en 'Mis depositarios' alcanzó 73.75s (+723.42%). Ambas son degradaciones masivas y recientes."
+      "detalle": "La acción 'Portfolio RE Mercado: Segundo ingreso a la carta de rendimiento Desde principio ' en Rendimiento se degradó de 0.92s a 91.55s (+9851.1%) en V1.14.7. Además, la acción 'Deseleccionar la cuenta Schroders (Schroders RE FCI)' en Mis depositarios pasó de 8.96s a 69.64s (+677.56%) en la misma versión."
     },
     "investigar": {
-      "titulo": "Salto abrupto de rendimiento en acción clave de la sección Rendimiento",
-      "detalle": "La acción 'Portfolio RE Mercado: Segundo ingreso a la carta de rendimiento Desde principio ' en 'Rendimiento' experimentó un salto de P95 de 0.92s a 97.55s (+10503.3%) en la versión V1.14.7, siendo la anomalía más llamativa y de mayor impacto."
+      "titulo": "Saltos abruptos de rendimiento en acciones clave de Rendimiento y Mis depositarios",
+      "detalle": "Se debe investigar la causa raíz del salto de P95 de 0.92s a 91.55s (+9851.1%) en la acción 'Portfolio RE Mercado: Segundo ingreso a la carta de rendimiento Desde principio ' y de 8.96s a 69.64s (+677.56%) en 'Deseleccionar la cuenta Schroders (Schroders RE FCI)'."
     },
     "optimizar": {
-      "titulo": "Mejorar la acción más lenta: 'Portfolio RE Mercado' en Rendimiento",
-      "detalle": "La acción 'Portfolio RE Mercado: Segundo ingreso a la carta de rendimiento Desde principio ' en 'Rendimiento' es la más lenta con 97.55s, ofreciendo la mayor oportunidad de mejora para impactar la UX."
+      "titulo": "Estabilizar el rendimiento de acciones críticas en Rendimiento y Mis depositarios",
+      "detalle": "La mayor oportunidad de mejora radica en resolver las degradaciones extremas en las acciones de Rendimiento (91.55s) y Mis depositarios (69.64s), que impactan directamente la experiencia del usuario."
     },
     "hallazgos": [
       {
         "tipo": "alerta",
         "seccion": "Rendimiento",
-        "descripcion": "La acción 'Portfolio RE Mercado: Segundo ingreso a la carta de rendimiento Desde principio ' sufrió una degradación crítica y abrupta en la versión actual.",
-        "evidencia": "P95 pasó de 0.92s a 97.55s (+10503.3%) en V1.14.7."
+        "descripcion": "Una acción crítica en Rendimiento experimentó una degradación extrema en esta versión.",
+        "evidencia": "La acción 'Portfolio RE Mercado: Segundo ingreso a la carta de rendimiento Desde principio ' pasó de 0.92s a 91.55s (+9851.1%) en V1.14.7."
       },
       {
         "tipo": "alerta",
         "seccion": "Mis depositarios",
-        "descripcion": "La acción 'Deseleccionar la cuenta Schroders (Schroders RE FCI)' experimentó una degradación crítica y abrupta en la versión actual.",
-        "evidencia": "P95 pasó de 8.96s a 73.75s (+723.42%) en V1.14.7."
+        "descripcion": "Una acción específica en Mis depositarios sufrió una degradación muy significativa en esta versión.",
+        "evidencia": "La acción 'Deseleccionar la cuenta Schroders (Schroders RE FCI)' pasó de 8.96s a 69.64s (+677.56%) en V1.14.7."
+      },
+      {
+        "tipo": "degradacion",
+        "seccion": "Home",
+        "descripcion": "La sección Home muestra una tendencia sostenida de degradación en su P95 a lo largo de las últimas versiones.",
+        "evidencia": "El P95 de Home aumentó de 17.07s a 19.69s en las últimas 3 versiones."
       },
       {
         "tipo": "degradacion",
         "seccion": "Rendimiento",
-        "descripcion": "La sección 'Rendimiento' muestra una tendencia sostenida de degradación en las últimas 3 versiones.",
-        "evidencia": "El P95 de la sección aumentó de 2.8s a 3.48s."
-      },
-      {
-        "tipo": "mejora",
-        "seccion": "Mis operaciones",
-        "descripcion": "La sección 'Mis operaciones' muestra una mejora estructural con la mayoría de sus acciones mejorando significativamente.",
-        "evidencia": "5 de 8 acciones mejoraron más del 20%, destacando 'Primer ingreso al depositario Premier LH' con una mejora del 33.63% (de 2.84s a 1.88s)."
+        "descripcion": "La sección Rendimiento presenta una tendencia sostenida de degradación en su P95 en las últimas versiones.",
+        "evidencia": "El P95 de Rendimiento aumentó de 2.8s a 3.39s en las últimas 3 versiones."
       },
       {
         "tipo": "mejora",
         "seccion": "Mi dinero",
-        "descripcion": "La sección 'Mi dinero' mejoró significativamente su rendimiento general.",
-        "evidencia": "El P95 mejoró de 82.57s a 26.25s (+68.2%)."
+        "descripcion": "La sección Mi dinero mejoró significativamente su rendimiento general.",
+        "evidencia": "El P95 de Mi dinero mejoró de 82.57s a 26.15s (+68.3%), con la acción 'Primer ingreso al menú Mi dinero' mejorando un 64.5%."
+      },
+      {
+        "tipo": "mejora",
+        "seccion": "Mis operaciones",
+        "descripcion": "La sección Mis operaciones experimentó una mejora sustancial en su rendimiento.",
+        "evidencia": "El P95 de Mis operaciones mejoró de 24.58s a 6.24s (+74.6%), con la acción 'Primer ingreso al depositario Premier LH' mejorando un 32.18%."
+      },
+      {
+        "tipo": "mejora",
+        "seccion": "Mis portfolios",
+        "descripcion": "Una acción clave en Mis portfolios mostró una mejora notable en su tiempo de carga.",
+        "evidencia": "La acción 'Primer ingreso al menú Mis portfolios' mejoró un 29.69% (de 23.4s a 16.45s) entre V1.14.0 y V1.14.7."
       }
     ],
     "causa_raiz": [
       {
         "seccion": "Rendimiento",
         "hipotesis": [
-          "Problemas de optimización en consultas de datos complejos para cálculos de rendimiento (MWR/TWR) con rangos de fechas específicos o para portfolios con gran volumen de transacciones.",
-          "Ineficiencias en el procesamiento o renderizado de gráficos de rendimiento, especialmente al cargar datos históricos o al cambiar filtros.",
-          "Posible cuello de botella en la integración con servicios externos que proveen datos de mercado o de cuentas para ciertos depositarios/portfolios."
+          "Podría deberse a un cambio en la lógica de cálculo o la fuente de datos para el rendimiento de portfolios específicos, especialmente para rangos de fechas 'Desde principio de mes'.",
+          "Revisar si hay nuevas consultas a la base de datos o APIs externas que se hayan introducido o modificado para esta acción, causando latencia.",
+          "Considerar si la carga de datos para este tipo de portfolio (RE Mercado) es excepcionalmente alta o si hay un problema de indexación/optimización en la recuperación de datos históricos."
         ]
       },
       {
         "seccion": "Mis depositarios",
         "hipotesis": [
-          "La acción de deseleccionar cuentas podría estar desencadenando una recarga completa de datos o cálculos complejos asociados a la visibilidad de activos, en lugar de una actualización incremental.",
-          "Problemas de rendimiento en la API o base de datos al filtrar o recalcular la vista de depositarios, especialmente para cuentas con un gran número de movimientos o activos.",
-          "Un cambio reciente en la lógica de negocio o en la configuración de los datos para el depositario 'Schroders' que introduce una sobrecarga inesperada."
+          "La acción de deseleccionar una cuenta podría estar desencadenando una recarga completa o un recálculo complejo de datos relacionados con el depositario 'Schroders RE FCI'.",
+          "Revisar si hay dependencias en cascada o llamadas a servicios lentos que se ejecutan al modificar la selección de depositarios.",
+          "Podría indicar un problema de optimización en la UI o en el backend al manejar el estado de selección de cuentas, especialmente para depositarios con muchos datos asociados."
+        ]
+      },
+      {
+        "seccion": "Home",
+        "hipotesis": [
+          "La tendencia sostenida de degradación podría estar relacionada con el aumento progresivo de la complejidad o cantidad de datos mostrados en la vista principal.",
+          "Revisar si se han introducido nuevos widgets o componentes que realizan llamadas a servicios lentos o que no están optimizados para la carga inicial.",
+          "Considerar si la lógica de caché o pre-carga de datos en Home se ha vuelto menos efectiva con el tiempo o con cambios en el volumen de datos."
         ]
       }
     ],
     "recomendaciones": [
       {
         "prioridad": "P1",
-        "accion": "Investigar y resolver la degradación crítica de la acción 'Portfolio RE Mercado: Segundo ingreso a la carta de rendimiento Desde principio '.",
+        "accion": "Investigar y resolver la degradación extrema de la acción 'Portfolio RE Mercado: Segundo ingreso a la carta de rendimiento Desde principio '.",
         "seccion": "Rendimiento",
-        "evidencia": "P95 actual de 97.55s, un salto de +10503.3% desde 0.92s en V1.14.0."
+        "evidencia": "P95 pasó de 0.92s a 91.55s (+9851.1%) en V1.14.7."
       },
       {
         "prioridad": "P1",
         "accion": "Investigar y resolver la degradación crítica de la acción 'Deseleccionar la cuenta Schroders (Schroders RE FCI)'.",
         "seccion": "Mis depositarios",
-        "evidencia": "P95 actual de 73.75s, una degradación de +723.42% vs V1.14.0."
+        "evidencia": "P95 pasó de 8.96s a 69.64s (+677.56%) en V1.14.7."
       },
       {
         "prioridad": "P2",
-        "accion": "Analizar la tendencia sostenida de degradación en la sección 'Rendimiento' para identificar causas raíz estructurales.",
+        "accion": "Analizar la tendencia sostenida de degradación en la sección Home y optimizar sus componentes de carga inicial.",
+        "seccion": "Home",
+        "evidencia": "El P95 de Home aumentó de 17.07s a 19.69s en las últimas 3 versiones."
+      },
+      {
+        "prioridad": "P2",
+        "accion": "Revisar la tendencia de degradación en la sección Rendimiento para identificar posibles cuellos de botella más allá de la acción crítica.",
         "seccion": "Rendimiento",
-        "evidencia": "El P95 de la sección aumentó de 2.8s a 3.48s en las últimas 3 versiones."
+        "evidencia": "El P95 de Rendimiento aumentó de 2.8s a 3.39s en las últimas 3 versiones."
       },
       {
         "prioridad": "P3",
-        "accion": "Revisar la optimización de la acción 'Primer ingreso: Tipo de instrumento Bonos, estado: Pendiente' para reducir su tiempo de carga.",
-        "seccion": "Agenda",
-        "evidencia": "P95 actual de 54.25s, a pesar de una mejora del 43.1% vs histórico."
+        "accion": "Continuar monitoreando las secciones con mejoras significativas para asegurar la estabilidad y buscar nuevas oportunidades de optimización.",
+        "seccion": "General",
+        "evidencia": "Mi dinero mejoró un 68.3% y Mis operaciones un 74.6% vs histórico."
       }
     ]
   }
