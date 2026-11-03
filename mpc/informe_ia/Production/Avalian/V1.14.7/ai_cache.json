@@ -1,121 +1,121 @@
 {
-  "hash": "5c398c4de558b406561b1b4cf7be8f0de14902fdbbc0fbed07c0251322f8df7a",
+  "hash": "3c40eee75b5bbc73a9c7e5cf2c40d9afcf21c1b741d1e557bb56f0a48ffa45d3",
   "ai_model": "gemini-2.5-flash",
   "conclusions": {
     "estado_general": "critico",
-    "resumen_ejecutivo": "La versión V1.14.7 presenta un estado crítico con degradaciones significativas en secciones clave. La sección Resultado se degradó un 36.1% y supera el umbral de rendimiento con 60.57s, mientras que Agenda y Home también muestran degradaciones superiores al 15% frente al histórico. A pesar de mejoras notables en Mi dinero y Mis operaciones, la presencia de saltos abruptos en acciones críticas y tendencias de degradación sostenidas requieren atención urgente.",
+    "resumen_ejecutivo": "La versión V1.14.7 presenta un estado crítico con degradaciones significativas en secciones clave. 'Resultado' se degradó un 37.9% (P95 61.4s) y 'Agenda' un 22.8% (P95 41.33s) frente al histórico, incluyendo saltos abruptos en acciones específicas. A pesar de esto, 'Mi dinero' y 'Mis operaciones' muestran mejoras notables del 94.1% y 85.7% respectivamente.",
     "escalar": {
-      "titulo": "Degradaciones críticas en Resultado y Agenda, con acciones >100s",
-      "detalle": "La sección Resultado se degradó un 36.1% (P95 actual: 60.57s) y la acción 'Cambio de esquema de valuación del portfolio Estrategia a ARS-USD CCL' en Resultado saltó a 105.64s (+133.0%). En Agenda, la acción 'Segundo ingreso: Tipo de instrumento Bonos, estado: Pendiente, fecha: 1 mes haci' se disparó a 143.22s (+110.8%)."
+      "titulo": "Degradaciones críticas en Resultado y Agenda, con acciones sobre 100s",
+      "detalle": "La sección Resultado está sobre el umbral de rendimiento (P95 61.4s) y la acción 'Cambio de esquema de valuación del portfolio Estrategia a ARS-USD CCL' en Resultado saltó a 102.27s (+125.6%). En Agenda, la acción 'Segundo ingreso: Tipo de instrumento Bonos, estado: Pendiente, fecha: 1 mes haci' alcanzó 142.31s (+109.5%)."
     },
     "investigar": {
-      "titulo": "Anomalías en Agenda y Resultado: saltos abruptos de acciones clave",
-      "detalle": "Se debe investigar el salto del 110.8% en la acción 'Segundo ingreso: Tipo de instrumento Bonos, estado: Pendiente, fecha: 1 mes haci' en Agenda (de 67.94s a 143.22s) y el 133.0% en 'Cambio de esquema de valuación del portfolio Estrategia a ARS-USD CCL' en Resultado (de 45.34s a 105.64s), ambos en la versión V1.14.7."
+      "titulo": "Saltos abruptos en acciones de Resultado y Agenda",
+      "detalle": "La acción 'Cambio de esquema de valuación del portfolio Estrategia a ARS-USD CCL' en Resultado pasó de 45.34s a 102.27s (+125.6%) en la versión actual. Similarmente, en Agenda, 'Segundo ingreso: Tipo de instrumento Bonos, estado: Pendiente, fecha: 1 mes haci' saltó de 67.94s a 142.31s (+109.5%)."
     },
     "optimizar": {
-      "titulo": "Mejorar la performance de la sección Resultado y acciones lentas en Agenda",
-      "detalle": "La sección Resultado es la mayor oportunidad, con un P95 de 60.57s y una degradación del 36.1% vs histórico. Además, la acción 'Segundo ingreso: Tipo de instrumento Bonos, estado: Pendiente, fecha: 1 mes haci' en Agenda es la más lenta con 143.22s."
+      "titulo": "Optimizar la sección Resultado, especialmente la valuación de portfolios",
+      "detalle": "La sección Resultado es la más lenta (P95 61.4s) y ha degradado un 37.9% vs. histórico, con una tendencia sostenida de aumento en 4 versiones. La acción 'Cambio de esquema de valuación del portfolio Estrategia a ARS-USD CCL' es un punto crítico."
     },
     "hallazgos": [
       {
         "tipo": "alerta",
-        "seccion": "Mis operaciones",
-        "descripcion": "Mejora aparente — se discontinuaron 4/12 acciones medidas en V1.14.0 (P95 máx removidas: 46.35s).",
-        "evidencia": "Dropout rate del 33.3% en acciones medidas."
+        "seccion": "Resultado",
+        "descripcion": "La sección Resultado presenta una degradación sostenida y un salto abrupto en una acción clave.",
+        "evidencia": "P95 aumentó en 4 versiones consecutivas, de 36.87s a 61.4s. La acción 'Cambio de esquema de valuación del portfolio Estrategia a ARS-USD CCL' pasó de 45.34s a 102.27s (+125.6%) en V1.14.7."
       },
       {
         "tipo": "alerta",
         "seccion": "Agenda",
-        "descripcion": "La acción 'Segundo ingreso: Tipo de instrumento Bonos, estado: Pendiente, fecha: 1 mes haci' se degradó significativamente en la versión actual.",
-        "evidencia": "P95 de la acción pasó de 67.94s a 143.22s (+110.8%) en V1.14.7."
-      },
-      {
-        "tipo": "alerta",
-        "seccion": "Resultado",
-        "descripcion": "La sección muestra una tendencia sostenida de degradación y una acción crítica con un salto abrupto.",
-        "evidencia": "P95 de la sección aumentó en 4 versiones consecutivas (de 36.87s a 60.57s). La acción 'Cambio de esquema de valuación del portfolio Estrategia a ARS-USD CCL' pasó de 45.34s a 105.64s (+133.0%) en V1.14.7."
-      },
-      {
-        "tipo": "degradacion",
-        "seccion": "Home",
-        "descripcion": "El P95 de la sección Home ha aumentado en 3 versiones consecutivas.",
-        "evidencia": "P95 de la sección pasó de 13.26s a 15.81s."
+        "descripcion": "La sección Agenda sufrió un salto abrupto en una acción y una acción crítica fue discontinuada.",
+        "evidencia": "La acción 'Segundo ingreso: Tipo de instrumento Bonos, estado: Pendiente, fecha: 1 mes haci' pasó de 67.94s a 142.31s (+109.5%) en V1.14.7. Además, 'Segundo ingreso: Tipo de instrumento Operaciones a plazo, estado: Pendiente, fec' empeoró un 70.1% (P95 2.16s) en V1.14.0 antes de ser removida."
       },
       {
         "tipo": "mejora",
         "seccion": "Mi dinero",
-        "descripcion": "La sección mejoró drásticamente en la última versión, aunque una acción fue persistentemente lenta en el pasado.",
-        "evidencia": "P95 mejoró de 126.63s a 12.09s (+90.5%) vs. versión anterior. La acción 'Primer ingreso al menú Mi dinero' estuvo sobre el umbral en 4 de 5 versiones."
+        "descripcion": "La sección Mi dinero experimentó una mejora significativa, aunque una acción fue persistentemente lenta.",
+        "evidencia": "P95 mejoró de 126.63s a 11.8s (+90.7%) vs. la versión anterior. Sin embargo, 'Primer ingreso al menú Mi dinero' estuvo sobre el umbral en 4 de 5 versiones."
+      },
+      {
+        "tipo": "alerta",
+        "seccion": "Mis operaciones",
+        "descripcion": "La mejora en Mis operaciones es sospechosa debido a la discontinuación de acciones, aunque otras mejoraron.",
+        "evidencia": "Se discontinuaron 4/12 acciones medidas en V1.14.0 (P95 máx removidas: 46.35s). A pesar de esto, 3 acciones restantes mejoraron, destacando 'Primer ingreso al menú Mis operaciones' con +57.31%."
+      },
+      {
+        "tipo": "degradacion",
+        "seccion": "Home",
+        "descripcion": "La sección Home muestra una degradación sostenida en su rendimiento.",
+        "evidencia": "Su P95 aumentó de 13.26s a 15.68s en las últimas 3 versiones consecutivas."
       },
       {
         "tipo": "degradacion",
         "seccion": "Mis depositarios",
-        "descripcion": "El P95 de la sección Mis depositarios ha aumentado en 3 versiones consecutivas.",
-        "evidencia": "P95 de la sección pasó de 3.58s a 3.68s."
+        "descripcion": "La sección Mis depositarios muestra una degradación sostenida en su rendimiento.",
+        "evidencia": "Su P95 aumentó de 3.58s a 3.68s en las últimas 3 versiones consecutivas."
       },
       {
         "tipo": "mejora",
         "seccion": "Rendimiento",
-        "descripcion": "Más del 60% de las acciones de la sección Rendimiento mostraron mejoras significativas.",
-        "evidencia": "76 de 122 acciones mejoraron, destacando 'Portfolio Cobertura: Primer ingreso a la carta de rendimiento Desde principio de' con una mejora del 65.98%."
+        "descripcion": "La sección Rendimiento muestra una mejora estructural en múltiples acciones.",
+        "evidencia": "73 acciones mejoraron, destacando 'Portfolio Cobertura: Primer ingreso a la carta de rendimiento Desde principio de' con una mejora del 66.42%."
       }
     ],
     "causa_raiz": [
       {
         "seccion": "Agenda",
         "hipotesis": [
-          "Podría deberse a consultas de base de datos ineficientes o un gran volumen de datos al filtrar por tipo de instrumento 'Bonos' y estado 'Pendiente'.",
-          "Revisar si hay cambios recientes en la lógica de negocio o en la infraestructura que afecten la carga de datos en esta sección.",
-          "Posible falta de índices adecuados o problemas de concurrencia en la recuperación de operaciones programadas."
+          "Podría deberse a un aumento en el volumen de datos o complejidad de filtros para 'Bonos, Pendiente' en rangos de fechas específicos.",
+          "Revisar la eficiencia de las consultas a la base de datos o la lógica de negocio al cargar operaciones programadas con filtros avanzados.",
+          "Posibles problemas de rendimiento en el backend al procesar y agregar información para la visualización de la agenda."
         ]
       },
       {
         "seccion": "Resultado",
         "hipotesis": [
-          "La degradación sostenida y el salto abrupto en el cambio de esquema de valuación sugieren problemas de cálculo o agregación de datos complejos.",
-          "Revisar la eficiencia de los algoritmos de valuación y la carga de datos históricos para el cálculo de P&L, especialmente con diferentes esquemas de valuación.",
-          "Posible cuello de botella en el backend al procesar grandes volúmenes de transacciones o al interactuar con servicios externos para cotizaciones."
+          "El cálculo de esquemas de valuación complejos (ARS-USD CCL/MEP) podría estar generando una carga excesiva en el servidor o la base de datos.",
+          "Revisar la optimización de las consultas para la agregación de datos de P&L y rendimiento por portfolio, especialmente con grandes volúmenes de transacciones.",
+          "Posibles cuellos de botella en la infraestructura o servicios externos utilizados para obtener cotizaciones o datos de mercado para la valuación."
         ]
       },
       {
         "seccion": "Home",
         "hipotesis": [
-          "La tendencia de degradación podría estar relacionada con la carga de portfolios destacados o accesos directos que se volvieron más complejos.",
-          "Revisar la cantidad y complejidad de los widgets o datos que se cargan en la vista principal, especialmente si hay nuevas funcionalidades o fuentes de datos.",
-          "Posible impacto de consultas iniciales al cargar la página que no están optimizadas para el volumen actual de usuarios o datos."
+          "La carga inicial de portfolios destacados o accesos directos podría estar requiriendo más datos o cálculos complejos.",
+          "Revisar la eficiencia de las APIs que alimentan los widgets del Home, especialmente si se han añadido nuevas funcionalidades o datos.",
+          "Posibles problemas de rendimiento en la renderización del lado del cliente debido a la complejidad de la UI o la cantidad de componentes."
         ]
       }
     ],
     "recomendaciones": [
       {
         "prioridad": "P1",
-        "accion": "Investigar y optimizar la acción 'Segundo ingreso: Tipo de instrumento Bonos, estado: Pendiente, fecha: 1 mes haci'.",
+        "accion": "Investigar y optimizar urgentemente la sección Resultado, enfocándose en la valuación de portfolios.",
+        "seccion": "Resultado",
+        "evidencia": "P95 61.4s (sobre umbral), -37.9% vs histórico, tendencia sostenida (4 versiones), y acción 'Cambio de esquema de valuación del portfolio Estrategia a ARS-USD CCL' con salto de +125.6% a 102.27s."
+      },
+      {
+        "prioridad": "P1",
+        "accion": "Analizar y resolver el salto abrupto de rendimiento en acciones críticas de la sección Agenda.",
         "seccion": "Agenda",
-        "evidencia": "P95 actual de 143.22s, con un salto del 110.8% en la versión actual."
+        "evidencia": "P95 41.33s, -22.8% vs histórico, y acción 'Segundo ingreso: Tipo de instrumento Bonos, estado: Pendiente, fecha: 1 mes haci' con salto de +109.5% a 142.31s."
       },
       {
         "prioridad": "P1",
-        "accion": "Investigar y optimizar la acción 'Cambio de esquema de valuación del portfolio Estrategia a ARS-USD CCL'.",
-        "seccion": "Resultado",
-        "evidencia": "P95 actual de 105.64s, con un salto del 133.0% en la versión actual."
-      },
-      {
-        "prioridad": "P1",
-        "accion": "Analizar la causa raíz de la tendencia de degradación sostenida en la sección Resultado y su impacto en el umbral de rendimiento.",
-        "seccion": "Resultado",
-        "evidencia": "P95 actual de 60.57s (sobre umbral) y degradación en 4 versiones consecutivas."
-      },
-      {
-        "prioridad": "P1",
-        "accion": "Revisar y optimizar la acción 'Primer ingreso al menú Mi dinero' para resolver su comportamiento persistentemente lento.",
+        "accion": "Priorizar la optimización de la acción 'Primer ingreso al menú Mi dinero' para resolver su lentitud crónica.",
         "seccion": "Mi dinero",
-        "evidencia": "La acción estuvo sobre el umbral en 4 de las últimas 5 versiones."
+        "evidencia": "La acción 'Primer ingreso al menú Mi dinero' ha estado sobre el umbral en 4 de 5 versiones medidas."
       },
       {
         "prioridad": "P2",
-        "accion": "Investigar el 'dropout bias' en Mis operaciones para validar la mejora reportada y asegurar que no se ocultaron problemas de rendimiento.",
+        "accion": "Revisar la tendencia de degradación sostenida en la sección Home para evitar un mayor impacto en la UX.",
+        "seccion": "Home",
+        "evidencia": "El P95 de Home aumentó de 13.26s a 15.68s en 3 versiones consecutivas."
+      },
+      {
+        "prioridad": "P3",
+        "accion": "Validar la veracidad de las mejoras reportadas en 'Mis operaciones' debido al alto índice de acciones discontinuadas.",
         "seccion": "Mis operaciones",
-        "evidencia": "33.3% de acciones discontinuadas en la versión actual, con P95 máx de 46.35s en las removidas."
+        "evidencia": "33.3% (4 de 12) de las acciones medidas en la versión anterior fueron discontinuadas en la actual, con un P95 máximo de 46.35s entre las removidas."
       }
     ]
   }
