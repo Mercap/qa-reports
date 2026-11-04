@@ -5,9 +5,9 @@
     "passes": 3,
     "pending": 0,
     "failures": 0,
-    "start": "2026-10-22T14:05:22.864Z",
-    "end": "2026-10-22T14:05:35.140Z",
-    "duration": 12276,
+    "start": "2026-11-04T16:24:20.942Z",
+    "end": "2026-11-04T16:24:37.027Z",
+    "duration": 16085,
     "testsRegistered": 3,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "e250ff4b-4e4c-46e8-b1ef-f4d6be383dfb",
+      "uuid": "cf8b2409-38f7-4e21-9520-061b919eb8a1",
       "title": "",
       "fullFile": "build/testing-3/cfi/specs/smoke/00_admin.cy.js",
       "file": "build/testing-3/cfi/specs/smoke/00_admin.cy.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "a8a33dcb-c311-4fd1-9651-ef087a052caf",
+          "uuid": "79678886-ceac-4b36-93dc-7601274b656b",
           "title": "Precondición tener Parametria (Esquema de valuación y gastos)",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "Agregar Esquema de valuación",
               "fullTitle": "Precondición tener Parametria (Esquema de valuación y gastos) Agregar Esquema de valuación",
               "timedOut": null,
-              "duration": 6033,
+              "duration": 9054,
               "state": "passed",
               "speed": "medium",
               "pass": true,
@@ -47,8 +47,8 @@
               "context": null,
               "code": "cy.ValidarIngresoAdmin();\n// Navega a Esquemas de Valuación y espera la tabla (ver L022). La descripción con la marca\n// CYPRESS es la que usa el cleaner para reconocer qué esquemas borrar.\ncy.guardarEsquemasValuacion();\n// Se crea un único esquema, con el nombre de Constants.VALUATION_SCHEME (el que eligen\n// limites y resultado): si un target se desalinea, el alta y la validación lo usan igual.\ncy.altaEsquemaValuacion(\n  _support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].VALUATION_SCHEME,\n  'Valuacion en pesos con cotizaciones en USD al t/c BNA CYPRESS.',\n  'Valuacion BYMA ARS + Instrumentos No Liquidos - USD BNA',\n  'Esquema ARS - USD BNA C'\n);\ncy.validarEsquemaValuacionCreado(_support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].VALUATION_SCHEME);",
               "err": {},
-              "uuid": "04eae4f0-b7c7-42f1-9cd9-e34e6c8aa457",
-              "parentUUID": "a8a33dcb-c311-4fd1-9651-ef087a052caf",
+              "uuid": "6d2b0ec1-8fc1-4af9-8302-9e854eb28fea",
+              "parentUUID": "79678886-ceac-4b36-93dc-7601274b656b",
               "isHook": false,
               "skipped": false
             },
@@ -56,7 +56,7 @@
               "title": "Agregar Gastos",
               "fullTitle": "Precondición tener Parametria (Esquema de valuación y gastos) Agregar Gastos",
               "timedOut": null,
-              "duration": 594,
+              "duration": 563,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -65,8 +65,8 @@
               "context": null,
               "code": "// Navega a Definiciones de Gastos y espera la tabla. El cleaner no borra gastos: se crean solo si faltan.\ncy.guardarGastos();\ncy.altaGasto('Comisión', 'Comisión del Broker');\ncy.altaGasto('Comisión', 'Comisión del Mercado');\ncy.altaGasto('Impuesto', 'IVA');\ncy.validarGastoCreado('Comisión del Broker');\ncy.validarGastoCreado('Comisión del Mercado');\ncy.validarGastoCreado('IVA');",
               "err": {},
-              "uuid": "2365657d-bed6-473b-aa4a-a740890be15a",
-              "parentUUID": "a8a33dcb-c311-4fd1-9651-ef087a052caf",
+              "uuid": "f9d66779-9a73-48c4-a038-7992a50dfacc",
+              "parentUUID": "79678886-ceac-4b36-93dc-7601274b656b",
               "isHook": false,
               "skipped": false
             },
@@ -74,7 +74,7 @@
               "title": "Mapear cargos de Balanz",
               "fullTitle": "Precondición tener Parametria (Esquema de valuación y gastos) Mapear cargos de Balanz",
               "timedOut": null,
-              "duration": 1605,
+              "duration": 1430,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -83,22 +83,22 @@
               "context": null,
               "code": "cy.irAMapeoDeCargos();\ncy.mapearCargosBroker('Balanz', { 'Arancel': 'Comisión del Broker', 'Costos Mercado': 'Comisión del Mercado' });",
               "err": {},
-              "uuid": "3e01e6d8-8904-4f08-b4f3-b9cca04b5acc",
-              "parentUUID": "a8a33dcb-c311-4fd1-9651-ef087a052caf",
+              "uuid": "5839a6d1-a210-4da1-80d5-83a17efd08c4",
+              "parentUUID": "79678886-ceac-4b36-93dc-7601274b656b",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "04eae4f0-b7c7-42f1-9cd9-e34e6c8aa457",
-            "2365657d-bed6-473b-aa4a-a740890be15a",
-            "3e01e6d8-8904-4f08-b4f3-b9cca04b5acc"
+            "6d2b0ec1-8fc1-4af9-8302-9e854eb28fea",
+            "f9d66779-9a73-48c4-a038-7992a50dfacc",
+            "5839a6d1-a210-4da1-80d5-83a17efd08c4"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 8232,
+          "duration": 11047,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
