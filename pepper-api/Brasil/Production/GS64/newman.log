@@ -22,12 +22,12 @@ Marvel APIs
   ✓  cashflowUnits: estructura válida por variante
 
 ↳ Get all bonds - for issuer
-  GET https://api.brasil.mercap.com.ar/instrument-issuers [200 OK, 6.49kB, 161ms]
+  GET https://api.brasil.mercap.com.ar/instrument-issuers [200 OK, 6.49kB, 220ms]
   ┌
   │ 'https://api.brasil.mercap.com.ar/instrument-issuers/0
   │ 1699af4-94b1-4255-9e44-d637d10ec2d1'
   └
-  GET https://api.brasil.mercap.com.ar/brasil/bonds?issuer=https://api.brasil.mercap.com.ar/instrument-issuers/01699af4-94b1-4255-9e44-d637d10ec2d1 [200 OK, 35.7kB, 3.2s]
+  GET https://api.brasil.mercap.com.ar/brasil/bonds?issuer=https://api.brasil.mercap.com.ar/instrument-issuers/01699af4-94b1-4255-9e44-d637d10ec2d1 [200 OK, 35.7kB, 3s]
   ┌
   │ 'https://api.brasil.mercap.com.ar/instrument-issuers/0
   │ 1699af4-94b1-4255-9e44-d637d10ec2d1'
@@ -40,15 +40,15 @@ Marvel APIs
   ✓  Cada atributo debe tener el formato correcto
   ✓  Debe existir objeto links con atributos self y deactivate
   ✓  cashflowUnits: estructura válida por variante
-  GET https://api.brasil.mercap.com.ar/instrument-issuers/01699af4-94b1-4255-9e44-d637d10ec2d1 [200 OK, 1.05kB, 124ms]
-  GET https://api.brasil.mercap.com.ar/instrument-issuers/01699af4-94b1-4255-9e44-d637d10ec2d1   GET https://api.brasil.mercap.com.ar/instrument-issuers/01699af4-94b1-4255-9e44-d637d10ec2d1   GET https://api.brasil.mercap.com.ar/instrument-issuers/01699af4-94b1-4255-9e44-d637d10ec2d1   GET https://api.brasil.mercap.com.ar/instrument-issuers/01699af4-94b1-4255-9e44-d637d10ec2d1 [200 OK, 1.06kB, 128ms]
-[200 OK, 1.06kB, 305ms]
-[200 OK, 1.06kB, 310ms]
-[200 OK, 1.05kB, 335ms]
+  GET https://api.brasil.mercap.com.ar/instrument-issuers/01699af4-94b1-4255-9e44-d637d10ec2d1 [200 OK, 1.06kB, 127ms]
+  GET https://api.brasil.mercap.com.ar/instrument-issuers/01699af4-94b1-4255-9e44-d637d10ec2d1   GET https://api.brasil.mercap.com.ar/instrument-issuers/01699af4-94b1-4255-9e44-d637d10ec2d1   GET https://api.brasil.mercap.com.ar/instrument-issuers/01699af4-94b1-4255-9e44-d637d10ec2d1   GET https://api.brasil.mercap.com.ar/instrument-issuers/01699af4-94b1-4255-9e44-d637d10ec2d1 [200 OK, 1.05kB, 124ms]
+[200 OK, 1.06kB, 272ms]
+[200 OK, 1.06kB, 276ms]
+[200 OK, 1.06kB, 295ms]
   ✓  validar que solo devuelva items asociados al issuer enviado por parametro
 
 ↳ Get all bonds - start & limit parameters
-  GET https://api.brasil.mercap.com.ar/brasil/bonds?limit=14&start=1 [200 OK, 234.2kB, 2s]
+  GET https://api.brasil.mercap.com.ar/brasil/bonds?limit=14&start=1 [200 OK, 234.2kB, 1638ms]
   ✓  Los headers requeridos están presentes y son correctos
   ✓  El código de respuesta debe ser 200
   ✓  Todos los atributos requeridos deben estar presentes
@@ -82,7 +82,7 @@ Marvel APIs
 ↳ Create duplicate LB5S0A
 
 ↳ Get all bonds with includeNonAlive true
-  GET https://api.brasil.mercap.com.ar/brasil/bonds?includeNonAlive=true [200 OK, 131.25kB, 468ms]
+  GET https://api.brasil.mercap.com.ar/brasil/bonds?includeNonAlive=true [200 OK, 131.26kB, 380ms]
   ✓  Los headers requeridos están presentes y son correctos
   ✓  El código de respuesta debe ser 200
   ✓  Todos los atributos requeridos deben estar presentes
@@ -91,7 +91,7 @@ Marvel APIs
   ✓  Debe existir objeto links con atributos self y deactivate
 
 ↳ Get all bonds - start & limit parameters with includeNonAlive true
-  GET https://api.brasil.mercap.com.ar/brasil/bonds?limit=14&start=1&includeNonAlive=true [200 OK, 86.12kB, 326ms]
+  GET https://api.brasil.mercap.com.ar/brasil/bonds?limit=14&start=1&includeNonAlive=true [200 OK, 86.12kB, 286ms]
   ✓  Los headers requeridos están presentes y son correctos
   ✓  El código de respuesta debe ser 200
   ✓  Todos los atributos requeridos deben estar presentes
@@ -122,7 +122,7 @@ Marvel APIs
 ↳ Create duplicate YMCOO
 
 ↳ Get all bonds with includeNonAlive false
-  GET https://api.brasil.mercap.com.ar/brasil/bonds?includeNonAlive=false [200 OK, 325.9kB, 1442ms]
+  GET https://api.brasil.mercap.com.ar/brasil/bonds?includeNonAlive=false [200 OK, 325.89kB, 1711ms]
   ✓  Los headers requeridos están presentes y son correctos
   ✓  El código de respuesta debe ser 200
   ✓  Todos los atributos requeridos deben estar presentes
@@ -596,7 +596,7 @@ Marvel APIs
 
 ❏ Pepper-GS64 / Bond Laws
 ↳ All Bond Laws
-  GET https://api.brasil.mercap.com.ar/bond-laws [200 OK, 1.24kB, 390ms]
+  GET https://api.brasil.mercap.com.ar/bond-laws [200 OK, 1.24kB, 264ms]
   ✓  Status code is 200
   ✓  Not empty
   ┌
@@ -605,7 +605,7 @@ Marvel APIs
   ✓  Item 1 (Lei Brasileira) contains expected properties
   ✓  Item 1 (Lei Brasileira) 'name' is a non-empty string
   ✓  Item 1 (Lei Brasileira) self link is a valid URL
-  GET https://api.brasil.mercap.com.ar/bond-laws/f5c5b146-8f26-4e82-a4e0-ff3cbc386c67 [200 OK, 997B, 132ms]
+  GET https://api.brasil.mercap.com.ar/bond-laws/f5c5b146-8f26-4e82-a4e0-ff3cbc386c67 [200 OK, 994B, 110ms]
   ✓  Item 1 (Lei Brasileira) self link returns status 200
   ┌
   │ '🔎 Testing Item 2 (Lei N.Y.)'
@@ -613,7 +613,7 @@ Marvel APIs
   ✓  Item 2 (Lei N.Y.) contains expected properties
   ✓  Item 2 (Lei N.Y.) 'name' is a non-empty string
   ✓  Item 2 (Lei N.Y.) self link is a valid URL
-  GET https://api.brasil.mercap.com.ar/bond-laws/86ec5fbe-c27b-4f29-a27d-b174c2a25899 [200 OK, 981B, 122ms]
+  GET https://api.brasil.mercap.com.ar/bond-laws/86ec5fbe-c27b-4f29-a27d-b174c2a25899 [200 OK, 990B, 94ms]
   ✓  Item 2 (Lei N.Y.) self link returns status 200
 
 ↳ By UUID Bond Laws
@@ -747,7 +747,7 @@ Marvel APIs
 
 ❏ Pepper-GS64 / Currencies64
 ↳ All Currencies64
-  GET https://api.brasil.mercap.com.ar/currencies [200 OK, 1.31kB, 250ms]
+  GET https://api.brasil.mercap.com.ar/currencies [200 OK, 1.31kB, 159ms]
   ✓  Status code is 200
   ✓  Not empty
 
@@ -772,13 +772,13 @@ Marvel APIs
 
 ❏ Pepper-GS64 / Calendars / Querying
 ↳ Get calendars
-  GET https://api.brasil.mercap.com.ar/calendars [200 OK, 11.8kB, 155ms]
+  GET https://api.brasil.mercap.com.ar/calendars [200 OK, 11.8kB, 137ms]
   ✓  El código de respuesta debe ser 200
   ✓  La respuesta debe tener items
   ✓  Cada calendario debe tener la estructura correcta
 
 ↳ Get calendars summary
-  GET https://api.brasil.mercap.com.ar/calendars [200 OK, 2.11kB, 129ms]
+  GET https://api.brasil.mercap.com.ar/calendars [200 OK, 2.12kB, 129ms]
   ✓  El header Accept es correcto
   ✓  El código de respuesta debe ser 200
   ✓  La respuesta debe tener 'items' y 'links.self'
@@ -857,17 +857,17 @@ Marvel APIs
 
 ❏ Pepper-GS64 / Calendars / Day-count / Happy path
 ↳ QUERY /day-count - calculation of working days
-  GET https://api.brasil.mercap.com.ar/calendars [200 OK, 11.81kB, 176ms]
-  QUERY https://api.brasil.mercap.com.ar/calendars/e1ddb11e-3caa-4359-b14c-1b05d67b9350/day-count [200 OK, 736B, 505ms]
+  GET https://api.brasil.mercap.com.ar/calendars [200 OK, 11.81kB, 115ms]
+  QUERY https://api.brasil.mercap.com.ar/calendars/e1ddb11e-3caa-4359-b14c-1b05d67b9350/day-count [200 OK, 742B, 359ms]
   ✓  Status code es 200
   ✓  Response tiene propiedad 'dayCount'
   ✓  Response Content-Type correcto
   ✓  'dayCount' es un número entero no negativo
-  ✓  Caso base: from=2026-07-06 , to=2027-01-16 → dayCount=135
+  ✓  Caso base: from=2026-07-09 , to=2027-01-19 → dayCount=134
 
 ↳ QUERY /day-count - calculation of working days and holiday
-  GET https://api.brasil.mercap.com.ar/calendars [200 OK, 11.81kB, 154ms]
-  QUERY https://api.brasil.mercap.com.ar/calendars/e1ddb11e-3caa-4359-b14c-1b05d67b9350/day-count [200 OK, 738B, 140ms]
+  GET https://api.brasil.mercap.com.ar/calendars [200 OK, 11.79kB, 107ms]
+  QUERY https://api.brasil.mercap.com.ar/calendars/e1ddb11e-3caa-4359-b14c-1b05d67b9350/day-count [200 OK, 734B, 129ms]
   ✓  Status code es 200
   ✓  Response tiene propiedad 'dayCount'
   ✓  Response Content-Type correcto
@@ -875,8 +875,8 @@ Marvel APIs
   ✓  Caso base: from=2026-12-20 , to=2026-12-26 → dayCount=4
 
 ↳ QUERY /day-count - calculation of weekend and holiday
-  GET https://api.brasil.mercap.com.ar/calendars [200 OK, 11.81kB, 120ms]
-  QUERY https://api.brasil.mercap.com.ar/calendars/e1ddb11e-3caa-4359-b14c-1b05d67b9350/day-count [200 OK, 736B, 110ms]
+  GET https://api.brasil.mercap.com.ar/calendars [200 OK, 11.8kB, 110ms]
+  QUERY https://api.brasil.mercap.com.ar/calendars/e1ddb11e-3caa-4359-b14c-1b05d67b9350/day-count [200 OK, 736B, 96ms]
   ✓  Status code es 200
   ✓  Response tiene propiedad 'dayCount'
   ✓  Response Content-Type correcto
@@ -884,51 +884,51 @@ Marvel APIs
   ✓  Caso base: from=2026-05-01 , to=2026-05-03 → dayCount=0
 
 ↳ QUERY /day-count - calculation of one working days
-  GET https://api.brasil.mercap.com.ar/calendars [200 OK, 11.8kB, 153ms]
-  QUERY https://api.brasil.mercap.com.ar/calendars/e1ddb11e-3caa-4359-b14c-1b05d67b9350/day-count [200 OK, 740B, 110ms]
+  GET https://api.brasil.mercap.com.ar/calendars [200 OK, 11.8kB, 114ms]
+  QUERY https://api.brasil.mercap.com.ar/calendars/e1ddb11e-3caa-4359-b14c-1b05d67b9350/day-count [200 OK, 736B, 102ms]
   ✓  Status code es 200
   ✓  Response tiene propiedad 'dayCount'
   ✓  Response Content-Type correcto
   ✓  'dayCount' es un número entero no negativo
-  ✓  Caso base: from=2026-11-06 , to=2026-11-06 → dayCount=1
+  ✓  Caso base: from=2026-11-09 , to=2026-11-09 → dayCount=1
 
 ↳ QUERY /day-count - calculation of working days of a year
-  GET https://api.brasil.mercap.com.ar/calendars [200 OK, 11.8kB, 119ms]
-  QUERY https://api.brasil.mercap.com.ar/calendars/e1ddb11e-3caa-4359-b14c-1b05d67b9350/day-count [200 OK, 736B, 160ms]
+  GET https://api.brasil.mercap.com.ar/calendars [200 OK, 11.8kB, 111ms]
+  QUERY https://api.brasil.mercap.com.ar/calendars/e1ddb11e-3caa-4359-b14c-1b05d67b9350/day-count [200 OK, 732B, 107ms]
   ✓  Status code es 200
   ✓  Response tiene propiedad 'dayCount'
   ✓  Response Content-Type correcto
   ✓  'dayCount' es un número entero no negativo
-  ✓  Caso base: from=2027-11-06 , to=2027-11-06 → dayCount=0
+  ✓  Caso base: from=2027-11-09 , to=2027-11-09 → dayCount=1
 
 ❏ Pepper-GS64 / Calendars / Day-count / Negative case
 ↳ QUERY /day-count - from > to
-  GET https://api.brasil.mercap.com.ar/calendars [200 OK, 11.81kB, 120ms]
-  QUERY https://api.brasil.mercap.com.ar/calendars/e1ddb11e-3caa-4359-b14c-1b05d67b9350/day-count [500 Internal Server Error, 650B, 240ms]
+  GET https://api.brasil.mercap.com.ar/calendars [200 OK, 11.81kB, 117ms]
+  QUERY https://api.brasil.mercap.com.ar/calendars/e1ddb11e-3caa-4359-b14c-1b05d67b9350/day-count [500 Internal Server Error, 656B, 228ms]
   ✓  Status code es 500
   ✓  Response tiene mensaje de error esperado
 
 ↳ QUERY /day-count - invalid date format
-  GET https://api.brasil.mercap.com.ar/calendars [200 OK, 11.8kB, 114ms]
-  QUERY https://api.brasil.mercap.com.ar/calendars/e1ddb11e-3caa-4359-b14c-1b05d67b9350/day-count [500 Internal Server Error, 691B, 153ms]
+  GET https://api.brasil.mercap.com.ar/calendars [200 OK, 11.8kB, 109ms]
+  QUERY https://api.brasil.mercap.com.ar/calendars/e1ddb11e-3caa-4359-b14c-1b05d67b9350/day-count [500 Internal Server Error, 685B, 182ms]
   ✓  Status code es 500
   ✓  Response tiene mensaje de error esperado
 
 ↳ QUERY /day-count - without date from
-  GET https://api.brasil.mercap.com.ar/calendars [200 OK, 11.79kB, 117ms]
-  QUERY https://api.brasil.mercap.com.ar/calendars/e1ddb11e-3caa-4359-b14c-1b05d67b9350/day-count [400 Bad Request, 621B, 104ms]
+  GET https://api.brasil.mercap.com.ar/calendars [200 OK, 11.8kB, 121ms]
+  QUERY https://api.brasil.mercap.com.ar/calendars/e1ddb11e-3caa-4359-b14c-1b05d67b9350/day-count [400 Bad Request, 621B, 119ms]
   ✓  Status code es 400
   ✓  Response tiene mensaje de error esperado
 
 ↳ QUERY /day-count - without date to
   GET https://api.brasil.mercap.com.ar/calendars [200 OK, 11.8kB, 117ms]
-  QUERY https://api.brasil.mercap.com.ar/calendars/e1ddb11e-3caa-4359-b14c-1b05d67b9350/day-count [400 Bad Request, 619B, 103ms]
+  QUERY https://api.brasil.mercap.com.ar/calendars/e1ddb11e-3caa-4359-b14c-1b05d67b9350/day-count [400 Bad Request, 621B, 98ms]
   ✓  Status code es 400
   ✓  Response tiene mensaje de error esperado
 
 ❏ Pepper-GS64 / Debt Types
 ↳ All Debt Types
-  GET https://api.brasil.mercap.com.ar/debt-types [200 OK, 2.21kB, 106ms]
+  GET https://api.brasil.mercap.com.ar/debt-types [200 OK, 2.21kB, 101ms]
   ✓  Status code is 200
   ✓  Not empty
   ┌
@@ -937,7 +937,7 @@ Marvel APIs
   ✓  Item 1 (C.R.A.) contains expected properties
   ✓  Item 1 (C.R.A.) 'singularName' is a non-empty string
   ✓  Item 1 (C.R.A.) self link is a valid URL
-  GET https://api.brasil.mercap.com.ar/debt-types/54feb6f9-f842-4ab0-9529-7735353f5f2e [200 OK, 989B, 108ms]
+  GET https://api.brasil.mercap.com.ar/debt-types/54feb6f9-f842-4ab0-9529-7735353f5f2e [200 OK, 992B, 105ms]
   ✓  Item 1 (C.R.A.) self link returns status 200
   ┌
   │ '🔎 Testing Item 2 (C.R.I.)'
@@ -945,7 +945,7 @@ Marvel APIs
   ✓  Item 2 (C.R.I.) contains expected properties
   ✓  Item 2 (C.R.I.) 'singularName' is a non-empty string
   ✓  Item 2 (C.R.I.) self link is a valid URL
-  GET https://api.brasil.mercap.com.ar/debt-types/178fe3f0-97b3-4b90-b9f1-c97a642bf6f6 [200 OK, 993B, 103ms]
+  GET https://api.brasil.mercap.com.ar/debt-types/178fe3f0-97b3-4b90-b9f1-c97a642bf6f6 [200 OK, 998B, 119ms]
   ✓  Item 2 (C.R.I.) self link returns status 200
   ┌
   │ '🔎 Testing Item 3 (Letra Financeira)'
@@ -953,7 +953,7 @@ Marvel APIs
   ✓  Item 3 (Letra Financeira) contains expected properties
   ✓  Item 3 (Letra Financeira) 'singularName' is a non-empty string
   ✓  Item 3 (Letra Financeira) self link is a valid URL
-  GET https://api.brasil.mercap.com.ar/debt-types/fcf6f777-3701-4ba4-860e-e1ef3c773e7f [200 OK, 1kB, 102ms]
+  GET https://api.brasil.mercap.com.ar/debt-types/fcf6f777-3701-4ba4-860e-e1ef3c773e7f [200 OK, 1.01kB, 87ms]
   ✓  Item 3 (Letra Financeira) self link returns status 200
   ┌
   │ '🔎 Testing Item 4 (Fideicomiso)'
@@ -961,7 +961,7 @@ Marvel APIs
   ✓  Item 4 (Fideicomiso) contains expected properties
   ✓  Item 4 (Fideicomiso) 'singularName' is a non-empty string
   ✓  Item 4 (Fideicomiso) self link is a valid URL
-  GET https://api.brasil.mercap.com.ar/debt-types/3ea32273-4350-4151-a85f-7768b9d2f48e [200 OK, 1.01kB, 140ms]
+  GET https://api.brasil.mercap.com.ar/debt-types/3ea32273-4350-4151-a85f-7768b9d2f48e [200 OK, 1.01kB, 91ms]
   ✓  Item 4 (Fideicomiso) self link returns status 200
   ┌
   │ '🔎 Testing Item 5 (Titulo Publico)'
@@ -969,7 +969,7 @@ Marvel APIs
   ✓  Item 5 (Titulo Publico) contains expected properties
   ✓  Item 5 (Titulo Publico) 'singularName' is a non-empty string
   ✓  Item 5 (Titulo Publico) self link is a valid URL
-  GET https://api.brasil.mercap.com.ar/debt-types/0753974a-9ea0-450c-b9ae-318f70a4320d [200 OK, 1kB, 104ms]
+  GET https://api.brasil.mercap.com.ar/debt-types/0753974a-9ea0-450c-b9ae-318f70a4320d [200 OK, 1.01kB, 111ms]
   ✓  Item 5 (Titulo Publico) self link returns status 200
   ┌
   │ '🔎 Testing Item 6 (Debenture)'
@@ -977,14 +977,14 @@ Marvel APIs
   ✓  Item 6 (Debenture) contains expected properties
   ✓  Item 6 (Debenture) 'singularName' is a non-empty string
   ✓  Item 6 (Debenture) self link is a valid URL
-  GET https://api.brasil.mercap.com.ar/debt-types/9f60c589-e591-4130-b7c1-a23c670333a6 [200 OK, 994B, 112ms]
+  GET https://api.brasil.mercap.com.ar/debt-types/9f60c589-e591-4130-b7c1-a23c670333a6 [200 OK, 1kB, 91ms]
   ✓  Item 6 (Debenture) self link returns status 200
 
 ↳ By UUID Debt Types
 
 ❏ Pepper-GS64 / Instrument Issuers
 ↳ Get all instrument issuers
-  GET https://api.brasil.mercap.com.ar/instrument-issuers [200 OK, 6.48kB, 183ms]
+  GET https://api.brasil.mercap.com.ar/instrument-issuers [200 OK, 6.48kB, 151ms]
   ✓  Response is received
   ✓  Status code is 200
   ✓  Media-Type is correct
@@ -993,7 +993,7 @@ Marvel APIs
   ✓  Self link matches expected URL
 
 ↳ Get instrument issuers by UUID
-  GET https://api.brasil.mercap.com.ar/instrument-issuers/008ddb57-2324-4991-8fbb-b36bdcd8a431 [200 OK, 1.05kB, 141ms]
+  GET https://api.brasil.mercap.com.ar/instrument-issuers/008ddb57-2324-4991-8fbb-b36bdcd8a431 [200 OK, 1.05kB, 89ms]
   ✓  Response is received
   ✓  Status code is 200
   ✓  Media-Type is correct
@@ -1005,7 +1005,7 @@ Marvel APIs
 
 ❏ Pepper-GS64 / Theoretical Valuation / Internal Rate of Return / Happy path
 ↳ QUERY /internal-rate-of-return-valuation - simple investment, valuationDate equal to first flow (Example A)
-  QUERY https://api.brasil.mercap.com.ar/internal-rate-of-return-valuation [200 OK, 968B, 137ms]
+  QUERY https://api.brasil.mercap.com.ar/internal-rate-of-return-valuation [200 OK, 964B, 104ms]
   ✓  Status code es 200
   ✓  Response Content-Type correcto
   ✓  Response type es 'internal-rate-of-return'
@@ -1014,7 +1014,7 @@ Marvel APIs
   ✓  TIR = 10% y precio = capital invertido (t0 = 0, sin cobros percibidos)
 
 ↳ QUERY /internal-rate-of-return-valuation - bond-like flow with intermediate valuation date (Example B)
-  QUERY https://api.brasil.mercap.com.ar/internal-rate-of-return-valuation [200 OK, 972B, 145ms]
+  QUERY https://api.brasil.mercap.com.ar/internal-rate-of-return-valuation [200 OK, 974B, 118ms]
   ✓  Status code es 200
   ✓  Response Content-Type correcto
   ✓  Response type es 'internal-rate-of-return'
@@ -1023,7 +1023,7 @@ Marvel APIs
   ✓  TIR = 10% y precio = 1048.3981252157034 (solo el cobro percibido antes de valuationDate cuenta)
 
 ↳ QUERY /internal-rate-of-return-valuation - Example B flow sent in arbitrary (non-chronological) order
-  QUERY https://api.brasil.mercap.com.ar/internal-rate-of-return-valuation [200 OK, 968B, 135ms]
+  QUERY https://api.brasil.mercap.com.ar/internal-rate-of-return-valuation [200 OK, 972B, 122ms]
   ✓  Status code es 200
   ✓  Response Content-Type correcto
   ✓  Response type es 'internal-rate-of-return'
@@ -1032,7 +1032,7 @@ Marvel APIs
   ✓  El orden de 'flows' no importa: mismo resultado exacto que el Ejemplo B ordenado
 
 ↳ QUERY /internal-rate-of-return-valuation - negative IRR with effective rate greater than -100%
-  QUERY https://api.brasil.mercap.com.ar/internal-rate-of-return-valuation [200 OK, 961B, 153ms]
+  QUERY https://api.brasil.mercap.com.ar/internal-rate-of-return-valuation [200 OK, 963B, 117ms]
   ✓  Status code es 200
   ✓  Response Content-Type correcto
   ✓  Response type es 'internal-rate-of-return'
@@ -1041,7 +1041,7 @@ Marvel APIs
   ✓  TIR = -20% (rindio menos de lo invertido, pero la tasa efectiva es > -100%)
 
 ↳ QUERY /internal-rate-of-return-valuation - fully redeemed position, valuationDate at last flow (price = 0)
-  QUERY https://api.brasil.mercap.com.ar/internal-rate-of-return-valuation [200 OK, 955B, 119ms]
+  QUERY https://api.brasil.mercap.com.ar/internal-rate-of-return-valuation [200 OK, 963B, 113ms]
   ✓  Status code es 200
   ✓  Response Content-Type correcto
   ✓  Response type es 'internal-rate-of-return'
@@ -1050,7 +1050,7 @@ Marvel APIs
   ✓  TIR se mantiene en 10% (es propiedad del flujo) y el precio da 0 (posicion totalmente redimida)
 
 ↳ QUERY /internal-rate-of-return-valuation - actual-360 day-count basis (Example B flow)
-  QUERY https://api.brasil.mercap.com.ar/internal-rate-of-return-valuation [200 OK, 985B, 155ms]
+  QUERY https://api.brasil.mercap.com.ar/internal-rate-of-return-valuation [200 OK, 997B, 134ms]
   ✓  Status code es 200
   ✓  Response Content-Type correcto
   ✓  Response type es 'internal-rate-of-return'
@@ -1058,7 +1058,7 @@ Marvel APIs
   ✓  internalCalculations['internal-rate-of-return'] tiene percentage numerico y term 'P1Y'
 
 ↳ QUERY /internal-rate-of-return-valuation - actual-365 day-count basis differs from actual-360 (same Example B flow)
-  QUERY https://api.brasil.mercap.com.ar/internal-rate-of-return-valuation [200 OK, 976B, 134ms]
+  QUERY https://api.brasil.mercap.com.ar/internal-rate-of-return-valuation [200 OK, 974B, 114ms]
   ✓  Status code es 200
   ✓  Response Content-Type correcto
   ✓  Response type es 'internal-rate-of-return'
@@ -1069,7 +1069,7 @@ Marvel APIs
   ✓  El precio (value.amount) es coherente entre bases: se espera que NO difiera (invariante matematico), no es un bug
 
 ↳ QUERY /internal-rate-of-return-valuation - response caching headers (ETag, Cache-Control, Expires)
-  QUERY https://api.brasil.mercap.com.ar/internal-rate-of-return-valuation [200 OK, 962B, 127ms]
+  QUERY https://api.brasil.mercap.com.ar/internal-rate-of-return-valuation [200 OK, 958B, 105ms]
   ✓  Status code es 200
   ✓  Response Content-Type correcto
   ✓  Response type es 'internal-rate-of-return'
@@ -1080,99 +1080,99 @@ Marvel APIs
   ✓  Response incluye header Expires
 
 ↳ QUERY /internal-rate-of-return-valuation - If-None-Match matching ETag returns 304
-  QUERY https://api.brasil.mercap.com.ar/internal-rate-of-return-valuation [304 Not Modified, 698B, 116ms]
+  QUERY https://api.brasil.mercap.com.ar/internal-rate-of-return-valuation [304 Not Modified, 686B, 105ms]
   ✓  Status code es 304
   ✓  Respuesta 304 no trae body
 
 ❏ Pepper-GS64 / Theoretical Valuation / Internal Rate of Return / Negative case
 ↳ QUERY /internal-rate-of-return-valuation - valuationDate before the earliest flow
-  QUERY https://api.brasil.mercap.com.ar/internal-rate-of-return-valuation [422 Unprocessable Entity, 666B, 249ms]
+  QUERY https://api.brasil.mercap.com.ar/internal-rate-of-return-valuation [422 Unprocessable Entity, 660B, 105ms]
   ✓  Status code es 422
   ✓  Response body tiene 'message' no vacio
 
 ↳ QUERY /internal-rate-of-return-valuation - all flows have the same sign (no sign change)
-  QUERY https://api.brasil.mercap.com.ar/internal-rate-of-return-valuation [422 Unprocessable Entity, 689B, 117ms]
+  QUERY https://api.brasil.mercap.com.ar/internal-rate-of-return-valuation [422 Unprocessable Entity, 691B, 98ms]
   ✓  Status code es 422
   ✓  Response body tiene 'message' no vacio
 
 ↳ QUERY /internal-rate-of-return-valuation - single movement in flows
-  QUERY https://api.brasil.mercap.com.ar/internal-rate-of-return-valuation [422 Unprocessable Entity, 683B, 113ms]
+  QUERY https://api.brasil.mercap.com.ar/internal-rate-of-return-valuation [422 Unprocessable Entity, 685B, 97ms]
   ✓  Status code es 422
   ✓  Response body tiene 'message' no vacio
 
 ↳ QUERY /internal-rate-of-return-valuation - empty flows array
-  QUERY https://api.brasil.mercap.com.ar/internal-rate-of-return-valuation [422 Unprocessable Entity, 634B, 116ms]
+  QUERY https://api.brasil.mercap.com.ar/internal-rate-of-return-valuation [422 Unprocessable Entity, 644B, 98ms]
   ✓  Status code es 422
   ✓  Response body tiene 'message' no vacio
 
 ↳ QUERY /internal-rate-of-return-valuation - amount is not numeric
-  QUERY https://api.brasil.mercap.com.ar/internal-rate-of-return-valuation [400 Bad Request, 616B, 144ms]
+  QUERY https://api.brasil.mercap.com.ar/internal-rate-of-return-valuation [400 Bad Request, 622B, 105ms]
   ✓  Status code es 400
   ✓  Response body tiene 'message' no vacio
 
 ↳ QUERY /internal-rate-of-return-valuation - missing currency
-  QUERY https://api.brasil.mercap.com.ar/internal-rate-of-return-valuation [400 Bad Request, 621B, 105ms]
+  QUERY https://api.brasil.mercap.com.ar/internal-rate-of-return-valuation [400 Bad Request, 613B, 98ms]
   ✓  Status code es 400
   ✓  Response body tiene 'message' no vacio
 
 ↳ QUERY /internal-rate-of-return-valuation - paymentDate not in strict YYYY-MM-DD format
-  QUERY https://api.brasil.mercap.com.ar/internal-rate-of-return-valuation [400 Bad Request, 786B, 125ms]
+  QUERY https://api.brasil.mercap.com.ar/internal-rate-of-return-valuation [400 Bad Request, 776B, 105ms]
   ✓  Status code es 400
   ✓  Response body tiene 'message' no vacio
 
 ↳ QUERY /internal-rate-of-return-valuation - valuationDate not in strict YYYY-MM-DD format
-  QUERY https://api.brasil.mercap.com.ar/internal-rate-of-return-valuation [400 Bad Request, 788B, 110ms]
+  QUERY https://api.brasil.mercap.com.ar/internal-rate-of-return-valuation [400 Bad Request, 784B, 97ms]
   ✓  Status code es 400
   ✓  Response body tiene 'message' no vacio
 
 ↳ QUERY /internal-rate-of-return-valuation - missing dayCountBasis
-  QUERY https://api.brasil.mercap.com.ar/internal-rate-of-return-valuation [400 Bad Request, 612B, 138ms]
+  QUERY https://api.brasil.mercap.com.ar/internal-rate-of-return-valuation [400 Bad Request, 634B, 98ms]
   ✓  Status code es 400
   ✓  Response body tiene 'message' no vacio
 
 ↳ QUERY /internal-rate-of-return-valuation - unknown dayCountBasis.type
-  QUERY https://api.brasil.mercap.com.ar/internal-rate-of-return-valuation [400 Bad Request, 626B, 109ms]
+  QUERY https://api.brasil.mercap.com.ar/internal-rate-of-return-valuation [400 Bad Request, 632B, 99ms]
   ✓  Status code es 400
   ✓  Response body tiene 'message' no vacio
 
 ↳ QUERY /internal-rate-of-return-valuation - dayCountBasis.type 'business-day-252' does not exist in this enum
-  QUERY https://api.brasil.mercap.com.ar/internal-rate-of-return-valuation [400 Bad Request, 635B, 110ms]
+  QUERY https://api.brasil.mercap.com.ar/internal-rate-of-return-valuation [400 Bad Request, 635B, 133ms]
   ✓  Status code es 400
   ✓  Response body tiene 'message' no vacio
 
 ↳ QUERY /internal-rate-of-return-valuation - invalid Content-Type
-  QUERY https://api.brasil.mercap.com.ar/internal-rate-of-return-valuation [415 Unsupported Media Type, 647B, 110ms]
+  QUERY https://api.brasil.mercap.com.ar/internal-rate-of-return-valuation [415 Unsupported Media Type, 641B, 99ms]
   ✓  Status code es 415
   ✓  Response indica Content-Type no soportado
 
 ↳ QUERY /internal-rate-of-return-valuation - non-negotiable Accept
-  QUERY https://api.brasil.mercap.com.ar/internal-rate-of-return-valuation [406 Not Acceptable, 775B, 107ms]
+  QUERY https://api.brasil.mercap.com.ar/internal-rate-of-return-valuation [406 Not Acceptable, 775B, 96ms]
   ✓  Status code es 406
   ✓  Response indica Accept no negociable
 
 ↳ QUERY /internal-rate-of-return-valuation - 'flows' is a string instead of an array
-  QUERY https://api.brasil.mercap.com.ar/internal-rate-of-return-valuation [400 Bad Request, 617B, 105ms]
+  QUERY https://api.brasil.mercap.com.ar/internal-rate-of-return-valuation [400 Bad Request, 619B, 98ms]
   ✓  Status code es 400
   ✓  Response body tiene 'message' no vacio
 
 ↳ QUERY /internal-rate-of-return-valuation - missing Authorization header
-  QUERY https://api.brasil.mercap.com.ar/internal-rate-of-return-valuation [401 Unauthorized, 568B, 26ms]
+  QUERY https://api.brasil.mercap.com.ar/internal-rate-of-return-valuation [401 Unauthorized, 572B, 37ms]
   ✓  Status code es 401
   ✓  Response body no vacio
 
 ↳ QUERY /internal-rate-of-return-valuation - missing valuationDate
-  QUERY https://api.brasil.mercap.com.ar/internal-rate-of-return-valuation [400 Bad Request, 622B, 133ms]
+  QUERY https://api.brasil.mercap.com.ar/internal-rate-of-return-valuation [400 Bad Request, 622B, 97ms]
   ✓  Status code es 400
   ✓  Response body tiene 'message' no vacio
 
 ↳ QUERY /internal-rate-of-return-valuation - GET method instead of QUERY
-  GET https://api.brasil.mercap.com.ar/internal-rate-of-return-valuation [405 Method Not Allowed, 646B, 103ms]
+  GET https://api.brasil.mercap.com.ar/internal-rate-of-return-valuation [405 Method Not Allowed, 646B, 98ms]
   ✓  Status code es 405
   ✓  Respuesta 405 incluye 'Method Not Allowed' en el body
 
 ❏ Pepper-GS64 / Theoretical Valuation / Linear Amortized Cost / Happy path
 ↳ QUERY /linear-amortized-cost-valuation - index-based bond bought below technical value (TX23, Example A)
-  QUERY https://api.brasil.mercap.com.ar/linear-amortized-cost-valuation [200 OK, 1.24kB, 128ms]
+  QUERY https://api.brasil.mercap.com.ar/linear-amortized-cost-valuation [200 OK, 1.23kB, 112ms]
   ✓  Status code es 200
   ✓  Response Content-Type correcto
   ✓  Response type es 'linear-amortized-cost'
@@ -1180,39 +1180,39 @@ Marvel APIs
   ✓  value.amount y las 4 internalCalculations coinciden con el ejemplo A del documento
 
 ↳ QUERY /linear-amortized-cost-valuation - index-based CD with single payment at maturity (Example B)
-  QUERY https://api.brasil.mercap.com.ar/linear-amortized-cost-valuation [200 OK, 1.24kB, 125ms]
+  QUERY https://api.brasil.mercap.com.ar/linear-amortized-cost-valuation [200 OK, 1.24kB, 111ms]
   ✓  Status code es 200
   ✓  Response type es 'linear-amortized-cost'
   ✓  'value.unit' coincide con instrument.issueCurrency
   ✓  value.amount y las 4 internalCalculations coinciden con el ejemplo B del documento
 
 ↳ QUERY /linear-amortized-cost-valuation - Example B position valued exactly at maturityDate (value = 0)
-  QUERY https://api.brasil.mercap.com.ar/linear-amortized-cost-valuation [200 OK, 1.25kB, 121ms]
+  QUERY https://api.brasil.mercap.com.ar/linear-amortized-cost-valuation [200 OK, 1.25kB, 114ms]
   ✓  Status code es 200
   ✓  value.amount es ~0 al vencimiento exacto
 
 ↳ QUERY /linear-amortized-cost-valuation - valuationDate after maturityDate is not an error (value = 0)
-  QUERY https://api.brasil.mercap.com.ar/linear-amortized-cost-valuation [200 OK, 1.22kB, 133ms]
+  QUERY https://api.brasil.mercap.com.ar/linear-amortized-cost-valuation [200 OK, 1.22kB, 132ms]
   ✓  Status code es 200 (no es error, a diferencia de otros limites)
   ✓  value.amount es 0 para una fecha de valuacion posterior al vencimiento
 
 ↳ QUERY /linear-amortized-cost-valuation - valuationDate equal to openPosition.date (value = cost, no accrual yet)
-  QUERY https://api.brasil.mercap.com.ar/linear-amortized-cost-valuation [200 OK, 1.2kB, 119ms]
+  QUERY https://api.brasil.mercap.com.ar/linear-amortized-cost-valuation [200 OK, 1.21kB, 113ms]
   ✓  Status code es 200
   ✓  value.amount = cost.amount / cost.exchangeRate
 
 ↳ QUERY /linear-amortized-cost-valuation - principalAdjustment 'not-adjusted' (no indexValue anywhere)
-  QUERY https://api.brasil.mercap.com.ar/linear-amortized-cost-valuation [200 OK, 1.2kB, 132ms]
+  QUERY https://api.brasil.mercap.com.ar/linear-amortized-cost-valuation [200 OK, 1.2kB, 108ms]
   ✓  Status code es 200
   ✓  value.amount y internalCalculations coinciden con el calculo manual
 
 ↳ QUERY /linear-amortized-cost-valuation - only the already-paid amortization is subtracted (two amortizations, valued between them)
-  QUERY https://api.brasil.mercap.com.ar/linear-amortized-cost-valuation [200 OK, 1.18kB, 122ms]
+  QUERY https://api.brasil.mercap.com.ar/linear-amortized-cost-valuation [200 OK, 1.19kB, 113ms]
   ✓  Status code es 200
   ✓  Solo se descuenta la amortizacion ya vencida, no la futura
 
 ↳ QUERY /linear-amortized-cost-valuation - response caching headers (ETag, Cache-Control, Expires)
-  QUERY https://api.brasil.mercap.com.ar/linear-amortized-cost-valuation [200 OK, 1.24kB, 130ms]
+  QUERY https://api.brasil.mercap.com.ar/linear-amortized-cost-valuation [200 OK, 1.24kB, 109ms]
   ✓  Status code es 200
   ✓  Response type es 'linear-amortized-cost'
   ✓  Response incluye header ETag
@@ -1220,133 +1220,133 @@ Marvel APIs
   ✓  Response incluye header Expires
 
 ↳ QUERY /linear-amortized-cost-valuation - If-None-Match matching ETag returns 304
-  QUERY https://api.brasil.mercap.com.ar/linear-amortized-cost-valuation [304 Not Modified, 690B, 121ms]
+  QUERY https://api.brasil.mercap.com.ar/linear-amortized-cost-valuation [304 Not Modified, 686B, 115ms]
   ✓  Status code es 304
   ✓  Respuesta 304 no trae body
 
 ↳ QUERY /linear-amortized-cost-valuation - generic response shape (type, value, internalCalculations)
-  QUERY https://api.brasil.mercap.com.ar/linear-amortized-cost-valuation [200 OK, 1.2kB, 118ms]
+  QUERY https://api.brasil.mercap.com.ar/linear-amortized-cost-valuation [200 OK, 1.19kB, 108ms]
   ✓  type es 'linear-amortized-cost'
   ✓  'value' tiene amount number y unit igual a instrument.issueCurrency
   ✓  internalCalculations tiene las 4 claves con el shape esperado
 
 ❏ Pepper-GS64 / Theoretical Valuation / Linear Amortized Cost / Negative case
 ↳ QUERY /linear-amortized-cost-valuation - instrument.maturityDate not later than openPosition.date
-  QUERY https://api.brasil.mercap.com.ar/linear-amortized-cost-valuation [422 Unprocessable Entity, 670B, 122ms]
+  QUERY https://api.brasil.mercap.com.ar/linear-amortized-cost-valuation [422 Unprocessable Entity, 672B, 109ms]
   ✓  Status code es 422
   ✓  Response body tiene 'message' no vacio
 
 ↳ QUERY /linear-amortized-cost-valuation - valuation.valuationDate before openPosition.date
-  QUERY https://api.brasil.mercap.com.ar/linear-amortized-cost-valuation [422 Unprocessable Entity, 673B, 124ms]
+  QUERY https://api.brasil.mercap.com.ar/linear-amortized-cost-valuation [422 Unprocessable Entity, 677B, 116ms]
   ✓  Status code es 422
   ✓  Response body tiene 'message' no vacio
 
 ↳ QUERY /linear-amortized-cost-valuation - openPosition.cost.amount is zero
-  QUERY https://api.brasil.mercap.com.ar/linear-amortized-cost-valuation [422 Unprocessable Entity, 655B, 141ms]
+  QUERY https://api.brasil.mercap.com.ar/linear-amortized-cost-valuation [422 Unprocessable Entity, 653B, 98ms]
   ✓  Status code es 422
   ✓  Response body tiene 'message' no vacio
 
 ↳ QUERY /linear-amortized-cost-valuation - openPosition.cost.exchangeRate is negative
-  QUERY https://api.brasil.mercap.com.ar/linear-amortized-cost-valuation [422 Unprocessable Entity, 664B, 112ms]
+  QUERY https://api.brasil.mercap.com.ar/linear-amortized-cost-valuation [422 Unprocessable Entity, 662B, 112ms]
   ✓  Status code es 422
   ✓  Response body tiene 'message' no vacio
 
 ↳ QUERY /linear-amortized-cost-valuation - an indexValue is not strictly positive
-  QUERY https://api.brasil.mercap.com.ar/linear-amortized-cost-valuation [422 Unprocessable Entity, 640B, 116ms]
+  QUERY https://api.brasil.mercap.com.ar/linear-amortized-cost-valuation [422 Unprocessable Entity, 650B, 111ms]
   ✓  Status code es 422
   ✓  Response body tiene 'message' no vacio
 
 ↳ QUERY /linear-amortized-cost-valuation - index-based but missing indexValue in openPosition
-  QUERY https://api.brasil.mercap.com.ar/linear-amortized-cost-valuation [400 Bad Request, 621B, 117ms]
+  QUERY https://api.brasil.mercap.com.ar/linear-amortized-cost-valuation [400 Bad Request, 627B, 109ms]
   ✓  Status code es 400
   ✓  Response body tiene 'message' no vacio
 
 ↳ QUERY /linear-amortized-cost-valuation - index-based but missing indexValue in an amortizations entry
-  QUERY https://api.brasil.mercap.com.ar/linear-amortized-cost-valuation [400 Bad Request, 625B, 115ms]
+  QUERY https://api.brasil.mercap.com.ar/linear-amortized-cost-valuation [400 Bad Request, 621B, 101ms]
   ✓  Status code es 400
   ✓  Response body tiene 'message' no vacio
 
 ↳ QUERY /linear-amortized-cost-valuation - index-based but missing indexValue in valuation
-  QUERY https://api.brasil.mercap.com.ar/linear-amortized-cost-valuation [400 Bad Request, 619B, 121ms]
+  QUERY https://api.brasil.mercap.com.ar/linear-amortized-cost-valuation [400 Bad Request, 617B, 108ms]
   ✓  Status code es 400
   ✓  Response body tiene 'message' no vacio
 
 ↳ QUERY /linear-amortized-cost-valuation - 'not-adjusted' but indexValue sent anyway (rejected, not ignored)
-  QUERY https://api.brasil.mercap.com.ar/linear-amortized-cost-valuation [400 Bad Request, 658B, 117ms]
+  QUERY https://api.brasil.mercap.com.ar/linear-amortized-cost-valuation [400 Bad Request, 656B, 108ms]
   ✓  Status code es 400
   ✓  Response body tiene 'message' no vacio
 
 ↳ QUERY /linear-amortized-cost-valuation - same date declared with two different indexValue
-  QUERY https://api.brasil.mercap.com.ar/linear-amortized-cost-valuation [400 Bad Request, 635B, 115ms]
-  ✓  Status code es 400
-  ✓  Response body tiene 'message' no vacio
-
-↳ QUERY /linear-amortized-cost-valuation - dayCountBasis.type 'actual-365-l' not supported by this method
-  QUERY https://api.brasil.mercap.com.ar/linear-amortized-cost-valuation [400 Bad Request, 641B, 127ms]
-  ✓  Status code es 400
-  ✓  Response body tiene 'message' no vacio
-
-↳ QUERY /linear-amortized-cost-valuation - dayCountBasis.type 'actual-actual-dominican' not supported by this method
-  QUERY https://api.brasil.mercap.com.ar/linear-amortized-cost-valuation [400 Bad Request, 650B, 126ms]
-  ✓  Status code es 400
-  ✓  Response body tiene 'message' no vacio
-
-↳ QUERY /linear-amortized-cost-valuation - dayCountBasis.type 'actual-actual-isma-99' not supported by this method
-  QUERY https://api.brasil.mercap.com.ar/linear-amortized-cost-valuation [400 Bad Request, 642B, 126ms]
-  ✓  Status code es 400
-  ✓  Response body tiene 'message' no vacio
-
-↳ QUERY /linear-amortized-cost-valuation - dayCountBasis.type 'business-day-252' not supported by this method
   QUERY https://api.brasil.mercap.com.ar/linear-amortized-cost-valuation [400 Bad Request, 635B, 122ms]
   ✓  Status code es 400
   ✓  Response body tiene 'message' no vacio
 
+↳ QUERY /linear-amortized-cost-valuation - dayCountBasis.type 'actual-365-l' not supported by this method
+  QUERY https://api.brasil.mercap.com.ar/linear-amortized-cost-valuation [400 Bad Request, 637B, 105ms]
+  ✓  Status code es 400
+  ✓  Response body tiene 'message' no vacio
+
+↳ QUERY /linear-amortized-cost-valuation - dayCountBasis.type 'actual-actual-dominican' not supported by this method
+  QUERY https://api.brasil.mercap.com.ar/linear-amortized-cost-valuation [400 Bad Request, 638B, 110ms]
+  ✓  Status code es 400
+  ✓  Response body tiene 'message' no vacio
+
+↳ QUERY /linear-amortized-cost-valuation - dayCountBasis.type 'actual-actual-isma-99' not supported by this method
+  QUERY https://api.brasil.mercap.com.ar/linear-amortized-cost-valuation [400 Bad Request, 634B, 110ms]
+  ✓  Status code es 400
+  ✓  Response body tiene 'message' no vacio
+
+↳ QUERY /linear-amortized-cost-valuation - dayCountBasis.type 'business-day-252' not supported by this method
+  QUERY https://api.brasil.mercap.com.ar/linear-amortized-cost-valuation [400 Bad Request, 635B, 110ms]
+  ✓  Status code es 400
+  ✓  Response body tiene 'message' no vacio
+
 ↳ QUERY /linear-amortized-cost-valuation - unknown principalAdjustment.type
-  QUERY https://api.brasil.mercap.com.ar/linear-amortized-cost-valuation [400 Bad Request, 633B, 115ms]
+  QUERY https://api.brasil.mercap.com.ar/linear-amortized-cost-valuation [400 Bad Request, 643B, 105ms]
   ✓  Status code es 400
   ✓  Response body tiene 'message' no vacio
 
 ↳ QUERY /linear-amortized-cost-valuation - missing 'instrument' section
-  QUERY https://api.brasil.mercap.com.ar/linear-amortized-cost-valuation [400 Bad Request, 625B, 112ms]
+  QUERY https://api.brasil.mercap.com.ar/linear-amortized-cost-valuation [400 Bad Request, 621B, 97ms]
   ✓  Status code es 400
   ✓  Response body tiene 'message' no vacio
 
 ↳ QUERY /linear-amortized-cost-valuation - invalid Content-Type
-  QUERY https://api.brasil.mercap.com.ar/linear-amortized-cost-valuation [415 Unsupported Media Type, 639B, 110ms]
+  QUERY https://api.brasil.mercap.com.ar/linear-amortized-cost-valuation [415 Unsupported Media Type, 639B, 96ms]
   ✓  Status code es 415
   ✓  Response indica Content-Type no soportado
 
 ↳ QUERY /linear-amortized-cost-valuation - non-negotiable Accept
-  QUERY https://api.brasil.mercap.com.ar/linear-amortized-cost-valuation [406 Not Acceptable, 773B, 109ms]
+  QUERY https://api.brasil.mercap.com.ar/linear-amortized-cost-valuation [406 Not Acceptable, 779B, 101ms]
   ✓  Status code es 406
   ✓  Response indica Accept no negociable
 
 ↳ QUERY /linear-amortized-cost-valuation - missing Authorization header
-  QUERY https://api.brasil.mercap.com.ar/linear-amortized-cost-valuation [401 Unauthorized, 562B, 28ms]
+  QUERY https://api.brasil.mercap.com.ar/linear-amortized-cost-valuation [401 Unauthorized, 564B, 41ms]
   ✓  Status code es 401
   ✓  Response body no vacio
 
 ↳ QUERY /linear-amortized-cost-valuation - GET method instead of QUERY
-  GET https://api.brasil.mercap.com.ar/linear-amortized-cost-valuation [405 Method Not Allowed, 642B, 120ms]
+  GET https://api.brasil.mercap.com.ar/linear-amortized-cost-valuation [405 Method Not Allowed, 640B, 88ms]
   ✓  Status code es 405
   ✓  Respuesta 405 incluye 'Method Not Allowed' en el body
 
-┌─────────────────────────┬────────────────────┬───────────────────┐
-│                         │           executed │            failed │
-├─────────────────────────┼────────────────────┼───────────────────┤
-│              iterations │                  1 │                 0 │
-├─────────────────────────┼────────────────────┼───────────────────┤
-│                requests │                101 │                 0 │
-├─────────────────────────┼────────────────────┼───────────────────┤
-│            test-scripts │                 92 │                 0 │
-├─────────────────────────┼────────────────────┼───────────────────┤
-│      prerequest-scripts │               1280 │                 0 │
-├─────────────────────────┼────────────────────┼───────────────────┤
-│              assertions │                292 │                 0 │
-├─────────────────────────┴────────────────────┴───────────────────┤
-│ total run duration: 7m 17.9s                                     │
-├──────────────────────────────────────────────────────────────────┤
-│ total data received: 1.27MB (approx)                             │
-├──────────────────────────────────────────────────────────────────┤
-│ average response time: 226ms [min: 26ms, max: 3.2s, s.d.: 430ms] │
-└──────────────────────────────────────────────────────────────────┘
+┌─────────────────────────┬───────────────────┬──────────────────┐
+│                         │          executed │           failed │
+├─────────────────────────┼───────────────────┼──────────────────┤
+│              iterations │                 1 │                0 │
+├─────────────────────────┼───────────────────┼──────────────────┤
+│                requests │               101 │                0 │
+├─────────────────────────┼───────────────────┼──────────────────┤
+│            test-scripts │                92 │                0 │
+├─────────────────────────┼───────────────────┼──────────────────┤
+│      prerequest-scripts │              1280 │                0 │
+├─────────────────────────┼───────────────────┼──────────────────┤
+│              assertions │               292 │                0 │
+├─────────────────────────┴───────────────────┴──────────────────┤
+│ total run duration: 7m 17.3s                                   │
+├────────────────────────────────────────────────────────────────┤
+│ total data received: 1.27MB (approx)                           │
+├────────────────────────────────────────────────────────────────┤
+│ average response time: 203ms [min: 37ms, max: 3s, s.d.: 404ms] │
+└────────────────────────────────────────────────────────────────┘
