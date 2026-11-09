@@ -1,139 +1,119 @@
 {
-  "hash": "ab0683574af1c4a3dd765547bf4d35f17210d09a967b80bea7c558e8007ee612",
+  "hash": "919680ef4561109c4ae2b75ede286da7fe7381c5812dd06a1e607f0c06851fa5",
   "ai_model": "gemini-2.5-flash",
   "conclusions": {
     "estado_general": "critico",
-    "resumen_ejecutivo": "La versión v1.46.8 de Abbaco presenta un estado crítico debido a degradaciones masivas en la experiencia de usuario en varias secciones clave. Seis acciones de ingreso a menú han sufrido degradaciones superiores al 400% respecto a la versión anterior, y las secciones Graficador y Screener muestran una degradación sostenida por 3 versiones consecutivas. Además, la acción 'Simular inversiones de la especie AL30' en Calculadora permanece persistentemente lenta, superando el umbral en todas las últimas 5 versiones.",
+    "resumen_ejecutivo": "La versión v1.46.8 de Abbaco presenta un estado crítico de rendimiento. Dos secciones, Graficador y Screener, han sufrido degradaciones severas de -95.2% y -98.8% respectivamente frente a su P95 histórico, y muestran tendencias de degradación sostenida. Adicionalmente, la sección Calculadora permanece sobre el umbral de rendimiento con un P95 de 81.32s, siendo un cuello de botella persistente.",
     "escalar": {
-      "titulo": "Degradaciones masivas en acceso a menús y lentitud crónica en Calculadora",
-      "detalle": "Seis acciones de ingreso a menú, como 'Ingresar al menú Comparar' (+504%) y 'Ingresar al menú Arbitraje' (+508%), han sufrido degradaciones extremas en la última versión. Adicionalmente, la acción 'Simular inversiones de la especie AL30' en Calculadora es persistentemente lenta (P95 actual 86.94s), superando el umbral en 5 de 5 versiones."
+      "titulo": "Degradaciones críticas en Graficador y Screener; Calculadora persiste lenta",
+      "detalle": "Las secciones Graficador y Screener sufrieron degradaciones extremas del 95.2% y 98.8% respectivamente. La acción \"Simular inversiones de la especie AL30\" en Calculadora es persistentemente lenta (86.93s en 5 de 5 versiones sobre el umbral)."
     },
     "investigar": {
-      "titulo": "Causa raíz de degradaciones abruptas en acciones de ingreso a menú",
-      "detalle": "Seis acciones de ingreso a menú han experimentado degradaciones superiores al 400% en la última versión (v1.46.7 a v1.46.8), lo que sugiere un cambio estructural en la carga inicial o renderizado de estas vistas."
+      "titulo": "Degradaciones masivas en accesos a menúes y tendencias sostenidas",
+      "detalle": "Múltiples acciones de ingreso a menúes como \"Comparar\" (-502.35%) y \"Arbitraje\" (-492.24%) han sufrido degradaciones extremas en la última versión, mientras Graficador y Screener muestran tendencias sostenidas de degradación por 3 versiones."
     },
     "optimizar": {
-      "titulo": "Mejorar la performance de la sección Calculadora",
-      "detalle": "La sección Calculadora es la más lenta del sistema (P95 actual 81.5s) y contiene la acción 'Simular inversiones de la especie AL30' que es crónicamente lenta (P95 actual 86.94s), representando la mayor oportunidad de mejora para la UX."
+      "titulo": "Optimizar la sección Calculadora, especialmente la simulación de inversiones",
+      "detalle": "La sección Calculadora presenta el P95 más alto (81.32s) y la acción \"Simular inversiones de la especie AL30\" es la más lenta (86.93s), siendo una oportunidad clave para mejorar la experiencia general."
     },
     "hallazgos": [
       {
         "tipo": "alerta",
-        "seccion": "Comparar",
-        "descripcion": "La acción 'Ingresar al menú Comparar' sufrió una degradación masiva, pasando de 1.15s a 6.97s (+504.21%) en la versión v1.46.8.",
-        "evidencia": "P95 degradó de 1.15s a 6.97s (+504.21%)"
-      },
-      {
-        "tipo": "alerta",
-        "seccion": "Arbitraje",
-        "descripcion": "La acción 'Ingresar al menú Arbitraje' experimentó una degradación crítica, pasando de 1.34s a 8.13s (+508.71%) en la versión v1.46.8.",
-        "evidencia": "P95 degradó de 1.34s a 8.13s (+508.71%)"
-      },
-      {
-        "tipo": "alerta",
-        "seccion": "Mis portafolios",
-        "descripcion": "La acción 'Ingresar al menú Mis portafolios' sufrió una degradación crítica, pasando de 1.17s a 6.35s (+443.98%) en la versión v1.46.8.",
-        "evidencia": "P95 degradó de 1.17s a 6.35s (+443.98%)"
-      },
-      {
-        "tipo": "alerta",
         "seccion": "Calculadora",
-        "descripcion": "La acción 'Simular inversiones de la especie AL30' es persistentemente lenta, superando el umbral en 5 de 5 versiones medidas, con un P95 actual de 86.94s.",
-        "evidencia": "5 de 5 versiones sobre el umbral (P95 actual 86.94s)"
+        "descripcion": "La acción \"Simular inversiones de la especie AL30\" es persistentemente lenta y la sección está sobre el umbral de rendimiento.",
+        "evidencia": "P95 actual de 86.93s para la acción, con 5 de 5 versiones sobre el umbral. La sección tiene un P95 de 81.32s."
       },
       {
         "tipo": "degradacion",
         "seccion": "Graficador",
-        "descripcion": "La sección Graficador muestra una degradación sostenida en 3 versiones consecutivas, con su P95 aumentando de 3.71s a 9.02s.",
-        "evidencia": "P95 aumentó de 3.71s a 9.02s en 3 versiones consecutivas"
+        "descripcion": "La sección muestra una degradación sostenida por 3 versiones y una acción de ingreso al menú se degradó severamente.",
+        "evidencia": "P95 aumentó de 3.71s a 8.96s en 3 versiones. La acción \"Ingresar al menú Graficador\" se degradó de 4.78s a 9.76s (+104.29%) en la última versión."
       },
       {
         "tipo": "degradacion",
         "seccion": "Screener",
-        "descripcion": "La sección Screener también presenta una degradación sostenida en 3 versiones, con su P95 aumentando de 3.92s a 9.34s.",
-        "evidencia": "P95 aumentó de 3.92s a 9.34s en 3 versiones consecutivas"
+        "descripcion": "La sección muestra una degradación sostenida por 3 versiones y una acción de ingreso al menú se degradó severamente.",
+        "evidencia": "P95 aumentó de 3.92s a 9.34s en 3 versiones. La acción \"Ingresar al menú Screener\" se degradó de 4.7s a 9.34s (+98.7%) en la última versión."
+      },
+      {
+        "tipo": "mejora",
+        "seccion": "Curvas",
+        "descripcion": "La sección Curvas mejoró significativamente en comparación con la versión anterior.",
+        "evidencia": "P95 mejoró de 22.35s a 17.25s (+22.8%) vs la versión anterior."
       },
       {
         "tipo": "mejora",
         "seccion": "Analizar",
-        "descripcion": "La sección Analizar ha mejorado significativamente, con 13 de 22 acciones mejorando, destacando 'Validaciones en la pestaña General de la especie MR43O' con una mejora del 77.12%.",
-        "evidencia": "13 de 22 acciones mejoraron, con 'Validaciones en la pestaña General de la especie MR43O' mejorando un 77.12%"
+        "descripcion": "Más de la mitad de las acciones en la sección Analizar mostraron mejoras significativas.",
+        "evidencia": "13 de 22 acciones mejoraron, con \"Validaciones en la pestaña General de la especie MR43O\" mejorando de 3.42s a 0.78s (+77.25%)."
+      },
+      {
+        "tipo": "mejora",
+        "seccion": "Mis portafolios",
+        "descripcion": "Un número considerable de acciones en la sección Mis portafolios mostraron mejoras.",
+        "evidencia": "4 de 10 acciones mejoraron, destacando \"Agregar la tercera especie al portafolio\" de 10.57s a 7.82s (+26.02%)."
+      },
+      {
+        "tipo": "alerta",
+        "seccion": "Comparar",
+        "descripcion": "La acción de ingreso al menú Comparar sufrió una degradación severa en la última versión.",
+        "evidencia": "La acción \"Ingresar al menú Comparar\" se degradó de 1.15s a 6.95s (+502.35%) en la versión v1.46.8."
       }
     ],
     "causa_raiz": [
       {
-        "seccion": "Comparar",
-        "hipotesis": [
-          "Un cambio reciente en la lógica de carga de datos o inicialización de componentes al ingresar al menú podría estar causando la latencia.",
-          "La complejidad del renderizado inicial de la interfaz de comparación, posiblemente por la cantidad de datos o cálculos previos, se ha incrementado.",
-          "Problemas de conectividad o latencia en las llamadas a APIs de backend que alimentan la vista inicial del menú Comparar."
-        ]
-      },
-      {
-        "seccion": "Arbitraje",
-        "hipotesis": [
-          "La carga de datos inicial para el arbitraje de especies, o la validación de las mismas, se ha vuelto más ineficiente.",
-          "Un aumento en el volumen de datos o la complejidad de los algoritmos de cálculo de arbitraje ejecutados al cargar la vista.",
-          "Ineficiencias en la inicialización de librerías de gráficos o componentes interactivos específicos de la sección Arbitraje."
-        ]
-      },
-      {
-        "seccion": "Mis portafolios",
-        "hipotesis": [
-          "La carga inicial de la lista de portafolios o la información resumida de cada uno se ha vuelto más pesada.",
-          "Un cambio en la forma en que se autentican o autorizan los datos del usuario al acceder a sus portafolios.",
-          "Ineficiencias en la consulta a la base de datos para obtener los datos de los portafolios del usuario."
-        ]
-      },
-      {
-        "seccion": "Calculadora",
-        "hipotesis": [
-          "La complejidad de los cálculos financieros para la simulación de inversiones ha aumentado significativamente.",
-          "La cantidad de datos de mercado o parámetros de bonos que se utilizan en la simulación es muy grande.",
-          "Ineficiencias en la comunicación con el servicio de cálculo o en la gestión de estado de la simulación."
-        ]
-      },
-      {
         "seccion": "Graficador",
         "hipotesis": [
-          "El volumen de datos históricos cargados para los gráficos ha aumentado o la consulta es menos eficiente.",
-          "La librería de gráficos utilizada o su configuración actual está generando un mayor overhead de renderizado.",
-          "Problemas de rendimiento en el servidor al procesar las solicitudes de datos para la visualización de gráficos."
+          "Mayor complejidad en la carga de datos o cálculos para graficar, o problemas de rendimiento en la API de datos subyacente.",
+          "Introducción de nuevos componentes o librerías en la UI que son ineficientes para la renderización de gráficos."
         ]
       },
       {
         "seccion": "Screener",
         "hipotesis": [
-          "La lógica de filtrado y búsqueda de bonos se ha vuelto más compleja o ineficiente.",
-          "Un aumento en la cantidad de bonos o criterios de filtrado que se procesan al cargar la sección Screener.",
-          "Problemas de rendimiento en el backend al ejecutar las consultas de búsqueda y filtrado de bonos."
+          "Consultas a la base de datos o servicios externos más lentas debido a un aumento en el volumen de datos o filtros aplicados.",
+          "Problemas de indexación o optimización en las consultas que alimentan el Screener."
+        ]
+      },
+      {
+        "seccion": "Calculadora",
+        "hipotesis": [
+          "La lógica de simulación de inversiones es computacionalmente intensiva y no está optimizada para grandes volúmenes de datos o cálculos complejos.",
+          "Dependencia de servicios externos lentos o con alta latencia para obtener datos de mercado en tiempo real."
+        ]
+      },
+      {
+        "seccion": "Comparar",
+        "hipotesis": [
+          "La carga inicial de datos o componentes al acceder al menú Comparar se ha vuelto ineficiente.",
+          "Un cambio en la precarga de información o en la inicialización de la vista que genera un cuello de botella."
         ]
       }
     ],
     "recomendaciones": [
       {
         "prioridad": "P1",
-        "accion": "Investigar urgentemente la causa raíz de las degradaciones masivas (>400%) en las acciones de ingreso a los menús Comparar, Arbitraje, Sensibilidad, Mis portafolios, Graficador y Screener, ya que impactan directamente la navegación inicial del usuario.",
-        "seccion": "General",
-        "evidencia": "Acciones como 'Ingresar al menú Comparar' pasaron de 1.15s a 6.97s (+504.21%) y 'Ingresar al menú Arbitraje' de 1.34s a 8.13s (+508.71%) en la última versión."
+        "accion": "Realizar un análisis de perfilado profundo en la acción \"Simular inversiones de la especie AL30\" para identificar cuellos de botella en la lógica de cálculo o llamadas a servicios.",
+        "seccion": "Calculadora",
+        "evidencia": "P95 actual de 86.93s y 5 de 5 versiones sobre el umbral de rendimiento."
       },
       {
         "prioridad": "P1",
-        "accion": "Priorizar la optimización de la acción 'Simular inversiones de la especie AL30' en Calculadora, ya que es crónicamente lenta y la principal contribuyente a que la sección esté sobre el umbral.",
-        "seccion": "Calculadora",
-        "evidencia": "La acción 'Simular inversiones de la especie AL30' ha superado el umbral en 5 de 5 versiones, con un P95 actual de 86.94s."
+        "accion": "Investigar y revertir urgentemente las degradaciones masivas en las acciones de ingreso a los menúes Comparar, Arbitraje, Sensibilidad, Mis portafolios, Graficador y Screener.",
+        "seccion": "General",
+        "evidencia": "Degradaciones de hasta +502.35% en la última versión para estas acciones."
       },
       {
         "prioridad": "P2",
-        "accion": "Analizar y resolver las tendencias de degradación sostenida en las secciones Graficador y Screener, que han empeorado en las últimas 3 versiones.",
+        "accion": "Analizar las tendencias de degradación sostenida en Graficador y Screener para identificar causas estructurales y aplicar soluciones a largo plazo.",
         "seccion": "Graficador, Screener",
-        "evidencia": "Graficador pasó de 3.71s a 9.02s y Screener de 3.92s a 9.34s en 3 versiones consecutivas."
+        "evidencia": "Ambas secciones muestran un aumento de P95 por 3 versiones consecutivas."
       },
       {
         "prioridad": "P3",
-        "accion": "Continuar monitoreando y fomentando las mejoras de rendimiento observadas en secciones como Analizar y Curvas para mantener la salud general del sistema.",
+        "accion": "Documentar y replicar las optimizaciones exitosas en la sección Analizar y Curvas para mejorar el rendimiento en otras áreas de la plataforma.",
         "seccion": "General",
-        "evidencia": "Analizar mejoró en 13 de 22 acciones, y Curvas mejoró un 21.5% vs la versión anterior."
+        "evidencia": "Analizar mejoró en 13 de 22 acciones y Curvas mejoró 22.8% vs versión anterior."
       }
     ]
   }
