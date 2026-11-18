@@ -2,14 +2,14 @@
   "stats": {
     "suites": 1,
     "tests": 3,
-    "passes": 3,
+    "passes": 2,
     "pending": 0,
-    "failures": 0,
-    "start": "2026-11-04T18:39:08.210Z",
-    "end": "2026-11-04T18:39:20.041Z",
-    "duration": 11831,
+    "failures": 1,
+    "start": "2026-11-18T20:57:35.028Z",
+    "end": "2026-11-18T21:00:46.521Z",
+    "duration": 191493,
     "testsRegistered": 3,
-    "passPercent": 100,
+    "passPercent": 66.66666666666666,
     "pendingPercent": 0,
     "other": 0,
     "hasOther": false,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "fc2f8355-75ff-4eef-8615-65c080e39ce3",
+      "uuid": "fce9a571-203e-4597-943e-d010cbe0b63e",
       "title": "",
       "fullFile": "build/testing-3/cfi/specs/smoke/00_admin.cy.js",
       "file": "build/testing-3/cfi/specs/smoke/00_admin.cy.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "8ccfac24-e946-4ed8-9f43-c8671ee6d18b",
+          "uuid": "7290e049-6a8f-4a18-ab20-b7972a1fd5bf",
           "title": "Precondición tener Parametria (Esquema de valuación y gastos)",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "Agregar Esquema de valuación",
               "fullTitle": "Precondición tener Parametria (Esquema de valuación y gastos) Agregar Esquema de valuación",
               "timedOut": null,
-              "duration": 5960,
+              "duration": 5426,
               "state": "passed",
               "speed": "medium",
               "pass": true,
@@ -47,8 +47,8 @@
               "context": null,
               "code": "cy.ValidarIngresoAdmin();\n// Navega a Esquemas de Valuación y espera la tabla (ver L022). La descripción con la marca\n// CYPRESS es la que usa el cleaner para reconocer qué esquemas borrar.\ncy.guardarEsquemasValuacion();\n// Se crea un único esquema, con el nombre de Constants.VALUATION_SCHEME (el que eligen\n// limites y resultado): si un target se desalinea, el alta y la validación lo usan igual.\ncy.altaEsquemaValuacion(\n  _support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].VALUATION_SCHEME,\n  'Valuacion en pesos con cotizaciones en USD al t/c BNA CYPRESS.',\n  'Valuacion BYMA ARS + Instrumentos No Liquidos - USD BNA',\n  'Esquema ARS - USD BNA C'\n);\ncy.validarEsquemaValuacionCreado(_support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].VALUATION_SCHEME);",
               "err": {},
-              "uuid": "65454c0c-bba3-44ce-89d8-ae9c1d9fb384",
-              "parentUUID": "8ccfac24-e946-4ed8-9f43-c8671ee6d18b",
+              "uuid": "40372f39-2c63-4cc4-a796-1981e17c95e9",
+              "parentUUID": "7290e049-6a8f-4a18-ab20-b7972a1fd5bf",
               "isHook": false,
               "skipped": false
             },
@@ -56,7 +56,7 @@
               "title": "Agregar Gastos",
               "fullTitle": "Precondición tener Parametria (Esquema de valuación y gastos) Agregar Gastos",
               "timedOut": null,
-              "duration": 527,
+              "duration": 1812,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -65,8 +65,8 @@
               "context": null,
               "code": "// Navega a Definiciones de Gastos y espera la tabla. El cleaner no borra gastos: se crean solo si faltan.\ncy.guardarGastos();\ncy.altaGasto('Comisión', 'Comisión del Broker');\ncy.altaGasto('Comisión', 'Comisión del Mercado');\ncy.altaGasto('Impuesto', 'IVA');\ncy.validarGastoCreado('Comisión del Broker');\ncy.validarGastoCreado('Comisión del Mercado');\ncy.validarGastoCreado('IVA');",
               "err": {},
-              "uuid": "e14503a8-7db7-4664-84de-3527f7de7b75",
-              "parentUUID": "8ccfac24-e946-4ed8-9f43-c8671ee6d18b",
+              "uuid": "5d6adc2e-392c-4aba-8bb2-973b74aab00d",
+              "parentUUID": "7290e049-6a8f-4a18-ab20-b7972a1fd5bf",
               "isHook": false,
               "skipped": false
             },
@@ -74,31 +74,36 @@
               "title": "Mapear cargos de Balanz",
               "fullTitle": "Precondición tener Parametria (Esquema de valuación y gastos) Mapear cargos de Balanz",
               "timedOut": null,
-              "duration": 1453,
-              "state": "passed",
-              "speed": "fast",
-              "pass": true,
-              "fail": false,
+              "duration": 180529,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
               "pending": false,
               "context": null,
               "code": "cy.irAMapeoDeCargos();\ncy.mapearCargosBroker('Balanz', { 'Arancel': 'Comisión del Broker', 'Costos Mercado': 'Comisión del Mercado' });",
-              "err": {},
-              "uuid": "7bc98b51-5eeb-4d1b-a502-48884f1204f1",
-              "parentUUID": "8ccfac24-e946-4ed8-9f43-c8671ee6d18b",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 180000ms: Expected <div.sk-circle-fade> not to exist in the DOM, but it was continuously found.",
+                "estack": "AssertionError: Timed out retrying after 180000ms: Expected <div.sk-circle-fade> not to exist in the DOM, but it was continuously found.\n    at Context.eval (webpack://cypress/./cypress/support/commands/admin.commands.js:124:0)\n    at wrapped (https://mercap-testing3.us.auth0.com/__cypress/runner/cypress_runner.js:146042:43)",
+                "diff": null
+              },
+              "uuid": "6d5244f8-92c5-45c7-b76e-78d5266152b6",
+              "parentUUID": "7290e049-6a8f-4a18-ab20-b7972a1fd5bf",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "65454c0c-bba3-44ce-89d8-ae9c1d9fb384",
-            "e14503a8-7db7-4664-84de-3527f7de7b75",
-            "7bc98b51-5eeb-4d1b-a502-48884f1204f1"
+            "40372f39-2c63-4cc4-a796-1981e17c95e9",
+            "5d6adc2e-392c-4aba-8bb2-973b74aab00d"
           ],
-          "failures": [],
+          "failures": [
+            "6d5244f8-92c5-45c7-b76e-78d5266152b6"
+          ],
           "pending": [],
           "skipped": [],
-          "duration": 7940,
+          "duration": 187767,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
