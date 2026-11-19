@@ -5,9 +5,9 @@
     "passes": 1,
     "pending": 1,
     "failures": 1,
-    "start": "2026-11-19T16:48:43.828Z",
-    "end": "2026-11-19T16:52:39.540Z",
-    "duration": 235712,
+    "start": "2026-11-19T17:45:54.338Z",
+    "end": "2026-11-19T17:49:52.471Z",
+    "duration": 238133,
     "testsRegistered": 3,
     "passPercent": 50,
     "pendingPercent": 33.33333333333333,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "0d3e9eaa-6c1e-4fe8-88cb-f011e81663b3",
+      "uuid": "b8a46103-7b16-425a-ba58-a4fc6ee77722",
       "title": "",
       "fullFile": "build/testing-3/cfi/specs/smoke/06_limites.cy.js",
       "file": "build/testing-3/cfi/specs/smoke/06_limites.cy.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "6dbfe53a-e09f-4e03-9f2b-6e3ad284e283",
+          "uuid": "95b86ec3-1bb3-4a0b-8fdd-78bf7cba1a2b",
           "title": "Limites",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "Creación de nueva política de límites",
               "fullTitle": "Limites Creación de nueva política de límites",
               "timedOut": null,
-              "duration": 42705,
+              "duration": 43397,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -47,8 +47,8 @@
               "context": null,
               "code": "cy.irALimites();\n      cy.validarPantallaLimites();\n      cy.irAConfiguracionPoliticas();\n      cy.clickNuevaPolitica();\n      cy.ingresarNombrePolitica('1-VALIDO Politica CYPRESS');\n      cy.agregarPortfolio('Portfolio CYPRESS');\n      cy.seleccionarUnEsquema(_support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].VALUATION_SCHEME);\n      cy.ingresarFechaDesdeLimite('02/01/2026');\n      cy.irAReglas();\n      // Regla por tipo de instrumento (Bono), no por instrumento AL30: en testing-3/cfi la regla por\n      // instrumento daba valuación 0 con AL30 valuado en la posición (ver L070).\n      cy.agregarReglaTipoInstrumento({\n        nombre: 'Regla por Tipo de Instrumento sobre Portfolio - Bono',\n        nivel1: 'Bono',\n        desde: 0.05,\n        hasta: 85.5\n      });\n      cy.guardarPolitica();\n      cy.get('.modal-content').should('not.exist');",
               "err": {},
-              "uuid": "549a8179-b89a-4060-9e9f-f7290946e499",
-              "parentUUID": "6dbfe53a-e09f-4e03-9f2b-6e3ad284e283",
+              "uuid": "8a266329-7d51-4e2f-9a70-e2a58aceac3a",
+              "parentUUID": "95b86ec3-1bb3-4a0b-8fdd-78bf7cba1a2b",
               "isHook": false,
               "skipped": false
             },
@@ -56,7 +56,7 @@
               "title": "Validación de la política creada",
               "fullTitle": "Limites Validación de la política creada",
               "timedOut": null,
-              "duration": 189777,
+              "duration": 190121,
               "state": "failed",
               "speed": null,
               "pass": false,
@@ -69,8 +69,8 @@
                 "estack": "AssertionError: Timed out retrying after 180000ms: Expected to find element: `.svg-inline--fa.fa-circle-check.fa-lg.p-2.text-success`, but never found it. Queried from:\n\n              > cy.contains(Regla por Tipo de Instrumento sobre Portfolio - Bono).closest(.text-center.d-flex.py-1.flex-row.pr-4.grid-row)\n    at Context.eval (webpack://cypress/./cypress/support/commands/limites.commands.js:195:0)\n    at wrapped (https://mercap-testing3.us.auth0.com/__cypress/runner/cypress_runner.js:146042:43)",
                 "diff": null
               },
-              "uuid": "9f43d839-b866-4d73-b65c-7c0f46957bf4",
-              "parentUUID": "6dbfe53a-e09f-4e03-9f2b-6e3ad284e283",
+              "uuid": "f0d1266e-88c0-4a1c-a2d6-1c398af180fb",
+              "parentUUID": "95b86ec3-1bb3-4a0b-8fdd-78bf7cba1a2b",
               "isHook": false,
               "skipped": false
             },
@@ -87,24 +87,24 @@
               "context": null,
               "code": "cy.irALimites();\ncy.validarPantallaLimites();\ncy.irAConfiguracionPoliticas();\ncy.eliminarPolitica('1-VALIDO Politica CYPRESS');\ncy.validaEliminacionPolitica('1-VALIDO Politica CYPRESS');",
               "err": {},
-              "uuid": "d0e2a86d-937d-477a-91e6-939f0ec8d922",
-              "parentUUID": "6dbfe53a-e09f-4e03-9f2b-6e3ad284e283",
+              "uuid": "1779ca3c-42f3-45a3-842d-81f78eb66dec",
+              "parentUUID": "95b86ec3-1bb3-4a0b-8fdd-78bf7cba1a2b",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "549a8179-b89a-4060-9e9f-f7290946e499"
+            "8a266329-7d51-4e2f-9a70-e2a58aceac3a"
           ],
           "failures": [
-            "9f43d839-b866-4d73-b65c-7c0f46957bf4"
+            "f0d1266e-88c0-4a1c-a2d6-1c398af180fb"
           ],
           "pending": [
-            "d0e2a86d-937d-477a-91e6-939f0ec8d922"
+            "1779ca3c-42f3-45a3-842d-81f78eb66dec"
           ],
           "skipped": [],
-          "duration": 232482,
+          "duration": 233518,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
