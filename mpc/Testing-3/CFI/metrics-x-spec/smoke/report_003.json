@@ -5,9 +5,9 @@
     "passes": 5,
     "pending": 0,
     "failures": 0,
-    "start": "2026-11-20T13:01:15.382Z",
-    "end": "2026-11-20T13:06:31.848Z",
-    "duration": 316466,
+    "start": "2026-11-20T15:40:46.561Z",
+    "end": "2026-11-20T15:46:04.070Z",
+    "duration": 317509,
     "testsRegistered": 5,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "60e45e59-e266-4486-85db-717b6f1712bf",
+      "uuid": "ddaa4421-f100-4565-9fee-dd5b2ef060dc",
       "title": "",
       "fullFile": "build/testing-3/cfi/specs/smoke/03_modificar_operaciones.cy.js",
       "file": "build/testing-3/cfi/specs/smoke/03_modificar_operaciones.cy.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "728953c3-2a10-4044-bc0e-c93aca1ece89",
+          "uuid": "32a298b9-e5a7-496b-9658-11921c5b5312",
           "title": "Modificar operaciones",
           "fullFile": "",
           "file": "",
@@ -36,7 +36,7 @@
           "tests": [],
           "suites": [
             {
-              "uuid": "53c8acce-98bd-4c7e-92e8-c635d4b6aed1",
+              "uuid": "1b60e474-ad29-4a67-847e-c8730b199767",
               "title": "Modificar Bonos",
               "fullFile": "",
               "file": "",
@@ -47,7 +47,7 @@
                   "title": "Modificar Venta del bono AL30 y validación de impacto en Mis Portfolios",
                   "fullTitle": "Modificar operaciones Modificar Bonos Modificar Venta del bono AL30 y validación de impacto en Mis Portfolios",
                   "timedOut": null,
-                  "duration": 96772,
+                  "duration": 100996,
                   "state": "passed",
                   "speed": "slow",
                   "pass": true,
@@ -56,26 +56,26 @@
                   "context": null,
                   "code": "cy.irAMisPortfolios();\n        cy.abrirPortfolio('Portfolio CYPRESS');\n        cy.filtrarFechaPosicionValuada(\"13/03/2026\");\n        cy.mostrarPPC();\n        cy.validarTablaPortfolios();\n        cy.abrirMonedas();\n        cy.obtenerSaldoMoneda('ARS').then((saldoAntes) => {\n          cy.irAMisOperaciones();\n          cy.filtrarFecha(\"02/01/2026\");\n          cy.clickearBotonEditar('Venta', 'Bono', _support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].BONO);\n          cy.modificarOperación('56000', 'ARS', '2000');\n          cy.asignarPortfolio('500');\n          cy.irAMisPortfolios();\n          cy.abrirPortfolio('Portfolio CYPRESS');\n          cy.filtrarFechaPosicionValuada(\"13/03/2026\");\n          cy.mostrarPPC();\n          cy.validarTablaPortfolios();\n          cy.abrirMonedas();\n          // Nueva venta con mejor precio (56000 vs 55000 original) y menor comisión (2000 vs\n          // 50000 original) -- ambos cambios aumentan el neto cobrado por la venta.\n          cy.validarImpactoSaldoMoneda('ARS', saldoAntes, 'aumento');\n          cy.abrirYValidarInstrumento('Bonos', _support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].BONO, '500');\n        });",
                   "err": {},
-                  "uuid": "6d791547-16d0-46b3-b699-474d18c5eeef",
-                  "parentUUID": "53c8acce-98bd-4c7e-92e8-c635d4b6aed1",
+                  "uuid": "0e0ad092-91b8-4ee0-8c7d-fc98c0ec9d7a",
+                  "parentUUID": "1b60e474-ad29-4a67-847e-c8730b199767",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "6d791547-16d0-46b3-b699-474d18c5eeef"
+                "0e0ad092-91b8-4ee0-8c7d-fc98c0ec9d7a"
               ],
               "failures": [],
               "pending": [],
               "skipped": [],
-              "duration": 96772,
+              "duration": 100996,
               "root": false,
               "rootEmpty": false,
               "_timeout": 2000
             },
             {
-              "uuid": "4cf3f732-2dce-455c-9f7f-d269d53b6508",
+              "uuid": "76250e24-a30a-4920-93ec-c02ef4bf737e",
               "title": "Modificar Acciones",
               "fullFile": "",
               "file": "",
@@ -86,7 +86,7 @@
                   "title": "Modificar compra de la acción MELI",
                   "fullTitle": "Modificar operaciones Modificar Acciones Modificar compra de la acción MELI",
                   "timedOut": null,
-                  "duration": 53162,
+                  "duration": 53745,
                   "state": "passed",
                   "speed": "slow",
                   "pass": true,
@@ -95,26 +95,26 @@
                   "context": null,
                   "code": "cy.irAMisPortfolios();\n        cy.abrirPortfolio('Portfolio CYPRESS');\n        cy.filtrarFechaPosicionValuada(\"12/03/2026\");\n        cy.mostrarPPC();\n        cy.validarTablaPortfolios();\n        cy.abrirMonedas();\n        cy.obtenerSaldoMoneda('ARS').then((saldoAntes) => {\n          cy.irAMisOperaciones();\n          cy.filtrarFecha(\"03/02/2026\");\n          cy.clickearBotonEditar('Compra', 'Acción', _support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].ACCION);\n          cy.modificarOperación('400', 'ARS', '2000');\n          cy.asignarPortfolio('1000');\n          cy.irAMisPortfolios();\n          cy.abrirPortfolio('Portfolio CYPRESS');\n          cy.filtrarFechaPosicionValuada(\"12/03/2026\");\n          cy.mostrarPPC();\n          cy.validarTablaPortfolios();\n          cy.abrirMonedas();\n          // Nuevo precio de compra más bajo (400 vs 500 original), misma comisión -- la compra\n          // pasa a costar menos, el saldo disponible aumenta respecto a la versión anterior.\n          cy.validarImpactoSaldoMoneda('ARS', saldoAntes, 'aumento');\n          cy.abrirYValidarInstrumento('Acciones', _support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].ACCION, '500');\n        });",
                   "err": {},
-                  "uuid": "5d06ea1f-7e7a-40f6-82fa-38432f8b6ead",
-                  "parentUUID": "4cf3f732-2dce-455c-9f7f-d269d53b6508",
+                  "uuid": "0f6ef6ed-4c2b-48bd-a2a3-a064f0b525ba",
+                  "parentUUID": "76250e24-a30a-4920-93ec-c02ef4bf737e",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "5d06ea1f-7e7a-40f6-82fa-38432f8b6ead"
+                "0f6ef6ed-4c2b-48bd-a2a3-a064f0b525ba"
               ],
               "failures": [],
               "pending": [],
               "skipped": [],
-              "duration": 53162,
+              "duration": 53745,
               "root": false,
               "rootEmpty": false,
               "_timeout": 2000
             },
             {
-              "uuid": "df6d59b1-ff93-43b8-822f-a68370bf59f9",
+              "uuid": "4ee67ac6-7bb8-4a34-a85d-0f66b795abd1",
               "title": "Modificar Fondos",
               "fullFile": "",
               "file": "",
@@ -125,7 +125,7 @@
                   "title": "Modificar fondo Argenfunds Renta Mixta - Clase B",
                   "fullTitle": "Modificar operaciones Modificar Fondos Modificar fondo Argenfunds Renta Mixta - Clase B",
                   "timedOut": null,
-                  "duration": 48050,
+                  "duration": 51097,
                   "state": "passed",
                   "speed": "slow",
                   "pass": true,
@@ -134,26 +134,26 @@
                   "context": null,
                   "code": "cy.irAMisPortfolios();\n        cy.abrirPortfolio('Portfolio CYPRESS');\n        cy.filtrarFechaPosicionValuada(\"13/03/2026\");\n        cy.abrirMonedas();\n        cy.obtenerSaldoMoneda('ARS').then((saldoAntes) => {\n          cy.irAMisOperaciones();\n          cy.filtrarFecha(\"04/02/2026\");\n          cy.clickearBotonEditar('Suscripción', 'Fondo', _support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].FONDO);\n          cy.modificarOperación('2600', 'ARS', '2000');\n          cy.asignarPortfolio('1000');\n          // Tras editar, el backend puede tardar unos segundos en recalcular la valuación del\n          // portfolio: una relectura inmediata del saldo (re-navegando una sola vez, como hacía\n          // este test antes) a veces llega ANTES de que ese recálculo termine y lee el valor\n          // viejo -- confirmado en vivo: misma sesión sin re-navegar no lo actualiza ni esperando\n          // unos segundos, pero SÍ lo actualiza una segunda re-navegación un poco más tarde. Este\n          // reintento acotado (re-navegar + releer, no un cy.wait a ciegas) le da a ese recálculo\n          // el margen que necesita antes de la aserción final.\n          const releerSaldoFondo = (intentosRestantes) => {\n            cy.irAMisPortfolios();\n            cy.abrirPortfolio('Portfolio CYPRESS');\n            cy.filtrarFechaPosicionValuada(\"13/03/2026\");\n            cy.abrirMonedas();\n            return cy.obtenerSaldoMoneda('ARS').then((saldoActual) => {\n              if (saldoActual === saldoAntes && intentosRestantes > 0) {\n                // eslint-disable-next-line cypress/no-unnecessary-waiting -- intervalo real de polling del retry acotado (backend recalculando), no una espera de estabilización\n                cy.wait(2000);\n                return releerSaldoFondo(intentosRestantes - 1);\n              }\n              return saldoActual;\n            });\n          };\n          // Nuevo precio de suscripción (2600 vs 2700) y un cargo de comisión adicional (2000) --\n          // a diferencia de Bonos/Acciones, acá el efecto neto resultó ser una disminución\n          // (verificado contra LH: 9.410.700 -> 9.408.800), no el aumento que se esperaba por el\n          // precio más bajo -- agregarComision() probablemente suma un cargo nuevo en vez de\n          // reemplazar el original, y el pricing de Fondos no escala linealmente con\n          // cantidad×precio como Bonos/Acciones. Sin certeza del efecto neto exacto, se usa\n          // 'cambio' en vez de asumir una dirección.\n          releerSaldoFondo(4).then(() => {\n            cy.validarImpactoSaldoMoneda('ARS', saldoAntes, 'cambio');\n          });\n          cy.abrirYValidarInstrumento('Fondos', _support_constants__WEBPACK_IMPORTED_MODULE_0__[\"default\"].FONDO, '500');\n        });",
                   "err": {},
-                  "uuid": "f8338db6-9acd-415c-bfbe-6ee99f3d33a4",
-                  "parentUUID": "df6d59b1-ff93-43b8-822f-a68370bf59f9",
+                  "uuid": "a15520e7-4072-4732-ac90-b63ce806c6f1",
+                  "parentUUID": "4ee67ac6-7bb8-4a34-a85d-0f66b795abd1",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "f8338db6-9acd-415c-bfbe-6ee99f3d33a4"
+                "a15520e7-4072-4732-ac90-b63ce806c6f1"
               ],
               "failures": [],
               "pending": [],
               "skipped": [],
-              "duration": 48050,
+              "duration": 51097,
               "root": false,
               "rootEmpty": false,
               "_timeout": 2000
             },
             {
-              "uuid": "6304146e-d4db-40a8-89f3-733cfd7fc49d",
+              "uuid": "13bc02af-caf6-49c2-9992-be7a984c99d2",
               "title": "Modificar Depósitos a plazo",
               "fullFile": "",
               "file": "",
@@ -164,7 +164,7 @@
                   "title": "Modificar plazo fijo",
                   "fullTitle": "Modificar operaciones Modificar Depósitos a plazo Modificar plazo fijo",
                   "timedOut": null,
-                  "duration": 53556,
+                  "duration": 49486,
                   "state": "passed",
                   "speed": "slow",
                   "pass": true,
@@ -173,26 +173,26 @@
                   "context": null,
                   "code": "cy.irAMisPortfolios();\n        cy.abrirPortfolio('Portfolio CYPRESS');\n        cy.filtrarFechaPosicionValuada('05/02/2026');\n        cy.mostrarPPC();\n        cy.validarTablaPortfolios();\n        cy.abrirMonedas();\n        cy.obtenerSaldoMoneda('ARS').then((saldoAntes) => {\n          cy.irAMisOperaciones();\n          cy.filtrarFecha(\"02/01/2026\");\n          cy.clickearBotonEditar('Concertación', 'Plazo fijo', 'Plazo fijo - Plazo fijo aut N° 1', '50.000');\n          cy.contains('.modal-title', 'Concertación') // Busca el modal que contenga ese texto\n          .should('be.visible');\n          cy.ingresarCapital('60000');\n          cy.ingresarTNA('55');\n          cy.aceptarOperacion();\n          cy.irAMisOperaciones();\n          cy.filtrarFecha(\"05/02/2026\");\n          cy.validacionGrillaOperaciones();\n          cy.validarFilaOperacion('Plazo fijo', 'Plazo fijo - Plazo fijo aut N° 1', '60000');\n          //Validación de la operación Plazo fijo.\n          cy.irAMisPortfolios();\n          cy.abrirPortfolio('Portfolio CYPRESS');\n          cy.filtrarFechaPosicionValuada('05/02/2026');\n          cy.mostrarPPC();\n          cy.validarTablaPortfolios();\n          cy.abrirMonedas();\n          // Nuevo capital más alto (60000 vs 50000 original) -- más capital queda inmovilizado,\n          // el saldo disponible disminuye.\n          cy.validarImpactoSaldoMoneda('ARS', saldoAntes, 'disminucion');\n          cy.abrirYValidarInstrumento('Plazos fijos', 'Plazo fijo - Plazo fijo aut N° 1', '60.000');\n        });",
                   "err": {},
-                  "uuid": "e05d6f19-8f90-478a-8d3b-adfe529a687c",
-                  "parentUUID": "6304146e-d4db-40a8-89f3-733cfd7fc49d",
+                  "uuid": "87886bf4-1a83-45cd-8be3-7cb25df06e61",
+                  "parentUUID": "13bc02af-caf6-49c2-9992-be7a984c99d2",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "e05d6f19-8f90-478a-8d3b-adfe529a687c"
+                "87886bf4-1a83-45cd-8be3-7cb25df06e61"
               ],
               "failures": [],
               "pending": [],
               "skipped": [],
-              "duration": 53556,
+              "duration": 49486,
               "root": false,
               "rootEmpty": false,
               "_timeout": 2000
             },
             {
-              "uuid": "6153680e-b12f-4f2a-955e-0787d29d689d",
+              "uuid": "5f3f4f79-c9ee-4c58-9e63-7f449929d050",
               "title": "Modificar Operaciones a descuento",
               "fullFile": "",
               "file": "",
@@ -203,7 +203,7 @@
                   "title": "Modificar compra de cheque",
                   "fullTitle": "Modificar operaciones Modificar Operaciones a descuento Modificar compra de cheque",
                   "timedOut": null,
-                  "duration": 54430,
+                  "duration": 55284,
                   "state": "passed",
                   "speed": "slow",
                   "pass": true,
@@ -212,20 +212,20 @@
                   "context": null,
                   "code": "cy.irAMisPortfolios();\n        cy.abrirPortfolio('Portfolio CYPRESS');\n        cy.filtrarFechaPosicionValuada('09/02/2026');\n        cy.mostrarPPC();\n        cy.validarTablaPortfolios();\n        cy.abrirMonedas();\n        cy.obtenerSaldoMoneda('ARS').then((saldoAntes) => {\n          cy.irAMisOperaciones();\n          cy.filtrarFecha(\"02/02/2026\");\n          cy.clickearBotonEditar('Compra', 'Cheque', 'Cheque - Cheque aut N° 1', '52.000,00');\n          cy.contains('.modal-title', 'Compra') // Busca el modal que contenga ese texto\n          .should('be.visible');\n          // El cheque ya existía (Costo 50.000 / Monto 52.000). Si cargamos el Costo primero, con el\n          // Monto viejo (52.000) la TNA se da vuelta a negativa y al cargar el nuevo Monto (85.000) la\n          // app recalcula el Costo a 130.769,23 (TNA -456%). Cargando el Monto a cobrar PRIMERO y el\n          // Costo ÚLTIMO, el Costo queda en 80.000 y la TNA se deriva positiva (~81%): Interés 5.000.\n          cy.ingresarMontoACobrar('85000');\n          cy.ingresarCosto('80000');\n          cy.aceptarOperacion();\n          cy.irAMisOperaciones();\n          cy.filtrarFecha(\"09/02/2026\");\n          cy.validacionGrillaOperaciones();\n          cy.validarFilaOperacion('Compra', 'Cheque - Cheque aut N° 1', '85000');\n          //Validación de la operación CHeque.\n          cy.irAMisPortfolios();\n          cy.abrirPortfolio('Portfolio CYPRESS');\n          cy.filtrarFechaPosicionValuada('09/02/2026');\n          cy.mostrarPPC();\n          cy.validarTablaPortfolios();\n          cy.abrirMonedas();\n          // Nuevo costo más alto (80000 vs 50000 original) -- la compra pasa a costar más, el\n          // saldo disponible disminuye.\n          cy.validarImpactoSaldoMoneda('ARS', saldoAntes, 'disminucion');\n          cy.abrirYValidarInstrumento('Cheques', 'Cheque - Cheque aut N° 1', '80.000');\n        });",
                   "err": {},
-                  "uuid": "9074497e-6134-4702-a0f0-a4dae20f42fa",
-                  "parentUUID": "6153680e-b12f-4f2a-955e-0787d29d689d",
+                  "uuid": "acc8b5dd-df56-4af4-a116-cf5f00339ecc",
+                  "parentUUID": "5f3f4f79-c9ee-4c58-9e63-7f449929d050",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "9074497e-6134-4702-a0f0-a4dae20f42fa"
+                "acc8b5dd-df56-4af4-a116-cf5f00339ecc"
               ],
               "failures": [],
               "pending": [],
               "skipped": [],
-              "duration": 54430,
+              "duration": 55284,
               "root": false,
               "rootEmpty": false,
               "_timeout": 2000
