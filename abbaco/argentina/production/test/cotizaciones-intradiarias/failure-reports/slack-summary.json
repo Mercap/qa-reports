@@ -2,27 +2,25 @@
   {
     "spec": "",
     "test": "",
-    "mensaje_slack": "Hola {mencion}👋 Soy *SherlockBot*. En este run no hay nada nuevo: es un fallo que ya veníamos viendo.",
+    "mensaje_slack": "Hola {mencion}👋 Soy *SherlockBot* y estuve investigando este run. Encontré un problema:",
     "tipo_error": "saludo",
     "screenshot": null,
-    "mention": null,
+    "mention": [
+      "qa"
+    ],
     "estado": "saludo"
   },
   {
     "spec": "cotizaciones-intradiarias_02_check-intraday-quotes-abbaco",
     "test": "Validación de las cotizaciones ByMA en Analizar de Abbaco Argentina > Validar en Abbaco que el bono AL30 tenga vela y volumen hasta la fecha de su último precio de cierre",
-    "mensaje_slack": "🔁 Otra vez lo mismo: en *Analizar* falló un test y todavía no sabemos por qué.",
-    "tipo_error": "otro",
-    "screenshot": null,
+    "mensaje_slack": "🆕 En la sección de *Gráficos Históricos* de *AL30*, el gráfico de precios no está cargando y muestra el cartel *No se pudo realizar el gráfico*. El test falló esperando las velas de Highcharts. Parece un problema de datos o del componente.",
+    "tipo_error": "ui-elemento",
+    "screenshot": "cotizaciones-intradiarias_02_check-intraday-quotes-abbaco/slack-screenshot-1.png",
     "evidencia": "cotizaciones-intradiarias_02_check-intraday-quotes-abbaco/slack-screenshot-1.png",
     "mention": null,
-    "contexto": "Es la 4.ª vez desde el 12/11",
-    "link": {
-      "url": "https://mercap.slack.com/archives/CC0BL2CFK/p1794495454133239",
-      "text": "ver primer reporte"
-    },
-    "estado": "sigue",
+    "contexto": "Primera vez que pasa · parece que hay que ajustar el test",
+    "estado": "nueva",
     "escalado": false,
-    "cause_id": "production/argentina|sin-identificar@Analizar"
+    "cause_id": "production/argentina|no-encontrado:g.highcharts-series path[aria-label], g.highcharts-series re@Analizar"
   }
 ]
